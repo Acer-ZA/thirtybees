@@ -1,0 +1,30 @@
+/*/// ADMIN CAMPAIGN BAR ///*/
+
+.campaign-bar-on .tb-admin-campaign-bar {
+    border: 1px solid red;
+    display: inline-grid;
+    width: 100%;
+    background: red;
+    grid-template-columns: auto auto auto auto 1fr auto;
+}
+
+.tb-admin-campaign-bar ul, .tb-admin-campaign-bar div, .tb-admin-campaign-bar #header_shopversion, .tb-admin-campaign-bar #header_shopname {
+    border: 1px solid blue;
+}
+
+.campaign-bar-on .tb-admin-campaign-bar #navbar-header {
+    border: 1px solid red;
+    display: inline-grid;
+    width: 100%;
+    background: red;
+    grid-template-columns: auto auto auto auto 181px 1fr 245px;
+}
+
+.notifications-quick-access-holder {
+    background-color: green;
+}
+
+.campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder {
+    background-color: blue;
+}
+

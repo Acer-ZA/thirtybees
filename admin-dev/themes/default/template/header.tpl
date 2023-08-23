@@ -78,10 +78,11 @@
 		{/foreach}
 		<![endif]-->
 	{else}
-		<link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" media="{$media|escape:'html':'UTF-8'}" />
+		<link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" />
 	{/if}
 {/foreach}
 {/if}
+
 	{if (isset($js_def) && count($js_def) || isset($js_files) && count($js_files))}
 		{include file=$smarty.const._PS_ALL_THEMES_DIR_|cat:"javascript.tpl"}
 	{/if}
@@ -100,11 +101,11 @@
 </head>
 
 {if $display_header}
-	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower}">
+	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} campaign-bar-on">
 	{* begin  HEADER *}
 	<header id="header" class="bootstrap">
 		<nav id="header_infos" role="navigation">
-			<div class="navbar-header">
+			<div class="navbar-header tb-admin-campaign-bar">
 				<button id="header_nav_toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
 					<i class="icon-reorder"></i>
 				</button>
@@ -122,120 +123,130 @@
 					<a id="header_shopname" href="{$default_tab_link|escape:'html':'UTF-8'}">{$shop_name}</a>
 				{/if}
 
-				{* Notifications *}
-				<ul id="header_notifs_icon_wrapper">
-					{foreach $notificationTypes as $notificationType}
-						<li id="{$notificationType.type}_notif" class="dropdown" data-type="{$notificationType.type}" data-last-id="0">
-							<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
-								<i class="{$notificationType.icon}"></i>
-								<span id="{$notificationType.type}_notif_number_wrapper" class="notifs_badge hide">
-									<span id="{$notificationType.type}_notif_value">0</span>
-								</span>
-							</a>
-							<div class="dropdown-menu notifs_dropdown">
-								<section id="{$notificationType.type}_notif_wrapper" class="notifs_panel">
-									<div class="notifs_panel_header">
-										<h3>{$notificationType.header}</h3>
-									</div>
-									<div id="{$notificationType.type}_notif_list" class="list_notif">
-										<span class="no_notifs">{$notificationType.emptyMessage}</span>
-									</div>
-									<div class="notifs_panel_footer">
-										<a href="{$notificationType.showAllLink}">{$notificationType.showAll}</a>
-									</div>
-								</section>
-							</div>
-						</li>
-					{/foreach}
-						{hook h='displayAdminHeaderNotif'}
-				</ul>
-
-{if count($quick_access) >= 0}
-				<ul id="header_quick">
-					<li class="dropdown">
-						<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">{l s='Quick Access'} <i class="icon-caret-down"></i></a>
-						<ul class="dropdown-menu">
-							{foreach $quick_access as $quick}
-								<li {if $link->matchQuickLink({$quick.link})}{assign "matchQuickLink" $quick.id_quick_access}class="active"{/if}>
-									<a href="{$quick.link|escape:'html':'UTF-8'}"{if $quick.new_window} class="_blank"{/if}>
-										{if isset($quick.icon)}
-											<i class="icon-{$quick.icon} icon-fw"></i>
-										{else}
-											<i class="icon-chevron-right icon-fw"></i>
-										{/if}
-										{$quick.name}
-									</a>
-								</li>
-							{/foreach}
-							<li class="divider"></li>
-							{if isset($matchQuickLink)}
-								<li>
-									<a href="javascript:void(0);" class="ajax-quick-link" data-method="remove" data-quicklink-id="{$matchQuickLink}">
-										<i class="icon-minus-circle"></i>
-										{l s='Remove from QuickAccess'}
-									</a>
-								</li>
-							{/if}
-							<li {if isset($matchQuickLink)}class="hide"{/if}>
-								<a href="javascript:void(0);" class="ajax-quick-link" data-method="add">
-									<i class="icon-plus-circle"></i>
-									{l s='Add current page to QuickAccess'}
+				{* Notifications and Quick Access Holder *}
+				<section class="notifications-quick-access-holder">
+					{* Notifications *}
+					<ul id="header_notifs_icon_wrapper">
+						{foreach $notificationTypes as $notificationType}
+							<li id="{$notificationType.type}_notif" class="dropdown" data-type="{$notificationType.type}" data-last-id="0">
+								<a href="javascript:void(0);" class="dropdown-toggle notifs" data-toggle="dropdown">
+									<i class="{$notificationType.icon}"></i>
+									<span id="{$notificationType.type}_notif_number_wrapper" class="notifs_badge hide">
+										<span id="{$notificationType.type}_notif_value">0</span>
+									</span>
 								</a>
+								<div class="dropdown-menu notifs_dropdown">
+									<section id="{$notificationType.type}_notif_wrapper" class="notifs_panel">
+										<div class="notifs_panel_header">
+											<h3>{$notificationType.header}</h3>
+										</div>
+										<div id="{$notificationType.type}_notif_list" class="list_notif">
+											<span class="no_notifs">{$notificationType.emptyMessage}</span>
+										</div>
+										<div class="notifs_panel_footer">
+											<a href="{$notificationType.showAllLink}">{$notificationType.showAll}</a>
+										</div>
+									</section>
+								</div>
 							</li>
-						</ul>
-					</li>
-				</ul>
-				{$quick_access_current_link_name = " - "|explode:$quick_access_current_link_name}
-				<script>
-					$(function() {
-						$('.ajax-quick-link').on('click', function(e){
-							e.preventDefault();
+						{/foreach}
+							{hook h='displayAdminHeaderNotif'}
+					</ul>
+					{* Quick Access *}
+					{if count($quick_access) >= 0}
+					<ul id="header_quick">
+						<li class="dropdown">
+							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">{l s='Quick Access'} <i class="icon-caret-down"></i></a>
+							<ul class="dropdown-menu">
+								{foreach $quick_access as $quick}
+									<li {if $link->matchQuickLink({$quick.link})}{assign "matchQuickLink" $quick.id_quick_access}class="active"{/if}>
+										<a href="{$quick.link|escape:'html':'UTF-8'}"{if $quick.new_window} class="_blank"{/if}>
+											{if isset($quick.icon)}
+												<i class="icon-{$quick.icon} icon-fw"></i>
+											{else}
+												<i class="icon-chevron-right icon-fw"></i>
+											{/if}
+											{$quick.name}
+										</a>
+									</li>
+								{/foreach}
+								<li class="divider"></li>
+								{if isset($matchQuickLink)}
+									<li>
+										<a href="javascript:void(0);" class="ajax-quick-link" data-method="remove" data-quicklink-id="{$matchQuickLink}">
+											<i class="icon-minus-circle"></i>
+											{l s='Remove from QuickAccess'}
+										</a>
+									</li>
+								{/if}
+								<li {if isset($matchQuickLink)}class="hide"{/if}>
+									<a href="javascript:void(0);" class="ajax-quick-link" data-method="add">
+										<i class="icon-plus-circle"></i>
+										{l s='Add current page to QuickAccess'}
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					{$quick_access_current_link_name = " - "|explode:$quick_access_current_link_name}
+					<script>
+						$(function() {
+							$('.ajax-quick-link').on('click', function(e){
+								e.preventDefault();
 
-							var method = $(this).data('method');
+								var method = $(this).data('method');
 
-							if(method == 'add')
-								var name = prompt('{l s='Please name this shortcut:' js=1}', '{$quick_access_current_link_name.0|escape:'javascript'|truncate:32}');
+								if(method == 'add')
+									var name = prompt('{l s='Please name this shortcut:' js=1}', '{$quick_access_current_link_name.0|escape:'javascript'|truncate:32}');
 
-							if(method == 'add' && name || method == 'remove')
-							{
-								$.ajax({
-									type: 'POST',
-									headers: { "cache-control": "no-cache" },
-									async: false,
-									url: "{$link->getAdminLink('AdminQuickAccesses')}" + "&action=GetUrl" + "&rand={'1'|rand:200}" + "&ajax=1" + "&method=" + method + ( $(this).data('quicklink-id') ? "&id_quick_access=" + $(this).data('quicklink-id') : ""),
-									data: {
-										"url": "{$link->getQuickLink($smarty.server['REQUEST_URI'])}",
-										"name": name,
-										"icon": "{$quick_access_current_link_icon}"
-									},
-									dataType: "json",
-									success: function(data) {
-										var quicklink_list ='';
-										$.each(data, function(index,value){
-											if (typeof data[index]['name'] !== 'undefined')
-												quicklink_list += '<li><a href="' + data[index]['link'] + '&token=' + data[index]['token'] + '"><i class="icon-chevron-right"></i> ' + data[index]['name'] + '</a></li>';
-										});
-
-										if (typeof data['has_errors'] !== 'undefined' && data['has_errors'])
-											$.each(data, function(index, value)
-											{
-												if (typeof data[index] == 'string')
-													$.growl.error({ title: "", message: data[index]});
+								if(method == 'add' && name || method == 'remove')
+								{
+									$.ajax({
+										type: 'POST',
+										headers: { "cache-control": "no-cache" },
+										async: false,
+										url: "{$link->getAdminLink('AdminQuickAccesses')}" + "&action=GetUrl" + "&rand={'1'|rand:200}" + "&ajax=1" + "&method=" + method + ( $(this).data('quicklink-id') ? "&id_quick_access=" + $(this).data('quicklink-id') : ""),
+										data: {
+											"url": "{$link->getQuickLink($smarty.server['REQUEST_URI'])}",
+											"name": name,
+											"icon": "{$quick_access_current_link_icon}"
+										},
+										dataType: "json",
+										success: function(data) {
+											var quicklink_list ='';
+											$.each(data, function(index,value){
+												if (typeof data[index]['name'] !== 'undefined')
+													quicklink_list += '<li><a href="' + data[index]['link'] + '&token=' + data[index]['token'] + '"><i class="icon-chevron-right"></i> ' + data[index]['name'] + '</a></li>';
 											});
-										else if (quicklink_list)
-										{
-											$("#header_quick ul.dropdown-menu").html(quicklink_list);
-											showSuccessMessage(update_success_msg);
+
+											if (typeof data['has_errors'] !== 'undefined' && data['has_errors'])
+												$.each(data, function(index, value)
+												{
+													if (typeof data[index] == 'string')
+														$.growl.error({ title: "", message: data[index]});
+												});
+											else if (quicklink_list)
+											{
+												$("#header_quick ul.dropdown-menu").html(quicklink_list);
+												showSuccessMessage(update_success_msg);
+											}
 										}
-									}
-								});
-							}
+									});
+								}
+							});
 						});
-					});
-				</script>
-{/if}
+					</script>
+					{/if}
+				
+				</section>
+
+				{* Campaign Bar *}
+				<div class="campaign-bar-holder">
+					campaign bar initial ;)
+				</div>
+
 				<ul id="header_employee_box">
-{if {$base_url}}
+				{if {$base_url}}
 					<li>
 						<a href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
 							<span class="string-long">{l s='My shop'}</span>
