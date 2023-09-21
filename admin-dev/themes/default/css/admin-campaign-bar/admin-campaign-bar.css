@@ -28,3 +28,10 @@
     background-color: blue;
 }
 
+span.maintenance-mode {
+    display: none!important;
+}
+
+.maintenance-mode-on span.maintenance-mode {
+    display: inline-block!important;
+}

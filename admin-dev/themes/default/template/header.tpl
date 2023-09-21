@@ -240,27 +240,25 @@
 					campaign bar initial ;)
 				</div>
 
-				<ul id="header_employee_box" class="{$maintenance_mode_class}">
+				<ul id="header_employee_box" class="{if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
 				{if {$base_url}}
 					<li>
 						<a href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
 							<span class="string-long">{l s='My shop'}</span>
 							<span class="string-short">{l s='Shop'}</span>
 						</a>
-						{if isset($maintenance_mode) && $maintenance_mode == true}
-							<span class="maintenance-mode">
-								&mdash;
-								<a href="{$link->getAdminLink('AdminMaintenance')|escape:'html':'UTF-8'}">
-									<span class="label-tooltip"
-										  data-toggle="tooltip"
-										  data-placement="bottom"
-										  data-html="true"
-										  title="<p class='text-left text-nowrap'><strong>{l s='Your shop is in maintenance.'}</strong></p><p class='text-left'>{l s='Your visitors and customers cannot access your shop while in maintenance mode.%s To manage the maintenance settings, go to Preferences > Maintenance.' sprintf='<br />'}</p>">
-										 {l s='Maintenance mode'}
-									</span>
-								</a>
-							</span>
-						{/if}
+						<span class="maintenance-mode">
+							&mdash;
+							<a href="{$link->getAdminLink('AdminMaintenance')|escape:'html':'UTF-8'}">
+								<span class="label-tooltip"
+										data-toggle="tooltip"
+										data-placement="bottom"
+										data-html="true"
+										title="<p class='text-left text-nowrap'><strong>{l s='Your shop is in maintenance.'}</strong></p><p class='text-left'>{l s='Your visitors and customers cannot access your shop while in maintenance mode.%s To manage the maintenance settings, go to Preferences > Maintenance.' sprintf='<br />'}</p>">
+										{l s='Maintenance mode'}
+								</span>
+							</a>
+						</span>
 					</li>
 				{/if}
 					<li id="employee_infos" class="dropdown">
