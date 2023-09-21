@@ -232,7 +232,7 @@
 				
 				</section>
 
-				{* Campaign Bar *}
+				{* /// Campaign Bar *}
 				<div class="campaign-bar-holder">
 					campaign bar initial ;)
 				</div>
@@ -259,7 +259,7 @@
 							</span>
 						{/if}
 					</li>
-{/if}
+				{/if}
 					<li id="employee_infos" class="dropdown">
 						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="employee_name dropdown-toggle" data-toggle="dropdown">
 							<span class="employee_avatar_small">
