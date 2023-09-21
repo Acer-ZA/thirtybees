@@ -38,6 +38,7 @@ class AdminModulesControllerCore extends AdminController
 {
     const CATEGORY_ALL = 'all';
     const CATEGORY_FAVORITES = 'favorites';
+    const CATEGORY_PREMIUM = 'premium';
     const CATEGORY_OTHERS = 'others';
 
     /** @var array map with $_GET keywords and their callback */
@@ -168,6 +169,7 @@ class AdminModulesControllerCore extends AdminController
     {
         parent::setMedia();
         $this->addJqueryPlugin(['autocomplete', 'fancybox', 'tablefilter']);
+        $this->addCSS(__PS_BASE_URI__ . $this->admin_webpath . '/themes/default/css/tb-premium-modules/tb-premium-modules.css');
     }
 
     /**
@@ -321,8 +323,12 @@ class AdminModulesControllerCore extends AdminController
             $this->confirmations[] = $this->l('All modules updated successfully.');
         }
 
+        $premiumModulesCount = 0;
         // Browse modules list
         foreach ($modules as $km => $module) {
+            if ($module->premium) {
+                $premiumModulesCount++;
+            }
             //if we are in favorites view we only display installed modules
             if (Tools::getValue('select') == static::CATEGORY_FAVORITES && !$module->id) {
                 unset($modules[$km]);
@@ -374,7 +380,7 @@ class AdminModulesControllerCore extends AdminController
             $this->makeModulesStats($module);
 
             // Assign warnings
-            if ($module->active && isset($module->warning) && !empty($module->warning) && !$this->ajax) {
+            if ($module->active && !empty($module->warning) && !$this->ajax) {
                 $href = $this->context->link->getAdminLink('AdminModules', true).'&module_name='.$module->name.'&tab_module='.$module->tab.'&configure='.$module->name;
                 $this->context->smarty->assign('text', sprintf($this->l('%1$s: %2$s'), $module->displayName, $module->warning));
                 $this->context->smarty->assign('module_link', $href);
@@ -401,7 +407,7 @@ class AdminModulesControllerCore extends AdminController
                     $modules[$km]->preferences = $modulesPreferences[$modules[$km]->name];
                 }
 
-                $this->fillModuleData($module, 'array');
+                $this->fillModuleData($module);
                 $module->categoryName = $this->list_modules_categories[$module->tab]['name'] ?? $this->list_modules_categories[static::CATEGORY_OTHERS]['name'];
             }
             unset($object);
@@ -443,6 +449,16 @@ class AdminModulesControllerCore extends AdminController
             return strcoll(mb_strtolower($a->displayName), mb_strtolower($b->displayName));
         });
 
+        $connectLink = null;
+        $connected = (bool)Configuration::getGlobalValue(Configuration::CONNECTED);
+        if (! $connected) {
+            if ($this->context->employee->hasAccess(AdminConnectController::class, Profile::PERMISSION_VIEW)) {
+                $connectLink = $this->context->link->getAdminLink('AdminConnect', true, [ AdminConnectController::ACTION_CONNECT => 1 ]);
+            }
+        }
+
+        $supporter = Configuration::getSupporterInfo();
+
         // Init tpl vars for smarty
         $tplVars = [
             'token'                     => $this->token,
@@ -459,6 +475,7 @@ class AdminModulesControllerCore extends AdminController
             'selectedCategory'          => $this->getCategoryFilter(),
             'modules'                   => $modules,
             'nb_modules'                => $this->nb_modules_total,
+            'nb_modules_premium'        => $premiumModulesCount,
             'nb_modules_favorites'      => count($this->context->employee->favoriteModulesList()),
             'nb_modules_installed'      => $this->nb_modules_installed,
             'nb_modules_uninstalled'    => $this->nb_modules_total - $this->nb_modules_installed,
@@ -474,6 +491,10 @@ class AdminModulesControllerCore extends AdminController
             'modules_uri'               => __PS_BASE_URI__.basename(_PS_MODULE_DIR_),
             'dont_filter'               => $dontFilter,
             'maintenance_mode'          => !Configuration::Get('PS_SHOP_ENABLE'),
+            'connected'                 => $connected,
+            'connectLink'               => $connectLink,
+            'showBecomeSupporterButton' => !$supporter,
+            'becomeSupporterUrl' => Configuration::getBecomeSupporterUrl(),
         ];
 
         $smarty->assign($tplVars);
@@ -589,16 +610,18 @@ class AdminModulesControllerCore extends AdminController
             ) < 1) {
                 return true;
             }
-        } else {
-            if ($selectedCategory !== static::CATEGORY_ALL) {
-                // Handle "others" category
-                $moduleCategory = $this->isModuleCategory($module->tab)
-                    ? $module->tab
-                    : static::CATEGORY_OTHERS;
+        } elseif ($selectedCategory === static::CATEGORY_PREMIUM)  {
+            if (! $module->premium) {
+                return true;
+            }
+        } elseif ($selectedCategory !== static::CATEGORY_ALL) {
+            // Handle "others" category
+            $moduleCategory = $this->isModuleCategory($module->tab)
+                ? $module->tab
+                : static::CATEGORY_OTHERS;
 
-                if ($moduleCategory !== $selectedCategory) {
-                    return true;
-                }
+            if ($moduleCategory !== $selectedCategory) {
+                return true;
             }
         }
 
@@ -766,7 +789,7 @@ class AdminModulesControllerCore extends AdminController
                 }
 
                 if ($perm) {
-                    $this->fillModuleData($module, 'array');
+                    $this->fillModuleData($module);
                     if ($module->id) {
                         $modulesList['installed'][] = $module;
                     } else {
@@ -1656,7 +1679,7 @@ class AdminModulesControllerCore extends AdminController
      */
     protected function isModuleCategory($category)
     {
-        if ($category === static::CATEGORY_ALL || $category === static::CATEGORY_FAVORITES) {
+        if ($category === static::CATEGORY_ALL || $category === static::CATEGORY_FAVORITES || $category === static::CATEGORY_PREMIUM) {
             return true;
         }
         return isset($this->list_modules_categories[$category]);

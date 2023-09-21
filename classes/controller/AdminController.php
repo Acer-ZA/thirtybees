@@ -994,7 +994,7 @@ class AdminControllerCore extends Controller
             $this->fields_list[$orderBy]['order_key'] = $this->fields_list[$orderBy]['filter_key'];
         }
 
-        if (isset($this->fields_list[$orderBy]) && isset($this->fields_list[$orderBy]['order_key'])) {
+        if (isset($this->fields_list[$orderBy]['order_key'])) {
             $orderBy = $this->fields_list[$orderBy]['order_key'];
         }
 
@@ -2207,6 +2207,18 @@ class AdminControllerCore extends Controller
         // Shop::initialize() in config.php may empty $this->context->shop->virtual_uri so using a new shop instance for getBaseUrl()
         $this->context->shop = new Shop((int) $this->context->shop->id);
 
+        switch (Shop::getContext()) {
+            case Shop::CONTEXT_ALL:
+                $shopContext = 'all';
+                break;
+            case Shop::CONTEXT_GROUP:
+                $shopContext = 'group-' . Shop::getContextShopGroupID(false);
+                break;
+            case Shop::CONTEXT_SHOP:
+            default:
+                $shopContext = 'shop-' . Shop::getContextShopID(false);
+        }
+
         $this->context->smarty->assign(
             [
                 'img_dir'                   => _PS_IMG_,
@@ -2230,6 +2242,7 @@ class AdminControllerCore extends Controller
                 'maintenance_mode'          => !Configuration::get('PS_SHOP_ENABLE'),
                 'bootstrap'                 => $this->bootstrap,
                 'default_language'          => (int) Configuration::get('PS_LANG_DEFAULT'),
+                'shopContext'               => $shopContext,
             ]
         );
 
@@ -2776,7 +2789,7 @@ class AdminControllerCore extends Controller
                             foreach ($this->getLanguages() as $language) {
                                 $fieldValue = $this->getFieldValue($obj, $input['name'], $language['id_lang']);
                                 if (empty($fieldValue)) {
-                                    if (isset($input['default_value']) && is_array($input['default_value']) && isset($input['default_value'][$language['id_lang']])) {
+                                    if (isset($input['default_value'][$language['id_lang']]) && is_array($input['default_value'])) {
                                         $fieldValue = $input['default_value'][$language['id_lang']];
                                     } elseif (isset($input['default_value'])) {
                                         $fieldValue = $input['default_value'];
@@ -3164,7 +3177,7 @@ class AdminControllerCore extends Controller
             }
 
             if (in_array($module->name, $filterModulesList) && $perm) {
-                $this->fillModuleData($module, 'array');
+                $this->fillModuleData($module);
                 $this->modules_list[array_search($module->name, $filterModulesList)] = $module;
             }
         }
@@ -3208,13 +3221,11 @@ class AdminControllerCore extends Controller
 
     /**
      * @param stdClass $module
-     * @param string $outputType
-     * @param string|null $back
      *
      * @throws PrestaShopDatabaseException
      * @throws PrestaShopException
      */
-    public function fillModuleData(&$module, $outputType = 'link', $back = null)
+    public function fillModuleData(&$module)
     {
 
         // Fill module data
@@ -3233,7 +3244,7 @@ class AdminControllerCore extends Controller
         $module->options['update_url'] = $linkAdminModules.'&update='.urlencode($module->name).'&tab_module='.$module->tab.'&module_name='.$module->name.'&anchor='.ucfirst($module->name);
         $module->options['uninstall_url'] = $linkAdminModules.'&uninstall='.urlencode($module->name).'&tab_module='.$module->tab.'&module_name='.$module->name.'&anchor='.ucfirst($module->name);
 
-        $module->optionsHtml = $this->displayModuleOptions($module, $outputType, $back);
+        $module->optionsHtml = $this->displayModuleOptions($module);
 
         if ((Tools::getValue('module_name') == $module->name || in_array($module->name, explode('|', Tools::getValue('modules_list')))) && Tools::getIntValue('conf') > 0) {
             $module->message = $this->_conf[Tools::getIntValue('conf')];
@@ -3244,15 +3255,13 @@ class AdminControllerCore extends Controller
      * Display modules list
      *
      * @param stdClass $module
-     * @param string $outputType (link or select)
-     * @param string|null $back
      *
-     * @return string|array
+     * @return array
      *
      * @throws PrestaShopDatabaseException
      * @throws PrestaShopException
      */
-    public function displayModuleOptions($module, $outputType = 'link', $back = null)
+    public function displayModuleOptions($module)
     {
         if (!isset($module->enable_device)) {
             $module->enable_device = Context::DEVICE_COMPUTER | Context::DEVICE_TABLET | Context::DEVICE_MOBILE;
@@ -3353,7 +3362,7 @@ class AdminControllerCore extends Controller
             'onclick' => $onclickOptions['delete'],
             'title'   => '',
             'text'    => $this->translationsTab['Delete'],
-            'cond'    => true,
+            'cond'    => file_exists(_PS_MODULE_DIR_ . $module->name) && is_dir(_PS_MODULE_DIR_ . $module->name),
             'icon'    => 'trash',
             'class'   => 'text-danger',
         ];
@@ -3386,7 +3395,7 @@ class AdminControllerCore extends Controller
         ];
 
         $install = [
-            'href'    => $linkAdminModules.'&install='.urlencode($module->name).'&tab_module='.$module->tab.'&module_name='.$module->name.'&anchor='.ucfirst($module->name).(!is_null($back) ? '&back='.urlencode($back) : ''),
+            'href'    => $linkAdminModules.'&install='.urlencode($module->name).'&tab_module='.$module->tab.'&module_name='.$module->name.'&anchor='.ucfirst($module->name),
             'onclick' => '',
             'title'   => $this->translationsTab['Install'],
             'text'    => $this->translationsTab['Install'],
@@ -3395,7 +3404,7 @@ class AdminControllerCore extends Controller
         ];
 
         $uninstall = [
-            'href'    => $linkAdminModules.'&uninstall='.urlencode($module->name).'&tab_module='.$module->tab.'&module_name='.$module->name.'&anchor='.ucfirst($module->name).(!is_null($back) ? '&back='.urlencode($back) : ''),
+            'href'    => $linkAdminModules.'&uninstall='.urlencode($module->name).'&tab_module='.$module->tab.'&module_name='.$module->name.'&anchor='.ucfirst($module->name),
             'onclick' => $onclickOptions['uninstall'],
             'title'   => $this->translationsTab['Uninstall'],
             'text'    => $this->translationsTab['Uninstall'],
@@ -3436,6 +3445,16 @@ class AdminControllerCore extends Controller
             'cond'    => $module->id,
         ];
 
+        $url = [
+            'href' => $module->url ?? '',
+            'onclick' => '',
+            'target'  => '_blank',
+            'title'   => $this->l('Visit module page'),
+            'text'    => $this->l('Visit module page'),
+            'cond'    => isset($module->url) && $module->url,
+            'icon'    => 'link',
+        ];
+
         $divider = [
             'href'    => '#',
             'onclick' => '',
@@ -3461,19 +3480,12 @@ class AdminControllerCore extends Controller
 
         $modulesOptions[] = $resetModule;
 
-        if ($outputType == 'select') {
-            if (!$module->id) {
-                $modulesOptions[] = $install;
-            } else {
-                $modulesOptions[] = $uninstall;
-            }
-        } elseif ($outputType == 'array') {
-            if ($module->id) {
-                $modulesOptions[] = $uninstall;
-            }
+
+        if ($module->id) {
+            $modulesOptions[] = $uninstall;
         }
 
-        if (isset($module->preferences) && isset($module->preferences['favorite']) && $module->preferences['favorite'] == 1) {
+        if (isset($module->preferences['favorite']) && $module->preferences['favorite'] == 1) {
             $removeFromFavorite['style'] = '';
             $markAsFavorite['style'] = 'display:none;';
             $modulesOptions[] = $removeFromFavorite;
@@ -3490,59 +3502,49 @@ class AdminControllerCore extends Controller
             $install['flag_install'] = 1;
             $modulesOptions[] = $install;
         }
+        $modulesOptions[] = $url;
         $modulesOptions[] = $divider;
         $modulesOptions[] = $deleteModule;
 
-        $return = '';
-        foreach ($modulesOptions as $optionName => $option) {
+        $return = [];
+        foreach ($modulesOptions as $option) {
             if ($option['cond']) {
-                if ($outputType == 'link') {
-                    $return .= '<li><a class="'.$optionName.' action_module';
-                    $return .= '" href="'.$option['href'].(!is_null($back) ? '&back='.urlencode($back) : '').'"';
-                    $return .= ' onclick="'.$option['onclick'].'"  title="'.$option['title'].'"><i class="icon-'.(isset($option['icon']) && $option['icon'] ? $option['icon'] : 'cog').'"></i>&nbsp;'.$option['text'].'</a></li>';
-                } elseif ($outputType == 'array') {
-                    if (!is_array($return)) {
-                        $return = [];
-                    }
 
-                    $html = '<a class="';
+                $html = '<a class="';
 
-                    $isInstall = isset($option['flag_install']);
+                $isInstall = isset($option['flag_install']);
 
-                    if (isset($option['class'])) {
-                        $html .= $option['class'];
-                    }
-                    if ($isInstall) {
-                        $html .= ' btn btn-success';
-                    }
-                    if (!$isInstall && count($return) == 0) {
-                        $html .= ' btn btn-default';
-                    }
-
-                    $html .= '"';
-
-                    if (isset($option['data-value'])) {
-                        $html .= ' data-value="'.$option['data-value'].'"';
-                    }
-
-                    if (isset($option['data-module'])) {
-                        $html .= ' data-module="'.$option['data-module'].'"';
-                    }
-
-                    if (isset($option['style'])) {
-                        $html .= ' style="'.$option['style'].'"';
-                    }
-
-                    $html .= ' href="'.htmlentities($option['href']).(!is_null($back) ? '&back='.urlencode($back) : '').'" onclick="'.$option['onclick'].'"  title="'.$option['title'].'"><i class="icon-'.(isset($option['icon']) && $option['icon'] ? $option['icon'] : 'cog').'"></i> '.$option['text'].'</a>';
-                    $return[] = $html;
-                } elseif ($outputType == 'select') {
-                    $return .= '<option id="'.$optionName.'" data-href="'.htmlentities($option['href']).(!is_null($back) ? '&back='.urlencode($back) : '').'" data-onclick="'.$option['onclick'].'">'.$option['text'].'</option>';
+                if (isset($option['class'])) {
+                    $html .= $option['class'];
                 }
-            }
-        }
+                if ($isInstall) {
+                    $html .= ' btn btn-success';
+                }
+                if (!$isInstall && count($return) == 0) {
+                    $html .= ' btn btn-default';
+                }
 
-        if ($outputType == 'select') {
-            $return = '<select id="select_'.$module->name.'">'.$return.'</select>';
+                $html .= '"';
+
+                if (isset($option['data-value'])) {
+                    $html .= ' data-value="'.$option['data-value'].'"';
+                }
+
+                if (isset($option['data-module'])) {
+                    $html .= ' data-module="'.$option['data-module'].'"';
+                }
+
+                if (isset($option['style'])) {
+                    $html .= ' style="'.$option['style'].'"';
+                }
+
+                if (isset($option['target'])) {
+                    $html .= ' target="'.$option['target'].'"';
+                }
+
+                $html .= ' href="'.htmlentities($option['href']).'" onclick="'.$option['onclick'].'"  title="'.$option['title'].'"><i class="icon-'.(isset($option['icon']) && $option['icon'] ? $option['icon'] : 'cog').'"></i> '.$option['text'].'</a>';
+                $return[] = $html;
+            }
         }
 
         return $return;
@@ -3645,14 +3647,15 @@ class AdminControllerCore extends Controller
         $this->context->smarty->assign('css_files', $this->css_files);
         $this->context->smarty->assign('js_files', array_unique($this->js_files));
 
+        $supporter = Configuration::getSupporterInfo();
         $this->context->smarty->assign(
             [
                 'ps_version'   => _TB_VERSION_,
                 'timer_start'  => $this->timer_start,
                 'iso_is_fr'    => strtoupper($this->context->language->iso_code) == 'FR',
                 'modals'       => $this->renderModal(),
-                'backerButton' => !Configuration::isBacker(),
-                'backerUrl'    => Configuration::getBackerUrl(),
+                'showBecomeSupporterButton' => !$supporter,
+                'becomeSupporterUrl' => Configuration::getBecomeSupporterUrl(),
             ]
         );
     }
@@ -4538,24 +4541,34 @@ class AdminControllerCore extends Controller
      */
     public function addJavascriptUri($uri, $checkPath)
     {
-        // if javascript file exists locally, include its modification timestamp into uri as a version parameter
-        $parsed = parse_url($uri);
-        if (! array_key_exists('host', $parsed) && isset($parsed['path'])) {
-            $path = $parsed['path'];
-            $mediaUri = '/' . ltrim(str_replace(str_replace(['/', '\\'], DIRECTORY_SEPARATOR, _PS_ROOT_DIR_), __PS_BASE_URI__, $path), '/\\');
-            $fileUri = _PS_ROOT_DIR_ . Tools::str_replace_once(__PS_BASE_URI__, DIRECTORY_SEPARATOR, $mediaUri);
-            if (file_exists($fileUri) && is_file($fileUri)) {
-                $timestamp = filemtime($fileUri);
-                if (isset($parsed['query'])) {
-                    $version = '&ts=' . $timestamp;
-                } else {
-                    $version = '?ts=' . $timestamp;
-                }
-                $uri .= $version;
-            }
+        parent::addJavascriptUri(Media::getUriWithVersion($uri), $checkPath);
+    }
+
+    /**
+     * Adds a new stylesheet(s) to the page header.
+     *
+     * @param string|array $cssUri Path to CSS file, or list of css files like this : array(array(uri => media_type), ...)
+     * @param string $cssMediaType
+     * @param int|null $offset
+     * @param bool $checkPath
+     *
+     * @return bool
+     */
+    public function addCSS($cssUri, $cssMediaType = 'all', $offset = null, $checkPath = true)
+    {
+        if (!is_array($cssUri)) {
+            $cssUri = [$cssUri => $cssMediaType];
         }
 
-        parent::addJavascriptUri($uri, $checkPath);
+        $converted = [];
+        foreach ($cssUri as $cssFile => $media) {
+            if (is_string($cssFile) && strlen($cssFile) > 1) {
+                $converted[Media::getUriWithVersion($cssFile)] = $media;
+            } else {
+                $converted[Media::getUriWithVersion($media)] = $cssMediaType;
+            }
+        }
+        return parent::addCSS($converted, $cssMediaType, $offset, $checkPath);
     }
 
     /**

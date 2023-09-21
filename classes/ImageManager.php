@@ -120,11 +120,18 @@ class ImageManagerCore
             }
         }
 
+        if ($disableCache) {
+            $ts = file_exists($targetFile) ? filemtime($targetFile) : time();
+            $suffix = '?v=' . $ts;
+        } else {
+            $suffix = '';
+        }
+
         // Relative link will always work, whatever the base uri set in the admin
         if (Context::getContext()->controller->controller_type == 'admin') {
-            return '../img/tmp/'.$cacheImage.($disableCache ? '?time='.time() : '');
+            return '../img/tmp/'.$cacheImage . $suffix;
         } else {
-            return _PS_TMP_IMG_.$cacheImage.($disableCache ? '?time='.time() : '');
+            return _PS_TMP_IMG_.$cacheImage . $suffix;
         }
     }
 
@@ -324,6 +331,10 @@ class ImageManagerCore
 
         $srcImage = ImageManager::create($type, $srcFile);
 
+        if (! $srcImage) {
+            return false;
+        }
+
         if ($dstWidth >= $srcWidth && $dstHeight >= $srcHeight) {
             imagecopyresized(
                 $destImage,
@@ -363,7 +374,7 @@ class ImageManagerCore
      * @param string $type
      * @param string $filename
      *
-     * @return resource
+     * @return false|GdImage|resource
      */
     public static function create($type, $filename)
     {
@@ -374,12 +385,14 @@ class ImageManagerCore
             case IMAGETYPE_PNG :
                 return imagecreatefrompng($filename);
 
-            case 18:
+            case IMAGETYPE_WEBP:
                 return imagecreatefromwebp($filename);
 
             case IMAGETYPE_JPEG :
-            default:
                 return imagecreatefromjpeg($filename);
+
+            default:
+                return false;
         }
     }
 

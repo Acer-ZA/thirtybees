@@ -50,7 +50,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
 		<div class="footer-contact">
 			<a href="https://thirtybees.com/contact/?utm_source=back-office&amp;utm_medium=footer&amp;utm_campaign=back-office-{$lang_iso|upper}&amp;utm_content=download" class="footer_link _blank">
 				<i class="icon-envelope"></i>
@@ -69,19 +69,21 @@
 		</div>
 	</div>
 
-	<div class="{if $backerButton}col-sm-2{else}col-sm-4{/if}">
+	<div class="col-sm-3">
 		{hook h="displayBackOfficeFooter"}
 	</div>
 
-	{if $backerButton}
-		<div class="col-sm-2">
-			<div class="backer-wrapper">
-				<a href="{$backerUrl}" class="btn btn-backer blank">{l s='Become a backer'}</a>
-			</div>
+	<div class="col-sm-3">
+		<div id="go-top" class="hide"><i class="icon-arrow-up"></i></div>
+		<div class="backer-wrapper">
+		{if $showBecomeSupporterButton}
+			  <span>Love <b>thirty bees</b>?</span>
+			  <a href="{$becomeSupporterUrl}" class="btn btn-backer blank">{l s='Become a Supporter'}</a>
+		{else}
+			<span>{l s='Thank you for your [1]support[/1]' tags=['<b>']}</span>
+		{/if}
 		</div>
-	{/if}
-
-	<div id="go-top" class="hide"><i class="icon-arrow-up"></i></div>
+	</div>
 </div>
 {/if}
 {if isset($php_errors)}

@@ -23,6 +23,32 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
+{$moduleModals=[]}
+
+{if $selectedCategory === AdminModulesController::CATEGORY_PREMIUM && $showBecomeSupporterButton}
+	<div class="tb-premium-modules-banner-container">
+		<div class="tb-premium-modules-banner-col-left">
+			<div class="tb-premium-modules-banner-icon"></div>
+			<div class="tb-premium-modules-banner-heading-container">
+				<span class="tb-premium-modules-banner-heading-main">{l s="Premium [1]ThirtyBees[/1] Modules" tags=['<b>']}</span>
+				<span class="tb-premium-modules-banner-heading-sub">{l s="Enhance your store and productivity with premium ThirtyBees Modules!"}</span>
+			</div>
+		</div>
+		<div class="tb-premium-modules-banner-col-right">
+			<span class="tb-premium-modules-banner-text">
+				{l s="Gain access to these modules and more with reasonable priced ThirtyBees membership! Your support helps ThirtyBees grow and thrive!"}
+			</span>
+			<div class="tb-premium-modules-banner-button-area">
+				{if $connected}
+					<a href="{$becomeSupporterUrl|escape:'html'}" target="_blank">{l s="Become a Member today!"}</a>
+				{else}
+					<a href="{$connectLink|escape:'html'}" {if !$connectLink}disabled="disabled"{/if} target="_blank">{l s="Login to ThirtyBees"}</a>
+				{/if}
+			</div>
+		</div>
+	</div>
+{/if}
+
 <table id="module-list" class="table">
 	<thead>
 		<tr>
@@ -35,7 +61,7 @@
 		<tbody>
 			{foreach from=$modules item=module}
 				{capture name="moduleStatutClass"}{if isset($module->id) && $module->id gt 0 && $module->active == 1}module_active{else}module_inactive{/if}{/capture}
-				<tr>
+				<tr class="{if $module->premium}premium-module{/if}">
 					<td class="{{$smarty.capture.moduleStatutClass}} text-center" style="width: 1%;">
 						{if (isset($module->id) && $module->id > 0)}
 						<input type="checkbox" name="modules" value="{$module->name|escape:'html':'UTF-8'}" class="noborder" title="{l s='Module %1s '|sprintf:$module->name}"{if empty($module->confirmUninstall)} data-rel="false"{else} data-rel="{$module->confirmUninstall|addslashes}"{/if}/>
@@ -75,7 +101,7 @@
 					<td class="actions">
 						<div class="btn-group-action">
 							<div class="btn-group pull-right">
-									{if isset($module->id) && $module->id gt 0}
+									{if $module->id}
 										{if isset($module->version_addons) && $module->version_addons}
 											<a class="btn btn-warning" href="{$module->options.update_url|escape:'html':'UTF-8'}">
 												<i class="icon-refresh"></i> {l s='Update it!'}
@@ -91,12 +117,19 @@
 											</a>
 										{/if}
 									{else}
-										<a class="btn btn-success" href="{$module->options.install_url|escape:'html':'UTF-8'}">
-											<i class="icon-plus-sign-alt"></i>&nbsp;{l s='Install'}
-										</a>
+										{if $module->canInstall}
+											 <a class="btn btn-success" href="{$module->options.install_url|escape:'html':'UTF-8'}">
+												 <i class="icon-plus-sign-alt"></i>&nbsp;{l s='Install'}
+											 </a>
+										{elseif $module->premium}
+											<a class="btn btn-success" data-toggle="modal" data-target="#modal-premium-module-{$module->name}">
+												<i class="icon-puzzle-piece"></i>&nbsp;{l s='Premium module'}
+											</a>
+											{$moduleModals[] = $module}
+										{/if}
 									{/if}
 
-									{if !isset($module->not_on_disk) && isset($module->id)}
+									{if !isset($module->not_on_disk) || $module->premium}
 										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
 											<span class="caret">&nbsp;</span>
 										</button>
@@ -112,22 +145,7 @@
 												{/if}
 											{/foreach}
 										</ul>
-									{elseif !isset($module->not_on_disk) && !isset($module->id)}
-										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-											<span class="caret">&nbsp;</span>
-										</button>
-										<ul class="dropdown-menu">
-											{foreach $module->optionsHtml key=key item=option}
-												{if $key != 0}
-													{if strpos($option, 'title="divider"') !== false}
-														<li class="divider"></li>
-													{else}
-														<li>{$option}</li>
-													{/if}
-												{/if}
-											{/foreach}
-										</ul>
-									{elseif isset($module->not_on_disk)}
+									{else}
 										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
 											<span class="caret">&nbsp;</span>
 										</button>
@@ -208,3 +226,9 @@
 		});
 	});
 </script>
+
+{if $moduleModals}
+	{foreach $moduleModals as $module}
+		{include 'controllers/modules/modal_premium.tpl' module=$module}
+	{/foreach}
+{/if}

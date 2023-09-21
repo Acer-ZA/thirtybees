@@ -71,15 +71,7 @@
 {/if}
 {if isset($css_files)}
 {foreach from=$css_files key=css_uri item=media}
-	{if $css_uri == 'lteIE9'}
-		<!--[if lte IE 9]>
-		{foreach from=$css_files[$css_uri] key=css_uriie9 item=mediaie9}
-		<link rel="stylesheet" href="{$css_uriie9|escape:'html':'UTF-8'}" type="text/css" media="{$mediaie9|escape:'html':'UTF-8'}" />
-		{/foreach}
-		<![endif]-->
-	{else}
-		<link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" />
-	{/if}
+	<link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" media="{$media|escape:'html':'UTF-8'}" />
 {/foreach}
 {/if}
 
@@ -101,7 +93,7 @@
 </head>
 
 {if $display_header}
-	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} campaign-bar-on">
+	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext}">
 	{* begin  HEADER *}
 	<header id="header" class="bootstrap">
 		<nav id="header_infos" role="navigation">

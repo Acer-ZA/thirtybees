@@ -133,6 +133,11 @@ class AdminProductsControllerCore extends AdminController
         if (! $this->allowEditPerStore() && !Tools::isSubmit('statusproduct')) {
             if ($productId || Tools::isSubmit('addproduct')) {
                 $this->multishop_context = false;
+                $defaultShopId = (int)Configuration::get('PS_SHOP_DEFAULT');
+                $context = Context::getContext();
+                if ((int)$context->shop->id !== $defaultShopId) {
+                    $context->shop = new Shop($defaultShopId);
+                }
             }
         }
 
@@ -3662,7 +3667,7 @@ class AdminProductsControllerCore extends AdminController
                 }
 
                 // adding button for preview this product statistics
-                if (Module::isEnabled('statsdata')) {
+                if (Module::isEnabled('statsmodule')) {
                     $this->page_header_toolbar_btn['stats'] = [
                         'short' => $this->l('Statistics', null, null, false),
                         'href'  => $this->context->link->getAdminLink('AdminStats').'&module=statsproduct&id_product='.(int) $product->id,
@@ -4887,11 +4892,6 @@ class AdminProductsControllerCore extends AdminController
 
         foreach ($productProps as $prop) {
             $product->$prop = $this->getFieldValue($product, $prop);
-        }
-
-        $product->name['class'] = 'updateCurrentText';
-        if (!$product->id || Configuration::get('PS_FORCE_FRIENDLY_PRODUCT')) {
-            $product->name['class'] .= ' copy2friendlyUrl';
         }
 
         $images = Image::getImages($this->context->language->id, $product->id);
@@ -6542,5 +6542,22 @@ class AdminProductsControllerCore extends AdminController
         }
         return $productSuppliers;
     }
+
+    /**
+     * @return void
+     *
+     * @throws PrestaShopException
+     */
+    public function initShopContext()
+    {
+        parent::initShopContext();
+        if (!$this->allowEditPerStore()) {
+            $defaultShopId = (int)Configuration::get('PS_SHOP_DEFAULT');
+            if ((int)$this->context->shop->id !== $defaultShopId) {
+                $this->context->shop = new Shop($defaultShopId);
+            }
+        }
+    }
+
 
 }
