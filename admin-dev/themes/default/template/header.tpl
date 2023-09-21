@@ -69,6 +69,9 @@
 		var search_product_msg = '{l s='Search for a product' js=1}';
 	</script>
 {/if}
+{if isset($maintenance_mode) && $maintenance_mode == true}
+	{assign var="maintenance_mode_class" value="maintenance-mode"}
+{/if}
 {if isset($css_files)}
 {foreach from=$css_files key=css_uri item=media}
 	<link rel="stylesheet" href="{$css_uri|escape:'html':'UTF-8'}" type="text/css" media="{$media|escape:'html':'UTF-8'}" />
@@ -237,7 +240,7 @@
 					campaign bar initial ;)
 				</div>
 
-				<ul id="header_employee_box">
+				<ul id="header_employee_box" class="{$maintenance_mode_class}">
 				{if {$base_url}}
 					<li>
 						<a href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
