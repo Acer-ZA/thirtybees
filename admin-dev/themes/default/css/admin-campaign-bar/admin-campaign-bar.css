@@ -35,3 +35,13 @@ span.maintenance-mode {
 .maintenance-mode-on span.maintenance-mode {
     display: inline-block!important;
 }
+
+.tb-admin-campaign-bar .tb-admin-campaign-bar-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/*/// Campaigns ///*/
+.campaign-bar-supporter .topbar-heart-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart.svg');
+}
