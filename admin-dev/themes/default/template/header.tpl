@@ -237,14 +237,16 @@
 
 				{* /// Campaign Bar *}
 				<div class="campaign-bar-holder campaign-bar-supporter">
-					<div class="tb-admin-campaign-bar-icon">icon</div>
-					<div class="tb-admin-campaign-bar-text">
-						{l s="Love [1]ThirtyBees[/1] Help Us [1]Grow[/1]" tags=['<b>']}
-					</div>
-					<div class="tb-admin-campaign-bar-cta">
-						<a href="">
-							{l s="Become a Supporter/Member Today!"}
-						</a>
+					<div class="campaign-bar-holder-inner">
+						<div class="tb-admin-campaign-bar-icon">icon</div>
+							<div class="tb-admin-campaign-bar-text">
+								{l s="Love [1] ThirtyBees [/1] Help Us [1]Grow![/1]" tags=['<b>']}
+							</div>
+							<div class="tb-admin-campaign-bar-cta">
+								<a href="">
+									{l s="Become a Supporter Today!"}
+								</a>
+							</div>
 					</div>
 				</div>
 

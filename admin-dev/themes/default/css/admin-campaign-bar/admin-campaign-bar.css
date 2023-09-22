@@ -24,10 +24,18 @@
     background-color: green;
 }
 
-.campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder {
+.campaign-bar-holder {
+    border: 1px solid white;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner {
     background-color: transparent;
     display: inline-grid;
-    grid-template-columns: 16px auto auto;
+    grid-template-columns: 16px max-content max-content;
+    grid-column-gap: 7px !important;
+    width: auto;
 }
 
 span.maintenance-mode {
@@ -43,28 +51,50 @@ span.maintenance-mode {
     height: 16px;
 }
 
+.tb-admin-campaign-bar .tb-admin-campaign-bar-text {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400 !important;
+    color: #000000 !important;
+}
+
+.tb-admin-campaign-bar .tb-admin-campaign-bar-text b {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tb-admin-campaign-bar .tb-admin-campaign-bar-cta {
+    display: inline-flex;
+    align-items: center;
+}
+
 .tb-admin-campaign-bar .tb-admin-campaign-bar-cta a {
-    width: auto!important;
+    display: inline-flex;
+    align-self: center;
+    width: auto !important;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 20px;
     padding-right: 20px;
-    background: #4AAE35;
+    /*background: #4AAE35;*/
+    background: linear-gradient(to bottom, rgba(58, 138, 39, 1) 0%,rgba(76, 179, 55, 1) 100%);
     border: 1px solid #307322;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.2;
     letter-spacing: 0px;
     text-decoration: none;
     text-transform: none;
     text-align: center;
-    color: #ffff!important;
+    color: #ffff !important;
     transition: all 250ms ease-in-out;
 }
 
 .tb-admin-campaign-bar .tb-admin-campaign-bar-cta a:hover {
-    background: #4CA13B;
+    /*background-color: #4CA13B;*/
+    background: linear-gradient(to bottom, #4CA13B 0%,#4CA13B 100%);
     box-shadow: -1px -1px 10px 7px rgba(76,161,59,0.21);
 }
 
