@@ -43,7 +43,8 @@ span.maintenance-mode {
     height: 16px;
 }
 
-.tb-admin-campaign-bar .tb-admin-campaign-bar-cta {
+.tb-admin-campaign-bar .tb-admin-campaign-bar-cta a {
+    width: auto!important;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 20px;
@@ -58,11 +59,11 @@ span.maintenance-mode {
     text-decoration: none;
     text-transform: none;
     text-align: center;
-    color: #ffff;
+    color: #ffff!important;
     transition: all 250ms ease-in-out;
 }
 
-.tb-admin-campaign-bar .tb-admin-campaign-bar-cta:hover {
+.tb-admin-campaign-bar .tb-admin-campaign-bar-cta a:hover {
     background: #4CA13B;
     box-shadow: -1px -1px 10px 7px rgba(76,161,59,0.21);
 }
