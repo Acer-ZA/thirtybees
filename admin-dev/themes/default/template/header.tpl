@@ -151,7 +151,11 @@
 					{if count($quick_access) >= 0}
 					<ul id="header_quick">
 						<li class="dropdown">
-							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">{l s='Quick Access'} <i class="icon-caret-down"></i></a>
+							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">
+								<span class="header-quick-icon"></span>
+								<span class="header-quick-text">{l s='Quick Access'} </span>
+								<i class="icon-caret-down"></i>
+							</a>
 							<ul class="dropdown-menu">
 								{foreach $quick_access as $quick}
 									<li {if $link->matchQuickLink({$quick.link})}{assign "matchQuickLink" $quick.id_quick_access}class="active"{/if}>

@@ -49,18 +49,27 @@
     display: inline-grid;
     grid-template-columns: auto auto;
     background-color: yellow;
-    overflow: hidden;
 }
 
 #header_quick {
    display: inline-flex!important;
-   overflow: hidden!important;
    height: 100%!important;
 }
 
+#quick_select {
+    border: 1px solid black;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+}
+
+.header-quick-icon {
+    border: 1px solid green;
+    width: 15px;
+    height: 15px;
+}
+
 #header_quick li:first-of-type {
-    background: blue!important;
-    overflow: hidden;
+    background: blue !important;
 }
 
 .campaign-bar-holder {
@@ -182,5 +191,23 @@ span.maintenance-mode {
 @media (min-width: 941px) {
     .tb-admin-campaign-bar-small-link {
         display: none;
+    }
+}
+
+@media (max-width: 1291px) {
+    #quick_select {
+        padding: 0px!important;
+        border: 1px solid pink;
+        display: inline-grid;
+        grid-template-columns: auto auto;
+    }
+
+
+    .header-quick-icon {
+        display: inline-flex;
+    }
+
+    .header-quick-text {
+        display: none!important;
     }
 }
