@@ -150,7 +150,7 @@
 					{* Quick Access *}
 					{if count($quick_access) >= 0}
 					<ul id="header_quick">
-						<li class="dropdown">
+						<li class="header-main-li">
 							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">
 								<span class="header-quick-icon"></span>
 								<span class="header-quick-text">{l s='Quick Access'} </span>

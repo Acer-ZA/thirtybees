@@ -53,23 +53,34 @@
 
 #header_quick {
    display: inline-flex!important;
+   align-items: center;
    height: 100%!important;
+   min-width: 20px!important;
+}
+
+#header_quick a {
+    padding: 0px!important;
 }
 
 #quick_select {
-    border: 1px solid black;
-    display: inline-grid;
-    grid-template-columns: auto auto auto;
+    display: inline-flex!important;
+    height: 100%;
+    align-items: center;
+    background: purple;
 }
 
 .header-quick-icon {
     border: 1px solid green;
     width: 15px;
     height: 15px;
+    display: none;
 }
 
-#header_quick li:first-of-type {
+#header_quick .header-main-li {
     background: blue !important;
+    display: inline-flex;
+    align-items: center;
+    height: 100% !important;
 }
 
 .campaign-bar-holder {
@@ -198,8 +209,8 @@ span.maintenance-mode {
     #quick_select {
         padding: 0px!important;
         border: 1px solid pink;
-        display: inline-grid;
-        grid-template-columns: auto auto;
+       /* display: inline-grid;
+        grid-template-columns: auto auto;*/
     }
 
 
