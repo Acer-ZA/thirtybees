@@ -58,10 +58,6 @@
    min-width: 20px!important;
 }
 
-#header_quick a {
-    padding: 0px!important;
-}
-
 #quick_select {
     display: inline-flex!important;
     height: 100%;
@@ -199,6 +195,12 @@ span.maintenance-mode {
 
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+    .bootstrap .hidden-sm, .bootstrap #header_quick {
+        display: unset !important;
+    }
+}
+
 @media (min-width: 941px) {
     .tb-admin-campaign-bar-small-link {
         display: none;
@@ -222,3 +224,5 @@ span.maintenance-mode {
         display: none!important;
     }
 }
+
+
