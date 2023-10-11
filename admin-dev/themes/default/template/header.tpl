@@ -241,7 +241,7 @@
 				</section>
 
 				{* /// Campaign Bar *}
-				<div class="tb-admin-campaign-bar-small-link">sml</div>
+				{*<div class="tb-admin-campaign-bar-small-link">sml</div>*}
 				<div class="campaign-bar-holder campaign-bar-supporter">
 					<div class="campaign-bar-holder-inner">
 						<div class="tb-admin-campaign-bar-icon">icon</div>
