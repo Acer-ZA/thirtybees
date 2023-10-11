@@ -335,7 +335,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="notificationsModalLabel">View site notifications</h4>
+        <h4 class="modal-title" id="notificationsModalLabel">{l s="View Store Notifications"}</h4>
       </div>
       <div class="modal-body" id="notificationsModalContent"></div>
     </div>
