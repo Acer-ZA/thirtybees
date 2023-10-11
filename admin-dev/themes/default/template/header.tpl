@@ -327,6 +327,20 @@
 			{hook h='displayAdminAfterHeader'}
 
 
+{*/// Notications Modal ///*}
+<div class="modal fade" id="notificationsModal" tabindex="-1" role="dialog" aria-labelledby="notificationsModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="notificationsModalLabel">View site notifications</h4>
+      </div>
+      <div class="modal-body" id="notificationsModalContent"></div>
+    </div>
+  </div>
+</div>
 {* end display_header*}
 
 {else}
