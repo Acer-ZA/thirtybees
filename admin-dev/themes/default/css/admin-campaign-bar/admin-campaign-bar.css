@@ -59,11 +59,25 @@
     display: none;
 }
 
+#notificationsModalContent ul {
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto;
+}
+
+#notificationsModalContent ul li {
+    list-style: none;
+}
+
+#notificationsModalContent [class^="icon-"] {
+    font-size: 18px;
+    }
+
 #header_quick {
-   display: inline-flex!important;
-   align-items: center;
-   height: 100%!important;
-   min-width: 20px!important;
+    display: inline-flex !important;
+    align-items: center;
+    height: 100% !important;
+    min-width: 20px !important;
 }
 
 #quick_select {
