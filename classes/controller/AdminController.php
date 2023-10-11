@@ -3715,6 +3715,7 @@ class AdminControllerCore extends Controller
         $this->addJS(__PS_BASE_URI__.$this->admin_webpath.'/themes/'.$this->bo_theme.'/js/vendor/enquire.min.js');
         $this->addJS(__PS_BASE_URI__.$this->admin_webpath.'/themes/'.$this->bo_theme.'/js/vendor/moment-with-langs.min.js');
         $this->addJS(__PS_BASE_URI__.$this->admin_webpath.'/themes/'.$this->bo_theme.'/js/admin-theme.js');
+        $this->addJS(__PS_BASE_URI__ . $this->admin_webpath . '/themes/default/js/admin-campaign-bar/admin-campaign-bar.js');
 
         if (!$this->lite_display) {
             $this->addJS(__PS_BASE_URI__.$this->admin_webpath.'/themes/'.$this->bo_theme.'/js/help.js');
