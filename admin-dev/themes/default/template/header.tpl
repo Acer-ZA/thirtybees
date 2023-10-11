@@ -121,6 +121,7 @@
 				{* Notifications and Quick Access Holder *}
 				<section class="notifications-quick-access-holder">
 					{* Notifications *}
+					<div class="notifications-icon"></div>
 					<ul id="header_notifs_icon_wrapper">
 						{foreach $notificationTypes as $notificationType}
 							<li id="{$notificationType.type}_notif" class="dropdown" data-type="{$notificationType.type}" data-last-id="0">
