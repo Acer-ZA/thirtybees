@@ -39,7 +39,7 @@
     display: inline-grid;
     width: 100%;
     background: red;
-    grid-template-columns: max-content max-content auto 1fr max-content;
+    grid-template-columns: max-content minmax(10%, auto) auto 1fr max-content;
     grid-template-rows: 38px;
 }
 
@@ -66,6 +66,10 @@
 
 #header_shopname {
     background-color: purple;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .notifications-quick-access-holder {
