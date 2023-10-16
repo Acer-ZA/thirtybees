@@ -43,6 +43,12 @@
     grid-template-rows: 38px;
 }
 
+.tb-admin-campaign-bar-fa-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .tb-admin-campaign-bar-fa-icon i {
     color: var(--color-dark);
     font-size: 14px;
