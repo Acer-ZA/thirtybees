@@ -121,7 +121,7 @@
 				{* Notifications and Quick Access Holder *}
 				<section class="notifications-quick-access-holder">
 					{* Notifications *}
-					<div class="notifications-icon"></div>
+					<div class="notifications-icon"><a class="tb-admin-campaign-bar-fa-icon"><i class="icon-exclamation-circle"></i></a></div>
 					<ul id="header_notifs_icon_wrapper">
 						{foreach $notificationTypes as $notificationType}
 							<li id="{$notificationType.type}_notif" class="dropdown" data-type="{$notificationType.type}" data-last-id="0">
@@ -153,7 +153,7 @@
 					<ul id="header_quick">
 						<li class="header-main-li">
 							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">
-								<span class="header-quick-icon"></span>
+								<span class="header-quick-icon"><i class="icon-flash"></i></span>
 								<span class="header-quick-text">{l s='Quick Access'} </span>
 								<i class="icon-caret-down"></i>
 							</a>

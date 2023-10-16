@@ -1,5 +1,11 @@
 /*/// ADMIN CAMPAIGN BAR ///*/
 
+:root {
+    --tborange: #e6b800;
+    --color-dark: #000;
+    --color-light: #fff;
+}
+
 /*/// wtf is this? */
 .bootstrap .navbar::before, .bootstrap #header_infos::before, .bootstrap .navbar::after, .bootstrap #header_infos::after {
     content: unset!important;
@@ -37,6 +43,17 @@
     grid-template-rows: 38px;
 }
 
+.tb-admin-campaign-bar-fa-icon i {
+    color: var(--color-dark);
+    font-size: 14px;
+}
+
+.tb-admin-campaign-bar-fa-icon:hover i {
+    color: var(--color-light);
+    font-size: 14px;
+}
+
+
 #header_shopversion {
     background-color: grey;
 }
@@ -71,7 +88,29 @@
 
 #notificationsModalContent [class^="icon-"] {
     font-size: 18px;
-    }
+}
+
+#notificationsModalContent .notifs_badge {
+    position: absolute;
+    top: -10px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    min-width: 18px;
+    min-height: 18px;
+    padding: 2.5px;
+    color: white !important;
+    font-size: 10px;
+    line-height: normal;
+    background-color: var(--tborange);
+    border-radius: 50%;
+}
+
+#notificationsModalContent .notifs_panel {
+    padding: 25px;
+    width: 300px !important;
+}
+
 
 #header_quick {
     display: inline-flex !important;
