@@ -39,7 +39,10 @@
     display: inline-grid;
     width: 100%;
     background: red;
-    grid-template-columns: max-content minmax(10%, auto) auto 1fr max-content;
+    /* Grid template columns guide (5): 
+        1. Logo, 2. Site Name, 3. Notifications, 4. Campaign, 5. User Column 
+    */
+    grid-template-columns: max-content minmax(10%, auto) minmax(50px, auto) 1fr max-content;
     grid-template-rows: 38px;
 }
 
