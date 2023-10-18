@@ -269,6 +269,12 @@ span.maintenance-mode {
 
 }
 
+@media (max-width: 767px) {
+    .bootstrap #header_quick {
+        display: inline-block!important;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
     .bootstrap .hidden-sm, .bootstrap #header_quick {
         display: unset !important;
