@@ -1,23 +1,29 @@
 /**** Admin Campaign Bar JS ****/
 
-// Function to clone and inject content
+/// Notification code grab and inject into modal + open
 function openNotificationsModal() {
     console.log("Notifications modal");
-    // Clone the specific element you want to inject
+    /// Clone the specific element you want to inject
     var contentToInject = $('#header_notifs_icon_wrapper').clone();
 
-    // Remove the ID attribute to prevent duplication
+    /// Remove the ID attribute to prevent duplication
     contentToInject.removeAttr('id');
 
-    // Inject the cloned content into the modal
+    /// Inject the cloned content into the modal
     $('#notificationsModalContent').html(contentToInject);
 
-    // Show the modal
+    /// Show the modal
     $('#notificationsModal').modal('show');
+
+    /// Clears the modal of content to prevent possible issues with duplicate IDs
+    $('#notificationsModal').on('hidden.bs.modal', function () {
+        $('#notificationsModalContent').html("");
+        console.log("modal closed");
+    });
 }
 
 
-function notificationPopup() {
+/*function notificationPopup() {
     console.log('notifications popup');
     var getWindowWidth = $(window).width();
     if (getWindowWidth > 1100) {
@@ -28,9 +34,9 @@ function notificationPopup() {
 $(window).on('resize', function () {
     notificationPopup();
 });
-
+*/
 $(document).ready(function () {
-    notificationPopup();
+   /* notificationPopup();*/
     console.log('actioned');
     $('.notifications-icon').click(function () {
         openNotificationsModal();
