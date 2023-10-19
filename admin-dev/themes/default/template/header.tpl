@@ -118,7 +118,7 @@
 					<a id="header_shopname" href="{$default_tab_link|escape:'html':'UTF-8'}">{$shop_name}</a>
 				{/if}
 
-				{* Notifications and Quick Access Holder *}
+				{* /// Notifications and Quick Access Holder /// *}
 				<section class="notifications-quick-access-holder">
 					{* Notifications *}
 					<div class="notifications-icon"><a class="tb-admin-campaign-bar-fa-icon"><i class="icon-exclamation-circle"></i></a></div>
@@ -148,7 +148,7 @@
 						{/foreach}
 							{hook h='displayAdminHeaderNotif'}
 					</ul>
-					{* Quick Access *}
+					{* /// Quick Access /// *}
 					{if count($quick_access) >= 0}
 					<ul id="header_quick">
 						<li class="header-main-li">
@@ -240,13 +240,20 @@
 				
 				</section>
 
-				{* /// Campaign Bar *}
+				{* /// Campaign Bar /// *}
 				{*<div class="tb-admin-campaign-bar-small-link">sml</div>*}
 				<div class="campaign-bar-holder campaign-bar-supporter">
 					<div class="campaign-bar-holder-inner">
 						<div class="tb-admin-campaign-bar-icon">icon</div>
 						<div class="tb-admin-campaign-bar-text">
-							{l s="Love [1] ThirtyBees [/1] Help Us [1]Grow![/1]" tags=['<b>']}
+							<div class="tb-admin-campaign-bar-text-inner">
+								{l s="Love [1] ThirtyBees? [/1] Help Us [1]Grow![/1]" tags=['<b>']}
+							</div>
+							<div class="tb-admin-campaign-bar-cta-inline">
+								<a href="">
+									{l s="Become a Supporter Today!"}
+								</a>
+							</div>
 						</div>
 						<div class="tb-admin-campaign-bar-cta">
 							<a href="">

@@ -239,6 +239,9 @@ span.maintenance-mode {
     background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart.svg');
 }
 
+.tb-admin-campaign-bar-cta-inline {
+    display: none;
+}
 /*/// Responsive ///*/
 @media (max-width: 500px) {
     /*.tb-admin-campaigns-bar-small-link {
@@ -274,6 +277,50 @@ span.maintenance-mode {
         display: inline-block!important;
     }
 }
+
+@media (max-width: 800px) {
+    .tb-admin-campaign-bar .tb-admin-campaign-bar-cta {
+        display: none!important;
+    }
+
+    .tb-admin-campaign-bar .tb-admin-campaign-bar-text {
+        display: inline-grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+    }
+
+    .tb-admin-campaign-bar-text-inner {
+        font-size: 11px;
+    }
+
+    .tb-admin-campaign-bar .tb-admin-campaign-bar-cta-inline {
+        display: inline-block !important;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 900px) {
+    .tb-admin-campaign-bar-text-inner {
+        font-size: 11px;
+    }
+
+    .tb-admin-campaign-bar .tb-admin-campaign-bar-cta a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 1126px) {
+    .tb-admin-campaign-bar-text-inner {
+        font-size: 11px;
+    }
+
+    .tb-admin-campaign-bar .tb-admin-campaign-bar-cta a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
 
 @media (min-width: 768px) and (max-width: 991px) {
     .bootstrap .hidden-sm, .bootstrap #header_quick {
