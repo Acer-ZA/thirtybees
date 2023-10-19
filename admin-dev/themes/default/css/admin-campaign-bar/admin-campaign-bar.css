@@ -182,8 +182,12 @@ span.maintenance-mode {
 }
 
 .tb-admin-campaign-bar .tb-admin-campaign-bar-icon {
-    width: 16px;
-    height: 16px;
+    display: inline-flex;
+    align-self: center;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .tb-admin-campaign-bar .tb-admin-campaign-bar-text {
@@ -240,7 +244,7 @@ span.maintenance-mode {
 
 /*/// Campaigns ///*/
 .campaign-bar-supporter .tb-admin-campaign-bar-icon {
-    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart.svg');
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart-black.svg');
 }
 
 .tb-admin-campaign-bar-cta-inline {

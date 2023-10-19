@@ -244,7 +244,7 @@
 				{*<div class="tb-admin-campaign-bar-small-link">sml</div>*}
 				<div class="campaign-bar-holder campaign-bar-supporter">
 					<div class="campaign-bar-holder-inner">
-						<div class="tb-admin-campaign-bar-icon">icon</div>
+						<div class="tb-admin-campaign-bar-icon"></div>
 						<div class="tb-admin-campaign-bar-text">
 							<div class="tb-admin-campaign-bar-text-inner">
 								{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=['<b>']}
