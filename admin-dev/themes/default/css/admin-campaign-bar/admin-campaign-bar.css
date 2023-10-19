@@ -186,6 +186,7 @@ span.maintenance-mode {
     align-self: center;
     width: 20px;
     height: 20px;
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -256,6 +257,10 @@ span.maintenance-mode {
     width: 100%;
     color: var(--color-dark);
     text-decoration: underline;
+}
+
+.tb-admin-campaign-bar-cta-inline a:hover {
+    color: var(--color-dark);
 }
 
 /*/// Responsive ///*/
