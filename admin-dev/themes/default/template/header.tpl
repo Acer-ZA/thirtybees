@@ -247,7 +247,7 @@
 						<div class="tb-admin-campaign-bar-icon">icon</div>
 						<div class="tb-admin-campaign-bar-text">
 							<div class="tb-admin-campaign-bar-text-inner">
-								{l s="Love [1] ThirtyBees? [/1] Help Us [1]Grow![/1]" tags=['<b>']}
+								{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=['<b>']}
 							</div>
 							<div class="tb-admin-campaign-bar-cta-inline">
 								<a href="">
