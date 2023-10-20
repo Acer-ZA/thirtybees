@@ -263,6 +263,23 @@ span.maintenance-mode {
     color: var(--color-dark);
 }
 
+/*/// User Bar ///*/
+#employee_infos .dropdown-toggle span:first-of-type {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: red; 
+    padding-left: 5px;
+}
+
+#employee_infos .employee_avatar_small .icon {
+    display: inline-flex !important;
+    align-self: center;
+    border: 1px solid red;
+    font-size: 15px !important;
+    line-height: normal !important;
+}
+
+
 /*/// Responsive ///*/
 @media (max-width: 500px) {
     /*.tb-admin-campaigns-bar-small-link {
