@@ -100,6 +100,21 @@
 	{* begin  HEADER *}
 	<header id="header" class="bootstrap">
 		<nav id="header_infos" role="navigation">
+			<div class="maintenance-mode-holder {if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
+				<span class="maintenance-mode">
+					<a href="{$link->getAdminLink('AdminMaintenance')|escape:'html':'UTF-8'}" 
+						class="label-tooltip"
+						data-toggle="tooltip"
+						data-placement="bottom"
+						data-html="true"
+						title="<p class='text-left text-nowrap'><strong>{l s='Your shop is in maintenance.'}</strong></p><p class='text-left'>{l s='Your visitors and customers cannot access your shop while in maintenance mode.%s To manage the maintenance settings, go to Preferences > Maintenance.' sprintf='<br />'}</p>">
+						<span class="icon-cog-holder">
+							<i class="icon icon-cog"></i>
+						</span>
+						<span>{l s='Maintenance mode'}</span>
+					</a>
+				</span>
+			</div>
 			<div class="navbar-header tb-admin-campaign-bar">
 				<button id="header_nav_toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
 					<i class="icon-reorder"></i>
@@ -270,18 +285,6 @@
 							<span class="string-long">{l s='My shop'}</span>
 							<span class="string-short">{l s='Shop'}</span>
 						</a>
-						<span class="maintenance-mode">
-							&mdash;
-							<a href="{$link->getAdminLink('AdminMaintenance')|escape:'html':'UTF-8'}">
-								<span class="label-tooltip"
-										data-toggle="tooltip"
-										data-placement="bottom"
-										data-html="true"
-										title="<p class='text-left text-nowrap'><strong>{l s='Your shop is in maintenance.'}</strong></p><p class='text-left'>{l s='Your visitors and customers cannot access your shop while in maintenance mode.%s To manage the maintenance settings, go to Preferences > Maintenance.' sprintf='<br />'}</p>">
-										{l s='Maintenance mode'}
-								</span>
-							</a>
-						</span>
 					</li>
 				{/if}
 					<li id="employee_infos" class="dropdown">
