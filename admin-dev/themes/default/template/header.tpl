@@ -107,7 +107,7 @@
 						data-toggle="tooltip"
 						data-placement="bottom"
 						data-html="true"
-						title="<p class='text-left text-nowrap'><strong>{l s='Your shop is in maintenance.'}</strong></p><p class='text-left'>{l s='Your visitors and customers cannot access your shop while in maintenance mode.%s To manage the maintenance settings, go to Preferences > Maintenance.' sprintf='<br />'}</p>">
+						title="<p class='text-left text-nowrap'><strong>{l s='Your shop is in maintenance.'}</strong></p><p class='text-left maintenance-tooltip'>{l s='Your visitors and customers cannot access your shop while in maintenance mode.%s Click here to turn off Maintenance mode.' sprintf='<br />'}</p>">
 						<span class="icon-cog-holder">
 							<i class="icon icon-cog"></i>
 						</span>
@@ -280,14 +280,14 @@
 
 				<ul id="header_employee_box" class="{if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
 				{if {$base_url}}
-					<li>
+					<li class="height100">
 						<a href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
 							<span class="string-long">{l s='My shop'}</span>
 							<span class="string-short">{l s='Shop'}</span>
 						</a>
 					</li>
 				{/if}
-					<li id="employee_infos" class="dropdown">
+					<li id="employee_infos" class="dropdown height100">
 						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="employee_name dropdown-toggle" data-toggle="dropdown">
 							<span class="employee_avatar_small">
 								{if isset($employee)}
