@@ -136,7 +136,7 @@
 				{* /// Notifications and Quick Access Holder /// *}
 				<section class="notifications-quick-access-holder">
 					{* Notifications *}
-					<div class="notifications-icon"><a class="tb-admin-campaign-bar-fa-icon"><i class="icon-exclamation-circle"></i></a></div>
+					<div class="notifications-icon"><a class="tb-admin-campaign-bar-fa-icon"><i class="icon-bell"></i></a></div>
 					<ul id="header_notifs_icon_wrapper">
 						{foreach $notificationTypes as $notificationType}
 							<li id="{$notificationType.type}_notif" class="dropdown" data-type="{$notificationType.type}" data-last-id="0">
@@ -278,30 +278,29 @@
 					</div>
 				</div>
 
-				<ul id="header_employee_box" class="{if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
-				{if {$base_url}}
-					<li class="height100">
-						<a href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
-							<span class="string-long">{l s='My shop'}</span>
-							<span class="string-short">{l s='Shop'}</span>
+
+				<div id="header_employee_box" class="{if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
+					<div class="new-employee-name-box">
+						<span>{$employee->firstname}&nbsp;{$employee->lastname}</span>
+					</div>
+					{if {$base_url}}
+						<a class="tb-admin-campaign-bar-fa-icon" href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
+							<i class="icon-eye"></i>
+							<span class="string-long">{l s='View shop'}</span>
 						</a>
-					</li>
-				{/if}
-					<li id="employee_infos" class="dropdown height100">
+					{/if}
+					<div id="employee_infos" class="dropdown height100">
 						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="employee_name dropdown-toggle" data-toggle="dropdown">
-							<span class="employee_avatar_small">
-								{if isset($employee)}
-								<i class="icon icon-user"></i>
-								{/if}
-							</span>
-							<span class="string-long">{$employee->firstname}&nbsp;{$employee->lastname}</span>
-							<span class="string-short">{l s='Me'}</span>
+							{if isset($employee)}
+								<i class="icon-user"></i>
+							{/if}
 							<i class="caret"></i>
 						</a>
 						<ul id="employee_links" class="dropdown-menu">
 							<li>
 								<span class="employee_avatar">
 									<i class="icon icon-user" style="font-size:6em"></i>
+									<img src="../thm" />
 								</span>
 							</li>
 							<li class="text-center text-nowrap">{$employee->firstname} {$employee->lastname}</li>
@@ -310,8 +309,8 @@
 							<li class="divider"></li>
 							<li><a id="header_logout" href="{$login_link|escape:'html':'UTF-8'}&amp;logout"><i class="icon-signout"></i> {l s='Sign out'}</a></li>
 						</ul>
-					</li>
-				</ul>
+					</div>
+				</div>
 
 				<span id="ajax_running">
 					<i class="icon-refresh icon-spin icon-fw"></i>
