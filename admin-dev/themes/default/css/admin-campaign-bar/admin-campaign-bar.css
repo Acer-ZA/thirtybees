@@ -114,9 +114,9 @@
     width: 100%;
     background: red;
     /* Grid template columns guide (5): 
-        1. Logo, 2. Site Name, 3. Notifications, 4. Campaign, 5. User Column 
+        1. Logo, 2. Site Name, 3. Notifications + Quick Access, 4. Campaign, 5. User Column 
     */
-    grid-template-columns: max-content minmax(10%, auto) minmax(50px, auto) 1fr max-content;
+    grid-template-columns: max-content minmax(10%, auto) minmax(60px, auto) 1fr max-content;
     grid-template-rows: 38px;
 }
 
@@ -149,6 +149,7 @@
     white-space: nowrap;
 }
 
+/*/// Notifications ///*/
 .notifications-quick-access-holder {
     display: inline-grid;
     grid-template-columns: auto auto;
@@ -198,30 +199,29 @@
     width: 300px !important;
 }
 
-#header_quick {
-    display: inline-flex !important;
-    align-items: center;
-    height: 100% !important;
-    min-width: 20px !important;
+/*/// Quick Access ///*/
+#header_quick::before, #header_quick::after {
+    display: none!important;
 }
 
 #quick_select {
-    display: inline-flex!important;
+    display: inline-grid !important;
     height: 100%;
     align-items: center;
     background: purple;
-}
-
-.tb-admin-top-bar-quicklinks-holder {
-    display: inline-grid;
+    display: inline-grid !important;
     grid-template-columns: auto auto auto;
-    grid-column-gap: 5px;
+    grid-column-gap: 3px;
 }
 
 .header-quick-icon {
     border: 1px solid green;
     width: 15px;
     height: 15px;
+}
+
+.header-quick-text {
+    padding-right: 3px;
 }
 
 #header_quick .header-main-li {
@@ -251,14 +251,14 @@
     border: 1px solid orange;
 }
 
-#header_employee_box a.employee_name.dropdown-toggle, #header_employee_box a#header_foaccess {
+#header_employee_box a.employee_name.dropdown-toggle {
     display: inline-flex !important;
     align-items: center !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
     background: green;
     height: 100%;
 }
+
+#header_employee_box a#header_foaccess {}
 
 .height100 {
     height: 100%!important;
@@ -355,22 +355,10 @@ span.maintenance-mode {
 }
 
 /*/// View Shop / User Bar ///*/
-.new-employee-name-box {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    z-index: 999;
-}
-
-.tb-admin-top-bar-viewshop-holder {
-    display: inline-grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 5px;
-}
-
 #header_employee_box {
     display: inline-grid;
     grid-template-columns: auto auto;
+    grid-column-gap: 10px;
     background: blue;
 }
 
@@ -380,6 +368,24 @@ span.maintenance-mode {
 
 #header_employee_box::after {
     display: none !important;
+}
+
+#header_employee_box #header_foaccess {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5px;
+    background: blue;
+}
+
+.new-employee-name-box {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 999;
+}
+
+#employee_infos .employee_name {
+    padding-right: 0px!important;
 }
 
 #employee_infos .dropdown-toggle span:first-of-type {

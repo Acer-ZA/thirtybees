@@ -161,13 +161,13 @@
 								</div>
 							</li>
 						{/foreach}
-							{hook h='displayAdminHeaderNotif'}
+						{hook h='displayAdminHeaderNotif'}
 					</ul>
 					{* /// Quick Access /// *}
 					{if count($quick_access) >= 0}
 					<ul id="header_quick">
 						<li class="header-main-li">
-							<a href="javascript:void(0)" id="quick_select" class="tb-admin-top-bar-quicklinks-holder dropdown-toggle" data-toggle="dropdown">
+							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">
 								<span class="header-quick-icon"><i class="icon-flash"></i></span>
 								<span class="header-quick-text">{l s='Quick Access'} </span>
 								<i class="icon-angle-down"></i>
