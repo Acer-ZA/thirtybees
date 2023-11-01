@@ -167,10 +167,10 @@
 					{if count($quick_access) >= 0}
 					<ul id="header_quick">
 						<li class="header-main-li">
-							<a href="javascript:void(0)" id="quick_select" class="dropdown-toggle" data-toggle="dropdown">
+							<a href="javascript:void(0)" id="quick_select" class="tb-admin-top-bar-quicklinks-holder dropdown-toggle" data-toggle="dropdown">
 								<span class="header-quick-icon"><i class="icon-flash"></i></span>
 								<span class="header-quick-text">{l s='Quick Access'} </span>
-								<i class="icon-caret-down"></i>
+								<i class="icon-angle-down"></i>
 							</a>
 							<ul class="dropdown-menu">
 								{foreach $quick_access as $quick}
@@ -278,29 +278,28 @@
 					</div>
 				</div>
 
-
+			
 				<div id="header_employee_box" class="{if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
 					<div class="new-employee-name-box">
 						<span>{$employee->firstname}&nbsp;{$employee->lastname}</span>
 					</div>
 					{if {$base_url}}
-						<a class="tb-admin-campaign-bar-fa-icon" href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
+						<a class="tb-admin-top-bar-viewshop-holder tb-admin-campaign-bar-fa-icon" href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
 							<i class="icon-eye"></i>
 							<span class="string-long">{l s='View shop'}</span>
 						</a>
 					{/if}
 					<div id="employee_infos" class="dropdown height100">
-						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="employee_name dropdown-toggle" data-toggle="dropdown">
+						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="tb-admin-topbar-employee-holder employee_name dropdown-toggle" data-toggle="dropdown">
 							{if isset($employee)}
 								<i class="icon-user"></i>
 							{/if}
-							<i class="caret"></i>
+							<i class="icon-angle-down"></i>
 						</a>
 						<ul id="employee_links" class="dropdown-menu">
 							<li>
 								<span class="employee_avatar">
 									<i class="icon icon-user" style="font-size:6em"></i>
-									<img src="../thm" />
 								</span>
 							</li>
 							<li class="text-center text-nowrap">{$employee->firstname} {$employee->lastname}</li>
