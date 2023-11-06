@@ -164,7 +164,7 @@
     display: none;
 }
 
-#notificationsModalContent ul {
+.notifications-dropdown {
     display: inline-grid;
     width: 100%;
     grid-template-columns: auto auto auto auto;

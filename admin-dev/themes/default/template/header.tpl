@@ -136,7 +136,7 @@
 				{* /// Notifications and Quick Access Holder /// *}
 				<section class="notifications-quick-access-holder">
 					{* Notifications *}
-					<div class="notifications-icon">
+					<div class="notifications-icon dropdown">
 						<a class="tb-admin-campaign-bar-fa-icon dropdown-toggle" data-toggle="dropdown"><i class="icon-bell"></i></a>
 						<div class="dropdown-menu notifications-dropdown">
 							Hi, sup?
