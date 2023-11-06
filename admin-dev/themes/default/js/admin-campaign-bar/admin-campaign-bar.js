@@ -10,11 +10,11 @@ function openNotificationsModal() {
     contentToInject.removeAttr('id');
 
     /// Inject the cloned content into the modal
-    $('#notificationsModalContent').html(contentToInject);
+    $('.notifications-dropdown').html(contentToInject);
 
     /// Show the modal
-    $('#notificationsModal').modal('show');
-
+   /* $('#notificationsModal').modal('show');
+*/
     /// Clears the modal of content to prevent possible issues with duplicate IDs
     $('#notificationsModal').on('hidden.bs.modal', function () {
         $('#notificationsModalContent').html("");

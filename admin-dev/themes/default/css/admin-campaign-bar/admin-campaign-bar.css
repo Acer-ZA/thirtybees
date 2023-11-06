@@ -247,7 +247,9 @@
 }
 
 #header_employee_box #header_foaccess, a.employee_name.dropdown-toggle {
-    padding: 0px !important;
+    /*padding: 0px !important;*/
+    padding-left: 10px !important;
+    padding-right: 10px !important;
     border: 1px solid orange;
 }
 
@@ -385,7 +387,8 @@ span.maintenance-mode {
 }
 
 #employee_infos .employee_name {
-    padding-right: 0px!important;
+    padding-left: 10px !important;
+    padding-right: 10px!important;
 }
 
 #employee_infos .dropdown-toggle span:first-of-type {
