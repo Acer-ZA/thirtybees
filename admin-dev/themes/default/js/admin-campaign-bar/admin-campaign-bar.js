@@ -1,5 +1,16 @@
 /**** Admin Campaign Bar JS ****/
 
+/// Check for notifications and show on responsive bell icon ///
+function checkForNotifications() {
+    console.log("checkForNotifications");
+    if ($('.notifs_badge span').html().trim() != "") {
+        $(".tb-admin-campaign-bar-fa-icon .notifs_badge").addClass("fadeIn");
+    }
+    else {
+        $(".tb-admin-campaign-bar-fa-icon .notifs_badge").removeClass("fadeIn");
+    }
+}
+
 /// Notification code grab and inject into modal + open
 function openNotificationsModal() {
     console.log("Notifications modal");
@@ -46,6 +57,9 @@ $(window).on('resize', function () {
 $(document).ready(function () {
    /* notificationPopup();*/
     console.log('actioned');
+
+    checkForNotifications();
+
     $('.notifications-icon').click(function () {
         openNotificationsModal();
     });
