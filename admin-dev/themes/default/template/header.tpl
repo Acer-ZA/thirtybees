@@ -136,12 +136,7 @@
 				{* /// Notifications and Quick Access Holder /// *}
 				<section class="notifications-quick-access-holder">
 					{* Notifications *}
-					<div class="notifications-icon dropdown">
-						<a class="tb-admin-campaign-bar-fa-icon dropdown-toggle" data-toggle="dropdown"><i class="icon-bell"></i></a>
-						<div class="dropdown-menu notifications-dropdown">
-							Hi, sup?
-						</div>
-					</div>
+					<div class="notifications-icon"><a class="tb-admin-campaign-bar-fa-icon"><i class="icon-bell"></i></a></div>
 					<ul id="header_notifs_icon_wrapper">
 						{foreach $notificationTypes as $notificationType}
 							<li id="{$notificationType.type}_notif" class="dropdown" data-type="{$notificationType.type}" data-last-id="0">

@@ -124,6 +124,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer!important;
 }
 
 .tb-admin-campaign-bar-fa-icon i {
@@ -166,12 +167,31 @@
 
 #notificationsModalContent ul {
     display: inline-grid;
-    width: 100%;
     grid-template-columns: auto auto auto auto;
+    padding: 0px !important;
+    width: 100%;
 }
 
 #notificationsModalContent ul li {
+    display: inline-grid;
+    grid-template-rows: auto auto!important;
     list-style: none;
+    border: 1px solid red;
+
+}
+
+#notificationsModalContent .dropdown-menu {
+    display: inline-block!important;
+    position: relative!important;
+    top: unset!important;
+    margin: 0px!important;
+    padding: 0px!important;
+    width: 100%!important;
+    min-width: 100%!important;
+}
+
+#notificationsModalContent .dropdown-menu div {
+    width: 100%!important;
 }
 
 #notificationsModalContent [class^="icon-"] {
@@ -195,13 +215,20 @@
 }
 
 #notificationsModalContent .notifs_panel {
-    padding: 25px;
-    width: 300px !important;
+    padding: 0;
+    width: 100% !important;
+}
+
+#notificationsModalContent h3 {
+    margin: 0px!important;
+    padding: 0px!important;
+    border: 1px solid blue;
+    font-size: 12px!important;
 }
 
 /*/// Quick Access ///*/
 #header_quick::before, #header_quick::after {
-    display: none!important;
+    display: none !important;
 }
 
 #quick_select {
