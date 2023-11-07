@@ -3,11 +3,13 @@
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
     console.log("checkForNotifications");
-    if ($('.notifs_badge span').html().trim() != "") {
+    if ($('.modal-content .notifs_badge span').html().trim() != "" || $('.modal-content .notifs_badge span').html() != '0') {
+        console.log("checkForNotifications: yes");
         $(".tb-admin-campaign-bar-fa-icon .notifs_badge").addClass("fadeIn");
     }
     else {
         $(".tb-admin-campaign-bar-fa-icon .notifs_badge").removeClass("fadeIn");
+        console.log("checkForNotifications: no");
     }
 }
 
