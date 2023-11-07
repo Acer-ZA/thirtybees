@@ -3,7 +3,7 @@
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
     console.log("checkForNotifications");
-    if ($('.modal-content .notifs_badge span').html().trim() != "" || $('.modal-content .notifs_badge span').html() != '0') {
+    if ($('#header_notifs_icon_wrapper .notifs_badge span').html().trim() != "" || $('#header_notifs_icon_wrapper .notifs_badge span').html().trim() != 0) {
         console.log("checkForNotifications: yes");
         $(".tb-admin-campaign-bar-fa-icon .notifs_badge").addClass("fadeIn");
     }
