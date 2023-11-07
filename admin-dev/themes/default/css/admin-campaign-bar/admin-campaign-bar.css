@@ -487,6 +487,9 @@ span.maintenance-mode {
     #notificationsModalContent h3 {
         font-size: 10px!important;
     }
+    .notifs_panel span, .notifs_panel_footer {
+        font-size: 10px !important;
+    }
 }
 
 @media (min-width: 600px) and (max-width: 1284px) {
