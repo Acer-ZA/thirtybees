@@ -174,7 +174,7 @@
 
 #notificationsModalContent ul li {
     display: inline-grid;
-    grid-template-rows: auto auto!important;
+    grid-template-rows: auto 1fr!important;
     list-style: none;
     border: 1px solid red;
 
