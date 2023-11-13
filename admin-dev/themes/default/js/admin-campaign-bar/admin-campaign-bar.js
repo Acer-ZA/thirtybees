@@ -3,7 +3,9 @@
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
     console.log("checkForNotifications");
-    if ($('#header_notifs_icon_wrapper .notifs_badge span').html().trim() != "" || $('#header_notifs_icon_wrapper .notifs_badge span').html().trim() != 0) {
+    var checkForNotifications = $('.tb-admin-campaign-bar #header_notifs_icon_wrapper .notifs_badge span').html();
+    console.log("checkForNotifications NEW : " + checkForNotifications);
+    if ($(checkForNotifications) != 0) {
         console.log("checkForNotifications: yes");
         $(".tb-admin-campaign-bar-fa-icon .notifs_badge").addClass("fadeIn");
     }
