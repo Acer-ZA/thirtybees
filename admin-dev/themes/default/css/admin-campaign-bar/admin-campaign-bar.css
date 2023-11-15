@@ -356,7 +356,7 @@
 .campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner {
     background-color: transparent;
     display: inline-grid;
-    grid-template-columns: 16px max-content max-content;
+    grid-template-columns: 16px minmax(10%, auto) max-content;
     grid-column-gap: 7px !important;
     width: auto;
 }
@@ -535,6 +535,12 @@ span.maintenance-mode {
 }
 
 /*/// Responsive ///*/
+@media (max-width: 587px) {
+    .tb-admin-campaign-bar-text {
+        display: none!important;
+    }
+}
+
 @media (max-width: 591px) {
     #notificationsModalContent h3 {
         font-size: 10px!important;
@@ -555,10 +561,20 @@ span.maintenance-mode {
         /*/// columns are 5 not 6*/
         background: blue;
     }
+}
 
-    /*.tb-admin-campaign-bar-icon, .tb-admin-campaign-bar-text {
-        display: none!important;
-    }*/
+@media (max-width: 760px) {
+    .tb-admin-campaign-bar .tb-admin-campaign-bar-text {
+        overflow: hidden;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        width: 100%;
+    }
+
+    .tb-admin-campaign-bar-text-inner {
+        text-overflow: ellipsis!important;
+        overflow: hidden;
+    }
 
 }
 
