@@ -24,7 +24,7 @@
 *}
 {strip}
 <a href="javascript:void(0)" class="tb-admin-top-bar-multishop-holder dropdown-toggle" data-toggle="dropdown">
-    <i class="icon-eye"></i><span>{$current_shop_name}</span><i class="icon-caret-down"></i>
+    <i class="icon-eye"></i><span>{$current_shop_name}</span><i class="icon-angle-down"></i>
 </a>
 <ul class="dropdown-menu">
     <li{if !isset($current_shop_value) || $current_shop_value == ''} class="active"{/if}><a href="{$url|escape:'html':'UTF-8'}">{l s='All shops'}</a></li>

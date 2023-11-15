@@ -122,10 +122,10 @@
 				<a id="header_shopversion" href="{$default_tab_link|escape:'html':'UTF-8'}">
 					<span id="shop_version">{$version}</span>
 				</a>
-				{* Shop *}
+				{* /// Shop Name and MultiShop holder/// *}
 				{if isset($is_multishop) && $is_multishop && $shop_list && (isset($multishop_context) && $multishop_context & Shop::CONTEXT_GROUP || $multishop_context & Shop::CONTEXT_SHOP)}
 					<ul id="header_shop">
-						<li class="dropdown">
+						<li class="dropdown tb-admin-top-bar-multishop-outer-container">
 							{$shop_list}
 						</li>
 					</ul>
