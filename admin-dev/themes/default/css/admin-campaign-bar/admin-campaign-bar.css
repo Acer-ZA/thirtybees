@@ -127,7 +127,7 @@
     /* Grid template columns guide (5): 
         1. Logo, 2. Site Name, 3. Notifications + Quick Access, 4. Campaign, 5. User Column 
     */
-    grid-template-columns: max-content max-content minmax(60px, auto) 1fr max-content;
+    grid-template-columns: max-content minmax(100px, max-content) minmax(60px, auto) 1fr max-content;
     grid-template-rows: 38px;
 }
 
@@ -179,6 +179,12 @@
     height: 100%;
     align-items: center;
     border: 1px solid blue !important;
+}
+
+.tb-admin-top-bar-multishop-outer-container span {
+    white-space: nowrap!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /*/// Notifications ///*/
