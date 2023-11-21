@@ -130,7 +130,7 @@
 						</li>
 					</ul>
 				{else}
-					<a id="header_shopname" href="{$default_tab_link|escape:'html':'UTF-8'}">{$shop_name}</a>
+					<a id="header_shopname" href="{$default_tab_link|escape:'html':'UTF-8'}" title="{$shop_name}">{$shop_name}</a>
 				{/if}
 
 				{* /// Notifications and Quick Access Holder /// *}

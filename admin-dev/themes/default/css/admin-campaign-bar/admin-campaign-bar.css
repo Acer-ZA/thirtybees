@@ -159,6 +159,7 @@
     text-overflow: ellipsis;
     width: 100%;
     white-space: nowrap;
+    font-size: 12px!important;
 }
 
 #header_shop {
