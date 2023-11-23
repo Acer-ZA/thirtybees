@@ -42,6 +42,41 @@
     }
 }
 
+@keyframes sysStateIn {
+    0% {
+        opacity: 1;
+        transform: translateX(200%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes sysStateOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(200%);
+    }
+}
+
+@keyframes sysHolderWidth0 {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 35px;
+    }
+}
+
+
 .sys-state-holder {
     display: inline-block;
     width: 100%;
@@ -50,6 +85,13 @@
     right: 0px;
     z-index: 999;
     border: 1px solid red;
+    animation: sysHolderWidth0;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 4s;
 }
 
 .maintenance-mode-holder.maintenance-mode-on {
@@ -93,14 +135,11 @@
 .maintenance-mode-holder.maintenance-mode-on a, .debug-mode-holder a {
     display: inline-grid;
     width: 100%!important;
-    grid-template-columns: 1fr 11px;
-    grid-column-gap: 10px;
+    grid-template-columns: 1fr auto;
+    grid-column-gap: 2px;
     align-items: center;
     width: auto;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0px;
     font-size: 10px;
     white-space: nowrap;
 }
@@ -116,22 +155,40 @@
     overflow: hidden;
 }
 
-.sys-state-text {
+.sys-state-text-maintenance {
     display: inline-block;
     width: 100%;
     opacity: 0;
+    padding-right: 5px;
     transform: translateX(200%);
-    animation: slideInFadeHorizontalRight;
+    animation: sysStateIn 2s ease-out 0s, sysStateOut 1s ease-out 3s;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
-    animation-duration: 1200ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     background-color: rgba(0,0,0,0.5);
+    text-align: right;
 }
 
-.sys-state-icon {
+.sys-state-text-debug {
+    display: inline-block;
+    width: 100%;
+    opacity: 0;
+    padding-right: 5px;
+    animation: sysStateIn 2s ease-out 2s, sysStateOut 1s ease-out 5s;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     background-color: rgba(0,0,0,0.5);
+    text-align: right;
+}
+
+.sys-state-icon-outer {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.5);
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .maintenance-tooltip {

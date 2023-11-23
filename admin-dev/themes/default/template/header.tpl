@@ -109,30 +109,41 @@
 					<a id="header_shopversion" href="{$default_tab_link|escape:'html':'UTF-8'}">
 						<span id="shop_version">{$version}</span>
 					</a>
-					<div class="sys-state-holder">
-						<div class="maintenance-mode-holder maintenance-mode-on">
-							<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
-								<div class="sys-state-text-holder">
-									<span class="sys-state-text">{l s='Maintenance mode'}</span>
+					{if (isset($maintenance_mode) && $maintenance_mode == true) || (defined('_PS_MODE_DEV_') && _PS_MODE_DEV_) }
+						<div class="sys-state-holder">
+							{* /// Maintenance Mode mode /// *}
+							{if isset($maintenance_mode) && $maintenance_mode == true}
+								<div class="maintenance-mode-holder maintenance-mode-on">
+									<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
+										<div class="sys-state-text-holder">
+											<span class="sys-state-text-maintenance">{l s='Maintenance mode'}</span>
+										</div>
+										<div class="sys-state-icon-outer">
+											<span class="icon-cog-holder sys-state-icon">
+												<i class="icon icon-cog"></i>
+											</span>
+										</div>
+									</a>
 								</div>
-								<span class="icon-cog-holder sys-state-icon">
-									<i class="icon icon-cog"></i>
-								</span>
-							</a>
-						</div>
-						<div class="debug-mode-holder">
-							<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
-								<div class="sys-state-text-holder">
-									<span class="sys-state-text">{l s='Debug mode'}</span>
+							{/if}
+							{* /// Debug mode /// *}
+							{if defined('_PS_MODE_DEV_') && _PS_MODE_DEV_}
+								<div class="debug-mode-holder">
+									<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
+										<div class="sys-state-text-holder">
+											<span class="sys-state-text-debug">{l s='Debug mode'}</span>
+										</div>
+										<div class="sys-state-icon-outer">
+											<span class="icon-cog-holder sys-state-icon">
+												<i class="icon icon-bug"></i>
+											</span>
+										</div>
+									</a>
 								</div>
-								<span class="icon-cog-holder sys-state-icon">
-									<i class="icon icon-bug"></i>
-								</span>
-							</a>
+							{/if}
 						</div>
-					</div>
+					{/if}
 				</div>
-				
 
 				{* /// Shop Name and MultiShop holder/// *}
 				{if isset($is_multishop) && $is_multishop && $shop_list && (isset($multishop_context) && $multishop_context & Shop::CONTEXT_GROUP || $multishop_context & Shop::CONTEXT_SHOP)}
