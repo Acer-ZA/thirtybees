@@ -112,22 +112,25 @@
 					<div class="sys-state-holder">
 						<div class="maintenance-mode-holder maintenance-mode-on">
 							<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
-								<span>{l s='Maintenance mode'}</span>
-								<span class="icon-cog-holder">
+								<div class="sys-state-text-holder">
+									<span class="sys-state-text">{l s='Maintenance mode'}</span>
+								</div>
+								<span class="icon-cog-holder sys-state-icon">
 									<i class="icon icon-cog"></i>
 								</span>
 							</a>
 						</div>
 						<div class="debug-mode-holder">
 							<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
-								<span>{l s='Debug mode'}</span>
-								<span class="icon-cog-holder">
+								<div class="sys-state-text-holder">
+									<span class="sys-state-text">{l s='Debug mode'}</span>
+								</div>
+								<span class="icon-cog-holder sys-state-icon">
 									<i class="icon icon-bug"></i>
 								</span>
 							</a>
 						</div>
 					</div>
-
 				</div>
 				
 
@@ -162,7 +165,7 @@
 								</a>
 								<div class="dropdown-menu notifs_dropdown">
 									<section id="{$notificationType.type}_notif_wrapper" class="notifs_panel">
-										<div class="notifs_panel_header">
+											<div class="notifs_panel_header">
 											<h3>{$notificationType.header}</h3>
 										</div>
 										<div id="{$notificationType.type}_notif_list" class="list_notif">

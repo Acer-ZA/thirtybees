@@ -30,6 +30,18 @@
     }
 }
 
+@keyframes slideInFadeHorizontalRight {
+    0% {
+        opacity: 0;
+        transform: translateX(200%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .sys-state-holder {
     display: inline-block;
     width: 100%;
@@ -41,15 +53,14 @@
 }
 
 .maintenance-mode-holder.maintenance-mode-on {
-    opacity: 0;
     display: inline-block;
     width: 100%!important;
-    animation: slideInFadeHorizontal;
+    /*animation: slideInFadeHorizontal;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-duration: 1200ms;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards;*/
 }
 
 .debug-mode-holder {
@@ -82,7 +93,7 @@
 .maintenance-mode-holder.maintenance-mode-on a, .debug-mode-holder a {
     display: inline-grid;
     width: 100%!important;
-    grid-template-columns: 11px auto;
+    grid-template-columns: 1fr 11px;
     grid-column-gap: 10px;
     align-items: center;
     width: auto;
@@ -92,11 +103,35 @@
     padding-right: 10px;
     font-size: 10px;
     white-space: nowrap;
-    background-color: rgba(0,0,0,0.5);
 }
 
 .maintenance-mode-holder.maintenance-mode-on a:hover, .debug-mode-holder a:hover {
     text-decoration: none !important;
+}
+
+.sys-state-text-holder {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid green;
+    overflow: hidden;
+}
+
+.sys-state-text {
+    display: inline-block;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(200%);
+    animation: slideInFadeHorizontalRight;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.sys-state-icon {
+    background-color: rgba(0,0,0,0.5);
 }
 
 .maintenance-tooltip {
