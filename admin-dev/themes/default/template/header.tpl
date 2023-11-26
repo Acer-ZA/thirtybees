@@ -114,7 +114,7 @@
 							{* /// Maintenance Mode mode /// *}
 							{if isset($maintenance_mode) && $maintenance_mode == true}
 								<div class="maintenance-mode-holder maintenance-mode-on">
-									<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
+									<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in Maintenace mode.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
 										<div class="sys-state-text-holder">
 											<span class="sys-state-text-maintenance">{l s='Maintenance mode'}</span>
 										</div>
@@ -129,7 +129,7 @@
 							{* /// Debug mode /// *}
 							{if defined('_PS_MODE_DEV_') && _PS_MODE_DEV_}
 								<div class="debug-mode-holder">
-									<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in maintenance.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
+									<a href="index.php?controller=AdminPerformance&amp;token=d5a4867c80a14440aa9df88e74d1ab07" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in Debug mode.</strong></p><p class='text-left maintenance-tooltip'>Your site is in Debug Mode.<br /> Click here to turn it off.</p>">
 										<div class="sys-state-text-holder">
 											<span class="sys-state-text-debug">{l s='Debug mode'}</span>
 										</div>
