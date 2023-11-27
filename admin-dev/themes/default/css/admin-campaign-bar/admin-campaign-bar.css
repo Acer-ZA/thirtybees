@@ -615,8 +615,19 @@ span.maintenance-mode {
     top: 0px;
     right: 0px;
     z-index: 999;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     background-color: rgba(0,0,0,0.5);
-    color: white!important;
+    transform: translateX(200%);
+    animation: sysStateIn 1500ms ease-out 2s, sysStateOut 1000ms ease-out 8s;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    font-size: 12px;
+    color: white !important;
+    background-color: rgba(0,0,0,0.5);
 }
 
 #header_employee_box .tooltip {
@@ -626,16 +637,21 @@ span.maintenance-mode {
 
 #header_employee_box .tooltip-inner {
     position: absolute;
-    right: 10px;
-    width: auto!important;
-    padding: 0px !important;
-    background-color: #3498db;
+    right: -10px;
+    width: auto !important;
+    padding: 5px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
     color: #fff;
     white-space: nowrap;
 }
 
 #header_employee_box .tooltip-arrow {
-    border-top-color: #3498db;
+    /*border-top-color: #3498db;*/
+}
+
+#employee_links {
+    z-index: 9999;
 }
 
 #employee_infos .employee_name {
