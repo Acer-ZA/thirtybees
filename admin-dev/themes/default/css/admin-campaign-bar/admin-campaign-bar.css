@@ -619,9 +619,28 @@ span.maintenance-mode {
     color: white!important;
 }
 
+#header_employee_box .tooltip {
+    /*position: absolute;
+    right: 0px!important;*/
+}
+
+#header_employee_box .tooltip-inner {
+    position: absolute;
+    right: 10px;
+    width: auto!important;
+    padding: 0px !important;
+    background-color: #3498db;
+    color: #fff;
+    white-space: nowrap;
+}
+
+#header_employee_box .tooltip-arrow {
+    border-top-color: #3498db;
+}
+
 #employee_infos .employee_name {
     padding-left: 10px !important;
-    padding-right: 10px!important;
+    padding-right: 10px !important;
 }
 
 #employee_infos .dropdown-toggle span:first-of-type {

@@ -307,14 +307,16 @@
 				</div>
 
 				<div id="header_employee_box" class="{if isset($maintenance_mode) && $maintenance_mode == true}maintenance-mode-on{/if}">
-					
+					<div class="new-employee-name-box">
+						<span>{$employee->firstname}&nbsp;{$employee->lastname}</span>
+					</div>
 					{if {$base_url}}
 						<a class="tb-admin-top-bar-viewshop-holder tb-admin-campaign-bar-fa-icon" href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
 							<i class="icon-eye"></i>
 							<span class="string-long">{l s='View shop'}</span>
 						</a>
 					{/if}
-					<div id="employee_infos" class="dropdown height100 label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in Maintenace mode.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click here to turn off Maintenance mode.</p>">
+					<div id="employee_infos" class="dropdown height100 label-tooltip username-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="{$employee->firstname}&nbsp;{$employee->lastname}">
 						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="tb-admin-topbar-employee-holder employee_name dropdown-toggle" data-toggle="dropdown">
 							{if isset($employee)}
 								<i class="icon-user"></i>
