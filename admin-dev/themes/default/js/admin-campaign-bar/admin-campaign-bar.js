@@ -61,11 +61,34 @@ $(window).on('resize', function () {
     notificationPopup();
 });
 */
+
+function checkIfSysAnimationsRanAlready() {
+    // Check if the animation has already loaded in the last 24 hours
+    var animationLoaded = localStorage.getItem('animationLoaded');
+    var lastLoadedTime = localStorage.getItem('lastLoadedTime');
+
+    if (!animationLoaded || (Date.now() - lastLoadedTime > 24 * 60 * 60 * 1000)) {
+        // Run the animation
+        $('.tb-admin-campaign-bar').addClass('sys-animation-done');
+
+        // Set the flag in localStorage
+        localStorage.setItem('animationLoaded', true);
+        localStorage.setItem('lastLoadedTime', Date.now());
+        console.log("sysanimation already loaded");
+    }
+    else {
+        console.log("sysanimation not loaded yet");
+        $('.tb-admin-campaign-bar').removeClass('sys-animation-done');
+        $('.tb-admin-campaign-bar').addClass('sys-animation-not-done');
+    }
+}
+
 $(document).ready(function () {
    /* notificationPopup();*/
     console.log('actioned');
 
     checkForNotifications();
+    checkIfSysAnimationsRanAlready();
 
     $('.notifications-icon').click(function () {
         openNotificationsModal();
