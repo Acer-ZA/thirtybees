@@ -117,7 +117,6 @@
     animation-delay: 0 !important;
     animation: fa-spin 20s infinite ease-in-out;
 }
-
     
 .maintenance-mode-holder.maintenance-mode-on i, .debug-mode-holder i {
     color: var(--tborange) !important;
@@ -156,7 +155,21 @@
     overflow: hidden;
 }
 
-.sys-animation-not-done .sys-state-text-maintenance {
+.sys-state-text-maintenance, .sys-state-text-debug, .new-employee-name-box {
+    display: none;
+    opacity: 0;
+    padding: 0px;
+}
+
+.sys-state-text-holder {
+    display: none;
+}
+
+.show-sys-animation .sys-state-text-holder {
+    display: inline-flex;
+}
+
+.show-sys-animation .sys-state-text-maintenance {
     display: inline-block;
     width: 100%;
     opacity: 0;
@@ -171,7 +184,7 @@
     text-align: right;
 }
 
-.sys-animation-not-done .sys-state-text-debug {
+.show-sys-animation .sys-state-text-debug {
     display: inline-block;
     width: 100%;
     opacity: 0;
@@ -611,7 +624,8 @@ span.maintenance-mode {
     background: blue;
 }
 
-.sys-animation-not-done .new-employee-name-box {
+.show-sys-animation .new-employee-name-box {
+    display: inline-block;
     position: absolute;
     top: 0px;
     right: 0px;

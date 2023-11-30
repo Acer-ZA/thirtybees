@@ -62,24 +62,47 @@ $(window).on('resize', function () {
 });
 */
 
+// Function to get a cookie value
+function getCookie(name) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(name + '=') === 0) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return null;
+}
+
+// Function to set a cookie value
+function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toGMTString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
+}
+
 function checkIfSysAnimationsRanAlready() {
-    // Check if the animation has already loaded in the last 24 hours
-    var animationLoaded = localStorage.getItem('animationLoaded');
-    var lastLoadedTime = localStorage.getItem('lastLoadedTime');
+    /// Check if the cookie exists
+    var animationShownDate = getCookie('animationShownDate');
 
-    if (!animationLoaded || (Date.now() - lastLoadedTime > 24 * 60 * 60 * 1000)) {
-        // Run the animation
-        $('.tb-admin-campaign-bar').addClass('sys-animation-done');
+    /// Get the current date
+    var currentDate = new Date().toDateString();
 
-        // Set the flag in localStorage
-        localStorage.setItem('animationLoaded', true);
-        localStorage.setItem('lastLoadedTime', Date.now());
-        console.log("sysanimation already loaded");
+    /// Check if the animation has already been shown for the day
+    if (!animationShownDate || animationShownDate !== currentDate) {
+        /// Show the animation
+        console.log('animation should load');
+        $('body').addClass('show-sys-animation');
+
+        /// Set a cookie to indicate that the animation has been shown today
+        setCookie('animationShownDate', currentDate, 1); // Expires in 1 day
     }
     else {
-        console.log("sysanimation not loaded yet");
-        $('.tb-admin-campaign-bar').removeClass('sys-animation-done');
-        $('.tb-admin-campaign-bar').addClass('sys-animation-not-done');
+        console.log("animation has already loaded");
     }
 }
 
