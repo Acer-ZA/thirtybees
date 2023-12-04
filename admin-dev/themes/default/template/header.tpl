@@ -106,6 +106,7 @@
 					<i class="icon-reorder"></i>
 				</button>
 				<div class="admin-shopversion-holder">
+					<a class="mobile-logo" href="{$default_tab_link|escape:'html':'UTF-8'}"></a>
 					<a id="header_shopversion" href="{$default_tab_link|escape:'html':'UTF-8'}">
 						<span id="shop_version">{$version}</span>
 					</a>

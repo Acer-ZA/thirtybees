@@ -112,6 +112,8 @@ $(document).ready(function () {
 
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
+    /*$('body').addClass('show-sys-animation');*/
+
 
     $('.notifications-icon').click(function () {
         openNotificationsModal();
