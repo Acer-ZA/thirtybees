@@ -166,7 +166,7 @@
 }
 
 .show-sys-animation .sys-state-text-holder {
-    display: inline-flex;
+    display: none;
 }
 
 .show-sys-animation .sys-state-text-maintenance {
@@ -703,7 +703,13 @@ span.maintenance-mode {
 }
 
 /*/// Responsive ///*/
-@media (max-width: 587px) {
+@media (max-width: 500px) {
+    #header_employee_box, #header_employee_box #header_foaccess {
+        grid-column-gap: 0px !important;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 587px) {
     .tb-admin-campaign-bar-text {
         display: none!important;
     }
