@@ -712,7 +712,11 @@ span.maintenance-mode {
     display: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 501px) {
+    #header_shopversion {
+        display: none!important;
+    }
+
     .notifications-quick-access-holder {
         padding-left: 2px !important;
         padding-right: 2px !important;
@@ -723,9 +727,9 @@ span.maintenance-mode {
     }
 
      #header_employee_box #header_foaccess, a.employee_name.dropdown-toggle {
-            padding-left: 5px !important;
-            padding-right: 5px !important;
-        }
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
 
     .campaign-bar-on .tb-admin-campaign-bar {
         grid-template-columns: 105px 40px minmax(60px, auto) 1fr max-content;
