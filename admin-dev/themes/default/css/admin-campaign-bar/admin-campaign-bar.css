@@ -17,7 +17,6 @@
     }
 }
 
-
 @keyframes slideInFadeHorizontal {
     0% {
         opacity: 0;
@@ -238,6 +237,10 @@
     /*grid-template-columns: auto auto auto auto 1fr auto;*/
 }
 
+.tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
+    text-decoration: none;
+}
+
 .tb-admin-campaign-bar ul, .tb-admin-campaign-bar div, .tb-admin-campaign-bar #header_shopversion, .tb-admin-campaign-bar #header_shopname {
     border: 1px solid blue;
 }
@@ -456,6 +459,10 @@
 #notificationsModalContent .notifs_panel_footer a {
     display: inline-flex;
     width: 100%;
+}
+
+#notificationsModalContent .notification-customer-name-title {
+    display: none !important;
 }
 
 /*/// Quick Access ///*/
@@ -798,6 +805,7 @@ span.maintenance-mode {
     #notificationsModalContent .dropdown-menu div {
         padding-right: 5px;
     }
+
 }
 
 @media (min-width: 600px) and (max-width: 1284px) {

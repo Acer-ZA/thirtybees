@@ -192,6 +192,7 @@
 						{/foreach}
 						{hook h='displayAdminHeaderNotif'}
 					</ul>
+
 					{* /// Quick Access /// *}
 					{if count($quick_access) >= 0}
 					<ul id="header_quick">
