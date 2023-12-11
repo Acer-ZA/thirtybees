@@ -282,31 +282,32 @@
 						});
 					</script>
 					{/if}
-				
 				</section>
 
-				{* /// Campaign Bar /// *}
+				{* /// Campaign Bar /// *}	
 				{*<div class="tb-admin-campaign-bar-small-link">sml</div>*}
 				<div class="campaign-bar-holder campaign-bar-supporter">
-					<div class="campaign-bar-holder-inner">
+					<div class="campaign-bar-holder-inner-outer">
 						<div class="campaign-bar-close-holder">
 							<div class="campaign-bar-close-icon">x</div>
 						</div>
-						<div class="tb-admin-campaign-bar-icon"></div>
-						<div class="tb-admin-campaign-bar-text">
-							<div class="tb-admin-campaign-bar-text-inner">
-								{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=['<b>']}
+						<div class="campaign-bar-holder-inner-actual">
+							<div class="tb-admin-campaign-bar-icon"></div>
+							<div class="tb-admin-campaign-bar-text">
+								<div class="tb-admin-campaign-bar-text-inner">
+									{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=['<b>']}
+								</div>
+								<div class="tb-admin-campaign-bar-cta-inline">
+									<a href="">
+										{l s="Become a Supporter Today!"}
+									</a>
+								</div>
 							</div>
-							<div class="tb-admin-campaign-bar-cta-inline">
+							<div class="tb-admin-campaign-bar-cta">
 								<a href="">
 									{l s="Become a Supporter Today!"}
 								</a>
 							</div>
-						</div>
-						<div class="tb-admin-campaign-bar-cta">
-							<a href="">
-								{l s="Become a Supporter Today!"}
-							</a>
 						</div>
 					</div>
 				</div>

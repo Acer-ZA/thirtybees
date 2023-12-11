@@ -106,10 +106,17 @@ function checkIfSysAnimationsRanAlready() {
     }
 }
 
+function campaignBarClose() {
+    console.log("campaign bar closed");
+    $(".campaign-bar-close-holder").on("click", function () {
+        $(".campaign-bar-holder-inner-outer").fadeOut(250);
+    })
+}
+
 $(document).ready(function () {
    /* notificationPopup();*/
     console.log('actioned');
-
+    campaignBarClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
     /*$('body').addClass('show-sys-animation');*/

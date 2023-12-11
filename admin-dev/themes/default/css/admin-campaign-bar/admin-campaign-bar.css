@@ -504,35 +504,39 @@
     background: pink;
 }
 
-.campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner {
+.campaign-bar-holder-inner-outer {
+    position: relative;
+    border: 1px solid red;
+    background: grey;
+}
+
+.campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner-actual {
     background-color: transparent;
     display: inline-grid;
     grid-template-columns: 16px minmax(10%, auto) max-content;
     grid-column-gap: 7px !important;
     width: auto;
-    position: relative;
 }
 
 .campaign-bar-close-holder {
     display: inline-flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     position: absolute;
-    top: -5px;
+    top: -4px;
     right: -10px;
     width: 14px;
     height: 16px;
+    border: 1px solid #0000;
     border-radius: 100%;
     background-color: #fff;
+    cursor: pointer!important;
 }
 
 .campaign-bar-close-icon {
-   
- 
     font-size: 10px !important;
     font-weight: normal!important;
 }
-
 
 #header_employee_box #header_foaccess, a.employee_name.dropdown-toggle {
     /*padding: 0px !important;*/
@@ -789,7 +793,7 @@ span.maintenance-mode {
         padding-right: 10px !important;
     }
 
-    .campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner {
+    .campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner-actual {
         grid-column-gap: 4px!important;
     }
 
@@ -835,7 +839,7 @@ span.maintenance-mode {
         display: none;
     }
 
-    .campaign-bar-holder-inner {
+    .campaign-bar-holder-inner-actual {
         display: inline-grid;
         grid-template-columns: auto auto auto auto auto;
         /*/// columns are 5 not 6*/
