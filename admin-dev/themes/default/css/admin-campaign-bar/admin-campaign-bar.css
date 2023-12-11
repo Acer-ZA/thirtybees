@@ -508,6 +508,11 @@
     position: relative;
     border: 1px solid red;
     background: grey;
+    display: none;
+}
+
+.show-campaign-bar .campaign-bar-holder-inner-outer {
+    display: inline-block;
 }
 
 .campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner-actual {
@@ -516,6 +521,7 @@
     grid-template-columns: 16px minmax(10%, auto) max-content;
     grid-column-gap: 7px !important;
     width: auto;
+    height: 100%;
 }
 
 .campaign-bar-close-holder {

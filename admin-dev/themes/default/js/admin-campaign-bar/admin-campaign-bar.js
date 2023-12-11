@@ -1,5 +1,8 @@
 /**** Admin Campaign Bar JS ****/
 
+/// Get the current date
+var currentDate = new Date().toDateString();
+
 
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
@@ -89,9 +92,6 @@ function checkIfSysAnimationsRanAlready() {
     /// Check if the cookie exists
     var animationShownDate = getCookie('animationShownDate');
 
-    /// Get the current date
-    var currentDate = new Date().toDateString();
-
     /// Check if the animation has already been shown for the day
     if (!animationShownDate || animationShownDate !== currentDate) {
         /// Show the animation
@@ -106,10 +106,29 @@ function checkIfSysAnimationsRanAlready() {
     }
 }
 
+function checkCampaignBarClose() {
+    console.log()
+    var campaignBarShownDate = getCookie('campaignBarClose');
+
+    /// Check if the animation has already been shown for the day
+    if (!campaignBarShownDate || campaignBarShownDate !== currentDate) {
+        /// Show the animation
+        console.log('campaignbar should load');
+        $('body').addClass('show-campaign-bar');
+
+        /// Set a cookie to indicate that the animation has been shown today
+        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
+    }
+    else {
+        console.log("animation has already loaded");
+    }
+}
+
 function campaignBarClose() {
     console.log("campaign bar closed");
     $(".campaign-bar-close-holder").on("click", function () {
         $(".campaign-bar-holder-inner-outer").fadeOut(250);
+        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
     })
 }
 
@@ -117,6 +136,7 @@ $(document).ready(function () {
    /* notificationPopup();*/
     console.log('actioned');
     campaignBarClose();
+    checkCampaignBarClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
     /*$('body').addClass('show-sys-animation');*/
