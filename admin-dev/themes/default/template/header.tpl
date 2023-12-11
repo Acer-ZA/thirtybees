@@ -289,6 +289,9 @@
 				{*<div class="tb-admin-campaign-bar-small-link">sml</div>*}
 				<div class="campaign-bar-holder campaign-bar-supporter">
 					<div class="campaign-bar-holder-inner">
+						<div class="campaign-bar-close-holder">
+							<div class="campaign-bar-close-icon">x</div>
+						</div>
 						<div class="tb-admin-campaign-bar-icon"></div>
 						<div class="tb-admin-campaign-bar-text">
 							<div class="tb-admin-campaign-bar-text-inner">

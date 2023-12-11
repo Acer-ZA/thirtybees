@@ -510,7 +510,29 @@
     grid-template-columns: 16px minmax(10%, auto) max-content;
     grid-column-gap: 7px !important;
     width: auto;
+    position: relative;
 }
+
+.campaign-bar-close-holder {
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    width: 14px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: #fff;
+}
+
+.campaign-bar-close-icon {
+   
+ 
+    font-size: 10px !important;
+    font-weight: normal!important;
+}
+
 
 #header_employee_box #header_foaccess, a.employee_name.dropdown-toggle {
     /*padding: 0px !important;*/
@@ -797,7 +819,7 @@ span.maintenance-mode {
     }
 
     .list_notif {
-        overflow: scroll;
+        overflow-y: scroll;
         max-height: 300px;
         font-size: 10px !important;
     }
