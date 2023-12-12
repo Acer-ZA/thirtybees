@@ -4,6 +4,14 @@
 var currentDate = new Date().toDateString();
 
 
+/// Campaign Bar ///
+function campaignBar() {
+    console.log("campaign bar actioned");
+    console.log("campaign_bar_love_intro: " + campaign_bar_love_intro);
+    console.log("campaign_bar_cta: " + campaign_bar_cta);
+    console.log("campaign_bar_url: " + campaign_bar_url);
+}
+
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
     $('.tb-admin-campaign-bar #header_notifs_icon_wrapper .notifs_badge span').each(function () {
@@ -16,7 +24,6 @@ function checkForNotifications() {
         } else {
             $(this).closest('.notifs_badge').removeClass('fadeIn');
             console.log("Notification Count: " + notificationCount);
-
         }
     });
 }
@@ -139,6 +146,8 @@ $(document).ready(function () {
     checkCampaignBarClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
+    campaignBar();
+
     /*$('body').addClass('show-sys-animation');*/
 
 

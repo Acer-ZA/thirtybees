@@ -67,6 +67,12 @@
 		var admin_modules_link = '{$link->getAdminLink("AdminModules")|addslashes}';
 		var update_success_msg = '{l s='Update successful' js=1}';
 		var search_product_msg = '{l s='Search for a product' js=1}';
+
+		/// Campaign Bar ///
+		var campaign_bar_love_intro = '{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=["<b>"]}';
+		var campaign_bar_cta = '{l s="Become a Supporter Today!"};';
+		var campaign_bar_url = "https://www.thirtybees.com";
+
 	</script>
 {/if}
 {if isset($maintenance_mode) && $maintenance_mode == true}
@@ -294,19 +300,13 @@
 						<div class="campaign-bar-holder-inner-actual">
 							<div class="tb-admin-campaign-bar-icon"></div>
 							<div class="tb-admin-campaign-bar-text">
-								<div class="tb-admin-campaign-bar-text-inner">
-									{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=['<b>']}
-								</div>
+								<div class="tb-admin-campaign-bar-text-inner"></div>
 								<div class="tb-admin-campaign-bar-cta-inline">
-									<a href="">
-										{l s="Become a Supporter Today!"}
-									</a>
+									<a href=""></a>
 								</div>
 							</div>
 							<div class="tb-admin-campaign-bar-cta">
-								<a href="">
-									{l s="Become a Supporter Today!"}
-								</a>
+								<a href=""></a>
 							</div>
 						</div>
 					</div>
