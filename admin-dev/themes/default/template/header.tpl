@@ -69,9 +69,10 @@
 		var search_product_msg = '{l s='Search for a product' js=1}';
 
 		/// Campaign Bar ///
+		var campaign_bar_love_class = 'campaign-bar-supporter';
 		var campaign_bar_love_intro = '{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=["<b>"]}';
-		var campaign_bar_cta = '{l s="Become a Supporter Today!"};';
-		var campaign_bar_url = "https://www.thirtybees.com";
+		var campaign_bar_love_cta = '{l s="Become a Supporter Today!"};';
+		var campaign_bar_love_url = "https://www.thirtybees.com";
 
 	</script>
 {/if}
@@ -291,8 +292,7 @@
 				</section>
 
 				{* /// Campaign Bar /// *}	
-				{*<div class="tb-admin-campaign-bar-small-link">sml</div>*}
-				<div class="campaign-bar-holder campaign-bar-supporter">
+				<div class="campaign-bar-holder">
 					<div class="campaign-bar-holder-inner-outer">
 						<div class="campaign-bar-close-holder">
 							<div class="campaign-bar-close-icon">x</div>

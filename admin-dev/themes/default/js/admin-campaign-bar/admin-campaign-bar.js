@@ -7,9 +7,10 @@ var currentDate = new Date().toDateString();
 /// Campaign Bar ///
 function campaignBar() {
     console.log("campaign bar actioned");
+    console.log("campaign_bar_love_class: " + campaign_bar_love_class);
     console.log("campaign_bar_love_intro: " + campaign_bar_love_intro);
-    console.log("campaign_bar_cta: " + campaign_bar_cta);
-    console.log("campaign_bar_url: " + campaign_bar_url);
+    console.log("campaign_bar_love_cta: " + campaign_bar_love_cta);
+    console.log("campaign_bar_love_url: " + campaign_bar_love_url);
 }
 
 /// Check for notifications and show on responsive bell icon ///
