@@ -69,10 +69,31 @@
 		var search_product_msg = '{l s='Search for a product' js=1}';
 
 		/// Campaign Bar ///
+
+		/// Supporter ///
 		var campaign_bar_love_class = 'campaign-bar-supporter';
 		var campaign_bar_love_intro = '{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=["<b>"]}';
 		var campaign_bar_love_cta = '{l s="Become a Supporter Today!"};';
 		var campaign_bar_love_url = "https://www.thirtybees.com";
+
+		/// Technical Support ///
+		var campaign_bar_techsupport_class = 'campaign-bar-technical-support';
+		var campaign_bar_techsupport_intro = '{l s="Need [1]Support?[/1] We're here to [1]help![/1]" tags=["<b>"]}';
+		var campaign_bar_techsupport_cta = '{l s="Contact Paid Support"};';
+		var campaign_bar_techsupport_url = "https://www.thirtybees.com";
+
+		/// Thank You ///
+		var campaign_bar_thanks_class = 'campaign-bar-thanks';
+		var campaign_bar_thanks_intro = '{l s="[1]Thank You[/1] for your Support!" tags=["<b>"]}';
+		var campaign_bar_thanks_cta = '{l s=""};';
+		var campaign_bar_thanks_url = "";
+
+		/// Premium Modules ///
+		var campaign_bar_premium_class = 'campaign-bar-premium';
+		var campaign_bar_premium_intro = '{l s="[1]Enhance Your Store[/1] with ThirtyBees [1]Premium Modules[/1]" tags=["<b>"]}';
+		var campaign_bar_premium_cta = '{l s=""};';
+		var campaign_bar_premium_url = "https://www.thirtybees.com";
+
 
 	</script>
 {/if}

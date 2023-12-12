@@ -1,8 +1,35 @@
 /**** Admin Campaign Bar JS ****/
 
-/// Get the current date
+/// Get the current date ///
 var currentDate = new Date().toDateString();
 
+/// Campaign Bar Variables ///
+var campaigns = [
+    {
+        class: 'campaign_bar_love_class',
+        intro: 'campaign_bar_love_intro',
+        cta: 'campaign_bar_love_cta',
+        url: 'campaign_bar_love_url'
+    },
+    {
+        class: 'campaign_bar_techsupport_class',
+        intro: 'campaign_bar_techsupport_intro',
+        cta: 'campaign_bar_techsupport_cta',
+        url: 'campaign_bar_techsupport_url'
+    },
+    {
+        class: 'campaign_bar_thanks_class',
+        intro: 'campaign_bar_thanks_intro',
+        cta: 'campaign_bar_thanks_cta',
+        url: 'campaign_bar_thanks_url'
+    },
+    {
+        class: 'campaign_bar_premium_class',
+        intro: 'campaign_bar_premium_intro',
+        cta: 'campaign_bar_premium_cta',
+        url: 'campaign_bar_premium_url'
+    }
+];
 
 /// Campaign Bar ///
 function campaignBar() {
