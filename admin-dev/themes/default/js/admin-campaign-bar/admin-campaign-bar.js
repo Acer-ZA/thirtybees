@@ -31,14 +31,41 @@ var campaigns = [
     }
 ];
 
-/// Campaign Bar ///
-function campaignBar() {
-    console.log("campaign bar actioned");
-    console.log("campaign_bar_love_class: " + campaign_bar_love_class);
-    console.log("campaign_bar_love_intro: " + campaign_bar_love_intro);
-    console.log("campaign_bar_love_cta: " + campaign_bar_love_cta);
-    console.log("campaign_bar_love_url: " + campaign_bar_love_url);
+
+/// Get Random Campaign Bar ///
+function getRandomCampaign() {
+    console.log("getRandomCampaign");
+
+    // Get a random campaign from the list
+    return campaigns[Math.floor(Math.random() * campaigns.length)];
 }
+
+function updateCampaignBar(campaign) {
+    console.log("updateCampaignBar: " + campaign);
+
+    // Update the campaign bar with the selected campaign
+    $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
+    $('.tb-admin-campaign-bar-cta-inline').html(window[campaign.cta]);
+    $('.tb-admin-campaign-bar-cta').html(window[campaign.cta]);
+
+    // Remove previous class and add the selected class
+    $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
+}
+
+/// Initiate Campaign Bar ///
+function InitiateCampaignBar() {
+    console.log("InitiateCampaignBar");
+    // Initial update
+    var initialCampaign = getRandomCampaign();
+    updateCampaignBar(initialCampaign);
+
+    // Update every 5 seconds (adjust as needed)
+    setInterval(function () {
+        var newCampaign = getRandomCampaign();
+        updateCampaignBar(newCampaign);
+    }, 10000);
+}
+
 
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
@@ -170,12 +197,13 @@ function campaignBarClose() {
 $(document).ready(function () {
    /* notificationPopup();*/
     console.log('actioned');
+    InitiateCampaignBar();
     campaignBarClose();
     checkCampaignBarClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
-    campaignBar();
-
+    InitiateCampaignBar();
+    $('body').addClass('show-campaign-bar');
     /*$('body').addClass('show-sys-animation');*/
 
 
