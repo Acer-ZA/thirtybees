@@ -45,8 +45,10 @@ function updateCampaignBar(campaign) {
 
     // Update the campaign bar with the selected campaign
     $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
-    $('.tb-admin-campaign-bar-cta-inline').html(window[campaign.cta]);
-    $('.tb-admin-campaign-bar-cta').html(window[campaign.cta]);
+    $('.tb-admin-campaign-bar-cta-inline a').html(window[campaign.cta]);
+    $('.tb-admin-campaign-bar-cta-inline a').attr("href",window[campaign.url]);
+    $('.tb-admin-campaign-bar-cta a').html(window[campaign.cta]);
+    $('.tb-admin-campaign-bar-cta a').attr("href", window[campaign.url]);
 
     // Remove previous class and add the selected class
     $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
