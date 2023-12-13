@@ -634,10 +634,21 @@ span.maintenance-mode {
     box-shadow: -1px -1px 10px 7px rgba(76,161,59,0.21);
 }
 
-
 /*/// Campaigns ///*/
 .campaign-bar-supporter .tb-admin-campaign-bar-icon {
     background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart-black.svg');
+}
+
+.campaign-bar-technical-support .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-tools.svg');
+}
+
+.campaign-bar-thanks .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-thank-you.svg');
+}
+
+.campaign-bar-premium .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-diamond-large.svg');
 }
 
 .tb-admin-campaign-bar-cta-inline {
