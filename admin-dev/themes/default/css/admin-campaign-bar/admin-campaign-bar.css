@@ -538,7 +538,13 @@
     background-color: #fff;
     cursor: pointer !important;
     z-index: 10;
+    transition: all 250ms ease-in-out;
 }
+
+ .campaign-bar-close-holder:hover {
+    background-color: #000;
+    color: #fff;
+} 
 
 .campaign-bar-close-icon {
     font-size: 10px !important;
