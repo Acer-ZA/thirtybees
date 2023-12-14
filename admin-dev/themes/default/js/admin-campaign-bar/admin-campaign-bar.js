@@ -42,7 +42,7 @@ function getRandomCampaign() {
 
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
-
+   
     // Update the campaign bar with the selected campaign
     $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
     $('.tb-admin-campaign-bar-cta-inline a').html(window[campaign.cta]);
@@ -52,6 +52,10 @@ function updateCampaignBar(campaign) {
 
     // Remove previous class and add the selected class
     $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
+    $(".campaign-bar-holder").removeClass("animate-campaign-bar");
+    setTimeout(function () {
+        $(".campaign-bar-holder").addClass("animate-campaign-bar");
+    }, 800);
 }
 
 /// Initiate Campaign Bar ///
