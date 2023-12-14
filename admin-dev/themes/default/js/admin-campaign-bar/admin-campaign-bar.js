@@ -52,9 +52,9 @@ function updateCampaignBar(campaign) {
 
     // Remove previous class and add the selected class
     $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
-    $(".campaign-bar-holder").removeClass("animate-campaign-bar");
+    $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
     setTimeout(function () {
-        $(".campaign-bar-holder").addClass("animate-campaign-bar");
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
     }, 800);
 }
 

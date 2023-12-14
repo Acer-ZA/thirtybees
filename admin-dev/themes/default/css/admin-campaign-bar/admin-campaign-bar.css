@@ -610,10 +610,28 @@ span.maintenance-mode {
     animation: none;
     opacity: 0;
     transform: translateX(-100%);
+    animation: sysStateIn 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
-.animate-campaign-bar .tb-admin-campaign-bar-text {
-    animation: slideInFadeHorizontal;
+.animate-campaign-bar-in .tb-admin-campaign-bar-text {
+    animation: sysStateIn 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.animate-campaign-bar-out .tb-admin-campaign-bar-text {
+    animation: sysStateOut 2s ease-out 0s;
     animation-delay: 0ms;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
