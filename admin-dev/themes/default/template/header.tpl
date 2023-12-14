@@ -84,14 +84,14 @@
 
 		/// Thank You ///
 		var campaign_bar_thanks_class = 'campaign-bar-thanks';
-		var campaign_bar_thanks_intro = '{l s="[1]Thank You[/1] for your Support!" tags=["<b>"]}';
+		var campaign_bar_thanks_intro = '{l s="[1]Thank You[/1] for your [1]Support![/1]" tags=["<b>"]}';
 		var campaign_bar_thanks_cta = '{l s=""}';
 		var campaign_bar_thanks_url = "";
 
 		/// Premium Modules ///
 		var campaign_bar_premium_class = 'campaign-bar-premium';
-		var campaign_bar_premium_intro = '{l s="[1]Enhance Your Store[/1] with ThirtyBees [1]Premium Modules[/1]" tags=["<b>"]}';
-		var campaign_bar_premium_cta = '{l s=""}';
+		var campaign_bar_premium_intro = '{l s="[1]Enhance Your Store[/1] with [1]Premium Modules[/1]" tags=["<b>"]}';
+		var campaign_bar_premium_cta = '{l s="Check them out now"}';
 		var campaign_bar_premium_url = "https://www.thirtybees.com";
 
 
