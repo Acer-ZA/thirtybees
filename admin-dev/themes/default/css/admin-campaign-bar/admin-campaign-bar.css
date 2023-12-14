@@ -620,7 +620,7 @@ span.maintenance-mode {
 }
 
 .animate-campaign-bar-in .tb-admin-campaign-bar-text {
-    animation: sysStateIn 2s ease-out 0s;
+    animation: slideInFadeHorizontal 2s ease-out 0s;
     animation-delay: 0ms;
     animation-direction: normal;
     animation-timing-function: ease-in-out;

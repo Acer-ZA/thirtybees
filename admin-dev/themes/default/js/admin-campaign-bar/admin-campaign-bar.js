@@ -52,9 +52,10 @@ function updateCampaignBar(campaign) {
 
     // Remove previous class and add the selected class
     $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
-    $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
+    $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
     setTimeout(function () {
-        $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+       /* $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");*/
     }, 800);
 }
 
