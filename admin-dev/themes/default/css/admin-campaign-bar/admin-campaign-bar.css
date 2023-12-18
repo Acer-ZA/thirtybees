@@ -65,6 +65,31 @@
     }
 }
 
+@keyframes campaignIn {
+    0% {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes campaignOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+
 @keyframes sysHolderWidth0 {
     0% {
         width: 100%;
@@ -619,8 +644,8 @@ span.maintenance-mode {
     animation-fill-mode: forwards;
 }
 
-.animate-campaign-bar-in .tb-admin-campaign-bar-text {
-    animation: slideInFadeHorizontal 2s ease-out 0s;
+.animate-campaign-bar-in .tb-admin-campaign-bar-text-inner {
+    animation: campaignIn 2s ease-out 0s;
     animation-delay: 0ms;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
@@ -629,9 +654,8 @@ span.maintenance-mode {
     animation-fill-mode: forwards;
 }
 
-
-.animate-campaign-bar-out .tb-admin-campaign-bar-text {
-    animation: sysStateOut 2s ease-out 0s;
+.animate-campaign-bar-out .tb-admin-campaign-bar-text-inner {
+    animation: campaignOut 2s ease-out 0s;
     animation-delay: 0ms;
     animation-direction: normal;
     animation-timing-function: ease-in-out;

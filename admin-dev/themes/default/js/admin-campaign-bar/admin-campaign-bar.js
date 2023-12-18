@@ -42,7 +42,7 @@ function getRandomCampaign() {
 
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
-   
+
     // Update the campaign bar with the selected campaign
     $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
     $('.tb-admin-campaign-bar-cta-inline a').html(window[campaign.cta]);
@@ -52,11 +52,12 @@ function updateCampaignBar(campaign) {
 
     // Remove previous class and add the selected class
     $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
+    $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
+
     $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
-    setTimeout(function () {
-       /* $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
-        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");*/
-    }, 800);
+    /*setTimeout(function () {
+        $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
+    }, 1000);*/
 }
 
 /// Initiate Campaign Bar ///
@@ -69,7 +70,13 @@ function InitiateCampaignBar() {
     // Update every 5 seconds (adjust as needed)
     setInterval(function () {
         var newCampaign = getRandomCampaign();
-        updateCampaignBar(newCampaign);
+        $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
+
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
+        setTimeout(function(){
+            updateCampaignBar(newCampaign);
+        }, 1000);
+        
     }, 10000);
 }
 
