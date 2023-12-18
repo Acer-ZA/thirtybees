@@ -632,19 +632,11 @@ span.maintenance-mode {
     font-size: 12px;
     font-weight: 400 !important;
     color: #000000 !important;
-    animation: none;
-    opacity: 0;
-    transform: translateX(-100%);
-    animation: sysStateIn 2s ease-out 0s;
-    animation-delay: 0ms;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1200ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    overflow: hidden;
 }
 
 .animate-campaign-bar-in .tb-admin-campaign-bar-text-inner {
+    opacity: 0;
     animation: campaignIn 2s ease-out 0s;
     animation-delay: 0ms;
     animation-direction: normal;
@@ -655,6 +647,7 @@ span.maintenance-mode {
 }
 
 .animate-campaign-bar-out .tb-admin-campaign-bar-text-inner {
+    opacity: 0;
     animation: campaignOut 2s ease-out 0s;
     animation-delay: 0ms;
     animation-direction: normal;
