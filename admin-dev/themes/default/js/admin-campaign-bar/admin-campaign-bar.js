@@ -36,8 +36,15 @@ var campaigns = [
 function getRandomCampaign() {
     console.log("getRandomCampaign");
 
-    // Get a random campaign from the list
-    return campaigns[Math.floor(Math.random() * campaigns.length)];
+    // Combine Math.random() and timestamp for better randomness
+    var combinedSeed = Math.random().toString() + new Date().getTime().toString();
+    var seed = parseInt(combinedSeed.split('.')[1]); // Use only the decimal part of Math.random()
+
+    // Use seed to generate a random index
+    var randomIndex = seed % campaigns.length;
+
+    return campaigns[randomIndex];
+
 }
 
 function updateCampaignBar(campaign) {

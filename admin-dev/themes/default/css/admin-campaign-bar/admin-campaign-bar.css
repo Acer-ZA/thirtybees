@@ -89,6 +89,33 @@
     }
 }
 
+@keyframes campaignIconIn {
+    0% {
+        opacity: 1;
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes campaignIconOut {
+    0% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+}
+
+
+.campaignIconIn
+
 
 @keyframes sysHolderWidth0 {
     0% {
@@ -703,6 +730,28 @@ span.maintenance-mode {
 /*/// Campaigns ///*/
 .campaign-bar-supporter .tb-admin-campaign-bar-icon {
     background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart-black.svg');
+}
+
+.animate-campaign-bar-in .tb-admin-campaign-bar-icon {
+    opacity: 0;
+    animation: campaignIconIn 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.animate-campaign-bar-out .tb-admin-campaign-bar-icon {
+    opacity: 0;
+    animation: campaignIconOut 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .campaign-bar-technical-support .tb-admin-campaign-bar-icon {
