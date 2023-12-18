@@ -36,15 +36,12 @@ var campaigns = [
 function getRandomCampaign() {
     console.log("getRandomCampaign");
 
-    // Combine Math.random() and timestamp for better randomness
-    var combinedSeed = Math.random().toString() + new Date().getTime().toString();
-    var seed = parseInt(combinedSeed.split('.')[1]); // Use only the decimal part of Math.random()
+    // Use a random index directly
+    var randomIndex = Math.floor(Math.random() * campaigns.length);
 
-    // Use seed to generate a random index
-    var randomIndex = seed % campaigns.length;
+    console.log("Random Index: " + randomIndex);
 
     return campaigns[randomIndex];
-
 }
 
 function updateCampaignBar(campaign) {
@@ -70,22 +67,25 @@ function updateCampaignBar(campaign) {
 /// Initiate Campaign Bar ///
 function InitiateCampaignBar() {
     console.log("InitiateCampaignBar");
+
+    function updateAndAnimate() {
+        var newCampaign = getRandomCampaign();
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
+
+        setTimeout(function () {
+            updateCampaignBar(newCampaign);
+            $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
+        }, 1000);
+    }
+
     // Initial update
     var initialCampaign = getRandomCampaign();
     updateCampaignBar(initialCampaign);
 
-    // Update every 5 seconds (adjust as needed)
-    setInterval(function () {
-        var newCampaign = getRandomCampaign();
-        $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
-
-        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
-        setTimeout(function(){
-            updateCampaignBar(newCampaign);
-        }, 1000);
-        
-    }, 10000);
+    // Update every 10 seconds
+    setInterval(updateAndAnimate, 10000);
 }
+
 
 
 /// Check for notifications and show on responsive bell icon ///
