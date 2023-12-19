@@ -113,9 +113,32 @@
     }
 }
 
+@keyframes campaignLinkIn {
+    0% {
+        opacity: 1;
+        border-width: 0;
+        transform: rotateX(90deg);
+    }
 
-.campaignIconIn
+    100% {
+        opacity: 1;
+        border-width: 1;
+        transform: rotateX(0deg);
+    }
+}
 
+@keyframes campaignLinkOut {
+    0% {
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        opacity: 1;
+        border-width: 0;
+        transform: rotateX(90deg);
+    }
+}
 
 @keyframes sysHolderWidth0 {
     0% {
@@ -696,6 +719,28 @@ span.maintenance-mode {
 .tb-admin-campaign-bar .tb-admin-campaign-bar-cta {
     display: inline-flex;
     align-items: center;
+}
+
+.animate-campaign-bar-in .tb-admin-campaign-bar-cta, .animate-campaign-bar-in .tb-admin-campaign-bar-cta-inline {
+    opacity: 0;
+    animation: campaignLinkIn 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.animate-campaign-bar-out .tb-admin-campaign-bar-cta, .animate-campaign-bar-out .tb-admin-campaign-bar-cta-inline {
+    opacity: 0;
+    animation: campaignLinkOut 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .tb-admin-campaign-bar .tb-admin-campaign-bar-cta a {
