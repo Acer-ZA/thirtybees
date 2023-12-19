@@ -74,7 +74,7 @@
 		var campaign_bar_love_class = 'campaign-bar-supporter';
 		var campaign_bar_love_intro = '{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=["<b>"]}';
 		var campaign_bar_love_cta = '{l s="Become a Supporter Today!"}';
-		var campaign_bar_love_url = "https://www.thirtybees.com";
+		var campaign_bar_love_url = ""; /// Don't add URL for this one ///
 
 		/// Technical Support ///
 		var campaign_bar_techsupport_class = 'campaign-bar-technical-support';

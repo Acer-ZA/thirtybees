@@ -66,9 +66,13 @@ function updateCampaignBar(campaign) {
 
 /// Bind Campaign Modals ///
 function bindCampaignModals() {
-    $('.campaign-bar-supporter').click(function () {
-        openSupportThirtyBeesModal();
-    });
+    $('.campaign-bar-holder-inner-actual').off("click");
+    setTimeout(function () {
+        $('.campaign-bar-supporter').on("click", function () {
+            console.log("supporter");
+            openSupportThirtyBeesModal();
+        });
+    }, 10);
 }
 
 /// Initiate Campaign Bar ///

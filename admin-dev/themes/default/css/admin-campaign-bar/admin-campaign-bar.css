@@ -770,6 +770,11 @@ span.maintenance-mode {
     background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart-black.svg');
 }
 
+.campaign-bar-supporter {
+    cursor: pointer;
+}
+
+
 .animate-campaign-bar-in .tb-admin-campaign-bar-icon {
     opacity: 0;
     animation: campaignIconIn 2s ease-out 0s;
