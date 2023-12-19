@@ -64,9 +64,16 @@ function updateCampaignBar(campaign) {
     }, 1000);*/
 }
 
+/// Bind Campaign Modals ///
+function bindCampaignModals() {
+    $('.campaign-bar-supporter').click(function () {
+        openSupportThirtyBeesModal();
+    });
+}
+
 /// Initiate Campaign Bar ///
-function InitiateCampaignBar() {
-    console.log("InitiateCampaignBar");
+function initiateCampaignBar() {
+    console.log("initiateCampaignBar");
 
     function updateAndAnimate() {
         var newCampaign = getRandomCampaign();
@@ -81,6 +88,7 @@ function InitiateCampaignBar() {
     // Initial update
     var initialCampaign = getRandomCampaign();
     updateCampaignBar(initialCampaign);
+    bindCampaignModals();
 
     // Update every 10 seconds
     setInterval(updateAndAnimate, 10000);
@@ -124,31 +132,18 @@ function openNotificationsModal() {
         $('#notificationsModalContent').html("");
         console.log("modal closed");
     });
+}
 
-    // Inject the cloned content into the modal
-   /* $('.notifications-dropdown').html(contentToInject);
-
-    $('.notifications-icon ').on('hidden.bs.dropdown', function () {
-        $('#notificationsModalContent').html("");
-    });*/
+/// Support ThirtyBees Modal ///
+function openSupportThirtyBeesModal() {
+    console.log("Support Thirty Bees modal");
+    
+    /// Show the modal
+    $('#supportThirtyBeesModal').modal('show');
 
 }
 
-
-/*function notificationPopup() {
-    console.log('notifications popup');
-    var getWindowWidth = $(window).width();
-    if (getWindowWidth > 1100) {
-        console.log('window width');
-    }
-}
-
-$(window).on('resize', function () {
-    notificationPopup();
-});
-*/
-
-// Function to get a cookie value
+/// Function to get a cookie value
 function getCookie(name) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
@@ -160,7 +155,7 @@ function getCookie(name) {
     return null;
 }
 
-// Function to set a cookie value
+/// Function to set a cookie value
 function setCookie(name, value, days) {
     var expires = '';
     if (days) {
@@ -218,17 +213,18 @@ function campaignBarClose() {
 $(document).ready(function () {
    /* notificationPopup();*/
     console.log('actioned');
-    InitiateCampaignBar();
+    initiateCampaignBar();
     campaignBarClose();
     checkCampaignBarClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
-    InitiateCampaignBar();
     $('body').addClass('show-campaign-bar');
     /*$('body').addClass('show-sys-animation');*/
 
 
+    /// Initial Bindings ///
     $('.notifications-icon').click(function () {
         openNotificationsModal();
     });
+
 });

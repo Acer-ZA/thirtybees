@@ -403,6 +403,24 @@
     </div>
   </div>
 </div>
+
+{*/// Support ThirtyBees Modal ///*}
+<div class="modal fade" id="supportThirtyBeesModal" tabindex="-1" role="dialog" aria-labelledby="supportThirtyBeesModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="supportThirtyBeesModalLabel">{l s="Support ThirtyBees"}</h4>
+      </div>
+      <div class="modal-body" id="supportThirtyBeesModalContent">
+		  <h2>{l s="Support ThirtyBees"}</h2>
+	  </div>
+    </div>
+  </div>
+</div>
+
 {* end display_header*}
 
 {else}

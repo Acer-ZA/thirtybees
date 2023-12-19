@@ -162,7 +162,6 @@
     }
 }
 
-
 .sys-state-holder {
     display: inline-block;
     width: 35px;
@@ -188,12 +187,6 @@
 .maintenance-mode-holder.maintenance-mode-on {
     display: inline-block;
     width: 100%!important;
-    /*animation: slideInFadeHorizontal;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1200ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;*/
 }
 
 .debug-mode-holder {
