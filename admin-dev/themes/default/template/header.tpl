@@ -74,7 +74,7 @@
 		var campaign_bar_love_class = 'campaign-bar-supporter';
 		var campaign_bar_love_intro = '{l s="Love [1]ThirtyBees?[/1] Help Us [1]Grow![/1]" tags=["<b>"]}';
 		var campaign_bar_love_cta = '{l s="Become a Supporter Today!"}';
-		var campaign_bar_love_url = ""; /// Don't add URL for this one ///
+		var campaign_bar_love_url = "#"; /// Don't add URL for this one ///
 
 		/// Technical Support ///
 		var campaign_bar_techsupport_class = 'campaign-bar-technical-support';
@@ -92,7 +92,7 @@
 		var campaign_bar_premium_class = 'campaign-bar-premium';
 		var campaign_bar_premium_intro = '{l s="[1]Enhance Your Store[/1] with [1]Premium Modules[/1]" tags=["<b>"]}';
 		var campaign_bar_premium_cta = '{l s="Check them out now"}';
-		var campaign_bar_premium_url = "https://www.thirtybees.com";
+		var campaign_bar_premium_url = "index.php?controller=AdminModules&token=05546656a4b2edea79c4c319fabd236c";
 
 
 	</script>
