@@ -984,9 +984,9 @@ span.maintenance-mode {
 }
 
 @media (min-width: 500px) and (max-width: 587px) {
-    .tb-admin-campaign-bar-text {
+    /*.tb-admin-campaign-bar-text {
         display: none!important;
-    }
+    }*/
 }
 
 @media (max-width: 591px) {

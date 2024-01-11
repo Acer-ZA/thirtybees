@@ -49,7 +49,7 @@ function getRandomCampaign() {
 
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
-    $('.tb-admin-campaign-bar').off("click");
+    $('.tb-admin-campaign-bar .campaign-bar-holder-inner-actual').off("click");
 
     // Update the campaign bar with the selected campaign
     $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
@@ -73,7 +73,7 @@ function updateCampaignBar(campaign) {
 /// Bind Campaign Modals ///
 function bindCampaignModals() {
     setTimeout(function () {
-        $('.tb-admin-campaign-bar.campaign-bar-supporter').on("click", function () {
+        $('.tb-admin-campaign-bar.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
             console.log("supporter");
             openSupportThirtyBeesModal();
         });
