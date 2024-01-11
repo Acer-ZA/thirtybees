@@ -33,19 +33,23 @@ var campaigns = [
 
 
 /// Get Random Campaign Bar ///
+var previousCampaign;
+
 function getRandomCampaign() {
-    console.log("getRandomCampaign");
+    var randomCampaign;
+    do {
+        randomCampaign = campaigns[Math.floor(Math.random() * campaigns.length)];
+    } while (randomCampaign === previousCampaign);
 
-    // Use a random index directly
-    var randomIndex = Math.floor(Math.random() * campaigns.length);
-
-    console.log("Random Index: " + randomIndex);
-
-    return campaigns[randomIndex];
+    previousCampaign = randomCampaign;
+    return randomCampaign;
 }
+
+
 
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
+    $('.tb-admin-campaign-bar').off("click");
 
     // Update the campaign bar with the selected campaign
     $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
@@ -59,6 +63,8 @@ function updateCampaignBar(campaign) {
     $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
 
     $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+    bindCampaignModals();
+
     /*setTimeout(function () {
         $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
     }, 1000);*/
@@ -66,9 +72,8 @@ function updateCampaignBar(campaign) {
 
 /// Bind Campaign Modals ///
 function bindCampaignModals() {
-    $('.campaign-bar-holder-inner-actual').off("click");
     setTimeout(function () {
-        $('.campaign-bar-supporter').on("click", function () {
+        $('.tb-admin-campaign-bar.campaign-bar-supporter').on("click", function () {
             console.log("supporter");
             openSupportThirtyBeesModal();
         });
@@ -92,7 +97,6 @@ function initiateCampaignBar() {
     // Initial update
     var initialCampaign = getRandomCampaign();
     updateCampaignBar(initialCampaign);
-    bindCampaignModals();
 
     // Update every 10 seconds
     setInterval(updateAndAnimate, 10000);
