@@ -313,8 +313,6 @@
     border: 1px solid red;
     display: inline-grid;
     width: 100%;
-    background: red;
-    /*grid-template-columns: auto auto auto auto 1fr auto;*/
 }
 
 .tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
@@ -329,7 +327,6 @@
     border: 1px solid red;
     display: inline-grid;
     width: 100%;
-    background: red;
     /* Grid template columns guide (5): 
         1. Logo, 2. Site Name, 3. Notifications + Quick Access, 4. Campaign, 5. User Column 
     */
@@ -365,7 +362,6 @@
 }
 
 #header_shopname {
-    background-color: purple;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
@@ -373,9 +369,7 @@
     font-size: 12px!important;
 }
 
-#header_shop {
-
-}
+#header_shop {}
 
 .tb-admin-top-bar-multishop-outer-container {
     height: 100%;
@@ -403,7 +397,6 @@
 .notifications-quick-access-holder {
     display: inline-grid;
     grid-template-columns: auto auto;
-    background-color: yellow;
     align-content: center;
 }
 
@@ -554,7 +547,6 @@
     display: inline-grid !important;
     height: 100%;
     align-items: center;
-    background: purple;
     display: inline-grid !important;
     grid-template-columns: auto auto auto;
     grid-column-gap: 3px;
@@ -571,7 +563,6 @@
 }
 
 #header_quick .header-main-li {
-    background: blue !important;
     display: inline-flex;
     align-items: center;
     height: 100% !important;
@@ -581,13 +572,11 @@
     border: 1px solid white;
     display: inline-flex;
     justify-content: center !important;
-    background: pink;
 }
 
 .campaign-bar-holder-inner-outer {
     position: relative;
     border: 1px solid red;
-    background: grey;
     display: none;
 }
 
@@ -641,7 +630,6 @@
 #header_employee_box a.employee_name.dropdown-toggle {
     display: inline-flex !important;
     align-items: center !important;
-    background: green;
     height: 100%;
 }
 
@@ -833,7 +821,6 @@ span.maintenance-mode {
     display: inline-grid;
     grid-template-columns: auto auto;
     grid-column-gap: 10px;
-    background: blue;
 }
 
 #header_employee_box::before {
@@ -848,7 +835,6 @@ span.maintenance-mode {
     display: inline-grid;
     grid-template-columns: auto auto;
     grid-column-gap: 5px;
-    background: blue;
 }
 
 .show-sys-animation .new-employee-name-box {
@@ -904,7 +890,6 @@ span.maintenance-mode {
 #employee_infos .dropdown-toggle span:first-of-type {
     display: inline-flex !important;
     align-items: center !important;
-    background: red;
     padding-left: 5px;
 }
 
@@ -961,7 +946,6 @@ span.maintenance-mode {
         display: inline-block !important;
         width: 100px !important;
         height: 100% !important;
-        background: green;
     }
 
     .tb-admin-top-bar-multishop-holder {
@@ -1023,7 +1007,6 @@ span.maintenance-mode {
         display: inline-grid;
         grid-template-columns: auto auto auto auto auto;
         /*/// columns are 5 not 6*/
-        background: blue;
     }
 }
 
