@@ -794,12 +794,20 @@ span.maintenance-mode {
     animation-fill-mode: forwards;
 }
 
-.campaign-bar-technical-support .tb-admin-campaign-bar-icon {
-    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-tools.svg');
+.admin-header-light .campaign-bar-technical-support .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-tools-black.svg');
 }
 
-.campaign-bar-thanks .tb-admin-campaign-bar-icon {
-    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-thank-you.svg');
+.admin-header-dark .campaign-bar-technical-support .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-tools-white.svg');
+}
+
+.admin-header-light .campaign-bar-thanks .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-thank-you-black.svg');
+}
+
+.admin-header-dark .campaign-bar-thanks .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-thank-you-white.svg');
 }
 
 .campaign-bar-thanks .tb-admin-campaign-bar-cta-inline, .campaign-bar-thanks .tb-admin-campaign-bar-cta {
