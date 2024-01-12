@@ -80,8 +80,36 @@ function bindCampaignModals() {
     }, 10);
 }
 
+/// Check Admin BG Colour ///
+function checkAdminBGColour() {
+    function adminHeaderDark() {
+        console.log("admin header dark");
+        $(".bootstrap #header_infos").addClass("admin-header-dark");
+    }
+    function adminHeaderLight() {
+        console.log("admin header light");
+        $(".bootstrap #header_infos").addClass("admin-header-light");
+    }
+    var getAdminBGColour = $(".bootstrap #header_infos").css('background-color');
+    console.log("*** Admin bg colour is: " + getAdminBGColour);
+    /// Dark
+    if (getAdminBGColour == "rgb(119, 41, 83)" || getAdminBGColour == "rgb(40, 43, 48)") {
+        console.log("dark")
+        adminHeaderDark();
+    }
+    /// Light
+    if (getAdminBGColour == "rgb(255, 204, 0)") {
+        adminHeaderLight();
+    }
+    else {
+        console.log("light")
+    }
+
+}
+
 /// Initiate Campaign Bar ///
 function initiateCampaignBar() {
+    checkAdminBGColour();
     console.log("initiateCampaignBar");
 
     function updateAndAnimate() {

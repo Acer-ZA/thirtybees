@@ -357,7 +357,6 @@
 
 
 #header_shopversion {
-    background-color: grey;
     position: relative;
 }
 
@@ -662,8 +661,15 @@ span.maintenance-mode {
     align-items: center;
     font-size: 12px;
     font-weight: 400 !important;
-    color: #000000 !important;
     overflow: hidden;
+}
+
+.admin-header-light .tb-admin-campaign-bar-text {
+    color: #000000 !important;
+}
+
+.admin-header-dark .tb-admin-campaign-bar-text {
+    color: #FFF !important;
 }
 
 .animate-campaign-bar-in .tb-admin-campaign-bar-text-inner {
@@ -885,6 +891,10 @@ span.maintenance-mode {
 #employee_infos .employee_name {
     padding-left: 10px !important;
     padding-right: 10px !important;
+}
+
+#employee_infos a, #employee_infos:hover {
+    text-decoration: none!important;
 }
 
 #employee_infos .dropdown-toggle span:first-of-type {
