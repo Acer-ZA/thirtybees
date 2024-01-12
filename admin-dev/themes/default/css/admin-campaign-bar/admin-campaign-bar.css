@@ -760,14 +760,17 @@ span.maintenance-mode {
 }
     
 /*/// Campaigns ///*/
-.campaign-bar-supporter .tb-admin-campaign-bar-icon {
+.admin-header-light .campaign-bar-supporter .tb-admin-campaign-bar-icon {
     background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart-black.svg');
+}
+
+.admin-header-dark .campaign-bar-supporter .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-bar-heart-white.svg');
 }
 
 .campaign-bar-supporter {
     cursor: pointer;
 }
-
 
 .animate-campaign-bar-in .tb-admin-campaign-bar-icon {
     opacity: 0;
