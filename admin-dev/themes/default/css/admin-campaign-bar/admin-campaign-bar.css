@@ -814,8 +814,12 @@ span.maintenance-mode {
     display: none !important;
 }
 
-.campaign-bar-premium .tb-admin-campaign-bar-icon {
-    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-diamond-large.svg');
+.admin-header-light .campaign-bar-premium .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-diamond-large-black.svg');
+}
+
+.admin-header-dark .campaign-bar-premium .tb-admin-campaign-bar-icon {
+    background-image: url('../../img/thirtybees/top-campaign-bar/campaign-diamond-large-white.svg');
 }
 
 .tb-admin-campaign-bar-cta-inline {
