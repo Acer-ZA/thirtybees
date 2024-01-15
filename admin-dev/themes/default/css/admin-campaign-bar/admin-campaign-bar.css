@@ -342,8 +342,15 @@
 }
 
 .tb-admin-campaign-bar-fa-icon i {
-    color: var(--color-dark);
     font-size: 14px;
+}
+
+.admin-header-dark .tb-admin-campaign-bar-fa-icon i {
+    color: var(--color-light);
+}
+
+.admin-header-light .tb-admin-campaign-bar-fa-icon i {
+    color: var(--color-dark);
 }
 
 .tb-admin-campaign-bar-fa-icon:hover i {
@@ -829,8 +836,15 @@ span.maintenance-mode {
 .tb-admin-campaign-bar-cta-inline a {
     display: inline-flex;
     width: 100%;
-    color: var(--color-dark);
     text-decoration: underline;
+}
+
+.admin-header-dark .tb-admin-campaign-bar-cta-inline a {
+    color: var(--color-light);
+}
+
+.admin-header-light .tb-admin-campaign-bar-cta-inline a {
+    color: var(--color-dark);
 }
 
 .tb-admin-campaign-bar-cta-inline a:hover {
