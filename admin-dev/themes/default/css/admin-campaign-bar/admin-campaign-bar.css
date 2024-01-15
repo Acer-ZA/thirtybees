@@ -949,6 +949,11 @@ span.maintenance-mode {
 
 }
 
+#supportThirtyBeesModal .modal-title {
+    /*font-family: "Roboto";
+    font-weight: 500;*/
+}
+
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
@@ -1092,6 +1097,12 @@ span.maintenance-mode {
         align-self: center!important;*/
     }
 
+}
+
+@media (min-width: 768px) {
+    #supportThirtyBeesModal .modal-dialog {
+        min-width: 65%!important;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

@@ -418,10 +418,16 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="supportThirtyBeesModalLabel">{l s="Support ThirtyBees"}</h4>
+        <h4 class="modal-title" id="supportThirtyBeesModalLabel">{l s="ThirtyBees - Empowering your business to reach new heights!"}</h4>
       </div>
       <div class="modal-body" id="supportThirtyBeesModalContent">
-		  <h2>{l s="Support ThirtyBees"}</h2>
+			<div class="support-tb-intro-holder">
+				<div class="support-tb-intro-icon"></div>
+				<div class="support-tb-intro-text">
+					{l s="[1]Why Support Thirty Bees?[/1] [2]With ThirtyBees you can utilise of the [1]best Enterprise Class e-Commerce platforms for FREE[/1]. [2]Unfortunately, sustaining and enhancing it involves costs. If you'd love ThirtyBees, [1]please consider supporting us[/1]. Your pledge ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
+				
+				</div>
+			</div>
 	  </div>
     </div>
   </div>
