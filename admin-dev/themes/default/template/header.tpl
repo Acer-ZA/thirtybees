@@ -422,10 +422,18 @@
       </div>
       <div class="modal-body" id="supportThirtyBeesModalContent">
 			<div class="support-tb-intro-holder">
-				<div class="support-tb-intro-icon"></div>
 				<div class="support-tb-intro-text">
-					{l s="[1]Why Support Thirty Bees?[/1] [2]With ThirtyBees you can utilise of the [1]best Enterprise Class e-Commerce platforms for FREE[/1]. [2]Unfortunately, sustaining and enhancing it involves costs. If you'd love ThirtyBees, [1]please consider supporting us[/1]. Your pledge ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
-				
+					{l s="[1]Why Support Thirty Bees?[/1] [2]With ThirtyBees you can utilise of the [1]best Enterprise Class e-Commerce platforms for FREE[/1]. [2]Unfortunately, sustaining and enhancing it involves costs. If you'd love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
+				</div>
+			</div>
+
+			<div class="support-tb-once-off-holder">
+				<div class="support-once-off-text-icon"></div>
+				<div class="support-once-off-text-holder">
+					<h6>{l s="Once-off donation"}</h6>
+					<p>
+						{l s="Give a once-off donation"}
+					</p>
 				</div>
 			</div>
 	  </div>
