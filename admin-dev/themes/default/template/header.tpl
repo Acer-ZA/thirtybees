@@ -84,7 +84,7 @@
 
 		/// Thank You ///
 		var campaign_bar_thanks_class = 'campaign-bar-thanks';
-		var campaign_bar_thanks_intro = '{l s="[1]Thank You[/1] for your [1]Support![/1]" tags=["<b>"]}';
+		var campaign_bar_thanks_intro = '{l s="[1]Thank You[/1] for choosing [1]ThirtyBees![/1]" tags=["<b>"]}';
 		var campaign_bar_thanks_cta = '{l s=""}';
 		var campaign_bar_thanks_url = "";
 
@@ -427,15 +427,19 @@
 				</div>
 			</div>
 
-			<div class="support-tb-once-off-holder">
-				<div class="support-once-off-text-icon"></div>
-				<div class="support-once-off-text-holder">
-					<h6>{l s="Once-off donation"}</h6>
-					<p>
-						{l s="Give a once-off donation"}
-					</p>
+			<a class="support-tb-item-holder" href="#">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
 				</div>
-			</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Once-off donation"}</span>
+						<p>
+							{l s="Donate any amount once-off"}
+						</p>
+					</div>
+				</div>
+			</a>
 	  </div>
     </div>
   </div>
