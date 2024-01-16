@@ -4,6 +4,7 @@
     --tborange: #e6b800;
     --color-dark: #000;
     --color-light: #fff;
+    --color-grey: #555;
 }
 
 /*/// Animations ///*/
@@ -945,13 +946,22 @@ span.maintenance-mode {
 }
 
 /*/// Support ThirtyBees Modal ///*/
-#supportThirtyBeesModal {
-
+#supportThirtyBeesModal .modal-header {
+    padding-bottom: 5px!important;
 }
 
 #supportThirtyBeesModal .modal-title {
-    /*font-family: "Roboto";
-    font-weight: 500;*/
+    font-family: "Roboto";
+    font-weight: 600 !important;
+}
+
+.support-tb-intro-text {
+    font-size: 13px!important;
+}
+
+.support-tb-intro-text b {
+    display: inline-block;
+    margin-bottom: 4px;
 }
 
 .support-tb-item-holder {
@@ -961,10 +971,13 @@ span.maintenance-mode {
     width: 100%;
     padding: 10px;
     border: 1px solid white;
-    border-bottom: 1px solid silver;
-    transition: background 500ms ease-in-out!important;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.5);
+    transition: background 650ms ease-in-out !important;
     background-color: transparent;
     border-radius: 10px;
+    color: var(--color-grey) !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
 }
 
 .support-tb-item-holder:first-of-type {
@@ -993,17 +1006,13 @@ span.maintenance-mode {
     border: 1px solid blue;
 }
 
-.support-item-text-holder-inner {
-
-}
-
 .support-item-text-holder span {
     font-size: 13px !important;
     font-weight: 600 !important;
 }
 
 .support-item-text-holder p {
-    font-size: 12px!important;
+    font-size: 13px!important;
     margin: 0px!important;
 }
 

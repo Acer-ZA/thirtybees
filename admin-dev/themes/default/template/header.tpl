@@ -423,11 +423,12 @@
       <div class="modal-body" id="supportThirtyBeesModalContent">
 			<div class="support-tb-intro-holder">
 				<div class="support-tb-intro-text">
-					{l s="[1]Why Support Thirty Bees?[/1] [2]With ThirtyBees you can utilise of the [1]best Enterprise Class e-Commerce platforms for FREE[/1]. [2]Unfortunately, sustaining and enhancing it involves costs. If you'd love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
+					{l s="[1]Why Support Thirty Bees?[/1] [2]With ThirtyBees you can utilise of the [1]best Enterprise Class e-Commerce platforms for FREE[/1]. [2]Unfortunately, sustaining and enhancing it involves costs. If you love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
 				</div>
 			</div>
 
-			<a class="support-tb-item-holder" href="#">
+			{*/// Once off donation ///*}
+			<a class="support-tb-item-holder" href="#" target="_blank">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>
@@ -440,6 +441,22 @@
 					</div>
 				</div>
 			</a>
+
+			{*/// Become a Member ///*}
+			<a class="support-tb-item-holder" href="#" target="_blank">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
+				</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Become a Member (monthly subscription tiers)"}</span>
+						<p>
+							{l s="Select from a range of Monthly subscription amounts. [1] Some tiers include free support hours as well as access to powerful Premium Modules!" tags=["<br/>"]}
+						</p>
+					</div>
+				</div>
+			</a>
+
 	  </div>
     </div>
   </div>
