@@ -428,7 +428,7 @@
 			</div>
 
 			{*/// Once off donation ///*}
-			<a class="support-tb-item-holder" href="#" target="_blank">
+			<a class="support-tb-item-holder" href="https://forum.thirtybees.com/support-thirty-bees/" target="_blank">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>
@@ -443,7 +443,7 @@
 			</a>
 
 			{*/// Become a Member ///*}
-			<a class="support-tb-item-holder" href="#" target="_blank">
+			<a class="support-tb-item-holder" href="https://forum.thirtybees.com/support-thirty-bees/ " target="_blank">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>
@@ -452,6 +452,21 @@
 						<span>{l s="Become a Member (monthly subscription tiers)"}</span>
 						<p>
 							{l s="Select from a range of Monthly subscription amounts. [1] Some tiers include free support hours as well as access to powerful Premium Modules!" tags=["<br/>"]}
+						</p>
+					</div>
+				</div>
+			</a>
+
+			{*/// Become a Sponsor ///*}
+			<a class="support-tb-item-holder" href="mailto:chiel@thirtybees.com?subject=ThirtyBees%20Sponsor%20Request" target="_blank">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
+				</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Become a sponsor"}</span>
+						<p>
+							{l s="Email us for sponsorship options" tags=["<br/>"]}
 						</p>
 					</div>
 				</div>

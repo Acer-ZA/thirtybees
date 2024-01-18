@@ -970,9 +970,11 @@ span.maintenance-mode {
     grid-column-gap: 10px;
     width: 100%;
     padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border: 1px solid white;
     border-bottom: 1px solid rgba(192, 192, 192, 0.5);
-    transition: background 650ms ease-in-out !important;
+    transition: background 250ms ease-in-out !important;
     background-color: transparent;
     border-radius: 10px;
     color: var(--color-grey) !important;
@@ -984,6 +986,10 @@ span.maintenance-mode {
     margin-top: 10px;
 }
 
+.support-tb-item-holder:last-of-type {
+    margin-bottom: 10px;
+}
+
 .support-tb-item-holder:hover {
     text-decoration: none !important;
     color: var(--color-light) !important;
@@ -993,7 +999,6 @@ span.maintenance-mode {
 .support-item-icon {
     display: inline-flex;
     align-items: center;
-    border: 1px solid red;
 }
 
 .support-item-icon i {
@@ -1003,7 +1008,6 @@ span.maintenance-mode {
 .support-item-text-holder {
     display: inline-flex;
     align-items: center;
-    border: 1px solid blue;
 }
 
 .support-item-text-holder span {
@@ -1014,8 +1018,8 @@ span.maintenance-mode {
 .support-item-text-holder p {
     font-size: 13px!important;
     margin: 0px!important;
+    margin-top: 2px!important;
 }
-
 
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
