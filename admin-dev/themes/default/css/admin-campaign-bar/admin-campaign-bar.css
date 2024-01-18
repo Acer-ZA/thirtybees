@@ -170,7 +170,6 @@
     top: 0px;
     right: 0px;
     z-index: 999;
-    border: 1px solid red;
 }
 
 .show-sys-animation .sys-state-holder {
@@ -183,7 +182,6 @@
     animation-fill-mode: forwards;
     animation-delay: 4s;
 }
-
 
 .maintenance-mode-holder.maintenance-mode-on {
     display: inline-block;
@@ -236,7 +234,6 @@
 .sys-state-text-holder {
     display: inline-block;
     width: 100%;
-    border: 1px solid green;
     overflow: hidden;
 }
 
@@ -311,7 +308,6 @@
 }
 
 .campaign-bar-on .tb-admin-campaign-bar {
-    border: 1px solid red;
     display: inline-grid;
     width: 100%;
 }
@@ -320,12 +316,7 @@
     text-decoration: none;
 }
 
-.tb-admin-campaign-bar ul, .tb-admin-campaign-bar div, .tb-admin-campaign-bar #header_shopversion, .tb-admin-campaign-bar #header_shopname {
-    border: 1px solid blue;
-}
-
 .campaign-bar-on .tb-admin-campaign-bar {
-    border: 1px solid red;
     display: inline-grid;
     width: 100%;
     /* Grid template columns guide (5): 
@@ -391,7 +382,6 @@
     padding-right: 10px !important;
     height: 100%;
     align-items: center;
-    border: 1px solid blue !important;
 }
 
 .tb-admin-top-bar-multishop-outer-container span {
@@ -560,7 +550,6 @@
 }
 
 .header-quick-icon {
-    border: 1px solid green;
     width: 15px;
     height: 15px;
 }
@@ -576,14 +565,12 @@
 }
 
 .campaign-bar-holder {
-    border: 1px solid white;
     display: inline-flex;
     justify-content: center !important;
 }
 
 .campaign-bar-holder-inner-outer {
     position: relative;
-    border: 1px solid red;
     display: none;
 }
 
@@ -605,10 +592,11 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -4px;
-    right: -10px;
-    width: 14px;
-    height: 16px;
+    top: 0px;
+    right: -12px;
+    width: 15px;
+    height: 15px;
+    padding-left: 1px!important;
     border: 1.5px solid #0000!important;
     border-radius: 100%;
     background-color: #fff;
@@ -631,7 +619,6 @@
     /*padding: 0px !important;*/
     padding-left: 10px !important;
     padding-right: 10px !important;
-    border: 1px solid orange;
 }
 
 #header_employee_box a.employee_name.dropdown-toggle {
@@ -660,7 +647,7 @@ span.maintenance-mode {
     width: 16px;
     height: 16px;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
@@ -742,8 +729,9 @@ span.maintenance-mode {
     display: inline-flex;
     align-self: center;
     width: auto !important;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    margin-top: -2px!important;
+    padding-top: 6px;
+    padding-bottom: 6px;
     padding-left: 20px;
     padding-right: 20px;
     /*background: #4AAE35;*/
@@ -927,7 +915,6 @@ span.maintenance-mode {
 #employee_infos .employee_avatar_small .icon {
     display: inline-flex !important;
     align-self: center;
-    border: 1px solid red;
     font-size: 15px !important;
     line-height: normal !important;
 }
@@ -942,12 +929,18 @@ span.maintenance-mode {
     background-image: url('../../img/thirtybees/top-campaign-bar/user-circle-light.svg');
     width: 20px;
     height: 20px;
-    border: 1px solid white;
 }
+
+/*/// Guide Borders ///*/
+.campaign-bar-holder-inner-outer, #header_quick, #quick_select, #header_notifs_icon_wrapper, #header_shop, #employee_infos {
+    /*border: 1px solid black;*/
+    border: none!important;
+}
+
 
 /*/// Support ThirtyBees Modal ///*/
 #supportThirtyBeesModal .modal-header {
-    padding-bottom: 5px!important;
+    padding-bottom: 5px !important;
 }
 
 #supportThirtyBeesModal .modal-title {
