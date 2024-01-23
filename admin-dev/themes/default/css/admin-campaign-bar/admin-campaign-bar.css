@@ -165,7 +165,7 @@
 
 .sys-state-holder {
     display: inline-block;
-    width: 35px;
+    width: 10px;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -194,15 +194,19 @@
 }
 
 .maintenance-mode-holder.maintenance-mode-on .icon-cog-holder, .debug-mode-holder .icon-cog-holder {
+    width: 12px;
+    height: 12px;
     display: inline-flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     animation-delay: 0 !important;
     animation: fa-spin 20s infinite ease-in-out;
+    line-height: 0;
+    background: blue;
 }
     
 .maintenance-mode-holder.maintenance-mode-on i, .debug-mode-holder i {
-    color: var(--tborange) !important;
+    color: var(--color-light) !important;
     font-size: 14px !important;
     line-height: 0 !important;
 }
@@ -217,14 +221,16 @@
 
 .maintenance-mode-holder.maintenance-mode-on a, .debug-mode-holder a {
     display: inline-grid;
-    width: 100%!important;
+    width: 100% !important;
     grid-template-columns: 1fr auto;
     grid-column-gap: 2px;
     align-items: center;
     width: auto;
-    padding: 0px;
+    padding: 2px;
+    padding-right: 15px;
     font-size: 10px;
     white-space: nowrap;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .maintenance-mode-holder.maintenance-mode-on a:hover, .debug-mode-holder a:hover {
@@ -282,9 +288,7 @@
 
 .sys-state-icon-outer {
     display: inline-block;
-    background-color: rgba(0,0,0,0.5);
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0px;
 }
 
 .maintenance-tooltip {
@@ -732,8 +736,8 @@ span.maintenance-mode {
     margin-top: -2px!important;
     padding-top: 6px;
     padding-bottom: 6px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 13px;
+    padding-right: 13px;
     /*background: #4AAE35;*/
     background: linear-gradient(to bottom, rgba(58, 138, 39, 1) 0%,rgba(76, 179, 55, 1) 100%);
     border: 1px solid #307322;
