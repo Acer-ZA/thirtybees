@@ -31,7 +31,6 @@ var campaigns = [
     }
 ];
 
-
 /// Get Random Campaign Bar ///
 var previousCampaign;
 
@@ -44,8 +43,6 @@ function getRandomCampaign() {
     previousCampaign = randomCampaign;
     return randomCampaign;
 }
-
-
 
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
@@ -129,7 +126,6 @@ function initiateCampaignBar() {
     // Update every 10 seconds
     setInterval(updateAndAnimate, 10000);
 }
-
 
 
 /// Check for notifications and show on responsive bell icon ///
@@ -247,20 +243,23 @@ function campaignBarClose() {
 }
 
 $(document).ready(function () {
-   /* notificationPopup();*/
     console.log('actioned');
     initiateCampaignBar();
     campaignBarClose();
     checkCampaignBarClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
-    $('body').addClass('show-campaign-bar');
-    /*$('body').addClass('show-sys-animation');*/
 
+    /*$('body').addClass('show-sys-animation');*/
 
     /// Initial Bindings ///
     $('.notifications-icon').click(function () {
         openNotificationsModal();
     });
+
+
+    /// Remove when Release Ready ///
+    $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
+
 
 });
