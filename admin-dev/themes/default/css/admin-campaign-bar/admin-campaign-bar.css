@@ -173,24 +173,22 @@
 }
 
 .show-sys-animation .sys-state-holder {
-    width: 100%;
-    animation: sysHolderWidth0;
+    width: inherit;
+    display: inline-flex;
+    flex-direction: column;
+   /* animation: sysHolderWidth0;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-duration: 1200ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-delay: 4s;
+    animation-delay: 4s;*/
 }
 
-.maintenance-mode-holder.maintenance-mode-on {
-    display: inline-block;
-    width: 100%!important;
-}
-
-.debug-mode-holder {
-    display: inline-block;
-    width: 100%!important;
+.maintenance-mode-holder.maintenance-mode-on, .debug-mode-holder {
+    display: inline-flex;
+    justify-content: right;
+    background: red;
 }
 
 .maintenance-mode-holder.maintenance-mode-on .icon-cog-holder, .debug-mode-holder .icon-cog-holder {
@@ -202,7 +200,6 @@
     animation-delay: 0 !important;
     animation: fa-spin 20s infinite ease-in-out;
     line-height: 0;
-    background: blue;
 }
     
 .maintenance-mode-holder.maintenance-mode-on i, .debug-mode-holder i {
@@ -221,16 +218,14 @@
 
 .maintenance-mode-holder.maintenance-mode-on a, .debug-mode-holder a {
     display: inline-grid;
-    width: 100% !important;
+    width: auto !important;
     grid-template-columns: 1fr auto;
     grid-column-gap: 2px;
     align-items: center;
     width: auto;
     padding: 2px;
-    padding-right: 15px;
     font-size: 10px;
     white-space: nowrap;
-    background-color: rgba(0,0,0,0.5);
 }
 
 .maintenance-mode-holder.maintenance-mode-on a:hover, .debug-mode-holder a:hover {
@@ -254,41 +249,46 @@
 }
 
 .show-sys-animation .sys-state-text-holder {
-    display: inline-block!important;
+    display: inline-block !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px 0 0 5px;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .show-sys-animation .sys-state-text-maintenance {
     display: inline-block;
     width: 100%;
-    opacity: 0;
-    padding-right: 5px;
-    transform: translateX(200%);
+    /*opacity: 0;*/
+    opacity: 1;
+    /*transform: translateX(200%);
     animation: sysStateIn 2s ease-out 0s, sysStateOut 1s ease-out 3s;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5);*/
     text-align: right;
 }
 
 .show-sys-animation .sys-state-text-debug {
     display: inline-block;
     width: 100%;
-    opacity: 0;
-    padding-right: 5px;
-    animation: sysStateIn 2s ease-out 2s, sysStateOut 1s ease-out 5s;
+    /* opacity: 0;*/
+    opacity: 1;
+    /*animation: sysStateIn 2s ease-out 2s, sysStateOut 1s ease-out 5s;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5);*/
     text-align: right;
 }
 
 .sys-state-icon-outer {
     display: inline-block;
     padding: 0px;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .maintenance-tooltip {
@@ -318,6 +318,7 @@
 
 .tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
     text-decoration: none;
+    color: var(--color-light);
 }
 
 .campaign-bar-on .tb-admin-campaign-bar {

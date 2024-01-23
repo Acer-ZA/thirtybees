@@ -206,6 +206,7 @@ function checkIfSysAnimationsRanAlready() {
     if (!animationShownDate || animationShownDate !== currentDate) {
         /// Show the animation
         console.log('animation should load');
+        /// Sys animation is for debug, maintenance + username animations
         $('body').addClass('show-sys-animation');
 
         /// Set a cookie to indicate that the animation has been shown today
@@ -260,6 +261,6 @@ $(document).ready(function () {
 
     /// Remove when Release Ready ///
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
-
+    $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
 
 });
