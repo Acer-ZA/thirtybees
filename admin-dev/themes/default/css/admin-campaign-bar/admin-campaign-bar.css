@@ -1215,6 +1215,11 @@ span.maintenance-mode {
     .tb-admin-campaign-bar-small-link {
         display: none;
     }
+
+    .campaign-bar-holder {
+        padding-right: 27%;
+    }
+
 }
 
 @media (max-width: 900px) {
