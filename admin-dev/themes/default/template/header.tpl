@@ -349,7 +349,7 @@
 							<span class="string-long">{l s='View shop'}</span>
 						</a>
 					{/if}
-					<div id="employee_infos" class="dropdown height100 label-tooltip username-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="{$employee->firstname}&nbsp;{$employee->lastname}">
+					<div id="employee_infos" class="dropdown label-tooltip username-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="{$employee->firstname}&nbsp;{$employee->lastname}">
 						<a href="{$link->getAdminLink('AdminEmployees')|escape:'html':'UTF-8'}&amp;id_employee={$employee->id|intval}&amp;updateemployee" class="tb-admin-topbar-employee-holder employee_name dropdown-toggle" data-toggle="dropdown">
 							{if isset($employee)}
 								<i class="icon-user"></i>

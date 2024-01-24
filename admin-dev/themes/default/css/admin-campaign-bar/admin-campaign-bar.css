@@ -613,7 +613,7 @@
     right: -16px;
     width: 15px;
     height: 15px;
-    padding-left: 1px!important;
+    padding-left: 0px!important;
     border: 1.5px solid #0000!important;
     border-radius: 100%;
     background-color: #fff;
@@ -628,6 +628,8 @@
 } 
 
 .campaign-bar-close-icon {
+    margin-top: 0px;
+    margin-left: 0px;
     font-size: 10px !important;
     font-weight: 400!important;
 }
@@ -912,6 +914,10 @@ span.maintenance-mode {
 
 #employee_links {
     z-index: 9999;
+}
+
+#employee_infos {
+    height: 92%!important;
 }
 
 #employee_infos .employee_name {
