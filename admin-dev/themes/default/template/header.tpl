@@ -145,7 +145,7 @@
 								<div class="maintenance-mode-holder maintenance-mode-on">
 									<a href="index.php?controller=AdminMaintenance&amp;token=cad085fb1994c1f05fe6dfaf6a9f1b5b" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in Maintenance mode.</strong></p><p class='text-left maintenance-tooltip'>Your visitors and customers cannot access your shop while in maintenance mode.<br /> Click to turn off Maintenance mode.</p>">
 										<div class="sys-state-text-holder">
-											<span class="sys-state-text-maintenance">{l s='Maintenance mode on'}</span>
+											<span class="sys-state-text-maintenance">{l s='Maintenance mode is on'}</span>
 										</div>
 										<div class="sys-state-icon-outer">
 											<span class="icon-cog-holder sys-state-icon">
@@ -160,7 +160,7 @@
 								<div class="debug-mode-holder">
 									<a href="index.php?controller=AdminPerformance&amp;token=d5a4867c80a14440aa9df88e74d1ab07" class="label-tooltip" data-toggle="tooltip" data-placement="bottom" data-html="true" title="" data-original-title="<p class='text-left text-nowrap'><strong>Your shop is in Debug mode.</strong></p><p class='text-left maintenance-tooltip'>Your site is in Debug Mode.<br /> Click to turn it off.</p>">
 										<div class="sys-state-text-holder">
-											<span class="sys-state-text-debug">{l s='Debug mode on'}</span>
+											<span class="sys-state-text-debug">{l s='Debug mode is on'}</span>
 										</div>
 										<div class="sys-state-icon-outer">
 											<span class="icon-cog-holder sys-state-icon">
@@ -321,7 +321,7 @@
 				{* /// Campaign Bar /// *}	
 				<div class="campaign-bar-holder">
 					<div class="campaign-bar-holder-inner-outer">
-						<div class="campaign-bar-close-holder">
+						<div class="campaign-bar-close-holder" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">
 							<div class="campaign-bar-close-icon">x</div>
 						</div>
 						<div class="campaign-bar-holder-inner-actual">

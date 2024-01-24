@@ -598,8 +598,8 @@
 .campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner-actual {
     background-color: transparent;
     display: inline-grid;
-    grid-template-columns: 16px minmax(10%, auto) max-content;
-    grid-column-gap: 4px !important;
+    grid-template-columns: 13px minmax(10%, auto) max-content;
+    grid-column-gap: 10px !important;
     width: auto;
     height: 100%;
 }
@@ -610,7 +610,7 @@
     justify-content: center;
     position: absolute;
     top: 0px;
-    right: -12px;
+    right: -16px;
     width: 15px;
     height: 15px;
     padding-left: 1px!important;
