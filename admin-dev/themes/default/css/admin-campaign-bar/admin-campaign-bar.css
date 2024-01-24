@@ -2,9 +2,10 @@
 
 :root {
     --tborange: #e6b800;
-    --color-dark: #000;
-    --color-light: #fff;
-    --color-grey: #555;
+    --colour-dark: #000;
+    --colour-light: #fff;
+    --colour-grey: #555;
+    --colour-bgblackopacity: rgba(0,0,0,0.5);
 }
 
 /*/// Animations ///*/
@@ -181,6 +182,7 @@
     width: inherit;
     display: inline-grid;
     grid-template-columns: 100%;
+    grid-row-gap: 1px;  
     animation: sysHolderWidth0;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
@@ -188,6 +190,10 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 4s;
+}
+
+.sys-state-holder a, .sys-state-holder a:hover {
+    color: var(--colour-light) !important;
 }
 
 .maintenance-mode-holder.maintenance-mode-on, .debug-mode-holder {
@@ -207,7 +213,7 @@
 }
 
 .maintenance-mode-holder.maintenance-mode-on i, .debug-mode-holder i {
-    color: var(--color-light) !important;
+    color: var(--colour-light) !important;
     font-size: 14px !important;
     line-height: 0 !important;
     image-rendering: pixelated;
@@ -274,7 +280,7 @@
     animation-fill-mode: forwards;
     text-align: right;
     border-radius: 5px 0 0 5px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--colour-bgblackopacity);
 }
 
 .show-sys-animation .sys-state-text-debug {
@@ -291,16 +297,16 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--colour-bgblackopacity);
     border-radius: 5px 0 0 5px;
-    background-color: rgba(0,0,0,0.5);
     text-align: right;
 }
 
 .sys-state-icon-outer {
     display: inline-block;
     padding: 2px;
-    background-color: rgba(0,0,0,0.5);
+    padding-bottom: 1px;
+    background-color: var(--colour-bgblackopacity);
 }
 
 .maintenance-tooltip {
@@ -328,9 +334,16 @@
     width: 100%;
 }
 
-.tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
+.admin-header-light .tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
     text-decoration: none;
-    color: var(--color-light);
+}
+
+.admin-header-light .tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
+    color: var(--colour-dark);
+}
+
+.admin-header-dark .tb-admin-campaign-bar a, .tb-admin-campaign-bar a:hover {
+    color: var(--colour-light);
 }
 
 .campaign-bar-on .tb-admin-campaign-bar {
@@ -355,22 +368,21 @@
 }
 
 .admin-header-dark .tb-admin-campaign-bar-fa-icon i {
-    color: var(--color-light);
+    color: var(--colour-light);
 }
 
 .admin-header-light .tb-admin-campaign-bar-fa-icon i {
-    color: var(--color-dark);
+    color: var(--colour-dark);
 }
 
 .tb-admin-campaign-bar-fa-icon:hover i {
-    color: var(--color-light);
+    color: var(--colour-light);
     font-size: 14px;
 }
 
 .admin-shopversion-holder {
     position: relative;
 }
-
 
 #header_shopversion {
     position: relative;
@@ -413,7 +425,6 @@
     grid-template-columns: auto auto;
     align-content: center;
 }
-
 
 .tb-admin-campaign-bar-fa-icon {
     position: relative;
@@ -848,15 +859,15 @@ span.maintenance-mode {
 }
 
 .admin-header-dark .tb-admin-campaign-bar-cta-inline a {
-    color: var(--color-light);
+    color: var(--colour-light);
 }
 
 .admin-header-light .tb-admin-campaign-bar-cta-inline a {
-    color: var(--color-dark);
+    color: var(--colour-dark);
 }
 
 .tb-admin-campaign-bar-cta-inline a:hover {
-    color: var(--color-dark);
+    color: var(--colour-dark);
 }
 
 /*/// View Shop / User Bar ///*/
@@ -886,10 +897,11 @@ span.maintenance-mode {
     top: 0px;
     right: 0px;
     z-index: 999;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 8px;
     padding-left: 15px;
     padding-right: 15px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--colour-bgblackopacity);
     transform: translateX(200%);
     animation: sysStateIn 1500ms ease-out 2s, sysStateOut 1000ms ease-out 8s;
     animation-direction: normal;
@@ -898,7 +910,7 @@ span.maintenance-mode {
     animation-fill-mode: forwards;
     font-size: 12px;
     color: white !important;
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--colour-bgblackopacity);
 }
 
 #header_employee_box .tooltip-inner {
@@ -993,7 +1005,7 @@ span.maintenance-mode {
     transition: background 250ms ease-in-out !important;
     background-color: transparent;
     border-radius: 10px;
-    color: var(--color-grey) !important;
+    color: var(--colour-grey) !important;
     font-weight: 400 !important;
     font-size: 13px !important;
 }
@@ -1008,7 +1020,7 @@ span.maintenance-mode {
 
 .support-tb-item-holder:hover {
     text-decoration: none !important;
-    color: var(--color-light) !important;
+    color: var(--colour-light) !important;
     background-color: rgba(58, 138, 39, 1);
 }
 
@@ -1035,6 +1047,10 @@ span.maintenance-mode {
     font-size: 13px!important;
     margin: 0px!important;
     margin-top: 2px!important;
+}
+
+#nav-sidebar {
+    margin-top: -17px;
 }
 
 /*/// Responsive ///*/
@@ -1170,6 +1186,7 @@ span.maintenance-mode {
     }
 
     .tb-admin-campaign-bar .tb-admin-campaign-bar-cta-inline {
+        padding-bottom: 6px!important;
         display: inline-block;
         font-size: 11px;
     }
