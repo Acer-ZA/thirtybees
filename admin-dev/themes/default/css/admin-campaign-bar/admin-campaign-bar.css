@@ -313,14 +313,18 @@
     font-weight: normal;
 }
 
-/*/// wtf is this? */
+/*/// wtf is this? before/after */
 .bootstrap .navbar::before, .bootstrap #header_infos::before, .bootstrap .navbar::after, .bootstrap #header_infos::after {
     content: unset !important;
     display: none !important;
 }
 
+.bootstrap #header_infos {
+    height: 35px;
+}
+
 .bootstrap .navbar-header::before, .bootstrap .navbar-header:before {
-    content: ""!important;
+    content: "" !important;
     display: none !important;
 }
 
@@ -353,7 +357,7 @@
         1. Logo, 2. Site Name, 3. Notifications + Quick Access, 4. Campaign, 5. User Column 
     */
     grid-template-columns: max-content minmax(100px, max-content) minmax(60px, auto) 1fr max-content;
-    grid-template-rows: 38px;
+    grid-template-rows: 1fr;
 }
 
 .tb-admin-campaign-bar-fa-icon {
@@ -1211,7 +1215,7 @@ span.maintenance-mode {
     }
 }
 
-@media (min-width: 941px) {
+@media (min-width: 941px) { 
     .tb-admin-campaign-bar-small-link {
         display: none;
     }
