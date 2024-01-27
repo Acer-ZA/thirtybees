@@ -517,7 +517,7 @@
 
 #notificationsModalContent .notifs_badge, .tb-admin-campaign-bar-fa-icon .notifs_badge {
     position: absolute;
-    top: -10px;
+    top: -7px;
     display: inline-flex;
     align-content: center;
     justify-content: center;
