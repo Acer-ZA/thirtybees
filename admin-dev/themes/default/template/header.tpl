@@ -344,7 +344,7 @@
 						<span>{$employee->firstname}&nbsp;{$employee->lastname}</span>
 					</div>
 					{if {$base_url}}
-						<a class="tb-admin-top-bar-viewshop-holder tb-admin-campaign-bar-fa-icon" href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}">
+						<a class="tb-admin-top-bar-viewshop-holder tb-admin-campaign-bar-fa-icon" href="{if isset($base_url_tc)}{$base_url_tc|escape:'html':'UTF-8'}{else}{$base_url|escape:'html':'UTF-8'}{/if}" id="header_foaccess" class="_blank" title="{l s='View my shop'}" target="_blank">
 							<i class="icon-eye"></i>
 							<span class="string-long">{l s='View shop'}</span>
 						</a>
