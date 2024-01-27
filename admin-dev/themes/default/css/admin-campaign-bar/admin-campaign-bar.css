@@ -648,18 +648,16 @@
 }
 
 #header_employee_box #header_foaccess, a.employee_name.dropdown-toggle {
-    /*padding: 0px !important;*/
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding: 0px !important;
 }
 
 #header_employee_box a.employee_name.dropdown-toggle {
     display: inline-flex !important;
     align-items: center !important;
     height: 100%;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
 }
-
-#header_employee_box a#header_foaccess {}
 
 .height100 {
     height: 100%!important;
@@ -876,6 +874,7 @@ span.maintenance-mode {
     display: inline-grid;
     grid-template-columns: auto auto;
     grid-column-gap: 10px;
+    padding-right: 3px;
 }
 
 #header_employee_box::before {
@@ -888,8 +887,8 @@ span.maintenance-mode {
 
 #header_employee_box #header_foaccess {
     display: inline-grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 5px;
+    grid-template-columns: 15px auto;
+    grid-column-gap: 4px;
 }
 
 .show-sys-animation .new-employee-name-box {
@@ -935,8 +934,9 @@ span.maintenance-mode {
 }
 
 #employee_infos .employee_name {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding: 0px!important;
+   /* padding-left: 10px !important;
+    padding-right: 10px !important;*/
 }
 
 #employee_infos a, #employee_infos:hover {
@@ -1163,7 +1163,6 @@ span.maintenance-mode {
         text-overflow: ellipsis!important;
         overflow: hidden;
     }
-
 }
 
 @media (max-width: 767px) {
@@ -1173,8 +1172,12 @@ span.maintenance-mode {
 }
 
 @media (max-width: 820px) {
+    .campaign-bar-close-holder {
+        right: -3px!important;
+    }
+
     .tb-admin-campaign-bar .tb-admin-campaign-bar-cta {
-        display: none!important;
+        display: none !important;
     }
 
     .tb-admin-campaign-bar .tb-admin-campaign-bar-text {
