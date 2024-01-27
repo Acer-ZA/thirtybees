@@ -464,7 +464,7 @@
 				</div>
 				<div class="support-item-text-holder">
 					<div class="support-item-text-holder-inner">
-						<span>{l s="Become a sponsor"}</span>
+						<span>{l s="Become a Sponsor"}</span>
 						<p>
 							{l s="Email us for sponsorship options" tags=["<br/>"]}
 						</p>

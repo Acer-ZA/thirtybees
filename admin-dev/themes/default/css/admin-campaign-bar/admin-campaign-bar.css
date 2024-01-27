@@ -577,6 +577,8 @@
     display: inline-grid !important;
     grid-template-columns: auto auto auto;
     grid-column-gap: 5px;
+    padding-right: 7px !important;
+    padding-left: 9px !important;
 }
 
 .header-quick-icon {
@@ -1004,7 +1006,7 @@ span.maintenance-mode {
     padding-bottom: 20px;
     border: 1px solid white;
     border-bottom: 1px solid rgba(192, 192, 192, 0.5);
-    transition: background 250ms ease-in-out !important;
+    /*transition: background 250ms ease-in-out !important;*/
     background-color: transparent;
     border-radius: 10px;
     color: var(--colour-grey) !important;
@@ -1032,7 +1034,12 @@ span.maintenance-mode {
 }
 
 .support-item-icon i {
-    font-size: 20px!important;
+    font-size: 20px !important;
+    color: rgba(58, 138, 39, 1);
+}
+
+.support-tb-item-holder:hover .support-item-icon i  {
+    color: var(--colour-light) !important;
 }
 
 .support-item-text-holder {
@@ -1219,7 +1226,7 @@ span.maintenance-mode {
     }
 
     .campaign-bar-holder {
-        padding-right: 27%;
+        padding-right: 21%;
     }
 }
 
