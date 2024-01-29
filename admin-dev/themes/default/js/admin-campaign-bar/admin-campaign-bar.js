@@ -2,6 +2,7 @@
 
 /// Get the current date ///
 var currentDate = new Date().toDateString();
+var setCampaignChangeIntervalVar = 0;
 
 /// Campaign Bar Variables ///
 var campaigns = [
@@ -46,26 +47,30 @@ function getRandomCampaign() {
 
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
-    $('.tb-admin-campaign-bar .campaign-bar-holder-inner-actual').off("click");
+    /// Check if campaign is defined
+    if (campaign && campaign.intro) {
+        /// Update the campaign bar with the selected campaign
+        $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
+        $('.tb-admin-campaign-bar-cta-inline a').html(window[campaign.cta]);
+        $('.tb-admin-campaign-bar-cta-inline a').attr("href", window[campaign.url]);
+        $('.tb-admin-campaign-bar-cta a').html(window[campaign.cta]);
+        $('.tb-admin-campaign-bar-cta a').attr("href", window[campaign.url]);
 
-    // Update the campaign bar with the selected campaign
-    $('.tb-admin-campaign-bar-text-inner').html(window[campaign.intro]);
-    $('.tb-admin-campaign-bar-cta-inline a').html(window[campaign.cta]);
-    $('.tb-admin-campaign-bar-cta-inline a').attr("href",window[campaign.url]);
-    $('.tb-admin-campaign-bar-cta a').html(window[campaign.cta]);
-    $('.tb-admin-campaign-bar-cta a').attr("href", window[campaign.url]);
+        /// Remove previous class and add the selected class
+        $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
+        $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
 
-    // Remove previous class and add the selected class
-    $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
-    $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+    } else {
+        console.error('Campaign or campaign.intro is undefined.');
+        console.error('Retrying...');
 
-    $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
-    bindCampaignModals();
+        var newCampaign = getRandomCampaign();
+        updateCampaignBar(newCampaign);
 
-    /*setTimeout(function () {
-        $(".campaign-bar-holder").removeClass("animate-campaign-bar-in");
-    }, 1000);*/
+    }
 }
+
 
 /// Bind Campaign Modals ///
 function bindCampaignModals() {
@@ -105,26 +110,34 @@ function checkAdminBGColour() {
 }
 
 /// Initiate Campaign Bar ///
-function initiateCampaignBar() {
+function initiateCampaignBar(setCampaignChangeInterval) {
+    setCampaignChangeIntervalVar = setCampaignChangeInterval;
+    if (setCampaignChangeIntervalVar == null || setCampaignChangeInterval == undefined) {
+        setCampaignChangeIntervalVar = 120000; /// Default campaign change duration
+    } 
     checkAdminBGColour();
-    console.log("initiateCampaignBar");
+    console.log("*** initiateCampaignBar. setCampaignChangeInterval: " + setCampaignChangeIntervalVar);
 
     function updateAndAnimate() {
         var newCampaign = getRandomCampaign();
-        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
-
         setTimeout(function () {
-            updateCampaignBar(newCampaign);
+            $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
+            console.log('finish campaign');
+
+        }, 2000);
+        setTimeout(function () {
             $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
-        }, 1000);
+            console.log('new campaign');
+            updateCampaignBar(newCampaign);
+        }, 3000);
     }
 
-    // Initial update
+    /// Initial update
     var initialCampaign = getRandomCampaign();
     updateCampaignBar(initialCampaign);
 
-    // Update every 10 seconds
-    setInterval(updateAndAnimate, 10000);
+    /// Update every x seconds
+    setInterval(updateAndAnimate, setCampaignChangeIntervalVar);
 }
 
 
@@ -162,17 +175,13 @@ function openNotificationsModal() {
     /// Clears the modal of content to prevent possible issues with duplicate IDs
     $('#notificationsModal').on('hidden.bs.modal', function () {
         $('#notificationsModalContent').html("");
-        console.log("modal closed");
     });
 }
 
 /// Support ThirtyBees Modal ///
 function openSupportThirtyBeesModal() {
-    console.log("Support Thirty Bees modal");
-    
     /// Show the modal
     $('#supportThirtyBeesModal').modal('show');
-
 }
 
 /// Function to get a cookie value
@@ -243,6 +252,15 @@ function campaignBarClose() {
     })
 }
 
+
+/// Remove when Release Ready ///
+function presentationInit() {
+    console.log("TB CampaignBar Initial Init");
+    $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
+    $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
+    initiateCampaignBar(6000);
+}
+
 $(document).ready(function () {
     console.log('actioned');
     initiateCampaignBar();
@@ -258,9 +276,7 @@ $(document).ready(function () {
         openNotificationsModal();
     });
 
-
     /// Remove when Release Ready ///
-    $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
-    $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
+    presentationInit();
 
 });
