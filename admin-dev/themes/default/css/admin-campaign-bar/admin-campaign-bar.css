@@ -1062,6 +1062,45 @@ span.maintenance-mode {
     margin-top: -17px;
 }
 
+/*/// Campaign Slider ///*/
+.campaign-slider-holder {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 9999;
+    width: 304px;
+    height: 102px;
+    border: 1px solid black;
+    background: red !important;
+}
+.campaign-slider-holder-inner-outer {
+    border: 1px solid black;
+}
+.campaign-slider-close-holder {
+    border: 1px solid black;
+}
+.campaign-slider-close-icon {
+    border: 1px solid black;
+}
+.campaign-slider-holder-inner-actual {
+    border: 1px solid black;
+}
+.tb-admin-campaign-slider-icon {
+    border: 1px solid black;
+}
+.tb-admin-campaign-slider-text {
+    border: 1px solid black;
+}
+.tb-admin-campaign-slider-text-inner {
+    border: 1px solid black;
+}
+.tb-admin-campaign-slider-cta-inline {
+    border: 1px solid black;
+}
+.tb-admin-campaign-slider-cta {
+    border: 1px solid black;
+}
+
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;

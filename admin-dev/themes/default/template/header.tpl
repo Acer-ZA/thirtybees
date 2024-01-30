@@ -84,7 +84,7 @@
 
 		/// Thank You ///
 		var campaign_bar_thanks_class = 'campaign-bar-thanks';
-		var campaign_bar_thanks_intro = '{l s="[1][2]Thank You[/2] for choosing [2]ThirtyBees![/2][/1]" tags=["<div></div>,<b>"]}';
+		var campaign_bar_thanks_intro = '{l s="[1][2]Thank You[/2] for choosing [2]ThirtyBees![/2][/1]" tags=["<div></div>","<b>"]}';
 		var campaign_bar_thanks_cta = '{l s=""}';
 		var campaign_bar_thanks_url = "";
 
@@ -508,7 +508,26 @@
 </div>
 
 {* end display_header*}
-
+<!-- /// Campaign Slider /// -->
+<div class="campaign-slider-holder">
+	<div class="campaign-slider-holder-inner-outer">
+		<div class="campaign-slider-close-holder" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">
+			<div class="campaign-slider-close-icon">x</div>
+		</div>
+		<div class="campaign-slider-holder-inner-actual">
+			<div class="tb-admin-campaign-slider-icon"></div>
+			<div class="tb-admin-campaign-slider-text">
+				<div class="tb-admin-campaign-slider-text-inner">hi</div>
+				<div class="tb-admin-campaign-slider-cta-inline">
+					<a href=""></a>
+				</div>
+			</div>
+			<div class="tb-admin-campaign-slider-cta">
+				<a href=""></a>
+			</div>
+		</div>
+	</div>
+</div>
 {else}
 	<body{if isset($lite_display) && $lite_display} class="ps_back-office display-modal"{/if}>
 		<div id="main">
