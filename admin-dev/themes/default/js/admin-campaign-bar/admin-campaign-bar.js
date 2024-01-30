@@ -191,17 +191,17 @@ function initiateCampaignBar(setCampaignChangeInterval) {
 
     function updateAndAnimate() {
         var newCampaign = getRandomCampaignBar();
-        setTimeout(function () {
-            $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
-            console.log('finish campaign');
 
-        }, 2000);
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
+        console.log('finish campaign');
+
         setTimeout(function () {
             $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
             console.log('new campaign');
             updateCampaignBar(newCampaign);
-        }, 3000);
+        }, 2000);
     }
+
 
     /// Initial update
     var initialCampaign = getRandomCampaignBar();
@@ -221,16 +221,15 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
 
     function updateAndAnimateSlider() {
         var newCampaign = getRandomCampaignSlider();
-        setTimeout(function () {
-            $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
-            console.log('finish campaign');
 
-        }, 2000);
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
+        console.log('finish campaign');
+
         setTimeout(function () {
-            $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
+            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             console.log('new campaign');
             updateCampaignSlider(newCampaign);
-        }, 3000);
+        }, 2000);
     }
 
     /// Initial update
@@ -362,7 +361,7 @@ function presentationInit() {
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(6000);
-    /*initiateCampaignSlider(7000);*/
+    initiateCampaignSlider(7000);
 }
 
 $(document).ready(function () {
