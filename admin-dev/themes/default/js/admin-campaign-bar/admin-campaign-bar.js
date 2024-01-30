@@ -32,10 +32,42 @@ var campaigns = [
     }
 ];
 
+/// Campaign Bar Variables ///
+var campaignsSlider = [
+    {
+        class: 'campaign_slider_love_class',
+        header: 'campaign_slider_love_header',
+        intro: 'campaign_slider_love_intro',
+        cta: 'campaign_slider_love_cta',
+        url: 'campaign_slider_love_url'
+    },
+    {
+        class: 'campaign_slider_techsupport_class',
+        header: 'campaign_slider_techsupport_header',
+        intro: 'campaign_slider_techsupport_intro',
+        cta: 'campaign_slider_techsupport_cta',
+        url: 'campaign_slider_techsupport_url'
+    },
+    {
+        class: 'campaign_slider_thanks_class',
+        header: 'campaign_slider_thanks_header',
+        intro: 'campaign_slider_thanks_intro',
+        cta: 'campaign_slider_thanks_cta',
+        url: 'campaign_slider_thanks_url'
+    },
+    {
+        class: 'campaign_slider_premium_class',
+        header: 'campaign_slider_premium_header',
+        intro: 'campaign_slider_premium_intro',
+        cta: 'campaign_slider_premium_cta',
+        url: 'campaign_slider_premium_url'
+    }
+];
+
 /// Get Random Campaign Bar ///
 var previousCampaign;
 
-function getRandomCampaign() {
+function getRandomCampaignBar() {
     var randomCampaign;
     do {
         randomCampaign = campaigns[Math.floor(Math.random() * campaigns.length)];
@@ -45,6 +77,17 @@ function getRandomCampaign() {
     return randomCampaign;
 }
 
+function getRandomCampaignSlider() {
+    var randomCampaign;
+    do {
+        randomCampaign = campaignsSlider[Math.floor(Math.random() * campaignsSlider.length)];
+    } while (randomCampaign === previousCampaign);
+
+    previousCampaign = randomCampaign;
+    return randomCampaign;
+}
+
+/// Update Campaign Bar ///
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
     /// Check if campaign is defined
@@ -65,8 +108,36 @@ function updateCampaignBar(campaign) {
         console.error('Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
 
-        var newCampaign = getRandomCampaign();
+        var newCampaign = getRandomCampaignBar();
         updateCampaignBar(newCampaign);
+
+    }
+}
+
+/// Update Campaign Slider ///
+function updateCampaignSlider(campaign) {
+    console.log("updateCampaignSlider: " + campaign);
+    /// Check if campaign is defined
+    if (campaign && campaign.intro) {
+        /// Update the campaign bar with the selected campaign
+        $('.tb-admin-campaign-slider-header-inner').html(window[campaign.header]);
+        $('.tb-admin-campaign-slider-text-inner').html(window[campaign.intro]);
+        $('.tb-admin-campaign-slider-cta-inline a').html(window[campaign.cta]);
+        $('.tb-admin-campaign-slider-cta-inline a').attr("href", window[campaign.url]);
+        $('.tb-admin-campaign-slider-cta a').html(window[campaign.cta]);
+        $('.tb-admin-campaign-slider-cta a').attr("href", window[campaign.url]);
+
+        /// Remove previous class and add the selected class
+        $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
+        $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
+
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+    } else {
+        console.error('Slider Campaign or campaign.intro is undefined.');
+        console.error('Retrying...');
+
+        var newCampaign = getRandomCampaignBar();
+        getRandomCampaignSlider(newCampaign);
 
     }
 }
@@ -119,7 +190,7 @@ function initiateCampaignBar(setCampaignChangeInterval) {
     console.log("*** initiateCampaignBar. setCampaignChangeInterval: " + setCampaignChangeIntervalVar);
 
     function updateAndAnimate() {
-        var newCampaign = getRandomCampaign();
+        var newCampaign = getRandomCampaignBar();
         setTimeout(function () {
             $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
             console.log('finish campaign');
@@ -133,12 +204,44 @@ function initiateCampaignBar(setCampaignChangeInterval) {
     }
 
     /// Initial update
-    var initialCampaign = getRandomCampaign();
+    var initialCampaign = getRandomCampaignBar();
     updateCampaignBar(initialCampaign);
 
     /// Update every x seconds
     setInterval(updateAndAnimate, setCampaignChangeIntervalVar);
 }
+
+/// Initiate Campaign Slider ///
+function initiateCampaignSlider(setSliderCampaignChangeInterval) {
+    setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval;
+    if (setSliderCampaignChangeIntervalVar == null || setSliderCampaignChangeInterval == undefined) {
+        setSliderCampaignChangeIntervalVar = 120000; /// Default campaign change duration
+    }
+    console.log("*** initiateCampaignSlider. setSliderCampaignChangeInterval: " + setSliderCampaignChangeIntervalVar);
+
+    function updateAndAnimateSlider() {
+        var newCampaign = getRandomCampaignSlider();
+        setTimeout(function () {
+            $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
+            console.log('finish campaign');
+
+        }, 2000);
+        setTimeout(function () {
+            $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
+            console.log('new campaign');
+            updateCampaignSlider(newCampaign);
+        }, 3000);
+    }
+
+    /// Initial update
+    var initialCampaign = getRandomCampaignSlider();
+    updateCampaignSlider(initialCampaign);
+
+    /// Update every x seconds
+    setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
+}
+
+
 
 
 /// Check for notifications and show on responsive bell icon ///
@@ -259,6 +362,7 @@ function presentationInit() {
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(6000);
+    /*initiateCampaignSlider(7000);*/
 }
 
 $(document).ready(function () {
