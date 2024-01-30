@@ -84,7 +84,7 @@
 
 		/// Thank You ///
 		var campaign_bar_thanks_class = 'campaign-bar-thanks';
-		var campaign_bar_thanks_intro = '{l s="[1]Thank You[/1] for choosing [1]ThirtyBees![/1]" tags=["<b>"]}';
+		var campaign_bar_thanks_intro = '{l s="[1][2]Thank You[/2] for choosing [2]ThirtyBees![/2][/1]" tags=["<div></div>,<b>"]}';
 		var campaign_bar_thanks_cta = '{l s=""}';
 		var campaign_bar_thanks_url = "";
 
@@ -93,6 +93,36 @@
 		var campaign_bar_premium_intro = '{l s="[1]Enhance Your Store[/1] with [1]Premium Modules[/1]" tags=["<b>"]}';
 		var campaign_bar_premium_cta = '{l s="Check them out now"}';
 		var campaign_bar_premium_url = "index.php?controller=AdminModules&token=05546656a4b2edea79c4c319fabd236c";
+
+		/// Campaign Sliders ///
+
+		/// Supporter ///
+		var campaign_slider_love_class = 'campaign-slider-supporter';
+		var campaign_slider_love_header = '{l s="Love [1]ThirtyBees?[/1]" tags=["<b>"]}';
+		var campaign_slider_love_intro = '{l s="Support OpenSource - [1]Help us Grow![/1]" tags=["<b>"]}';
+		var campaign_slider_love_cta = '{l s="Become a Supporter Today!"}';
+		var campaign_slider_love_url = "#"; /// Don't add URL for this one ///
+
+		/// Technical Support ///
+		var campaign_slider_techsupport_class = 'campaign-slider-technical-support';
+		var campaign_slider_techsupport_header = '{l s="Need [1]Support?[/1]" tags=["<b>"]}';
+		var campaign_slider_techsupport_intro = '{l s="We're here to [1]help![/1]" tags=["<b>"]}';
+		var campaign_slider_techsupport_cta = '{l s="Contact Paid Support"}';
+		var campaign_slider_techsupport_url = "https://www.thirtybees.com";
+
+		/// Thank You ///
+		var campaign_slider_thanks_class = 'campaign-slider-thanks';
+		var campaign_slider_thanks_header = '{l s="[1]Thank You![/1]" tags=["<b>"]}';
+		var campaign_slider_thanks_intro = '{l s="Thank you for using ThirtyBees" tags=["<b>"]}';
+		var campaign_slider_thanks_cta = '{l s=""}';
+		var campaign_slider_thanks_url = "";
+
+		/// Premium Modules ///
+		var campaign_slider_premium_class = 'campaign-slider-premium';
+		var campaign_slider_premium_header = '{l s="[1]Enhance Your Store[/1]" tags=["<b>"]}';
+		var campaign_slider_premium_intro = '{l s="With [1]Premium Modules[/1]" tags=["<b>"]}';
+		var campaign_slider_premium_cta = '{l s="Check them out now"}';
+		var campaign_slider_premium_url = "index.php?controller=AdminModules&token=05546656a4b2edea79c4c319fabd236c";
 
 
 	</script>
