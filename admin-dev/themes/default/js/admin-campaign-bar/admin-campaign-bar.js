@@ -241,8 +241,6 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
 }
 
 
-
-
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
     $('.tb-admin-campaign-bar #header_notifs_icon_wrapper .notifs_badge span').each(function () {
