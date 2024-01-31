@@ -104,6 +104,7 @@ function updateCampaignBar(campaign) {
         $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
 
         $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+        bindCampaignModals(); /// Bind Modals
     } else {
         console.error('Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
