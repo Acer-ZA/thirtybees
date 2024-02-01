@@ -104,7 +104,7 @@ function updateCampaignBar(campaign) {
         $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
 
         $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
-        bindCampaignModals(); /// Bind Modals
+        bindTopBarSupporterCampaignModal(campaign); /// Bind Supporter Modal
     } else {
         console.error('Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
@@ -114,6 +114,27 @@ function updateCampaignBar(campaign) {
 
     }
 }
+
+/*tb-admin-campaign-bar campaign-bar-supporter*/
+
+/// Bind Campaign Modals ///
+function bindTopBarSupporterCampaignModal(campaign) {
+    if (campaign == 'supporter') {
+        console.log('TopBarSupporter Campaign: ' + campaign);
+
+        setTimeout(function () {
+            $('.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
+                console.log("supporter");
+                openSupportThirtyBeesModal();
+            });
+        }, 10);
+    }
+    else {
+        console.log('not supporter');
+        $(".tb-admin-campaign-bar").off('click');
+    }
+}
+
 
 /// Update Campaign Slider ///
 function updateCampaignSlider(campaign) {
@@ -141,17 +162,6 @@ function updateCampaignSlider(campaign) {
         getRandomCampaignSlider(newCampaign);
 
     }
-}
-
-
-/// Bind Campaign Modals ///
-function bindCampaignModals() {
-    setTimeout(function () {
-        $('.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
-            console.log("supporter");
-            openSupportThirtyBeesModal();
-        });
-    }, 10);
 }
 
 /// Check Admin BG Colour ///
