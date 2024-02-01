@@ -517,11 +517,8 @@
 		<div class="campaign-slider-holder-inner-actual">
 			<div class="tb-admin-campaign-slider-icon"></div>
 			<div class="tb-admin-campaign-slider-text">
-				<div class="tb-admin-campaign-slider-header-inner">hi</div>
-				<div class="tb-admin-campaign-slider-text-inner">hi</div>
-				<div class="tb-admin-campaign-slider-cta-inline">
-					<a href=""></a>
-				</div>
+				<div class="tb-admin-campaign-slider-header-inner"></div>
+				<div class="tb-admin-campaign-slider-text-inner"></div>
 			</div>
 			<div class="tb-admin-campaign-slider-cta">
 				<a href=""></a>

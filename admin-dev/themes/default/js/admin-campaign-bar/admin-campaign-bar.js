@@ -115,7 +115,7 @@ function updateCampaignBar(campaign) {
     }
 }
 
-/// Bind Campaign Modals ///
+/// Bind/Unbind TopBar Supporter Campaign Modal ///
 function bindTopBarSupporterCampaignModal(campaign) {
     if (campaign.class == 'campaign_bar_love_class') {
         console.log('TopBarSupporter Campaign: ' + campaign.class);
@@ -130,6 +130,25 @@ function bindTopBarSupporterCampaignModal(campaign) {
     else {
         console.log('not supporter: ' + campaign.class);
         $(".tb-admin-campaign-bar .campaign-bar-holder-inner-actual").off('click');
+    }
+}
+
+/// Bind/Unbind Slider Supporter Campaign Modal ///
+function bindSliderSupporterCampaignModal(campaign) {
+    console.log('/// SLIDER  Campaign: ' + campaign.class);
+
+    if (campaign.class == 'campaign_slider_love_class') {
+
+        setTimeout(function () {
+            $('.campaign-slider-holder.campaign-slider-supporter .campaign-slider-holder-inner-actual').on("click", function () {
+                console.log("supporter");
+                openSupportThirtyBeesModal();
+            });
+        }, 10);
+    }
+    else {
+        console.log('SLIDER not supporter: ' + campaign.class);
+        $(".campaign-slider-holder .campaign-slider-holder-inner-actual").off('click');
     }
 }
 
@@ -152,6 +171,7 @@ function updateCampaignSlider(campaign) {
         $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
 
         $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+        bindSliderSupporterCampaignModal(campaign);
     } else {
         console.error('Slider Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
