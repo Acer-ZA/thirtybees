@@ -119,8 +119,8 @@ function updateCampaignBar(campaign) {
 
 /// Bind Campaign Modals ///
 function bindTopBarSupporterCampaignModal(campaign) {
-    if (campaign == 'supporter') {
-        console.log('TopBarSupporter Campaign: ' + campaign);
+    if (campaign.class == 'campaign_bar_love_class') {
+        console.log('TopBarSupporter Campaign: ' + campaign.class);
 
         setTimeout(function () {
             $('.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
@@ -130,8 +130,8 @@ function bindTopBarSupporterCampaignModal(campaign) {
         }, 10);
     }
     else {
-        console.log('not supporter');
-        $(".tb-admin-campaign-bar").off('click');
+        console.log('not supporter: ' + campaign.class);
+        $(".tb-admin-campaign-bar .campaign-bar-holder-inner-actual").off('click');
     }
 }
 
