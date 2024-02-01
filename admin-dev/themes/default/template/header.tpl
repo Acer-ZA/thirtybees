@@ -113,7 +113,7 @@
 		/// Thank You ///
 		var campaign_slider_thanks_class = 'campaign-slider-thanks';
 		var campaign_slider_thanks_header = '{l s="[1]Thank You![/1]" tags=["<b>"]}';
-		var campaign_slider_thanks_intro = '{l s="Thank you for using ThirtyBees" tags=["<b>"]}';
+		var campaign_slider_thanks_intro = '{l s="Thank you for choosing ThirtyBees :)" tags=["<b>"]}';
 		var campaign_slider_thanks_cta = '{l s=""}';
 		var campaign_slider_thanks_url = "";
 
