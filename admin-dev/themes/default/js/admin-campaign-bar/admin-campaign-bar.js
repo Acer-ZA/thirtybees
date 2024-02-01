@@ -147,7 +147,7 @@ function updateCampaignSlider(campaign) {
 /// Bind Campaign Modals ///
 function bindCampaignModals() {
     setTimeout(function () {
-        $('.tb-admin-campaign-bar.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
+        $('.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
             console.log("supporter");
             openSupportThirtyBeesModal();
         });
