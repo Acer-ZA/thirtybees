@@ -115,8 +115,6 @@ function updateCampaignBar(campaign) {
     }
 }
 
-/*tb-admin-campaign-bar campaign-bar-supporter*/
-
 /// Bind Campaign Modals ///
 function bindTopBarSupporterCampaignModal(campaign) {
     if (campaign.class == 'campaign_bar_love_class') {
