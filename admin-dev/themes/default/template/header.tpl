@@ -516,7 +516,7 @@
 		</div>
 		<div class="campaign-slider-holder-inner-actual">
 			<div class="tb-admin-campaign-slider-icon"></div>
-			<div class"tb-admin-campaign-slider-text-cta-holder">
+			<div class="tb-admin-campaign-slider-text-cta-holder">
 				<div class="tb-admin-campaign-slider-text">
 					<div class="tb-admin-campaign-slider-header-inner"></div>
 					<div class="tb-admin-campaign-slider-text-inner"></div>
