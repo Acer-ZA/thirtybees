@@ -1190,6 +1190,25 @@ tb-admin-campaign-slider-text-inner b {
     text-decoration: none!important;
 }
 
+/*/// Slider Campaign Specific ///*/
+
+.campaign-slider-thanks .tb-admin-campaign-slider-text {
+    display: inline-flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+.campaign-slider-thanks .tb-admin-campaign-slider-text-cta-holder {
+    grid-template-rows: 1fr;
+}
+
+.campaign-slider-thanks .tb-admin-campaign-slider-cta {
+    display: none;
+}
+
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
