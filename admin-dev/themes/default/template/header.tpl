@@ -119,7 +119,7 @@
 
 		/// Premium Modules ///
 		var campaign_slider_premium_class = 'campaign-slider-premium';
-		var campaign_slider_premium_header = '{l s="[1]Enhance Your Store[/1]" tags=["<b>"]}';
+		var campaign_slider_premium_header = '{l s="[1]Enhance[/1] Your Store" tags=["<b>"]}';
 		var campaign_slider_premium_intro = '{l s="With [1]Premium Modules[/1]" tags=["<b>"]}';
 		var campaign_slider_premium_cta = '{l s="Check them out now"}';
 		var campaign_slider_premium_url = "index.php?controller=AdminModules&token=05546656a4b2edea79c4c319fabd236c";
@@ -516,12 +516,14 @@
 		</div>
 		<div class="campaign-slider-holder-inner-actual">
 			<div class="tb-admin-campaign-slider-icon"></div>
-			<div class="tb-admin-campaign-slider-text">
-				<div class="tb-admin-campaign-slider-header-inner"></div>
-				<div class="tb-admin-campaign-slider-text-inner"></div>
-			</div>
-			<div class="tb-admin-campaign-slider-cta">
-				<a href=""></a>
+			<div class"tb-admin-campaign-slider-text-cta-holder">
+				<div class="tb-admin-campaign-slider-text">
+					<div class="tb-admin-campaign-slider-header-inner"></div>
+					<div class="tb-admin-campaign-slider-text-inner"></div>
+				</div>
+				<div class="tb-admin-campaign-slider-cta">
+					<a href=""></a>
+				</div>
 			</div>
 		</div>
 	</div>
