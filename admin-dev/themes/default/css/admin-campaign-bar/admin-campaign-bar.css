@@ -1091,20 +1091,20 @@ span.maintenance-mode {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0px;
-    right: -16px;
+    top: 3px;
+    right: 3px;
     width: 15px;
     height: 15px;
     padding-left: 0px !important;
     border: 1.5px solid #0000 !important;
     border-radius: 100%;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer !important;
     z-index: 10;
     transition: all 250ms ease-in-out;
 }
 
-.campaign-slider-lose-holder-inner:hover {
+.campaign-slider-close-holder-inner:hover {
     background-color: #000;
     color: #fff;
 }
