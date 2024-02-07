@@ -511,8 +511,10 @@
 <!-- /// Campaign Slider /// -->
 <div class="campaign-slider-holder">
 	<div class="campaign-slider-holder-inner-outer">
-		<div class="campaign-slider-close-holder" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">
-			<div class="campaign-slider-close-icon">x</div>
+		<div class="campaign-slider-close-holder">
+			<div class="campaign-slider-close-holder-inner" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">
+				<div class="campaign-slider-close-icon">x</div>
+			</div>
 		</div>
 		<div class="campaign-slider-holder-inner-actual">
 			<div class="tb-admin-campaign-slider-icon"></div>
