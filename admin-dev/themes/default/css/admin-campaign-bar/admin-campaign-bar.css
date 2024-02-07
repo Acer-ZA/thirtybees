@@ -1064,6 +1064,7 @@ span.maintenance-mode {
 
 /*/// Campaign Slider ///*/
 .campaign-slider-holder {
+    display: inline-flex;
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -1080,7 +1081,7 @@ span.maintenance-mode {
 .campaign-slider-holder-inner-outer {
     border: 1px solid black;
     display: inline-grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 17px 1fr;
     border: 1px solid black;
     height: 100%;
     width: 100%;
@@ -1232,6 +1233,14 @@ tb-admin-campaign-slider-text-inner b {
 
 .campaign-slider-thanks .tb-admin-campaign-slider-cta {
     display: none;
+}
+
+.campaign-slider-supporter .tb-admin-campaign-slider-icon {
+    background-image: url('../../img/thirtybees/slider-campaign/slider-heart.svg');
+    background-position: left -100px bottom;
+    opacity: 0.4;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /*/// Responsive ///*/
