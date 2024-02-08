@@ -1236,11 +1236,11 @@ tb-admin-campaign-slider-text-inner b {
 }
 
 .campaign-slider-supporter .tb-admin-campaign-slider-icon {
-    background-image: url('../../img/thirtybees/slider-campaign/slider-heart.svg');
-    background-position: left -100px bottom;
     opacity: 0.1;
+    background-image: url('../../img/thirtybees/slider-campaign/slider-heart.svg');
+    background-position: left -26px bottom -13px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 119%;
 }
 
 /*/// Responsive ///*/

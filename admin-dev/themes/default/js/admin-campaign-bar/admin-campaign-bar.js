@@ -32,8 +32,8 @@ var campaigns = [
     }
 ];
 
-/// Campaign Bar Variables ///
-var campaignsSlider = [
+/// Campaign Slider Variables ///
+/*var campaignsSlider = [
     {
         class: 'campaign_slider_love_class',
         header: 'campaign_slider_love_header',
@@ -61,6 +61,16 @@ var campaignsSlider = [
         intro: 'campaign_slider_premium_intro',
         cta: 'campaign_slider_premium_cta',
         url: 'campaign_slider_premium_url'
+    }
+];*/
+
+var campaignsSlider = [
+    {
+        class: 'campaign_slider_love_class',
+        header: 'campaign_slider_love_header',
+        intro: 'campaign_slider_love_intro',
+        cta: 'campaign_slider_love_cta',
+        url: 'campaign_slider_love_url'
     }
 ];
 
