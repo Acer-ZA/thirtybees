@@ -1251,6 +1251,14 @@ tb-admin-campaign-slider-text-inner b {
     background-size: 88%;
 }
 
+.campaign-slider-thanks .tb-admin-campaign-slider-icon {
+    opacity: 0.1;
+    background-image: url('../../img/thirtybees/slider-campaign/slider-thank-you-black.svg');
+    background-position: left 2px center;
+    background-repeat: no-repeat;
+    background-size: 88%;
+}
+
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
