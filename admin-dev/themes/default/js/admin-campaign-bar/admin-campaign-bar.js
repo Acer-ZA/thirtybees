@@ -171,14 +171,7 @@ function updateCampaignSlider(campaign) {
         $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
 
         $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-
-        /// Define an array of classes to randomly apply
-        /*var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];*/
-        var randomClasses = ['animate-campaign-slider-flip-center'];
-
-        var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
-        $('.campaign-slider-holder').addClass(randomClass);
-
+       
         bindSliderSupporterCampaignModal(campaign);
     } else {
         console.error('Slider Campaign or campaign.intro is undefined.');
@@ -256,6 +249,8 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     }
     console.log("*** initiateCampaignSlider. setSliderCampaignChangeInterval: " + setSliderCampaignChangeIntervalVar);
 
+  
+
     function updateAndAnimateSlider() {
         var newCampaign = getRandomCampaignSlider();
 
@@ -272,6 +267,11 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     /// Initial update
     var initialCampaign = getRandomCampaignSlider();
     updateCampaignSlider(initialCampaign);
+    /// Define an array of classes to randomly apply
+    /*var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];*/
+    var randomClasses = ['animate-campaign-slider-flip-center'];
+    var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+    $('.campaign-slider-holder').addClass(randomClass);
 
     /// Update every x seconds
     setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);

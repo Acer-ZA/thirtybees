@@ -1278,7 +1278,7 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-.animate-campaign-slider-out.animate-campaign-slider-flip-center {
+/*.animate-campaign-slider-out.animate-campaign-slider-flip-center {
     opacity: 0;
     animation: campaignLinkOut 2s ease-out 0s;
     animation-delay: 0ms;
@@ -1288,7 +1288,7 @@ tb-admin-campaign-slider-text-inner b {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-
+*/
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
