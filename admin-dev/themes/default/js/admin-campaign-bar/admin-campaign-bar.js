@@ -66,11 +66,11 @@ var campaigns = [
 
 var campaignsSlider = [
     {
-        class: 'campaign_slider_thanks_class',
-        header: 'campaign_slider_thanks_header',
-        intro: 'campaign_slider_thanks_intro',
-        cta: 'campaign_slider_thanks_cta',
-        url: 'campaign_slider_thanks_url'
+        class: 'campaign_slider_premium_class',
+        header: 'campaign_slider_premium_header',
+        intro: 'campaign_slider_premium_intro',
+        cta: 'campaign_slider_premium_cta',
+        url: 'campaign_slider_premium_url'
     }
 ];
 
