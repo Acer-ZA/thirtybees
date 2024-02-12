@@ -1267,6 +1267,28 @@ tb-admin-campaign-slider-text-inner b {
     background-size: 88%;
 }
 
+.animate-campaign-slider-in.animate-campaign-slider-flip-center {
+    opacity: 0;
+    animation: campaignLinkIn 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.animate-campaign-slider-out.animate-campaign-slider-flip-center {
+    opacity: 0;
+    animation: campaignLinkOut 2s ease-out 0s;
+    animation-delay: 0ms;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
