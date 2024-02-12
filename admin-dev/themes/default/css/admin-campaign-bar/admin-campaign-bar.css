@@ -1243,6 +1243,14 @@ tb-admin-campaign-slider-text-inner b {
     background-size: 119%;
 }
 
+.campaign-slider-technical-support .tb-admin-campaign-slider-icon {
+    opacity: 0.1;
+    background-image: url('../../img/thirtybees/slider-campaign/slider-tools-black.svg');
+    background-position: left 2px center;
+    background-repeat: no-repeat;
+    background-size: 88%;
+}
+
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
