@@ -168,8 +168,10 @@ function updateCampaignSlider(campaign) {
 
         /// Remove previous class and add the selected class
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
-        $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
+        setTimeout(function () {
+            $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+        }, 800);
        
         bindSliderSupporterCampaignModal(campaign);
     } else {
@@ -250,12 +252,11 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
 
     function updateAndAnimateSlider() {
         var newCampaign = getRandomCampaignSlider();
-        /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");*/
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
+        /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");*/
         console.log('finish campaign');
 
         setTimeout(function () {
-            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             console.log('new campaign');
             updateCampaignSlider(newCampaign);
         }, 5000);
@@ -263,7 +264,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
 
     /// Initial update
     var initialCampaign = getRandomCampaignSlider();
-    updateCampaignSlider(initialCampaign);
+    /*updateCampaignSlider(initialCampaign);*/
     /// Define an array of classes to randomly apply
     var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
     var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
@@ -392,7 +393,7 @@ function presentationInit() {
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(6000);
-    initiateCampaignSlider(7000);
+    initiateCampaignSlider(5000);
 }
 
 $(document).ready(function () {

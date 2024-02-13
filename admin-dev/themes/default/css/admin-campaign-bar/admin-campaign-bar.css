@@ -1322,7 +1322,8 @@ tb-admin-campaign-slider-text-inner b {
 }
 
 .tb-admin-campaign-slider-icon, .tb-admin-campaign-slider-text-cta-holder {
-    transition: all 350ms ease-in-out;
+    opacity: 0;
+    transition: all 850ms ease-in-out;
 }
 
 .animate-campaign-slider-out .tb-admin-campaign-slider-icon, .animate-campaign-slider-out .tb-admin-campaign-slider-text-cta-holder {
