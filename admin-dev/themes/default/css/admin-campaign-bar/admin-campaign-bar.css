@@ -1279,7 +1279,7 @@ tb-admin-campaign-slider-text-inner b {
 .animate-campaign-slider-in.animate-campaign-slider-flip-center {
     opacity: 0;
     animation: campaignLinkIn 2s ease-out 0s;
-    animation-delay: 0ms;
+    animation-delay: 2s;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-duration: 1200ms;
@@ -1287,11 +1287,10 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-
 .animate-campaign-slider-in.animate-campaign-slider-in-right {
     opacity: 0;
     animation: sysStateIn 2s ease-out 0s;
-    animation-delay: 0ms;
+    animation-delay: 2s;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-duration: 1200ms;
@@ -1300,12 +1299,24 @@ tb-admin-campaign-slider-text-inner b {
 }
 
 .animate-campaign-slider-in.animate-campaign-slider-flip-rightleft {
+    opacity: 0;
     transform-origin: right;
     animation: slideInFlipRightLeft 2s ease-out 0s;
-    animation-delay: 0ms;
+    animation-delay: 2s;
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.animate-campaign-slider-in.animate-campaign-slider-in-bottom {
+    opacity: 0;
+    animation: slideInFadeVertical 2s ease-out 0s;
+    animation-delay: 2s;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1000ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }

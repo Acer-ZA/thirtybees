@@ -245,11 +245,9 @@ function initiateCampaignBar(setCampaignChangeInterval) {
 function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval;
     if (setSliderCampaignChangeIntervalVar == null || setSliderCampaignChangeInterval == undefined) {
-        setSliderCampaignChangeIntervalVar = 120000; /// Default campaign change duration
+        setSliderCampaignChangeIntervalVar = 8000; /// Default campaign change duration
     }
     console.log("*** initiateCampaignSlider. setSliderCampaignChangeInterval: " + setSliderCampaignChangeIntervalVar);
-
-  
 
     function updateAndAnimateSlider() {
         var newCampaign = getRandomCampaignSlider();
@@ -268,10 +266,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     var initialCampaign = getRandomCampaignSlider();
     updateCampaignSlider(initialCampaign);
     /// Define an array of classes to randomly apply
-   /* animate-campaign-slider-flip-center
-    animate-campaign-slider-in-right*/
-    /*var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];*/
-    var randomClasses = ['animate-campaign-slider-flip-rightleft'];
+    var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
     var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
     $('.campaign-slider-holder').addClass(randomClass);
 
