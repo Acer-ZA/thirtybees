@@ -169,7 +169,6 @@ function updateCampaignSlider(campaign) {
         /// Remove previous class and add the selected class
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
         $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
-
         $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
        
         bindSliderSupporterCampaignModal(campaign);
@@ -251,7 +250,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
 
     function updateAndAnimateSlider() {
         var newCampaign = getRandomCampaignSlider();
-
+        /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");*/
         $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
         console.log('finish campaign');
 
@@ -259,7 +258,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
             $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             console.log('new campaign');
             updateCampaignSlider(newCampaign);
-        }, 2000);
+        }, 5000);
     }
 
     /// Initial update
