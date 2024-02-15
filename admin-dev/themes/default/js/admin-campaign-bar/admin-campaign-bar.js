@@ -168,10 +168,16 @@ function updateCampaignSlider(campaign) {
 
         /// Remove previous class and add the selected class
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
+
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+            
+
+        /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
         $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
         setTimeout(function () {
+            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-        }, 800);
+        }, 250);*/
        
         bindSliderSupporterCampaignModal(campaign);
     } else {
@@ -259,7 +265,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
         setTimeout(function () {
             console.log('new campaign');
             updateCampaignSlider(newCampaign);
-        }, 5000);
+        }, 6000);
     }
 
     /// Initial update
