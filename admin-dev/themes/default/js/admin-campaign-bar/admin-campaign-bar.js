@@ -155,7 +155,7 @@ function bindSliderSupporterCampaignModal(campaign) {
 
 /// Update Campaign Slider ///
 function updateCampaignSlider(campaign) {
-    console.log("updateCampaignSlider: " + campaign);
+    console.log("/// updateCampaignSlider: " + campaign);
     /// Check if campaign is defined
     if (campaign && campaign.intro) {
         /// Update the campaign bar with the selected campaign
@@ -250,6 +250,7 @@ function initiateCampaignBar(setCampaignChangeInterval) {
 
 /// Initiate Campaign Slider ///
 function initiateCampaignSlider(setSliderCampaignChangeInterval) {
+    updateAndAnimateSlider();
     setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval;
     if (setSliderCampaignChangeIntervalVar == null || setSliderCampaignChangeInterval == undefined) {
         setSliderCampaignChangeIntervalVar = 8000; /// Default campaign change duration
@@ -261,11 +262,11 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
         /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
         $(".campaign-slider-holder").addClass("animate-campaign-slider-out");*/
         console.log('finish campaign');
-
-        setTimeout(function () {
+        updateCampaignSlider(newCampaign);
+       /* setTimeout(function () {
             console.log('new campaign');
             updateCampaignSlider(newCampaign);
-        }, 6000);
+        }, 3000);*/
     }
 
     /// Initial update
@@ -275,7 +276,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
     var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
     $('.campaign-slider-holder').addClass(randomClass);
-
+    console.log("slider interval: " + setSliderCampaignChangeIntervalVar);
     /// Update every x seconds
     setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
 }
@@ -399,12 +400,11 @@ function presentationInit() {
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(6000);
-    initiateCampaignSlider(5000);
+    initiateCampaignSlider(4000);
 }
 
 $(document).ready(function () {
     console.log('actioned');
-    initiateCampaignBar();
     campaignBarClose();
     checkCampaignBarClose();
     checkForNotifications();
