@@ -169,8 +169,9 @@ function updateCampaignSlider(campaign) {
         /// Remove previous class and add the selected class
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
 
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-            
+       /* $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-in");*/
+
 
         /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
         $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
@@ -178,14 +179,21 @@ function updateCampaignSlider(campaign) {
             $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
         }, 250);*/
+        $(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
+       
+        setTimeout(function () {
+            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
+            $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+        }, 250);
        
         bindSliderSupporterCampaignModal(campaign);
     } else {
         console.error('Slider Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
 
-        var newCampaign = getRandomCampaignBar();
-        getRandomCampaignSlider(newCampaign);
+        var newCampaignSlider = getRandomCampaignSlider();
+        getRandomCampaignSlider(newCampaignSlider);
 
     }
 }
@@ -258,11 +266,10 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     console.log("*** initiateCampaignSlider. setSliderCampaignChangeInterval: " + setSliderCampaignChangeIntervalVar);
 
     function updateAndAnimateSlider() {
-        var newCampaign = getRandomCampaignSlider();
-        /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");*/
+
+        var newCampaignSlider = getRandomCampaignSlider();
         console.log('finish campaign');
-        updateCampaignSlider(newCampaign);
+        updateCampaignSlider(newCampaignSlider);
        /* setTimeout(function () {
             console.log('new campaign');
             updateCampaignSlider(newCampaign);
