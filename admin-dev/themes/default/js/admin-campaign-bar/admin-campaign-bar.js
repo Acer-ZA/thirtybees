@@ -185,7 +185,7 @@ function updateCampaignSlider(campaign) {
         setTimeout(function () {
             $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-        }, 250);
+        }, 450);
        
         bindSliderSupporterCampaignModal(campaign);
     } else {
@@ -266,7 +266,6 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     console.log("*** initiateCampaignSlider. setSliderCampaignChangeInterval: " + setSliderCampaignChangeIntervalVar);
 
     function updateAndAnimateSlider() {
-
         var newCampaignSlider = getRandomCampaignSlider();
         console.log('finish campaign');
         updateCampaignSlider(newCampaignSlider);
