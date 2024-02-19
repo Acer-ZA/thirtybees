@@ -19,6 +19,26 @@
     }
 }
 
+@keyframes fadeInIcon {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+
+@keyframes fadeOutIcon {
+    0% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes slideInFadeHorizontal {
     0% {
         opacity: 0;
@@ -1326,24 +1346,46 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-.tb-admin-campaign-slider-icon  {
+.tb-admin-campaign-slider-icon {
     opacity: 0;
-    transition: all 150ms ease-in-out;
+    background-size: 50%;
+    transition: background-size 550ms ease-in-out;
+}
+
+.tb-admin-campaign-slider-text-cta-holder {
+    opacity: 0;
+    transition: all 550ms ease-in-out;
 }
 
 .animate-campaign-slider-out .tb-admin-campaign-slider-icon {
     opacity: 0;
     background-size: 50%;
+    animation: fadeOutIcon;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 150ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .animate-campaign-slider-in .tb-admin-campaign-slider-icon {
-    opacity: 0.1;
+    opacity: 0;
+    animation: fadeInIcon;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 150ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
-/*
+
+.animate-campaign-slider-out .tb-admin-campaign-slider-text-cta-holder {
+    opacity: 1;
+}
+
 .animate-campaign-slider-in .tb-admin-campaign-slider-text-cta-holder {
     opacity: 1;
 }
-*/
+/**/
 /*.animate-campaign-slider-out.animate-campaign-slider-flip-center {
     opacity: 0;
     animation: campaignLinkOut 2s ease-out 0s;

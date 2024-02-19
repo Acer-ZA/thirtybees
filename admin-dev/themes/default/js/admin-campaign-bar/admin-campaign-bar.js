@@ -151,42 +151,6 @@ function bindSliderSupporterCampaignModal(campaign) {
     }
 }
 
-
-/// Update Campaign Slider ///
-var previousCampaignSlider; // Define the previous campaign variable
-
-function updateCampaignSlider(campaign) {
-    console.log("/// updateCampaignSlider: " + campaign);
-
-    if (campaign && campaign.intro) {
-        $('.tb-admin-campaign-slider-header-inner').html(window[campaign.header]);
-        $('.tb-admin-campaign-slider-text-inner').html(window[campaign.intro]);
-        $('.tb-admin-campaign-slider-cta-inline a').html(window[campaign.cta]);
-        $('.tb-admin-campaign-slider-cta-inline a').attr("href", window[campaign.url]);
-        $('.tb-admin-campaign-slider-cta a').html(window[campaign.cta]);
-        $('.tb-admin-campaign-slider-cta a').attr("href", window[campaign.url]);
-
-        $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
-
-        // Animation
-        $(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
-
-        setTimeout(function () {
-            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
-            $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-        }, 450);
-
-        bindSliderSupporterCampaignModal(campaign);
-    } else {
-        console.error('Slider Campaign or campaign.intro is undefined.');
-        console.error('Retrying...');
-
-        var newCampaignSlider = getRandomCampaignSlider();
-        updateCampaignSlider(newCampaignSlider); // Update with a new campaign
-    }
-}
-
 /// Check Admin BG Colour ///
 function checkAdminBGColour() {
     function adminHeaderDark() {
@@ -243,6 +207,41 @@ function initiateCampaignBar(setCampaignChangeInterval) {
 
     /// Update every x seconds
     setInterval(updateAndAnimate, setCampaignChangeIntervalVar);
+}
+
+
+/// Update Campaign Slider ///
+var previousCampaignSlider; // Define the previous campaign variable
+function updateCampaignSlider(campaign) {
+    console.log("/// updateCampaignSlider: " + campaign);
+
+    if (campaign && campaign.intro) {
+        $('.tb-admin-campaign-slider-header-inner').html(window[campaign.header]);
+        $('.tb-admin-campaign-slider-text-inner').html(window[campaign.intro]);
+        $('.tb-admin-campaign-slider-cta-inline a').html(window[campaign.cta]);
+        $('.tb-admin-campaign-slider-cta-inline a').attr("href", window[campaign.url]);
+        $('.tb-admin-campaign-slider-cta a').html(window[campaign.cta]);
+        $('.tb-admin-campaign-slider-cta a').attr("href", window[campaign.url]);
+
+        $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
+
+        // Animation
+        $(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
+        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
+
+        setTimeout(function () {
+            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
+            $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
+        }, 2500);
+
+        bindSliderSupporterCampaignModal(campaign);
+    } else {
+        console.error('Slider Campaign or campaign.intro is undefined.');
+        console.error('Retrying...');
+
+        var newCampaignSlider = getRandomCampaignSlider();
+        updateCampaignSlider(newCampaignSlider); // Update with a new campaign
+    }
 }
 
 /// Initiate Campaign Slider ///
