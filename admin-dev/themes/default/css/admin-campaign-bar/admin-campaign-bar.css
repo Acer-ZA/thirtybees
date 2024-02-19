@@ -1072,7 +1072,12 @@ span.maintenance-mode {
 }
 
 /*/// Campaign Slider ///*/
+.campaign-slider-hide {
+    visibility: hidden;
+}
+
 .campaign-slider-holder {
+    visibility: visible;
     display: inline-flex;
     position: fixed;
     right: 11px;
@@ -1276,7 +1281,7 @@ tb-admin-campaign-slider-text-inner b {
     background-size: 88%;
 }
 
-.animate-campaign-slider-in.animate-campaign-slider-flip-center {
+.animate-campaign-slider-flip-center {
     opacity: 0;
     animation: campaignLinkIn 2s ease-out 0s;
     animation-delay: 2s;
@@ -1287,7 +1292,7 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-.animate-campaign-slider-in.animate-campaign-slider-in-right {
+.animate-campaign-slider-in-right {
     opacity: 0;
     animation: sysStateIn 2s ease-out 0s;
     animation-delay: 2s;
@@ -1298,7 +1303,7 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-.animate-campaign-slider-in.animate-campaign-slider-flip-rightleft {
+.animate-campaign-slider-flip-rightleft {
     opacity: 0;
     transform-origin: right;
     animation: slideInFlipRightLeft 2s ease-out 0s;
@@ -1310,7 +1315,7 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-.animate-campaign-slider-in.animate-campaign-slider-in-bottom {
+.animate-campaign-slider-in-bottom {
     opacity: 0;
     animation: slideInFadeVertical 2s ease-out 0s;
     animation-delay: 2s;

@@ -509,7 +509,7 @@
 
 {* end display_header*}
 <!-- /// Campaign Slider /// -->
-<div class="campaign-slider-holder">
+<div class="campaign-slider-holder campaign-slider-hide">
 	<div class="campaign-slider-holder-inner-outer">
 		<div class="campaign-slider-close-holder">
 			<div class="campaign-slider-close-holder-inner" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">

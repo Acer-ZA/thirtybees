@@ -259,6 +259,13 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     var initialCampaign = getRandomCampaignSlider();
     updateCampaignSlider(initialCampaign);
 
+    /// Define an array of classes to randomly apply
+    var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
+    var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+    $('.campaign-slider-holder').removeClass('campaign-slider-hide');
+
+    $('.campaign-slider-holder').addClass(randomClass);
+
     console.log("slider interval: " + setSliderCampaignChangeIntervalVar);
     // Update every x seconds
     setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
