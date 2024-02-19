@@ -81,12 +81,11 @@ function getRandomCampaignSlider() {
     var randomCampaign;
     do {
         randomCampaign = campaignsSlider[Math.floor(Math.random() * campaignsSlider.length)];
-    } while (randomCampaign === previousCampaign);
+    } while (randomCampaign === previousCampaignSlider);
 
-    previousCampaign = randomCampaign;
+    previousCampaignSlider = randomCampaign; // Update the previous campaign
     return randomCampaign;
 }
-
 /// Update Campaign Bar ///
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
@@ -154,11 +153,12 @@ function bindSliderSupporterCampaignModal(campaign) {
 
 
 /// Update Campaign Slider ///
+var previousCampaignSlider; // Define the previous campaign variable
+
 function updateCampaignSlider(campaign) {
     console.log("/// updateCampaignSlider: " + campaign);
-    /// Check if campaign is defined
+
     if (campaign && campaign.intro) {
-        /// Update the campaign bar with the selected campaign
         $('.tb-admin-campaign-slider-header-inner').html(window[campaign.header]);
         $('.tb-admin-campaign-slider-text-inner').html(window[campaign.intro]);
         $('.tb-admin-campaign-slider-cta-inline a').html(window[campaign.cta]);
@@ -166,35 +166,24 @@ function updateCampaignSlider(campaign) {
         $('.tb-admin-campaign-slider-cta a').html(window[campaign.cta]);
         $('.tb-admin-campaign-slider-cta a').attr("href", window[campaign.url]);
 
-        /// Remove previous class and add the selected class
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
 
-       /* $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-in");*/
-
-
-        /*$(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
-        $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
-        setTimeout(function () {
-            $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
-            $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-        }, 250);*/
+        // Animation
         $(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
         $(".campaign-slider-holder").addClass("animate-campaign-slider-out");
-       
+
         setTimeout(function () {
             $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
         }, 450);
-       
+
         bindSliderSupporterCampaignModal(campaign);
     } else {
         console.error('Slider Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
 
         var newCampaignSlider = getRandomCampaignSlider();
-        getRandomCampaignSlider(newCampaignSlider);
-
+        updateCampaignSlider(newCampaignSlider); // Update with a new campaign
     }
 }
 
@@ -258,32 +247,20 @@ function initiateCampaignBar(setCampaignChangeInterval) {
 
 /// Initiate Campaign Slider ///
 function initiateCampaignSlider(setSliderCampaignChangeInterval) {
-    updateAndAnimateSlider();
-    setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval;
-    if (setSliderCampaignChangeIntervalVar == null || setSliderCampaignChangeInterval == undefined) {
-        setSliderCampaignChangeIntervalVar = 8000; /// Default campaign change duration
-    }
-    console.log("*** initiateCampaignSlider. setSliderCampaignChangeInterval: " + setSliderCampaignChangeIntervalVar);
+    var setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval || 8000;
 
     function updateAndAnimateSlider() {
         var newCampaignSlider = getRandomCampaignSlider();
         console.log('finish campaign');
         updateCampaignSlider(newCampaignSlider);
-       /* setTimeout(function () {
-            console.log('new campaign');
-            updateCampaignSlider(newCampaign);
-        }, 3000);*/
     }
 
-    /// Initial update
+    // Initial update
     var initialCampaign = getRandomCampaignSlider();
-    /*updateCampaignSlider(initialCampaign);*/
-    /// Define an array of classes to randomly apply
-    var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
-    var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
-    $('.campaign-slider-holder').addClass(randomClass);
+    updateCampaignSlider(initialCampaign);
+
     console.log("slider interval: " + setSliderCampaignChangeIntervalVar);
-    /// Update every x seconds
+    // Update every x seconds
     setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
 }
 
