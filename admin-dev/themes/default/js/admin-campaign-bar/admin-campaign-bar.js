@@ -233,7 +233,7 @@ function updateCampaignSlider(campaign) {
         setTimeout(function () {
             $(".campaign-slider-holder").removeClass("animate-campaign-slider-out");
             $(".campaign-slider-holder").addClass("animate-campaign-slider-in");
-        }, 2500);
+        }, 250);
 
         bindSliderSupporterCampaignModal(campaign);
     } else {

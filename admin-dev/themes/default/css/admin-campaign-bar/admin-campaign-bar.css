@@ -1284,27 +1284,12 @@ tb-admin-campaign-slider-text-inner b {
     transform: scale(0.1);
     opacity: 1;
     background-size: 50%;
-    transition: background-size 250ms ease-in-out;
-    /*animation: fadeOutIcon;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 850ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;*/
-    background-color: red;
 }
 
 .animate-campaign-slider-in .tb-admin-campaign-slider-icon {
     transform: scale(1);
     opacity: inherit;
     background-size: inherit;
-    /* opacity: 0;
-    animation: fadeInIcon;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 150ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;*/
 }
 
 .campaign-slider-supporter .tb-admin-campaign-slider-icon {
