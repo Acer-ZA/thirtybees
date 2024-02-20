@@ -34,6 +34,7 @@ var campaigns = [
 
 /// Campaign Slider Variables ///
 var campaignsSlider = [
+
     {
         class: 'campaign_slider_love_class',
         header: 'campaign_slider_love_header',
@@ -254,7 +255,7 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
         updateCampaignSlider(newCampaignSlider);
     }
 
-    // Initial update
+    /// Initial update
     var initialCampaign = getRandomCampaignSlider();
     updateCampaignSlider(initialCampaign);
 

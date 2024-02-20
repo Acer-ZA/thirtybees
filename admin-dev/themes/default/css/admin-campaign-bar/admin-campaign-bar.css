@@ -1269,6 +1269,44 @@ tb-admin-campaign-slider-text-inner b {
     display: none;
 }
 
+.tb-admin-campaign-slider-icon {
+    /*opacity: 0;*/
+    background-size: 10%;
+    transition: all 250ms ease-in-out;
+}
+
+.tb-admin-campaign-slider-text-cta-holder {
+    opacity: 0;
+    transition: all 250ms ease-in-out;
+}
+
+.animate-campaign-slider-out .tb-admin-campaign-slider-icon {
+    transform: scale(0.1);
+    opacity: 1;
+    background-size: 50%;
+    transition: background-size 250ms ease-in-out;
+    /*animation: fadeOutIcon;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 850ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;*/
+    background-color: red;
+}
+
+.animate-campaign-slider-in .tb-admin-campaign-slider-icon {
+    transform: scale(1);
+    opacity: inherit;
+    background-size: inherit;
+    /* opacity: 0;
+    animation: fadeInIcon;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 150ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;*/
+}
+
 .campaign-slider-supporter .tb-admin-campaign-slider-icon {
     opacity: 0.1;
     background-image: url('../../img/thirtybees/slider-campaign/slider-heart.svg');
@@ -1342,38 +1380,6 @@ tb-admin-campaign-slider-text-inner b {
     animation-direction: normal;
     animation-timing-function: ease-in-out;
     animation-duration: 1000ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-.tb-admin-campaign-slider-icon {
-    opacity: 0;
-    background-size: 50%;
-    transition: background-size 550ms ease-in-out;
-}
-
-.tb-admin-campaign-slider-text-cta-holder {
-    opacity: 0;
-    transition: all 550ms ease-in-out;
-}
-
-.animate-campaign-slider-out .tb-admin-campaign-slider-icon {
-    opacity: 0;
-    background-size: 50%;
-    animation: fadeOutIcon;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 150ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-.animate-campaign-slider-in .tb-admin-campaign-slider-icon {
-    opacity: 0;
-    animation: fadeInIcon;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 150ms;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
