@@ -390,7 +390,7 @@ function presentationInit() {
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(6000);
-    initiateCampaignSlider(4000);
+    initiateCampaignSlider(20000);
 }
 
 $(document).ready(function () {
