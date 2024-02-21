@@ -208,8 +208,12 @@
         transform: scale(1.05);
     }
 
-    100% {
+    99% {
         transform: scale(1);
+    }
+
+    100% {
+        transform: unset;
     }
 }
 
@@ -1117,7 +1121,7 @@ span.maintenance-mode {
     right: 11px;
     bottom: 9px;
     padding-right: 10px;
-    z-index: 9999;
+    z-index: 5;
     width: 330px;
     height: 120px;
     border-radius: 10px;
