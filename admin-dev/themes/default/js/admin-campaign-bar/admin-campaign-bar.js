@@ -246,8 +246,8 @@ function updateCampaignSlider(campaign) {
         console.error('Slider Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
 
-        var newCampaignSlider = getRandomCampaignSlider();
-        updateCampaignSlider(newCampaignSlider); // Update with a new campaign
+        var newCampaignSlider = getRandomCampaignSlider();  
+        updateCampaignSlider(newCampaignSlider); /// Update with a new campaign
     }
 }
 
