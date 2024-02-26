@@ -239,9 +239,13 @@ function updateCampaignSlider(campaign) {
         }, 250);
 
         bindSliderSupporterCampaignModal(campaign);
-        $(".campaign-slider-holder .campaign-slider-close-icon").on("click", function () {
-            $(".campaign-slider-holder").fadeOut(1000);
-        });
+        $(".campaign-slider-close-icon").off("click");
+        setTimeout(function () {
+            $(".campaign-slider-close-icon").on("click", function () {
+                $(".campaign-slider-holder").fadeOut(1000);
+            });
+        }, 250);
+       
     } else {
         console.error('Slider Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
