@@ -646,6 +646,7 @@
 }
 
 .campaign-bar-holder {
+    visibility: hidden;
     display: inline-flex;
     justify-content: center !important;
 }

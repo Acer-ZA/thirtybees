@@ -200,13 +200,17 @@ function initiateCampaignBar(setCampaignBarStartDelay,setCampaignChangeInterval)
         }, 2000);
     }
 
+    /// Start Delay
+    setTimeout(function () {
+        $(".campaign-bar-holder").css("visibility", "visible");
 
-    /// Initial update
-    var initialCampaign = getRandomCampaignBar();
-    updateCampaignBar(initialCampaign);
+        /// Initial update
+        var initialCampaign = getRandomCampaignBar();
+        updateCampaignBar(initialCampaign);
 
-    /// Update every x seconds
-    setInterval(updateAndAnimate, setCampaignChangeIntervalVar);
+        /// Update every x seconds
+        setInterval(updateAndAnimate, setCampaignChangeIntervalVar);
+    }, setCampaignBarStartDelay);
 }
 
 
@@ -388,8 +392,8 @@ function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
-    initiateCampaignBar(25000);
-    initiateCampaignSlider(30000);
+    initiateCampaignBar(5000,25000); /// Start delay, Cycle delay
+    initiateCampaignSlider(30000); /// Start delay, Cycle delay
     /// Presentation Settings - remove when release ready ///
     /*initiateCampaignBar(10000);
     initiateCampaignSlider(20000);*/
