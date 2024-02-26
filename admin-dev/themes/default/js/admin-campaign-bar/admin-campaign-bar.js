@@ -247,7 +247,7 @@ function updateCampaignSlider(campaign) {
         console.error('Retrying...');
 
         var newCampaignSlider = getRandomCampaignSlider();
-        updateCampaignSlider(newCampaignSlider); // Update with a new campaign
+        updateCampaignSlider(newCampaignSlider); /// Update with a new campaign
     }
 }
 
