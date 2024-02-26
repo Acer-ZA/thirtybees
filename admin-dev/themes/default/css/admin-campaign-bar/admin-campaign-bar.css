@@ -1116,13 +1116,13 @@ span.maintenance-mode {
 }
 
 .campaign-slider-holder {
-    visibility: visible;
+    visibility: hidden;
     display: inline-flex;
     position: fixed;
     right: 11px;
     bottom: 9px;
     padding-right: 10px;
-    z-index: 5;
+    z-index: 800;
     width: 330px;
     height: 120px;
     border-radius: 10px;

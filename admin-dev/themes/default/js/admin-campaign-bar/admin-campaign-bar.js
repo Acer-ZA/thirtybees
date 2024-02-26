@@ -249,7 +249,7 @@ function updateCampaignSlider(campaign) {
 }
 
 /// Initiate Campaign Slider ///
-function initiateCampaignSlider(setSliderCampaignChangeInterval) {
+function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignChangeInterval) {
     var setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval || 8000;
     $(".campaign-slider-holder .campaign-slider-close-icon").on("click", function () {
         $(".campaign-slider-holder").fadeOut(1500);
@@ -260,20 +260,23 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
         updateCampaignSlider(newCampaignSlider);
     }
 
-    /// Initial update
-    var initialCampaign = getRandomCampaignSlider();
-    updateCampaignSlider(initialCampaign);
+    setTimeout(function () {
+        $(".campaign-slider-holder").attr("style", "visibility: visible!important");
+        /// Initial update
+        var initialCampaign = getRandomCampaignSlider();
+        updateCampaignSlider(initialCampaign);
 
-    /// Define an array of classes to randomly apply
-    var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
-    var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
-    $('.campaign-slider-holder').removeClass('campaign-slider-hide');
+        /// Define an array of classes to randomly apply
+        var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
+        var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+        $('.campaign-slider-holder').removeClass('campaign-slider-hide');
 
-    $('.campaign-slider-holder').addClass(randomClass);
+        $('.campaign-slider-holder').addClass(randomClass);
 
-    console.log("slider interval: " + setSliderCampaignChangeIntervalVar);
-    // Update every x seconds
-    setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
+        console.log("slider interval: " + setSliderCampaignChangeIntervalVar);
+        // Update every x seconds
+        setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
+    }, setCampaignSliderStartDelay);
 }
 
 /// Check for notifications and show on responsive bell icon ///
@@ -392,8 +395,8 @@ function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
-    initiateCampaignBar(5000,25000); /// Start delay, Cycle delay
-    initiateCampaignSlider(30000); /// Start delay, Cycle delay
+    initiateCampaignBar(5000,20000); /// Start delay, Cycle delay
+    initiateCampaignSlider(10000,20000); /// Start delay, Cycle delay
     /// Presentation Settings - remove when release ready ///
     /*initiateCampaignBar(10000);
     initiateCampaignSlider(20000);*/
