@@ -453,7 +453,7 @@
       <div class="modal-body" id="supportThirtyBeesModalContent">
 			<div class="support-tb-intro-holder">
 				<div class="support-tb-intro-text">
-					{l s="[1]Why Support ThirtyBees?[/1] [2]With ThirtyBees you can utilise one of the [1]best Enterprise Class e-Commerce platforms for FREE[/1]. [2]Unfortunately, sustaining and enhancing it involves costs. If you love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
+					{l s="[1]Why Support ThirtyBees?[/1] [2]With ThirtyBees you can utilise one of the [1]best Enterprise Class e-Commerce platforms for FREE![/1] [2]Unfortunately, sustaining and enhancing it involves costs. If you love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
 				</div>
 			</div>
 

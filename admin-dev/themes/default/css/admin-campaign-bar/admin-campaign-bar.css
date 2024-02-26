@@ -1060,6 +1060,7 @@ span.maintenance-mode {
     color: var(--colour-grey) !important;
     font-weight: 400 !important;
     font-size: 13px !important;
+    transition: all 150ms ease-in-out;
 }
 
 .support-tb-item-holder:first-of-type {
@@ -1067,13 +1068,14 @@ span.maintenance-mode {
 }
 
 .support-tb-item-holder:last-of-type {
-    margin-bottom: 10px;
+    margin-bottom: 10px;    
 }
 
 .support-tb-item-holder:hover {
     text-decoration: none !important;
     color: var(--colour-light) !important;
-    background-color: rgba(58, 138, 39, 1);
+    background: linear-gradient(to bottom, rgba(58, 138, 39, 1) 0%,rgba(76, 179, 55, 1) 100%);
+    transition: all 150ms ease-in-out;
 }
 
 .support-item-icon {
@@ -1083,7 +1085,7 @@ span.maintenance-mode {
 
 .support-item-icon i {
     font-size: 20px !important;
-    color: rgba(58, 138, 39, 1);
+    color: #44a230;
 }
 
 .support-tb-item-holder:hover .support-item-icon i  {
@@ -1312,6 +1314,10 @@ tb-admin-campaign-slider-text-inner b {
     transform: scale(1);
     opacity: inherit;
     background-size: inherit;
+}
+
+.campaign-slider-supporter {
+    cursor: pointer!important;
 }
 
 .campaign-slider-supporter .tb-admin-campaign-slider-icon {
