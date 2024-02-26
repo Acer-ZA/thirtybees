@@ -87,6 +87,7 @@ function getRandomCampaignSlider() {
     previousCampaignSlider = randomCampaign; // Update the previous campaign
     return randomCampaign;
 }
+
 /// Update Campaign Bar ///
 function updateCampaignBar(campaign) {
     console.log("updateCampaignBar: " + campaign);
@@ -108,10 +109,8 @@ function updateCampaignBar(campaign) {
     } else {
         console.error('Campaign or campaign.intro is undefined.');
         console.error('Retrying...');
-
         var newCampaign = getRandomCampaignBar();
         updateCampaignBar(newCampaign);
-
     }
 }
 
@@ -180,7 +179,7 @@ function checkAdminBGColour() {
 }
 
 /// Initiate Campaign Bar ///
-function initiateCampaignBar(setCampaignChangeInterval) {
+function initiateCampaignBar(setCampaignBarStartDelay,setCampaignChangeInterval) {
     setCampaignChangeIntervalVar = setCampaignChangeInterval;
     if (setCampaignChangeIntervalVar == null || setCampaignChangeInterval == undefined) {
         setCampaignChangeIntervalVar = 120000; /// Default campaign change duration
@@ -248,7 +247,9 @@ function updateCampaignSlider(campaign) {
 /// Initiate Campaign Slider ///
 function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     var setSliderCampaignChangeIntervalVar = setSliderCampaignChangeInterval || 8000;
-
+    $(".campaign-slider-holder .campaign-slider-close-icon").on("click", function () {
+        $(".campaign-slider-holder").fadeOut(1500);
+    });
     function updateAndAnimateSlider() {
         var newCampaignSlider = getRandomCampaignSlider();
         console.log('finish campaign');
@@ -270,7 +271,6 @@ function initiateCampaignSlider(setSliderCampaignChangeInterval) {
     // Update every x seconds
     setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
 }
-
 
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
@@ -383,14 +383,16 @@ function campaignBarClose() {
     })
 }
 
-
-/// Remove when Release Ready ///
-function presentationInit() {
+/// Inits the Campaign Bar and Slider ///
+function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
-    initiateCampaignBar(6000);
-    initiateCampaignSlider(20000);
+    initiateCampaignBar(25000);
+    initiateCampaignSlider(30000);
+    /// Presentation Settings - remove when release ready ///
+    /*initiateCampaignBar(10000);
+    initiateCampaignSlider(20000);*/
 }
 
 $(document).ready(function () {
@@ -407,7 +409,7 @@ $(document).ready(function () {
         openNotificationsModal();
     });
 
-    /// Remove when Release Ready ///
-    presentationInit();
+    /// Inits the Campaign Bar and Slider ///
+    campaignBarSliderInits();
 
 });
