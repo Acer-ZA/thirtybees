@@ -509,27 +509,30 @@
 
 {* end display_header*}
 <!-- /// Campaign Slider /// -->
-<div class="campaign-slider-holder campaign-slider-hide">
-	<div class="campaign-slider-holder-inner-outer">
-		<div class="campaign-slider-close-holder">
-			<div class="campaign-slider-close-holder-inner" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">
-				<div class="campaign-slider-close-icon">x</div>
-			</div>
-		</div>
-		<div class="campaign-slider-holder-inner-actual">
-			<div class="tb-admin-campaign-slider-icon"></div>
-			<div class="tb-admin-campaign-slider-text-cta-holder">
-				<div class="tb-admin-campaign-slider-text">
-					<div class="tb-admin-campaign-slider-header-inner"></div>
-					<div class="tb-admin-campaign-slider-text-inner"></div>
+<div class="campaign-slider-holder-outer">
+	<div class="campaign-slider-holder campaign-slider-hide">
+		<div class="campaign-slider-holder-inner-outer">
+			<div class="campaign-slider-close-holder">
+				<div class="campaign-slider-close-holder-inner" title="{l s='We appreciate your support'}.&#10;{l s='Click to close these messages.'}">
+					<div class="campaign-slider-close-icon">x</div>
 				</div>
-				<div class="tb-admin-campaign-slider-cta">
-					<a href=""></a>
+			</div>
+			<div class="campaign-slider-holder-inner-actual">
+				<div class="tb-admin-campaign-slider-icon"></div>
+				<div class="tb-admin-campaign-slider-text-cta-holder">
+					<div class="tb-admin-campaign-slider-text">
+						<div class="tb-admin-campaign-slider-header-inner"></div>
+						<div class="tb-admin-campaign-slider-text-inner"></div>
+					</div>
+					<div class="tb-admin-campaign-slider-cta">
+						<a href=""></a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 {else}
 	<body{if isset($lite_display) && $lite_display} class="ps_back-office display-modal"{/if}>
 		<div id="main">

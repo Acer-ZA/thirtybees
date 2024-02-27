@@ -660,6 +660,10 @@
     display: inline-block;
 }
 
+.show-campaign-slider .campaign-slider-holder-outer {
+    display: inline-block;
+}
+
 .campaign-bar-on .tb-admin-campaign-bar .campaign-bar-holder-inner-actual {
     background-color: transparent;
     display: inline-grid;

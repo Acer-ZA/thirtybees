@@ -391,7 +391,7 @@ function checkCampaignSliderClose() {
     if (!campaignSliderShownDate || campaignSliderShownDate !== currentDate) {
         /// Show the animation
         console.log('campaignslider should load');
-        $('body').addClass('show-campaign-bar');
+        $('body').addClass('show-campaign-slider');
 
         /// Set a cookie to indicate that the animation has been shown today
         setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
@@ -422,6 +422,7 @@ function campaignSliderClose() {
 function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
     $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
+    $('body').addClass('show-campaign-slider'); /// Forces the slider to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(5000,20000); /// Start delay, Cycle delay
     initiateCampaignSlider(10000,20000); /// Start delay, Cycle delay
