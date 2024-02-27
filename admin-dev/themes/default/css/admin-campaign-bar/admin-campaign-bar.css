@@ -219,7 +219,7 @@
 
 
 .sys-state-holder {
-    display: inline-block;
+    display: none;
     width: 10px;
     position: absolute;
     top: 0px;

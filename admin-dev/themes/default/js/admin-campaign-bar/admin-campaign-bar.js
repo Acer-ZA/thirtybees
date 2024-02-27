@@ -355,7 +355,7 @@ function checkIfSysAnimationsRanAlready() {
     /// Check if the animation has already been shown for the day
     if (!animationShownDate || animationShownDate !== currentDate) {
         /// Show the animation
-        console.log('animation should load');
+        console.log('Sysadmin animation should load');
         /// Sys animation is for debug, maintenance + username animations
         $('body').addClass('show-sys-animation');
 
@@ -363,7 +363,10 @@ function checkIfSysAnimationsRanAlready() {
         setCookie('animationShownDate', currentDate, 1); // Expires in 1 day
     }
     else {
-        console.log("animation has already loaded");
+        console.log("COOKIE SYSADMIN: Cookie already detected");
+        setTimeout(function () {
+            $(".sys-state-holder").fadeIn(1500);
+        }, 1000);
     }
 }
 
@@ -377,7 +380,7 @@ function checkCampaignBarClose() {
         $('body').addClass('show-campaign-bar');
 
         /// Set a cookie to indicate that the animation has been shown today
-        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
+        /*setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
     }
     else {
         console.log("COOKIE BAR: Cookie already detected");
@@ -394,7 +397,7 @@ function checkCampaignSliderClose() {
         $('body').addClass('show-campaign-slider');
 
         /// Set a cookie to indicate that the animation has been shown today
-        setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
+        /*setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day*/
     }
     else {
         console.log("COOKIE SLIDER: Cookie already detected");
@@ -423,7 +426,7 @@ function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
     /*$('body').addClass('show-campaign-bar');*/ /// Forces the bar to show irrespective of cookie
     /*$('body').addClass('show-campaign-slider');*/ /// Forces the slider to show irrespective of cookie
-    $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
+    /*$('body').addClass('show-sys-animation');*/ /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(5000,20000); /// Start delay, Cycle delay
     initiateCampaignSlider(10000,20000); /// Start delay, Cycle delay
     /// Presentation Settings - remove when release ready ///
@@ -432,8 +435,8 @@ function campaignBarSliderInits() {
 }
 
 $(document).ready(function () {
-    campaignBarClose();
-    campaignSliderClose();
+    campaignBarClose(); /// Binds Campaign Bar Close
+    campaignSliderClose(); /// Binds Campaign Slider Close
     checkCampaignBarClose(); /// Checks cookie for Campaign Bar
     checkCampaignSliderClose(); /// Checks cookie for Campaign Sliders
     checkForNotifications(); /// Checks for notifications
