@@ -651,7 +651,7 @@
     justify-content: center !important;
 }
 
-.campaign-bar-holder-inner-outer {
+.campaign-bar-holder-inner-outer, .campaign-slider-holder-outer {
     position: relative;
     display: none;
 }
