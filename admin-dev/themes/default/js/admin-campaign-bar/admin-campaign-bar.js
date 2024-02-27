@@ -380,7 +380,7 @@ function checkCampaignBarClose() {
         setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
     }
     else {
-        console.log("animation has already loaded");
+        console.log("COOKIE BAR: Cookie already detected");
     }
 }
 
@@ -397,22 +397,22 @@ function checkCampaignSliderClose() {
         setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
     }
     else {
-        console.log("animation has already loaded");
+        console.log("COOKIE SLIDER: Cookie already detected");
     }
 }
 
 function campaignBarClose() {
-    console.log("campaign bar closed");
     $(".campaign-bar-close-holder").on("click", function () {
+        console.log("campaign bar closed");
         $(".campaign-bar-holder-inner-outer").fadeOut(250);
         setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
     })
 }
 
 function campaignSliderClose() {
-    console.log("campaign slider closed");
     $(".campaign-slider-close-icon").on("click", function () {
-        $(".campaign-bar-holder-inner-outer").fadeOut(250);
+        console.log("campaign slider closed");
+        $(".campaign-slider-holder-outer").fadeOut(250);
         setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
     })
 }
@@ -421,8 +421,8 @@ function campaignSliderClose() {
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
-    $('body').addClass('show-campaign-bar'); /// Forces the bar to show irrespective of cookie
-    $('body').addClass('show-campaign-slider'); /// Forces the slider to show irrespective of cookie
+    /*$('body').addClass('show-campaign-bar');*/ /// Forces the bar to show irrespective of cookie
+    /*$('body').addClass('show-campaign-slider');*/ /// Forces the slider to show irrespective of cookie
     $('body').addClass('show-sys-animation'); /// Sys animation is for debug, maintenance + username animations
     initiateCampaignBar(5000,20000); /// Start delay, Cycle delay
     initiateCampaignSlider(10000,20000); /// Start delay, Cycle delay
@@ -432,11 +432,12 @@ function campaignBarSliderInits() {
 }
 
 $(document).ready(function () {
-    /*campaignBarClose();*/
-    checkCampaignBarClose();
-    checkCampaignSliderClose();
-    checkForNotifications();
-    checkIfSysAnimationsRanAlready();
+    campaignBarClose();
+    campaignSliderClose();
+    checkCampaignBarClose(); /// Checks cookie for Campaign Bar
+    checkCampaignSliderClose(); /// Checks cookie for Campaign Sliders
+    checkForNotifications(); /// Checks for notifications
+    checkIfSysAnimationsRanAlready(); /// Checks if the Sys Animations (Maintenance / Debug ran already)
 
     /*$('body').addClass('show-sys-animation');*/
 
