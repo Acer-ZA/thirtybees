@@ -241,9 +241,7 @@ function updateCampaignSlider(campaign) {
         bindSliderSupporterCampaignModal(campaign);
         $(".campaign-slider-close-icon").off("click");
         setTimeout(function () {
-            $(".campaign-slider-close-icon").on("click", function () {
-                $(".campaign-slider-holder").fadeOut(1000);
-            });
+            campaignSliderClose();
         }, 250);
        
     } else {
@@ -370,7 +368,6 @@ function checkIfSysAnimationsRanAlready() {
 }
 
 function checkCampaignBarClose() {
-    console.log()
     var campaignBarShownDate = getCookie('campaignBarClose');
 
     /// Check if the animation has already been shown for the day
@@ -387,6 +384,23 @@ function checkCampaignBarClose() {
     }
 }
 
+function checkCampaignSliderClose() {
+    var campaignSliderShownDate = getCookie('campaignSliderClose');
+
+    /// Check if the animation has already been shown for the day
+    if (!campaignSliderShownDate || campaignSliderShownDate !== currentDate) {
+        /// Show the animation
+        console.log('campaignslider should load');
+        $('body').addClass('show-campaign-bar');
+
+        /// Set a cookie to indicate that the animation has been shown today
+        setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
+    }
+    else {
+        console.log("animation has already loaded");
+    }
+}
+
 function campaignBarClose() {
     console.log("campaign bar closed");
     $(".campaign-bar-close-holder").on("click", function () {
@@ -394,6 +408,15 @@ function campaignBarClose() {
         setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
     })
 }
+
+function campaignSliderClose() {
+    console.log("campaign slider closed");
+    $(".campaign-slider-close-icon").on("click", function () {
+        $(".campaign-bar-holder-inner-outer").fadeOut(250);
+        setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
+    })
+}
+
 
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
@@ -408,9 +431,9 @@ function campaignBarSliderInits() {
 }
 
 $(document).ready(function () {
-    console.log('actioned');
-    campaignBarClose();
+    /*campaignBarClose();*/
     checkCampaignBarClose();
+    checkCampaignSliderClose();
     checkForNotifications();
     checkIfSysAnimationsRanAlready();
 
