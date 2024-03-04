@@ -404,7 +404,7 @@
     /* Grid template columns guide (5): 
         1. Logo, 2. Site Name, 3. Notifications + Quick Access, 4. Campaign, 5. User Column 
     */
-    grid-template-columns: max-content minmax(100px, max-content) minmax(60px, auto) 1fr max-content;
+    grid-template-columns: 130px minmax(100px, max-content) minmax(60px, auto) 1fr max-content;
     grid-template-rows: 1fr;
 }
 
@@ -434,10 +434,21 @@
 
 .admin-shopversion-holder {
     position: relative;
+    border: 1px solid black;
 }
 
 #header_shopversion {
+    width: 100%;
     position: relative;
+    padding: 0px !important;
+    background-image: url('../../img/thirtybees/logos/tb-logo-full-120px-040324.svg') !important;
+    background-position: left 5px center;
+    background-size: 91%;
+    border: 1px solid red;
+}
+
+.admin-header-dark #header_shopversion {
+    background-image: url('../../img/thirtybees/logos/tb-logo-full-120px-white-040324.svg') !important;
 }
 
 #header_shopname {
@@ -445,7 +456,7 @@
     text-overflow: ellipsis;
     width: 100%;
     white-space: nowrap;
-    font-size: 12px!important;
+    font-size: 12px !important;
 }
 
 #header_shop {}
