@@ -441,14 +441,14 @@
     width: 100%;
     position: relative;
     padding: 0px !important;
-    background-image: url('../../img/thirtybees/logos/tb-logo-full-120px-040324.svg') !important;
+    background-image: url('../../img/thirtybees/logos/tb-logo-full-173x36-050324-black.svg') !important;
     background-position: left 5px center;
-    background-size: 91%;
+    background-size: contain;
     border: 1px solid red;
 }
 
 .admin-header-dark #header_shopversion {
-    background-image: url('../../img/thirtybees/logos/tb-logo-full-120px-white-040324.svg') !important;
+    background-image: url('../../img/thirtybees/logos/tb-logo-full-173x36-050324-white.svg') !important;
 }
 
 #header_shopname {
