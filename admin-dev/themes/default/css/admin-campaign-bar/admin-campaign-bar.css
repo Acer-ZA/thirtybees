@@ -404,7 +404,7 @@
     /* Grid template columns guide (5): 
         1. Logo, 2. Site Name, 3. Notifications + Quick Access, 4. Campaign, 5. User Column 
     */
-    grid-template-columns: 130px minmax(100px, max-content) minmax(60px, auto) 1fr max-content;
+    grid-template-columns: 155px minmax(100px, max-content) minmax(60px, auto) 1fr max-content;
     grid-template-rows: 1fr;
 }
 
@@ -441,7 +441,7 @@
     width: 100%;
     position: relative;
     padding: 0px !important;
-    background-image: url('../../img/thirtybees/logos/tb-logo-full-173x36-050324-black.svg') !important;
+    background-image: url('../../img/thirtybees/logos/tb-logo-310x78-black-070324.png') !important;
     background-position: left 5px center;
     background-size: contain;
     border: 1px solid red;
