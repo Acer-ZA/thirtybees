@@ -1454,13 +1454,19 @@ tb-admin-campaign-slider-text-inner b {
     }
 
     .campaign-bar-on .tb-admin-campaign-bar {
-        grid-template-columns: 105px 40px minmax(60px, auto) 1fr max-content;
+        grid-template-columns: 84px 40px minmax(60px, auto) 1fr max-content;
+    }
+
+    .admin-shopversion-holder {
+        display: inline-flex!important;
     }
 
     .admin-shopversion-holder .mobile-logo {
         display: inline-block !important;
-        width: 100px !important;
+        width: 100% !important;
         height: 100% !important;
+        background-position: right 16px center;
+        background-repeat: no-repeat;
     }
 
     .tb-admin-top-bar-multishop-holder {
