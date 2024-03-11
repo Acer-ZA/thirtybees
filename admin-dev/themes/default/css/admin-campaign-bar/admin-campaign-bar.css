@@ -451,6 +451,11 @@
     background-image: url('../../img/thirtybees/logos/tb-logo-144x35-white-110324.png') !important;
 }
 
+.admin-shopversion-holder .mobile-logo {
+    background-image: url('../../img/thirtybees/logos/tb-logo-mobile-110324.png') !important;
+}
+
+
 #header_shopname {
     overflow: hidden;
     text-overflow: ellipsis;
