@@ -479,9 +479,22 @@
 
 .member-type {
     position: absolute;
-    bottom: 10px;
-    width: 80%;
-    border: 1px solid red;
+    display: inline-flex;
+    justify-content: center;
+    right: 20px;
+    bottom: 0px;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    line-height: 1 !important;
+}
+
+.member-type span {
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--colour-dark);
+    text-align: center;
 }
 
 .logo-member-type-silver .member-type-text-silver {

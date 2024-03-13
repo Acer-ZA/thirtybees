@@ -435,8 +435,8 @@ function campaignBarSliderInits() {
 }
 
 function checkMemberType() {
-    var findMemberIvory = $(".member-type-silver").length;
-    var findMemberSilver = $(".member-type-ivory").length;
+    var findMemberIvory = $(".member-type-ivory").length;
+    var findMemberSilver = $(".member-type-silver").length;
     var findMemberGold = $(".member-type-gold").length;
     var findMemberPlatinum = $(".member-type-platinum").length;
 
