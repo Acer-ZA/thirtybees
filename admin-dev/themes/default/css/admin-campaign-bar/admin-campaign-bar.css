@@ -447,6 +447,15 @@
     border: 1px solid red;
 }
 
+#shop_version {
+    position: absolute;
+    bottom: -12px;
+}
+
+.admin-header-light #shop_version {
+    color: var(--colour-light);
+}
+
 .admin-header-dark #header_shopversion {
     background-image: url('../../img/thirtybees/logos/tb-logo-144x35-white-110324.png') !important;
 }
@@ -455,7 +464,6 @@
     background-image: url('../../img/thirtybees/logos/tb-logo-mobile-110324.png') !important;
 }
 
-
 #header_shopname {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -463,8 +471,6 @@
     white-space: nowrap;
     font-size: 12px !important;
 }
-
-#header_shop {}
 
 .tb-admin-top-bar-multishop-outer-container {
     height: 100%;
