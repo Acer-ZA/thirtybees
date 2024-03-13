@@ -472,6 +472,34 @@
     font-size: 12px !important;
 }
 
+/*/// Member Types ///*/
+.member-type-text-silver, .member-type-text-ivory, .member-type-text-gold, .member-type-text-platinum {
+    display: none;
+}
+
+.member-type {
+    position: absolute;
+    bottom: 10px;
+    width: 80%;
+    border: 1px solid red;
+}
+
+.logo-member-type-silver .member-type-text-silver {
+    display: inline-flex;
+}
+
+.logo-member-type-ivory .member-type-text-ivory {
+    display: inline-flex;
+}
+
+.logo-member-type-gold .member-type-text-gold {
+    display: inline-flex;
+}
+
+.logo-member-type-platinum .member-type-text-platinum {
+    display: inline-flex;
+}
+
 .tb-admin-top-bar-multishop-outer-container {
     height: 100%;
 }

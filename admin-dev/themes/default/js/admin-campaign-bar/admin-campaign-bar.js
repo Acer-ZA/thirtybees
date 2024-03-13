@@ -434,6 +434,27 @@ function campaignBarSliderInits() {
     initiateCampaignSlider(20000);*/
 }
 
+function checkMemberType() {
+    var findMemberIvory = $(".member-type-silver").length;
+    var findMemberSilver = $(".member-type-ivory").length;
+    var findMemberGold = $(".member-type-gold").length;
+    var findMemberPlatinum = $(".member-type-platinum").length;
+
+    $(".member-type").removeClass("logo-member-type-silver,logo-member-type-ivory,logo-member-type-gold, logo-member-type-platinum");
+    if (findMemberSilver> 0) {
+        $(".member-type").addClass("logo-member-type-silver");
+    }
+    if (findMemberIvory > 0) {
+        $(".member-type").addClass("logo-member-type-ivory");
+    }
+    if (findMemberGold > 0) {
+        $(".member-type").addClass("logo-member-type-gold");
+    }
+    if (findMemberPlatinum> 0) {
+        $(".member-type").addClass("logo-member-type-platinum");
+    }
+}
+
 $(document).ready(function () {
     campaignBarClose(); /// Binds Campaign Bar Close
     campaignSliderClose(); /// Binds Campaign Slider Close
@@ -441,6 +462,7 @@ $(document).ready(function () {
     checkCampaignSliderClose(); /// Checks cookie for Campaign Sliders
     checkForNotifications(); /// Checks for notifications
     checkIfSysAnimationsRanAlready(); /// Checks if the Sys Animations (Maintenance / Debug ran already)
+    checkMemberType();
 
     /*$('body').addClass('show-sys-animation');*/
 
