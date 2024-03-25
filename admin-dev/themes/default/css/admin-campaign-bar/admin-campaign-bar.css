@@ -486,8 +486,25 @@
     width: auto;
     padding-left: 5px;
     padding-right: 5px;
-    border: 1px solid black;
+    padding-top: 3px;
+    padding-bottom: 3px;
     line-height: 1 !important;
+}
+
+.logo-member-type-ivory {
+    background: linear-gradient(180deg, rgba(245,243,243,1) 0%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 65%, rgba(245,243,243,1) 100%);
+}
+
+.logo-member-type-silver {
+    background: linear-gradient(360deg, rgba(233,232,232,1) 5%, rgba(255,255,255,1) 51%, rgba(233,232,232,1) 80%);
+}
+
+.logo-member-type-gold {
+    background: linear-gradient(360deg, rgba(181,143,40,1) 3%, rgba(219,206,79,1) 36%, rgba(225,216,85,1) 53%, rgba(222,212,82,1) 57%, rgba(181,143,40,1) 85%);
+}
+
+.logo-member-type-platinum {
+    background: linear-gradient(360deg, rgba(203,203,203,1) 0%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 46%, rgba(255,255,255,1) 62%, rgba(203,203,203,1) 95%);
 }
 
 .member-type span {

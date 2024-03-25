@@ -154,7 +154,7 @@
 </head>
 <h1>{$context->employee->bo_theme}</h1>
 {if $display_header}
-	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext} campaign-bar-on member-type-silver">
+	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext} campaign-bar-on member-type-ivory">
 	{* begin  HEADER *}
 	<header id="header" class="bootstrap">
 		<nav id="header_infos" role="navigation">
@@ -167,7 +167,7 @@
 					<div class="member-type">
 						<span class="member-type-text-silver">Silver Member</span>
 						<span class="member-type-text-ivory">Ivory Member</span>
-						<span class="member-type-text-gold">Silver Member</span>
+						<span class="member-type-text-gold">Gold Member</span>
 						<span class="member-type-text-platinum">Platinum Member</span>
 					</div>
 					<a class="mobile-logo" href="{$default_tab_link|escape:'html':'UTF-8'}"></a>
