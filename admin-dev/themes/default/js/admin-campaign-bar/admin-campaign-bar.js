@@ -34,7 +34,6 @@ var campaigns = [
 
 /// Campaign Slider Variables ///
 var campaignsSlider = [
-
     {
         class: 'campaign_slider_love_class',
         header: 'campaign_slider_love_header',
@@ -175,7 +174,6 @@ function checkAdminBGColour() {
     else {
         console.log("light")
     }
-
 }
 
 /// Initiate Campaign Bar ///
@@ -427,11 +425,17 @@ function campaignBarSliderInits() {
     /*$('body').addClass('show-campaign-bar');*/ /// Forces the bar to show irrespective of cookie
     /*$('body').addClass('show-campaign-slider');*/ /// Forces the slider to show irrespective of cookie
     /*$('body').addClass('show-sys-animation');*/ /// Sys animation is for debug, maintenance + username animations
-    initiateCampaignBar(5000,20000); /// Start delay, Cycle delay
-    initiateCampaignSlider(10000,20000); /// Start delay, Cycle delay
-    /// Presentation Settings - remove when release ready ///
-    /*initiateCampaignBar(10000);
-    initiateCampaignSlider(20000);*/
+
+    var isMember = checkMemberType(); // Call the function and store the result
+
+    if (!isMember) { // Check if isMember is false
+        console.log("/// MEMBER TYPE FALSE ///");
+        initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
+        initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
+    } else {
+        updateCampaignBar("campaign-bar-thanks");
+        console.log("/// MEMBER TYPE TRUE ///");
+    }
 }
 
 function checkMemberType() {
@@ -439,24 +443,30 @@ function checkMemberType() {
     var findMemberSilver = $(".member-type-silver").length;
     var findMemberGold = $(".member-type-gold").length;
     var findMemberPlatinum = $(".member-type-platinum").length;
-    var isMemberOn = false;
-    $(".member-type").removeClass("logo-member-type-silver,logo-member-type-ivory,logo-member-type-gold, logo-member-type-platinum");
-    if (findMemberSilver> 0) {
+
+    $(".member-type").removeClass("logo-member-type-silver logo-member-type-ivory logo-member-type-gold logo-member-type-platinum");
+
+    if (findMemberSilver > 0) {
         $(".member-type").addClass("logo-member-type-silver");
+        return true; // Return true if member type is found
     }
     if (findMemberIvory > 0) {
         $(".member-type").addClass("logo-member-type-ivory");
+        return true; // Return true if member type is found
     }
     if (findMemberGold > 0) {
         $(".member-type").addClass("logo-member-type-gold");
+        return true; // Return true if member type is found
     }
-    if (findMemberPlatinum> 0) {
+    if (findMemberPlatinum > 0) {
         $(".member-type").addClass("logo-member-type-platinum");
+        return true; // Return true if member type is found
     }
-    if (findMemberSilver > 0 || findMemberIvory > 0 || findMemberGold > 0 || findMemberPlatinum > 0) {
-        console.log("member found");
-    }
+
+    console.log("No member found");
+    return false; // Return false if no member type is found
 }
+
 
 $(document).ready(function () {
     campaignBarClose(); /// Binds Campaign Bar Close
