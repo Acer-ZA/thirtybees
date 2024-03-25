@@ -161,7 +161,7 @@
 			
 			<div class="navbar-header tb-admin-campaign-bar">
 				<button id="header_nav_toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
-					<i class="icon-reorder"></i>
+					<i class="icon-reorder"></i>	
 				</button>
 				<div class="admin-shopversion-holder">
 					<div class="member-type">
