@@ -154,7 +154,7 @@
 </head>
 <h1>{$context->employee->bo_theme}</h1>
 {if $display_header}
-	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext} campaign-bar-on member-type-ivory">
+	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext} campaign-bar-on member-type-platinum">
 	{* begin  HEADER *}
 	<header id="header" class="bootstrap">
 		<nav id="header_infos" role="navigation">
