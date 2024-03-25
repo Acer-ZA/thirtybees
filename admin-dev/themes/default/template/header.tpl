@@ -127,6 +127,8 @@
 
 	</script>
 {/if}
+<!-- /// Member Type - assign the following values: member-type-silver; member-type-ivory; member-type-gold; member-type-platinum /// -->
+{assign var="membertype" value="member-type-gold"}
 {if isset($maintenance_mode) && $maintenance_mode == true}
 	{assign var="maintenance_mode_class" value="maintenance-mode"}
 {/if}
@@ -154,14 +156,14 @@
 </head>
 <h1>{$context->employee->bo_theme}</h1>
 {if $display_header}
-	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext} campaign-bar-on member-type-platinum">
+	<body class="ps_back-office{if $employee->bo_menu} page-sidebar{if $collapse_menu} page-sidebar-closed{/if}{else} page-topbar{/if} {$smarty.get.controller|escape|strtolower} multistore-context-{$shopContext} campaign-bar-on {$membertype}">
 	{* begin  HEADER *}
 	<header id="header" class="bootstrap">
 		<nav id="header_infos" role="navigation">
 			
 			<div class="navbar-header tb-admin-campaign-bar">
 				<button id="header_nav_toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-primary">
-					<i class="icon-reorder"></i>	
+					<i class="icon-reorder"></i>
 				</button>
 				<div class="admin-shopversion-holder">
 					<div class="member-type">

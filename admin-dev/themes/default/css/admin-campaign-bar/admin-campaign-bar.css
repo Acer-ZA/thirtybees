@@ -447,14 +447,14 @@
 
 #shop_version {
     position: absolute;
-    bottom: -19px;
+    bottom: -10px;
     padding-top: 0px;
     padding-bottom: 0px;
     font-size: 9px !important;
 }
 
 .admin-header-light #shop_version {
-    color: var(--colour-light);
+    color: var(--colour-dark);
     padding: 5px;
 }
 
@@ -483,12 +483,12 @@
     position: absolute;
     display: inline-flex;
     justify-content: center;
-    right: 24px;
-    bottom: 0px;
+    right: 19px;
+    bottom: -5px;
     width: auto;
     padding-left: 5px;
     padding-right: 5px;
-    padding-top: 1px;
+    padding-top: 0px;
     padding-bottom: 2px;
     line-height: 1 !important;
     border: 1px solid #FFE170 !important;
@@ -512,7 +512,6 @@
 }
 
 .logo-member-type-platinum {
-    right: 23px;
     background: linear-gradient(360deg, rgba(203,203,203,1) 0%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 46%, rgba(255,255,255,1) 62%, rgba(203,203,203,1) 95%);
 }
 

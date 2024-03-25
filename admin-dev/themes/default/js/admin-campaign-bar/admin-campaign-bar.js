@@ -439,7 +439,7 @@ function checkMemberType() {
     var findMemberSilver = $(".member-type-silver").length;
     var findMemberGold = $(".member-type-gold").length;
     var findMemberPlatinum = $(".member-type-platinum").length;
-
+    var isMemberOn = false;
     $(".member-type").removeClass("logo-member-type-silver,logo-member-type-ivory,logo-member-type-gold, logo-member-type-platinum");
     if (findMemberSilver> 0) {
         $(".member-type").addClass("logo-member-type-silver");
@@ -452,6 +452,9 @@ function checkMemberType() {
     }
     if (findMemberPlatinum> 0) {
         $(".member-type").addClass("logo-member-type-platinum");
+    }
+    if (findMemberSilver > 0 || findMemberIvory > 0 || findMemberGold > 0 || findMemberPlatinum > 0) {
+        console.log("member found");
     }
 }
 
