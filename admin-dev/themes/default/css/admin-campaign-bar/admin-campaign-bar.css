@@ -447,11 +447,15 @@
 
 #shop_version {
     position: absolute;
-    bottom: -12px;
+    bottom: -19px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 9px !important;
 }
 
 .admin-header-light #shop_version {
     color: var(--colour-light);
+    padding: 5px;
 }
 
 .admin-header-dark #header_shopversion {
@@ -504,6 +508,7 @@
 }
 
 .logo-member-type-platinum {
+    right: 23px;
     background: linear-gradient(360deg, rgba(203,203,203,1) 0%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 46%, rgba(255,255,255,1) 62%, rgba(203,203,203,1) 95%);
 }
 
