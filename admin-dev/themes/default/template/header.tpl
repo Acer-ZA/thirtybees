@@ -165,10 +165,10 @@
 				</button>
 				<div class="admin-shopversion-holder">
 					<div class="member-type">
-						<span class="member-type-text-silver">Silver Member</span>
-						<span class="member-type-text-ivory">Ivory Member</span>
-						<span class="member-type-text-gold">Gold Member</span>
-						<span class="member-type-text-platinum">Platinum Member</span>
+						<span class="member-type-text-silver" title='{l s="Silver Member. Thank you for your support!"}'>{l s="Silver Member"}</span>
+						<span class="member-type-text-ivory" title='{l s="Ivory Member. Thank you for your support!"}'>{l s="Ivory Member"}</span>
+						<span class="member-type-text-gold" title='{l s="Gold Member. Thank you for your support!"}'>{l s="Gold Member"}</span>
+						<span class="member-type-text-platinum" title='{l s="Platinum Member. Thank you for your support!"}'>{l s="Platinum Member"}</span>
 					</div>
 					<a class="mobile-logo" href="{$default_tab_link|escape:'html':'UTF-8'}"></a>
 					<a id="header_shopversion" href="{$default_tab_link|escape:'html':'UTF-8'}">
