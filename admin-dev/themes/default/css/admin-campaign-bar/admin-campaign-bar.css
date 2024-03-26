@@ -447,7 +447,7 @@
 
 #shop_version {
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     padding-top: 0px;
     padding-bottom: 0px;
     font-size: 9px !important;
@@ -481,7 +481,7 @@
 
 .member-type {
     position: absolute;
-    display: inline-flex;
+    display: none;
     justify-content: center;
     right: 19px;
     bottom: -5px;
@@ -500,18 +500,22 @@
 }
 
 .logo-member-type-ivory {
+    display: inline-flex;
     background: linear-gradient(180deg, rgba(245,243,243,1) 0%, rgba(255,255,255,1) 23%, rgba(255,255,255,1) 65%, rgba(245,243,243,1) 100%);
 }
 
 .logo-member-type-silver {
+    display: inline-flex;
     background: linear-gradient(360deg, rgba(233,232,232,1) 5%, rgba(255,255,255,1) 51%, rgba(233,232,232,1) 80%);
 }
 
 .logo-member-type-gold {
+    display: inline-flex;
     background: linear-gradient(to bottom, rgba(255, 208, 36, 1) 0%, rgba(229, 184, 1, 1) 100%);
 }
 
 .logo-member-type-platinum {
+    display: inline-flex;
     background: linear-gradient(360deg, rgba(203,203,203,1) 0%, rgba(255,255,255,1) 39%, rgba(255,255,255,1) 46%, rgba(255,255,255,1) 62%, rgba(203,203,203,1) 95%);
 }
 
