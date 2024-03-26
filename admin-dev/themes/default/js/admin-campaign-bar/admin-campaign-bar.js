@@ -437,13 +437,9 @@ function campaignBarSliderInits() {
 
         if (thanksCampaign) {
             // If the campaign is found, update the campaign bar
-            console.log("/// MEMBER TYPE TRUE ///");
+            console.log("/// MEMBER TYPE TRUE: BAR ///");
 
-           /* $(".campaign-slider-holder").attr("style", "visibility: visible!important");
-            var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
-            var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
-            $('.campaign-slider-holder').removeClass('campaign-slider-hide');
-            $('.campaign-slider-holder').addClass(randomClass);*/
+           
             checkAdminBGColour();
             $(".campaign-bar-holder").css("visibility", "visible");
             $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
@@ -452,6 +448,23 @@ function campaignBarSliderInits() {
         } else {
             console.error("Campaign 'campaign-bar-thanks' not found.");
         }
+
+        var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
+            return campaignsSlider.class === 'campaign_slider_thanks_class';
+        });
+
+        if (thanksCampaignSlider) {
+            console.log("/// MEMBER TYPE TRUE: SLIDER ///");
+            $(".campaign-slider-holder").attr("style", "visibility: visible!important");
+            var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
+            var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+            $('.campaign-slider-holder').removeClass('campaign-slider-hide');
+            $('.campaign-slider-holder').addClass(randomClass);
+            updateCampaignSlider(thanksCampaignSlider);
+        } else {
+            console.error("Campaign Slider 'campaign-slider-thanks' not found.");
+        }
+
     }
 }
 
