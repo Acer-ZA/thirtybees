@@ -418,7 +418,6 @@ function campaignSliderClose() {
     })
 }
 
-
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
@@ -452,6 +451,17 @@ function campaignBarSliderInits() {
         } else {
             console.error("Campaign 'campaign-bar-thanks' not found.");
         }
+
+        
+        var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
+            return campaignsSlider.class === 'campaign-slider-thanks';
+        });
+
+        if (thanksCampaignSlider) {
+        } else {
+            console.error("Campaign 'campaign-bar-thanks' not found.");
+        }
+
     }
 }
 
