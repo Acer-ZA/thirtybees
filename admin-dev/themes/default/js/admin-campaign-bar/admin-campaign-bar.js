@@ -422,9 +422,6 @@ function campaignSliderClose() {
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
     console.log("TB CampaignBar Initial Init");
-    /*$('body').addClass('show-campaign-bar');*/ /// Forces the bar to show irrespective of cookie
-    /*$('body').addClass('show-campaign-slider');*/ /// Forces the slider to show irrespective of cookie
-    /*$('body').addClass('show-sys-animation');*/ /// Sys animation is for debug, maintenance + username animations
 
     var isMember = checkMemberType(); // Call the function and store the result
 
@@ -433,8 +430,28 @@ function campaignBarSliderInits() {
         initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
         initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
     } else {
-        updateCampaignBar("campaign-bar-thanks");
-        console.log("/// MEMBER TYPE TRUE ///");
+        // Find the campaign object with class name 'campaign-bar-thanks'
+        var thanksCampaign = campaigns.find(function (campaign) {
+            return campaign.class === 'campaign_bar_thanks_class';
+        });
+
+        if (thanksCampaign) {
+            // If the campaign is found, update the campaign bar
+            console.log("/// MEMBER TYPE TRUE ///");
+
+           /* $(".campaign-slider-holder").attr("style", "visibility: visible!important");
+            var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
+            var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+            $('.campaign-slider-holder').removeClass('campaign-slider-hide');
+            $('.campaign-slider-holder').addClass(randomClass);*/
+            checkAdminBGColour();
+            $(".campaign-bar-holder").css("visibility", "visible");
+            $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+
+            updateCampaignBar(thanksCampaign);
+        } else {
+            console.error("Campaign 'campaign-bar-thanks' not found.");
+        }
     }
 }
 
