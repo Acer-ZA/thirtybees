@@ -80,7 +80,7 @@
 		var campaign_bar_techsupport_class = 'campaign-bar-technical-support';
 		var campaign_bar_techsupport_intro = '{l s="Need [1]Support?[/1] We're here to [1]help![/1]" tags=["<b>"]}';
 		var campaign_bar_techsupport_cta = '{l s="Contact Paid Support"}';
-		var campaign_bar_techsupport_url = "https://www.thirtybees.com";
+		var campaign_bar_techsupport_url = "https://thirtybees.com/contact/";
 
 		/// Thank You ///
 		var campaign_bar_thanks_class = 'campaign-bar-thanks';
@@ -108,7 +108,7 @@
 		var campaign_slider_techsupport_header = '{l s="Need [1]Support?[/1]" tags=["<b>"]}';
 		var campaign_slider_techsupport_intro = '{l s="We're here to [1]help![/1]" tags=["<b>"]}';
 		var campaign_slider_techsupport_cta = '{l s="Contact Paid Support"}';
-		var campaign_slider_techsupport_url = "https://www.thirtybees.com";
+		var campaign_slider_techsupport_url = "https://thirtybees.com/contact/";
 
 		/// Thank You ///
 		var campaign_slider_thanks_class = 'campaign-slider-thanks';
@@ -128,7 +128,7 @@
 	</script>
 {/if}
 <!-- /// Member Type - assign the following values: member-type-silver; member-type-ivory; member-type-gold; member-type-platinum /// -->
-{assign var="membertype" value="member-type-silver"}
+{assign var="membertype" value=""}
 {if isset($maintenance_mode) && $maintenance_mode == true}
 	{assign var="maintenance_mode_class" value="maintenance-mode"}
 {/if}
@@ -466,7 +466,7 @@
 			</div>
 
 			{*/// Once off donation ///*}
-			<a class="support-tb-item-holder" href="https://forum.thirtybees.com/support-thirty-bees/" target="_blank">
+			<a class="support-tb-item-holder" href="https://www.paypal.com/donate/?hosted_button_id=SDAYT6DWZRCSS" target="_blank">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>

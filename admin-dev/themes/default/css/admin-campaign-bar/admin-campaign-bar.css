@@ -223,7 +223,7 @@
     width: 10px;
     position: absolute;
     top: 0px;
-    right: 7px;
+    right: 5px;
     z-index: 999;
 }
 
@@ -1158,6 +1158,7 @@ span.maintenance-mode {
     font-weight: 400 !important;
     font-size: 13px !important;
     transition: all 150ms ease-in-out;
+    text-decoration: none!important;
 }
 
 .support-tb-item-holder:first-of-type {
@@ -1172,7 +1173,7 @@ span.maintenance-mode {
     text-decoration: none !important;
     color: var(--colour-light) !important;
     background: linear-gradient(to bottom, rgba(58, 138, 39, 1) 0%,rgba(76, 179, 55, 1) 100%);
-    transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;  
 }
 
 .support-item-icon {
