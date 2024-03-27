@@ -239,6 +239,19 @@ function updateCampaignSlider(campaign) {
         $('.tb-admin-campaign-slider-cta a').attr("href", window[campaign.url]);
 
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
+        
+        var checkForTechSupportClassSlider = $('.campaign-slider-holder').hasClass("campaign-slider-technical-support");
+        console.log("*** Slider TechSupportClass State: " + checkForTechSupportClassSlider);
+        if (checkForTechSupportClassSlider) {
+            console.log("*** Slider Tech Support Class Detected ***");
+            $(".campaign-slider-technical-support .tb-admin-campaign-slider-cta a").attr("target", "_blank");
+            $(".campaign-slider-technical-support .tb-admin-campaign-slider-cta-inline a").attr("target", "_blank");
+        }
+        else {
+            console.log("*** Tech Support Class NOT Detected ***");
+            $(".tb-admin-campaign-slider-cta a").attr("target", "_self");
+            $(".tb-admin-campaign-slider-cta-inline a").attr("target", "_self");
+        }
 
         // Animation
         $(".campaign-slider-holder").removeClass("animate-campaign-slider-in");
