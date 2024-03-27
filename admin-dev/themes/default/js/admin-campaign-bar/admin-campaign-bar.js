@@ -101,6 +101,19 @@ function updateCampaignBar(campaign) {
 
         /// Remove previous class and add the selected class
         $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
+        var checkForTechSupportClass = $('.tb-admin-campaign-bar').hasClass("campaign-bar-technical-support");
+        console.log("*** TechSupportClass State: " + checkForTechSupportClass);
+        if (checkForTechSupportClass) {
+            console.log("*** Tech Support Class Detected ***");
+            $(".campaign-bar-technical-support .tb-admin-campaign-bar-cta a").attr("target", "_blank");
+            $(".campaign-bar-technical-support .tb-admin-campaign-bar-cta-inline a").attr("target", "_blank");
+        }
+        else {
+            console.log("*** Tech Support Class NOT Detected ***");
+            $(".tb-admin-campaign-bar-cta a").attr("target", "_self");
+            $(".tb-admin-campaign-bar-cta-inline a").attr("target", "_self"); 
+        }
+
         $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
 
         $(".campaign-bar-holder").addClass("animate-campaign-bar-in");

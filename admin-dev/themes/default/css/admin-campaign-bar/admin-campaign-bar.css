@@ -447,15 +447,13 @@
 
 #shop_version {
     position: absolute;
-    bottom: -5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    bottom: -6px;
+    padding: 0px!important;
     font-size: 9px !important;
 }
 
 .admin-header-light #shop_version {
     color: var(--colour-dark);
-    padding: 5px;
 }
 
 .admin-header-dark #header_shopversion {
