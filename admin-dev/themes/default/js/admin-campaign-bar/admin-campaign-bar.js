@@ -308,15 +308,18 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
 
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
-    $('.tb-admin-campaign-bar #header_notifs_icon_wrapper .notifs_badge span').each(function () {
+    console.log("/// NOTIFICATIONS 2 /// ");
+
+    $('#notificationsModal .notifs_badge span').each(function () {
         var notificationCount = $(this).text();
-        var notifcationCountToNum = parseInt(notificationCount);
-        if (notifcationCountToNum !== 0) {
-            $(this).closest('.notifs_badge').fadeIn(200);
+        console.log("NOTIFICATIONS COUNT: " + notificationCount)
+        var notificationCountToNum = parseInt(notificationCount);
+        if (notificationCountToNum !== 0) {
+            $(".tb-admin-campaign-bar .icon-bell").closest('.notifs_badge').fadeIn(200);
             console.log("*** Notification Count: " + notificationCount);
 
         } else if (notifcationCountToNum == 0) {
-            $(this).closest('.notifs_badge').fadeOut(200);
+            $(".tb-admin-campaign-bar .icon-bell").closest('.notifs_badge').fadeOut(200);
             console.log("*** Notification Count: " + notificationCount);
         }
     });
