@@ -310,14 +310,14 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
 function checkForNotifications() {
     $('.tb-admin-campaign-bar #header_notifs_icon_wrapper .notifs_badge span').each(function () {
         var notificationCount = $(this).text();
+        var notifcationCountToNum = parseInt(notificationCount);
+        if (notifcationCountToNum !== 0) {
+            $(this).closest('.notifs_badge').fadeIn(200);
+            console.log("*** Notification Count: " + notificationCount);
 
-        if (parseInt(notificationCount) !== 0) {
-            $(this).closest('.notifs_badge').addClass('fadeIn');
-            console.log("Notification Count: " + notificationCount);
-
-        } else {
-            $(this).closest('.notifs_badge').removeClass('fadeIn');
-            console.log("Notification Count: " + notificationCount);
+        } else if (notifcationCountToNum == 0) {
+            $(this).closest('.notifs_badge').fadeOut(200);
+            console.log("*** Notification Count: " + notificationCount);
         }
     });
 }

@@ -1716,6 +1716,10 @@ tb-admin-campaign-slider-text-inner b {
         display: inline-flex;
         align-self: center;
     }
+
+    .tb-admin-campaign-bar-fa-icon .notifs_badge {
+        display: none;
+    }
 }
 
 @media (max-width: 1126px) {
