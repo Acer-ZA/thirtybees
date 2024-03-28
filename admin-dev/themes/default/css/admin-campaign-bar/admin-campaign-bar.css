@@ -432,7 +432,7 @@
     font-size: 14px;
 }
 
-.admin-shopversion-holder {
+.admin-shopversion-holder { 
     position: relative;
 }
 
@@ -440,9 +440,10 @@
     width: 100%;
     position: relative;
     padding: 0px !important;
-    background-image: url('../../img/thirtybees/logos/tb-logo-144x35-black-110324.png') !important;
+    /*background-image: url('../../img/thirtybees/logos/tb-logo-144x35-black-110324.png') !important;*/
+    background-image: url('../../img/thirtybees/logos/tb-logo-new-black-280324d.svg') !important;
     background-position: left center;
-    background-size: contain;
+    background-size: 126px;
 }
 
 #shop_version {
@@ -457,7 +458,7 @@
 }
 
 .admin-header-dark #header_shopversion {
-    background-image: url('../../img/thirtybees/logos/tb-logo-144x35-white-110324.png') !important;
+    background-image: url('../../img/thirtybees/logos/tb-logo-new-white-280324d.svg') !important;
 }
 
 .admin-shopversion-holder .mobile-logo {
@@ -1215,6 +1216,7 @@ span.maintenance-mode {
 
 .campaign-slider-holder {
     visibility: hidden;
+    z-index: -1!important;
     display: inline-flex;
     position: fixed;
     right: 11px; /*/* Traditional position, but note, can get in the way of save button */

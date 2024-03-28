@@ -288,7 +288,7 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
     }
 
     setTimeout(function () {
-        $(".campaign-slider-holder").attr("style", "visibility: visible!important");
+        $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: revert-layer!important;");
         /// Initial update
         var initialCampaign = getRandomCampaignSlider();
         updateCampaignSlider(initialCampaign);
