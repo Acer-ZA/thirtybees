@@ -447,7 +447,7 @@
 
 #shop_version {
     position: absolute;
-    bottom: -6px;
+    bottom: -5px;
     padding: 0px!important;
     font-size: 9px !important;
 }
@@ -1217,7 +1217,8 @@ span.maintenance-mode {
     visibility: hidden;
     display: inline-flex;
     position: fixed;
-    right: 11px;
+    right: 11px; /*/* Traditional position, but note, can get in the way of save button */
+    /*right: 34%;*/ /* Alternative position to traditional position, but note, can get in the way of save button */
     bottom: 9px;
     padding-right: 10px;
     z-index: 800;
@@ -1493,24 +1494,12 @@ tb-admin-campaign-slider-text-inner b {
     animation-fill-mode: forwards;
 }
 
-/**/
-/*.animate-campaign-slider-out.animate-campaign-slider-flip-center {
-    opacity: 0;
-    animation: campaignLinkOut 2s ease-out 0s;
-    animation-delay: 0ms;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-    animation-duration: 1200ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-*/
 /*/// Responsive ///*/
 .admin-shopversion-holder .mobile-logo {
     display: none;
 }
 
-@media (max-width: 501px) {
+@media (max-width: 499px) {
     #header_shopversion {
         display: none!important;
     }
@@ -1577,10 +1566,22 @@ tb-admin-campaign-slider-text-inner b {
     }
 }
 
-@media (min-width: 500px) and (max-width: 587px) {
-    /*.tb-admin-campaign-bar-text {
-        display: none!important;
-    }*/
+@media (min-width: 500px) and (max-width: 510px) {
+    .campaign-bar-on .tb-admin-campaign-bar {
+        grid-template-columns: 52px min-content minmax(60px, auto) 1fr max-content;
+    }
+
+    .admin-shopversion-holder .mobile-logo {
+        display: inline-block !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-position: right 16px center;
+        background-repeat: no-repeat;
+    }
+
+    #header_shopversion {
+        display: none !important;
+    }
 }
 
 @media (max-width: 591px) {
@@ -1631,6 +1632,12 @@ tb-admin-campaign-slider-text-inner b {
     .tb-admin-campaign-bar-text-inner {
         text-overflow: ellipsis!important;
         overflow: hidden;
+    }
+}
+
+@media (max-width: 764px) {
+    .campaign-slider-holder {
+        left: 22%!important;
     }
 }
 
