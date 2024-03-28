@@ -310,19 +310,30 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
 function checkForNotifications() {
     console.log("/// NOTIFICATIONS 2 /// ");
 
-    $('#notificationsModal .notifs_badge span').each(function () {
-        var notificationCount = $(this).text();
-        console.log("NOTIFICATIONS COUNT: " + notificationCount)
-        var notificationCountToNum = parseInt(notificationCount);
-        if (notificationCountToNum !== 0) {
-            $(".tb-admin-campaign-bar .icon-bell").closest('.notifs_badge').fadeIn(200);
-            console.log("*** Notification Count: " + notificationCount);
+    setTimeout(function () {
+        $('.tb-admin-campaign-bar .notifs_badge span').each(function () {
 
-        } else if (notifcationCountToNum == 0) {
-            $(".tb-admin-campaign-bar .icon-bell").closest('.notifs_badge').fadeOut(200);
-            console.log("*** Notification Count: " + notificationCount);
-        }
-    });
+
+            var notificationCount = $(this).text();
+            console.log("NOTIFICATIONS COUNT: " + notificationCount);
+
+            if (notificationCount > 0) {
+                console.log("ALERT: " + notificationCount);
+                $(".tb-admin-campaign-bar-fa-icon .notifs_badge").css("display","inline-flex");
+                console.log("*** Notification Count: " + notificationCount);
+            }
+            /*console.log("NOTIFICATIONS COUNT: " + notificationCount)
+            var notificationCountToNum = parseInt(notificationCount);
+            if (notificationCountToNum !== 0) {
+                $(".tb-admin-campaign-bar .icon-bell").closest('.notifs_badge').fadeIn(200);
+                console.log("*** Notification Count: " + notificationCount);
+    
+            } else if (notificationCountToNum == 0) {
+                $(".tb-admin-campaign-bar .icon-bell").closest('.notifs_badge').fadeOut(200);
+                console.log("*** Notification Count: " + notificationCount);
+            }*/
+        });
+    }, 2000);
 }
 
 /// Notification code grab and inject into modal + open
