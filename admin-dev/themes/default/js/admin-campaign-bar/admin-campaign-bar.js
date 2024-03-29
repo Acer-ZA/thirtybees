@@ -363,7 +363,7 @@ function checkCampaignBarClose() {
         $('body').addClass('show-campaign-bar');
 
         /// Set a cookie to indicate that the animation has been shown today
-        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
+        /*setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
     }
 }
 
@@ -376,7 +376,7 @@ function checkCampaignSliderClose() {
         $('body').addClass('show-campaign-slider');
 
         /// Set a cookie to indicate that the animation has been shown today
-        setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
+        /*setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day*/
     }
 }
 
