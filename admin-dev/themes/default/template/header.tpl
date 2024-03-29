@@ -128,7 +128,7 @@
 	</script>
 {/if}
 <!-- /// Member Type - assign the following values: member-type-silver; member-type-ivory; member-type-gold; member-type-platinum /// -->
-{assign var="membertype" value=""}
+{assign var="membertype" value="member-type-silver"}
 {if isset($maintenance_mode) && $maintenance_mode == true}
 	{assign var="maintenance_mode_class" value="maintenance-mode"}
 {/if}

@@ -1506,19 +1506,6 @@ tb-admin-campaign-slider-text-inner b {
         display: none!important;
     }
 
-    .member-type {
-        position: fixed;
-        z-index: 1280;
-        top: -1px;
-        left: 31px;
-        width: 9px;
-        height: 37px;
-    }
-
-    .member-type span {
-        display: none!important;
-    }
-
     .notifications-quick-access-holder {
         padding-left: 2px !important;
         padding-right: 2px !important;
@@ -1583,6 +1570,23 @@ tb-admin-campaign-slider-text-inner b {
 
     #header_shopversion {
         display: none !important;
+    }
+}
+
+@media (max-width: 510px) {
+    .member-type {
+        position: fixed;
+        z-index: 1280;
+        top: -1px;
+        left: 31px;
+        width: 6px;
+        height: 37px;
+        padding: 0px!important;
+    }
+
+    .member-type span {
+        display: none !important;
+        padding: 0px !important;
     }
 }
 
@@ -1676,6 +1680,7 @@ tb-admin-campaign-slider-text-inner b {
 
     .campaign-bar-thanks .tb-admin-campaign-bar-text-inner {
         white-space: normal;
+        font-size: 9px;
     }
 }
 
