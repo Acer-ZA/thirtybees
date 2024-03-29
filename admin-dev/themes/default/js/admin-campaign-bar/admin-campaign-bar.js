@@ -1,4 +1,4 @@
-/**** Admin Campaign Bar JS ****/
+/**** Admin Campaign Bar and Slider JS ****/
 
 /// Get the current date ///
 var currentDate = new Date().toDateString();
@@ -89,7 +89,6 @@ function getRandomCampaignSlider() {
 
 /// Update Campaign Bar ///
 function updateCampaignBar(campaign) {
-    console.log("updateCampaignBar: " + campaign);
     /// Check if campaign is defined
     if (campaign && campaign.intro) {
         /// Update the campaign bar with the selected campaign
@@ -102,14 +101,11 @@ function updateCampaignBar(campaign) {
         /// Remove previous class and add the selected class
         $('.tb-admin-campaign-bar').removeClass().addClass('tb-admin-campaign-bar ' + window[campaign.class]);
         var checkForTechSupportClass = $('.tb-admin-campaign-bar').hasClass("campaign-bar-technical-support");
-        console.log("*** TechSupportClass State: " + checkForTechSupportClass);
         if (checkForTechSupportClass) {
-            console.log("*** Tech Support Class Detected ***");
             $(".campaign-bar-technical-support .tb-admin-campaign-bar-cta a").attr("target", "_blank");
             $(".campaign-bar-technical-support .tb-admin-campaign-bar-cta-inline a").attr("target", "_blank");
         }
         else {
-            console.log("*** Tech Support Class NOT Detected ***");
             $(".tb-admin-campaign-bar-cta a").attr("target", "_self");
             $(".tb-admin-campaign-bar-cta-inline a").attr("target", "_self"); 
         }
@@ -119,8 +115,6 @@ function updateCampaignBar(campaign) {
         $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
         bindTopBarSupporterCampaignModal(campaign); /// Bind Supporter Modal
     } else {
-        console.error('Campaign or campaign.intro is undefined.');
-        console.error('Retrying...');
         var newCampaign = getRandomCampaignBar();
         updateCampaignBar(newCampaign);
     }
@@ -129,36 +123,27 @@ function updateCampaignBar(campaign) {
 /// Bind/Unbind TopBar Supporter Campaign Modal ///
 function bindTopBarSupporterCampaignModal(campaign) {
     if (campaign.class == 'campaign_bar_love_class') {
-        console.log('TopBarSupporter Campaign: ' + campaign.class);
-
         setTimeout(function () {
             $('.campaign-bar-supporter .campaign-bar-holder-inner-actual').on("click", function () {
-                console.log("supporter");
                 openSupportThirtyBeesModal();
             });
         }, 10);
     }
     else {
-        console.log('not supporter: ' + campaign.class);
         $(".tb-admin-campaign-bar .campaign-bar-holder-inner-actual").off('click');
     }
 }
 
 /// Bind/Unbind Slider Supporter Campaign Modal ///
 function bindSliderSupporterCampaignModal(campaign) {
-    console.log('/// SLIDER  Campaign: ' + campaign.class);
-
     if (campaign.class == 'campaign_slider_love_class') {
-
         setTimeout(function () {
             $('.campaign-slider-holder.campaign-slider-supporter .campaign-slider-holder-inner-actual').on("click", function () {
-                console.log("supporter");
                 openSupportThirtyBeesModal();
             });
         }, 10);
     }
     else {
-        console.log('SLIDER not supporter: ' + campaign.class);
         $(".campaign-slider-holder .campaign-slider-holder-inner-actual").off('click');
     }
 }
@@ -166,26 +151,19 @@ function bindSliderSupporterCampaignModal(campaign) {
 /// Check Admin BG Colour ///
 function checkAdminBGColour() {
     function adminHeaderDark() {
-        console.log("admin header dark");
         $(".bootstrap #header_infos").addClass("admin-header-dark");
     }
     function adminHeaderLight() {
-        console.log("admin header light");
         $(".bootstrap #header_infos").addClass("admin-header-light");
     }
     var getAdminBGColour = $(".bootstrap #header_infos").css('background-color');
-    console.log("*** Admin bg colour is: " + getAdminBGColour);
     /// Dark
     if (getAdminBGColour == "rgb(119, 41, 83)" || getAdminBGColour == "rgb(40, 43, 48)") {
-        console.log("dark")
         adminHeaderDark();
     }
     /// Light
     if (getAdminBGColour == "rgb(255, 204, 0)") {
         adminHeaderLight();
-    }
-    else {
-        console.log("light")
     }
 }
 
@@ -196,17 +174,13 @@ function initiateCampaignBar(setCampaignBarStartDelay,setCampaignChangeInterval)
         setCampaignChangeIntervalVar = 120000; /// Default campaign change duration
     } 
     checkAdminBGColour();
-    console.log("*** initiateCampaignBar. setCampaignChangeInterval: " + setCampaignChangeIntervalVar);
-
     function updateAndAnimate() {
         var newCampaign = getRandomCampaignBar();
 
         $(".campaign-bar-holder").addClass("animate-campaign-bar-out");
-        console.log('finish campaign');
 
         setTimeout(function () {
             $(".campaign-bar-holder").removeClass("animate-campaign-bar-out");
-            console.log('new campaign');
             updateCampaignBar(newCampaign);
         }, 2000);
     }
@@ -228,7 +202,6 @@ function initiateCampaignBar(setCampaignBarStartDelay,setCampaignChangeInterval)
 /// Update Campaign Slider ///
 var previousCampaignSlider; // Define the previous campaign variable
 function updateCampaignSlider(campaign) {
-    console.log("/// updateCampaignSlider: " + campaign);
 
     if (campaign && campaign.intro) {
         $('.tb-admin-campaign-slider-header-inner').html(window[campaign.header]);
@@ -241,14 +214,11 @@ function updateCampaignSlider(campaign) {
         $('.campaign-slider-holder').removeClass().addClass('campaign-slider-holder ' + window[campaign.class]);
         
         var checkForTechSupportClassSlider = $('.campaign-slider-holder').hasClass("campaign-slider-technical-support");
-        console.log("*** Slider TechSupportClass State: " + checkForTechSupportClassSlider);
         if (checkForTechSupportClassSlider) {
-            console.log("*** Slider Tech Support Class Detected ***");
             $(".campaign-slider-technical-support .tb-admin-campaign-slider-cta a").attr("target", "_blank");
             $(".campaign-slider-technical-support .tb-admin-campaign-slider-cta-inline a").attr("target", "_blank");
         }
         else {
-            console.log("*** Tech Support Class NOT Detected ***");
             $(".tb-admin-campaign-slider-cta a").attr("target", "_self");
             $(".tb-admin-campaign-slider-cta-inline a").attr("target", "_self");
         }
@@ -269,9 +239,6 @@ function updateCampaignSlider(campaign) {
         }, 250);
        
     } else {
-        console.error('Slider Campaign or campaign.intro is undefined.');
-        console.error('Retrying...');
-
         var newCampaignSlider = getRandomCampaignSlider();  
         updateCampaignSlider(newCampaignSlider); /// Update with a new campaign
     }
@@ -283,7 +250,6 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
   
     function updateAndAnimateSlider() {
         var newCampaignSlider = getRandomCampaignSlider();
-        console.log('finish campaign');
         updateCampaignSlider(newCampaignSlider);
     }
 
@@ -297,10 +263,8 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
         var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
         var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
         $('.campaign-slider-holder').removeClass('campaign-slider-hide');
-
         $('.campaign-slider-holder').addClass(randomClass);
 
-        console.log("slider interval: " + setSliderCampaignChangeIntervalVar);
         // Update every x seconds
         setInterval(updateAndAnimateSlider, setSliderCampaignChangeIntervalVar);
     }, setCampaignSliderStartDelay);
@@ -312,11 +276,8 @@ function checkForNotifications() {
     setTimeout(function () {
         $('.tb-admin-campaign-bar .notifs_badge span').each(function () {
             var notificationCount = $(this).text();
-            console.log("NOTIFICATIONS COUNT: " + notificationCount);
             if (notificationCount > 0) {
-                console.log("ALERT: " + notificationCount);
                 $(".tb-admin-campaign-bar-fa-icon .notifs_badge").css("display","inline-flex");
-                console.log("*** Notification Count: " + notificationCount);
             }
         });
     }, 2000);
@@ -324,7 +285,6 @@ function checkForNotifications() {
 
 /// Notification code grab and inject into modal + open
 function openNotificationsModal() {
-    console.log("Notifications modal");
     /// Clone the specific element you want to inject
     var contentToInject = $('#header_notifs_icon_wrapper').clone();
 
@@ -387,7 +347,7 @@ function checkIfSysAnimationsRanAlready() {
         setCookie('animationShownDate', currentDate, 1); // Expires in 1 day
     }
     else {
-        console.log("COOKIE SYSADMIN: Cookie already detected");
+        /// Cookie already detected, just show the icons
         setTimeout(function () {
             $(".sys-state-holder").fadeIn(1500);
         }, 1000);
@@ -400,14 +360,10 @@ function checkCampaignBarClose() {
     /// Check if the animation has already been shown for the day
     if (!campaignBarShownDate || campaignBarShownDate !== currentDate) {
         /// Show the animation
-        console.log('campaignbar should load');
         $('body').addClass('show-campaign-bar');
 
         /// Set a cookie to indicate that the animation has been shown today
-        /*setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
-    }
-    else {
-        console.log("COOKIE BAR: Cookie already detected");
+        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
     }
 }
 
@@ -417,20 +373,15 @@ function checkCampaignSliderClose() {
     /// Check if the animation has already been shown for the day
     if (!campaignSliderShownDate || campaignSliderShownDate !== currentDate) {
         /// Show the animation
-        console.log('campaignslider should load');
         $('body').addClass('show-campaign-slider');
 
         /// Set a cookie to indicate that the animation has been shown today
-        /*setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day*/
-    }
-    else {
-        console.log("COOKIE SLIDER: Cookie already detected");
+        setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
     }
 }
 
 function campaignBarClose() {
     $(".campaign-bar-close-holder").on("click", function () {
-        console.log("campaign bar closed");
         $(".campaign-bar-holder-inner-outer").fadeOut(250);
         setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
     })
@@ -438,7 +389,6 @@ function campaignBarClose() {
 
 function campaignSliderClose() {
     $(".campaign-slider-close-icon").on("click", function () {
-        console.log("campaign slider closed");
         $(".campaign-slider-holder-outer").fadeOut(250);
         setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
     })
@@ -447,40 +397,32 @@ function campaignSliderClose() {
 
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
-    console.log("TB CampaignBar Initial Init");
 
     var isMember = checkMemberType(); // Call the function and store the result
 
-    if (!isMember) { // Check if isMember is false
-        console.log("/// MEMBER TYPE FALSE ///");
+    if (!isMember) { /// Check if isMember is false
         initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
         initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
-    } else {
-        // Find the campaign object with class name 'campaign-bar-thanks'
+    }
+    else {
+        /// If a there is a the user is a member, show the thank you bar and slider
+        /// Find the campaign object with class name 'campaign-bar-thanks'
         var thanksCampaign = campaigns.find(function (campaign) {
             return campaign.class === 'campaign_bar_thanks_class';
         });
 
         if (thanksCampaign) {
-            // If the campaign is found, update the campaign bar
-            console.log("/// MEMBER TYPE TRUE: BAR ///");
-
-           
+            /// If the campaign is found, update the campaign bar
             checkAdminBGColour();
             $(".campaign-bar-holder").css("visibility", "visible");
             $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
-
             updateCampaignBar(thanksCampaign);
-        } else {
-            console.error("Campaign 'campaign-bar-thanks' not found.");
-        }
-
+        } 
         var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
             return campaignsSlider.class === 'campaign_slider_thanks_class';
         });
 
         if (thanksCampaignSlider) {
-            console.log("/// MEMBER TYPE TRUE: SLIDER ///");
             $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
 
             var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
@@ -488,10 +430,7 @@ function campaignBarSliderInits() {
             $('.campaign-slider-holder').removeClass('campaign-slider-hide');
             $('.campaign-slider-holder').addClass(randomClass);
             updateCampaignSlider(thanksCampaignSlider);
-        } else {
-            console.error("Campaign Slider 'campaign-slider-thanks' not found.");
         }
-
     }
 }
 
@@ -519,11 +458,8 @@ function checkMemberType() {
         $(".member-type").addClass("logo-member-type-platinum");
         return true; // Return true if member type is found
     }
-
-    console.log("No member found");
     return false; // Return false if no member type is found
 }
-
 
 $(document).ready(function () {
     campaignBarClose(); /// Binds Campaign Bar Close
@@ -540,8 +476,6 @@ $(document).ready(function () {
     $('.notifications-icon').click(function () {
         openNotificationsModal();
     });
-
     /// Inits the Campaign Bar and Slider ///
     campaignBarSliderInits();
-
 });
