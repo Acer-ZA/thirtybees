@@ -481,7 +481,8 @@ function campaignBarSliderInits() {
 
         if (thanksCampaignSlider) {
             console.log("/// MEMBER TYPE TRUE: SLIDER ///");
-            $(".campaign-slider-holder").attr("style", "visibility: visible!important");
+            $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
+
             var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
             var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
             $('.campaign-slider-holder').removeClass('campaign-slider-hide');
