@@ -1671,6 +1671,10 @@ tb-admin-campaign-slider-text-inner b {
         font-size: 11px;
     }
 
+    .tb-admin-campaign-bar-cta-inline a {
+        text-decoration: underline !important;
+    }
+
     .campaign-bar-thanks .tb-admin-campaign-bar-text-inner {
         white-space: normal;
         font-size: 9px;
