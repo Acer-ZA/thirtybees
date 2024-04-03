@@ -442,21 +442,21 @@ function checkMemberType() {
 
     if (findMemberSilver > 0) {
         $(".member-type").addClass("logo-member-type-silver");
-        return true; // Return true if member type is found
+        return true; /// Return true if member type is found
     }
     if (findMemberIvory > 0) {
         $(".member-type").addClass("logo-member-type-ivory");
-        return true; // Return true if member type is found
+        return true; /// Return true if member type is found
     }
     if (findMemberGold > 0) {
         $(".member-type").addClass("logo-member-type-gold");
-        return true; // Return true if member type is found
+        return true; /// Return true if member type is found
     }
     if (findMemberPlatinum > 0) {
         $(".member-type").addClass("logo-member-type-platinum");
-        return true; // Return true if member type is found
+        return true; /// Return true if member type is found
     }
-    return false; // Return false if no member type is found
+    return false; /// Return false if no member type is found
 }
 
 $(document).ready(function () {
