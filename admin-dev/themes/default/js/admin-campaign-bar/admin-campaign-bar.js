@@ -405,7 +405,7 @@ function campaignBarSliderInits() {
         initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
     }
     else {
-        /// If a there is a the user is a member, show the thank you bar and slider
+        /// If a the user is a member, show the thank you bar and slider
         /// Find the campaign object with class name 'campaign-bar-thanks'
         var thanksCampaign = campaigns.find(function (campaign) {
             return campaign.class === 'campaign_bar_thanks_class';
@@ -424,7 +424,6 @@ function campaignBarSliderInits() {
 
         if (thanksCampaignSlider) {
             $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
-
             var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
             var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
             $('.campaign-slider-holder').removeClass('campaign-slider-hide');
@@ -468,14 +467,10 @@ $(document).ready(function () {
     checkCampaignSliderClose(); /// Checks cookie for Campaign Sliders
     checkForNotifications(); /// Checks for notifications
     checkIfSysAnimationsRanAlready(); /// Checks if the Sys Animations (Maintenance / Debug ran already)
-    checkMemberType();
-
-    /*$('body').addClass('show-sys-animation');*/
-
-    /// Initial Bindings ///
+    checkMemberType(); /// Checks MemberType and displays MemberType Label on the Logo
+    /// Binds the Responsive Notifications Bell to Action the Notifcations Modal ///
     $('.notifications-icon').click(function () {
         openNotificationsModal();
     });
-    /// Inits the Campaign Bar and Slider ///
-    campaignBarSliderInits();
+    campaignBarSliderInits(); /// Inits the TopBar and Bottom Right Sliders ///
 });
