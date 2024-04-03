@@ -208,11 +208,11 @@
         transform: scale(1.05);
     }
 
-    99% {
+    70% {
         transform: scale(1);
     }
 
-    100% {
+    80% {
         transform: unset;
     }
 }
