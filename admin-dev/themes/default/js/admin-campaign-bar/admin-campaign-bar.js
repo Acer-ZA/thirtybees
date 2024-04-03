@@ -171,7 +171,7 @@ function checkAdminBGColour() {
 function initiateCampaignBar(setCampaignBarStartDelay,setCampaignChangeInterval) {
     setCampaignChangeIntervalVar = setCampaignChangeInterval;
     if (setCampaignChangeIntervalVar == null || setCampaignChangeInterval == undefined) {
-        setCampaignChangeIntervalVar = 120000; /// Default campaign change duration
+        setCampaignChangeIntervalVar = 20000; /// Default campaign change duration
     } 
     checkAdminBGColour();
     function updateAndAnimate() {
@@ -197,7 +197,6 @@ function initiateCampaignBar(setCampaignBarStartDelay,setCampaignChangeInterval)
         setInterval(updateAndAnimate, setCampaignChangeIntervalVar);
     }, setCampaignBarStartDelay);
 }
-
 
 /// Update Campaign Slider ///
 var previousCampaignSlider; // Define the previous campaign variable
