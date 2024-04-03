@@ -123,8 +123,6 @@
 		var campaign_slider_premium_intro = '{l s="With [1]Premium Modules[/1]" tags=["<b>"]}';
 		var campaign_slider_premium_cta = '{l s="Check them out now"}';
 		var campaign_slider_premium_url = "index.php?controller=AdminModules&token=05546656a4b2edea79c4c319fabd236c";
-
-
 	</script>
 {/if}
 <!-- /// Member Type - assign the following values: member-type-silver; member-type-ivory; member-type-gold; member-type-platinum /// -->
