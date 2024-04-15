@@ -446,7 +446,7 @@
   </div>
 </div>
 
-{*/// Support ThirtyBees Modal ///*}
+{*/// Support ThirtyBees Main Modal ///*}
 <div class="modal fade" id="supportThirtyBeesModal" tabindex="-1" role="dialog" aria-labelledby="supportThirtyBeesModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -457,6 +457,73 @@
         <h4 class="modal-title" id="supportThirtyBeesModalLabel">{l s="ThirtyBees - Empowering your business to reach new heights!"}</h4>
       </div>
       <div class="modal-body" id="supportThirtyBeesModalContent">
+			<div class="support-tb-intro-holder">
+				<div class="support-tb-intro-text">
+					{l s="[1]Why Support ThirtyBees?[/1] [2]With ThirtyBees you can utilise one of the [1]best Enterprise Class e-Commerce platforms for FREE![/1] [2]Unfortunately, sustaining and enhancing it involves costs. If you love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}
+				</div>
+			</div>
+
+			{*/// Once off donation ///*}
+			<a class="support-tb-item-holder" href="https://www.paypal.com/donate/?hosted_button_id=SDAYT6DWZRCSS" target="_blank">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
+				</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Once-off donation"}</span>
+						<p>
+							{l s="Donate any amount once-off"}
+						</p>
+					</div>
+				</div>
+			</a>
+
+			{*/// Become a Member ///*}
+			<a class="support-tb-item-holder" href="https://forum.thirtybees.com/support-thirty-bees/ " target="_blank">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
+				</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Become a Member (monthly subscription tiers)"}</span>
+						<p>
+							{l s="Select from a range of Monthly subscription amounts. [1] Some tiers include free support hours as well as access to powerful Premium Modules!" tags=["<br/>"]}
+						</p>
+					</div>
+				</div>
+			</a>
+
+			{*/// Become a Sponsor ///*}
+			<a class="support-tb-item-holder" href="mailto:chiel@thirtybees.com?subject=ThirtyBees%20Sponsor%20Request" target="_blank">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
+				</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Become a Sponsor"}</span>
+						<p>
+							{l s="Email us for sponsorship options" tags=["<br/>"]}
+						</p>
+					</div>
+				</div>
+			</a>
+
+	  </div>
+    </div>
+  </div>
+</div>
+
+{*/// Support ThirtyBees Close Modal ///*}
+<div class="modal fade" id="supportThirtyBeesCloseModal" tabindex="-1" role="dialog" aria-labelledby="supportThirtyBeesCloseModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="supportThirtyBeesCloseModalLabel">{l s="ThirtyBees - Empowering your business to reach new heights!"}</h4>
+      </div>
+      <div class="modal-body" id="supportThirtyBeesCloseModalContent">
 			<div class="support-tb-intro-holder">
 				<div class="support-tb-intro-text">
 					{l s="[1]Why Support ThirtyBees?[/1] [2]With ThirtyBees you can utilise one of the [1]best Enterprise Class e-Commerce platforms for FREE![/1] [2]Unfortunately, sustaining and enhancing it involves costs. If you love ThirtyBees, [1]please consider supporting us[/1]. [2]Your support ensures ThirtyBees not only survives but thrives! Thank you for being part of our journey." tags=["<b>", "<br/>"]}

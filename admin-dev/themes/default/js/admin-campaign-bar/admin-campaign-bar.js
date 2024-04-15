@@ -308,6 +308,13 @@ function openSupportThirtyBeesModal() {
     $('#supportThirtyBeesModal').modal('show');
 }
 
+
+/// Support ThirtyBees Close Modal ///
+function openSupportThirtyBeesCloseModal() {
+    /// Show the modal
+    $('#supportThirtyBeesCloseModal').modal('show');
+}
+
 /// Function to get a cookie value
 function getCookie(name) {
     var cookies = document.cookie.split(';');
@@ -381,8 +388,9 @@ function checkCampaignSliderClose() {
 
 function campaignBarClose() {
     $(".campaign-bar-close-holder").on("click", function () {
-        $(".campaign-bar-holder-inner-outer").fadeOut(250);
-        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day
+        /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
+        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
+        openSupportThirtyBeesCloseModal();
     })
 }
 
