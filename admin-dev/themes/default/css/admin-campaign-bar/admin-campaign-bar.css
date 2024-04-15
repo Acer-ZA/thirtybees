@@ -1117,11 +1117,11 @@ span.maintenance-mode {
 }
 
 /*/// Support ThirtyBees Modal ///*/
-#supportThirtyBeesModal .modal-header {
+#supportThirtyBeesModal .modal-header, #supportThirtyBeesCloseModal .modal-header {
     padding-bottom: 5px !important;
 }
 
-#supportThirtyBeesModal .modal-title {
+#supportThirtyBeesModal .modal-title, #supportThirtyBeesCloseModal .modal-title {
     font-family: "Roboto";
     font-weight: 600 !important;
 }
@@ -1682,8 +1682,8 @@ tb-admin-campaign-slider-text-inner b {
 }
 
 @media (min-width: 768px) {
-    #supportThirtyBeesModal .modal-dialog {
-        min-width: 65%!important;
+    #supportThirtyBeesModal .modal-dialog, #supportThirtyBeesCloseModal .modal-dialog {
+        min-width: 65% !important;
     }
 }
 

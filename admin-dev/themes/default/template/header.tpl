@@ -575,6 +575,21 @@
 				</div>
 			</a>
 
+			{*/// Close this modal for 1 month ///*}
+			<a class="support-tb-item-holder" href="" target="_blank" class="setTopBarModal1Month">
+				<div class="support-item-icon">
+					<i class="icon-check-circle"></i>
+				</div>
+				<div class="support-item-text-holder">
+					<div class="support-item-text-holder-inner">
+						<span>{l s="Hide the top bar messages for 1 month"}</span>
+						<p>
+							{l s="Thank you for chosing ThirtyBees. We hope that you will enjoy using it and will consider becoming a supporter in the future." tags=["<br/>"]}
+						</p>
+					</div>
+				</div>
+			</a>
+
 	  </div>
     </div>
   </div>
