@@ -313,9 +313,31 @@ function openSupportThirtyBeesModal() {
 function openSupportThirtyBeesCloseModal() {
     /// Show the modal
     $('#supportThirtyBeesCloseModal').modal('show');
+    $('.setTopBarModal1Month').on("click", function () {
+        console.log('set cookie new');
+        clearCookie('campaignBarClose');
+
+        var currentDate = new Date(); // Get the current date
+        currentDate.setDate(currentDate.getDate() + 30); // Add 30 days to the current date
+
+        setCookie('campaignBarClose', currentDate.toGMTString(), 30); // Expires in 30 days
+
+        // Log the expiration date to check if it's correct
+        console.log('Expiration Date: ' + currentDate.toGMTString());
+
+        setTimeout(function () {
+            var getCampaignBarCloseCookie = getCookie('campaignBarClose');
+            console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+        }, 1000);
+    });
 }
 
-/// Function to get a cookie value
+/// Function to clear a Cookie ///
+function clearCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+}
+
+/// Function to get a cookie value ///
 function getCookie(name) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
@@ -362,6 +384,7 @@ function checkIfSysAnimationsRanAlready() {
 
 function checkCampaignBarClose() {
     var campaignBarShownDate = getCookie('campaignBarClose');
+    $('body').addClass('show-campaign-bar');
 
     /// Check if the animation has already been shown for the day
     if (!campaignBarShownDate || campaignBarShownDate !== currentDate) {

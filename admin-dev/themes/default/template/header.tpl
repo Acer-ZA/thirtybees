@@ -576,7 +576,7 @@
 			</a>
 
 			{*/// Close this modal for 1 month ///*}
-			<a class="support-tb-item-holder" href="" target="_blank" class="setTopBarModal1Month">
+			<a class="support-tb-item-holder setTopBarModal1Month" href="#">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>
