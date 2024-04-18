@@ -1116,6 +1116,17 @@ span.maintenance-mode {
     border: none!important;
 }
 
+.campaign-notification {
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 150px;
+    height: 80px;
+    border: 1px solid red;
+    z-index: 999999;
+}
+
 /*/// Support ThirtyBees Modal ///*/
 #supportThirtyBeesModal .modal-header, #supportThirtyBeesCloseModal .modal-header {
     padding-bottom: 5px !important;

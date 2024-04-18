@@ -309,6 +309,12 @@ function openSupportThirtyBeesModal() {
 }
 
 
+/// Make notification ///
+function makeNotification(content) {
+    // Create the toast
+    $(".campaign-notification").show();
+}
+
 /// Support ThirtyBees Close Modal ///
 function openSupportThirtyBeesCloseModal() {
     /// Show the modal
@@ -328,6 +334,7 @@ function openSupportThirtyBeesCloseModal() {
         setTimeout(function () {
             var getCampaignBarCloseCookie = getCookie('campaignBarClose');
             console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+            makeNotification();
         }, 1000);
     });
 }

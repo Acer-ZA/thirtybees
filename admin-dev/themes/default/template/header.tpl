@@ -620,6 +620,7 @@
 		</div>
 	</div>
 </div>
+<div class="campaign-notification">hi</div>
 
 {else}
 	<body{if isset($lite_display) && $lite_display} class="ps_back-office display-modal"{/if}>
