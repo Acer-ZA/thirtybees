@@ -316,7 +316,11 @@ function makeNotification(content) {
     $(".campaign-notification-text").html(content);
     setTimeout(function () {
         $(".campaign-notification").addClass("campaign-message-slide-out");
-    }, 5500);
+    }, 6500);
+    setTimeout(function () {
+        $(".campaign-notification").removeClass("campaign-message-slide-out");
+        $(".campaign-notification").removeClass("campaign-message-slide-in");
+    }, 6800);
 
 }
 
