@@ -312,7 +312,12 @@ function openSupportThirtyBeesModal() {
 /// Make notification ///
 function makeNotification(content) {
     // Create the toast
-    $(".campaign-notification").show();
+    $(".campaign-notification").addClass("campaign-message-slide-in");
+    $(".campaign-notification-text").html(content);
+    setTimeout(function () {
+        $(".campaign-notification").addClass("campaign-message-slide-out");
+    }, 5500);
+
 }
 
 /// Support ThirtyBees Close Modal ///
@@ -334,7 +339,8 @@ function openSupportThirtyBeesCloseModal() {
         setTimeout(function () {
             var getCampaignBarCloseCookie = getCookie('campaignBarClose');
             console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
-            makeNotification();
+            $('#supportThirtyBeesCloseModal').modal('hide');
+            makeNotification('Top Bar Messages will be hidden for <b>1 month</b>');
         }, 1000);
     });
 }

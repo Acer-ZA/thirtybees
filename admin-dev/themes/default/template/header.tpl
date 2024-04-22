@@ -620,7 +620,10 @@
 		</div>
 	</div>
 </div>
-<div class="campaign-notification">hi</div>
+<div class="campaign-notification">
+	<div Class="campaign-notification-icon"><i class="icon-check-circle"></i></div>
+	<div Class="campaign-notification-text"></div>
+</div>
 
 {else}
 	<body{if isset($lite_display) && $lite_display} class="ps_back-office display-modal"{/if}>

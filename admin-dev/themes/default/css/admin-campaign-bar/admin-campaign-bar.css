@@ -1117,15 +1117,27 @@ span.maintenance-mode {
 }
 
 .campaign-notification {
-    display: none;
+    display: inline-grid;
     position: fixed;
     top: 0px;
-    right: 0px;
+    right: -400px;
     width: 150px;
     height: 80px;
     border: 1px solid red;
     z-index: 999999;
+    background: var(--colour-bgblackopacity);
+    transition: all 2000ms ease-in-out;
+    color: var(--colour-light);
 }
+
+.campaign-message-slide-in {
+    right: 0px;
+}
+
+.campaign-message-slide-out {
+    right: -400px;
+}
+
 
 /*/// Support ThirtyBees Modal ///*/
 #supportThirtyBeesModal .modal-header, #supportThirtyBeesCloseModal .modal-header {
