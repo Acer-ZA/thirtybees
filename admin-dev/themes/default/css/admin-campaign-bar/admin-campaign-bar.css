@@ -20,6 +20,18 @@
     }
 }
 
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
 @keyframes fadeInIcon {
     0% {
         opacity: 0;
@@ -1132,18 +1144,19 @@ span.maintenance-mode {
     border: 1px solid var(--tborange:);
     z-index: 999999;
     background: var(--colour-bgblackopacity2);
-    transition: all 2000ms ease-in-out;
+    transition: all 1500ms ease-in-out;
     color: var(--colour-light);
 }
 
 .campaign-message-slide-in {
+    opacity: 1;
     right: 0px;
 }
 
 .campaign-message-slide-out {
+    opacity: 0!important;
     right: -400px;
 }
-
 
 /*/// Support ThirtyBees Modal ///*/
 #supportThirtyBeesModal .modal-header, #supportThirtyBeesCloseModal .modal-header {
