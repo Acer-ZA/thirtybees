@@ -350,7 +350,7 @@ function clearCookie(name) {
     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-// Updated function to open modal and set cookie with correct expiration
+/// Support ThirtyBees Modal
 function openSupportThirtyBeesCloseModal() {
     $('#supportThirtyBeesCloseModal').modal('show');
 
@@ -379,6 +379,10 @@ function openSupportThirtyBeesCloseModal() {
         setTimeout(function () {
             $('#supportThirtyBeesCloseModal').modal('hide');
             makeNotification('Top Bar Messages will be hidden for <b>1 minute</b>');
+            $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
+            setTimeout(function () {
+                $('body').removeClass('show-campaign-bar');
+            }, 2000);
         }, 1000);
     });
 }

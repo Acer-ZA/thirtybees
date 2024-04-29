@@ -1027,6 +1027,15 @@ span.maintenance-mode {
     color: var(--colour-dark);
 }
 
+.tb-campaign-bar-fade-out {
+    animation-name: fadeOut;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 /*/// View Shop / User Bar ///*/
 #header_employee_box {
     display: inline-grid;
