@@ -325,62 +325,62 @@ function makeNotification(content) {
 
 }
 
-/// Support ThirtyBees Close Modal ///
 /*currentDate.setDate(currentDate.getDate() + 30); // Add 30 days to the current date*/
-
-function openSupportThirtyBeesCloseModal() {
-    /// Show the modal
-    $('#supportThirtyBeesCloseModal').modal('show');
-    $('.setTopBarModal1Month').on("click", function () {
-        console.log('set cookie new');
-        clearCookie('campaignBarClose');
-
-        var currentDate = new Date(); // Get the current date
-        var expirationDate = new Date(currentDate.getTime() + 60000); // 1 minute from now
-
-        console.log("current date is: " + currentDate);
-        console.log('Expiration Date: ' + expirationDate);
-
-        setCookie('campaignBarClose', expirationDate.toUTCString(), 1); // Expires in 1 minute
-
-        var getCampaignBarCloseCookie = getCookie('campaignBarClose');
-        console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
-
-        setTimeout(function () {
-            $('#supportThirtyBeesCloseModal').modal('hide');
-            makeNotification('Top Bar Messages will be hidden for <b>1 minute</b>');
-        }, 1000);
-    });
+/// Function to set a cookie with a specified expiration in minutes// Function to set a cookie with a specified expiration in minutes
+function setCookie(name, value, minutes) {
+    var expirationDate = new Date();
+    expirationDate.setTime(expirationDate.getTime() + (minutes * 60000)); // Convert minutes to milliseconds
+    document.cookie = name + "=" + value + "; expires=" + expirationDate.toUTCString() + "; path=/";
 }
 
-
-/// Function to clear a Cookie ///
-function clearCookie(name) {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-}
-
-/// Function to get a cookie value ///
+// Function to get the value of a cookie
 function getCookie(name) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].trim();
-        var cookieParts = cookie.split('=');
-        if (cookieParts[0] === name) {
-            return cookieParts[1];
+        if (cookie.indexOf(name + '=') === 0) {
+            return cookie.substring(name.length + 1);
         }
     }
     return null;
 }
 
-/// Function to set a cookie value
-function setCookie(name, value, minutes) {
-    var expires = '';
-    if (minutes) {
-        var date = new Date();
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
-        expires = '; expires=' + date.toUTCString(); // Construct expiration date string
-    }
-    document.cookie = name + '=' + value + expires + '; path=/';
+// Function to clear a cookie
+function clearCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// Updated function to open modal and set cookie with correct expiration
+function openSupportThirtyBeesCloseModal() {
+    $('#supportThirtyBeesCloseModal').modal('show');
+
+    $('.setTopBarModal1Month').on("click", function () {
+        console.log('Setting new cookie...');
+
+        // Clear existing cookie
+        clearCookie('campaignBarClose');
+
+        // Get the current date and calculate expiration date (1 minute from now)
+        var expirationMinutes = 1; // Set expiration time in minutes
+        var expirationDate = new Date();
+        expirationDate.setTime(expirationDate.getTime() + (expirationMinutes * 60000)); // Convert minutes to milliseconds
+
+        console.log("Current date is: " + new Date());
+        console.log('Expiration Date: ' + expirationDate);
+
+        // Set the cookie with correct expiration format
+        setCookie('campaignBarClose', expirationDate.toString(), expirationMinutes);
+
+        // Retrieve and log the cookie value
+        var getCampaignBarCloseCookie = getCookie('campaignBarClose');
+        console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+
+        // Set timeout to hide modal and show notification after 1 second
+        setTimeout(function () {
+            $('#supportThirtyBeesCloseModal').modal('hide');
+            makeNotification('Top Bar Messages will be hidden for <b>1 minute</b>');
+        }, 1000);
+    });
 }
 
 
