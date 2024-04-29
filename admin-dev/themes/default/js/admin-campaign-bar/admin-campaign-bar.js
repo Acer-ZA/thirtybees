@@ -333,7 +333,7 @@ function setCookie(name, value, minutes) {
     document.cookie = name + "=" + value + "; expires=" + expirationDate.toUTCString() + "; path=/";
 }
 
-// Function to get the value of a cookie
+/// Function to get the value of a cookie
 function getCookie(name) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
@@ -406,20 +406,33 @@ function checkIfSysAnimationsRanAlready() {
     }
 }
 
+/// Check the Cookie for the Campaign bar and act accordingly
 function checkCampaignBarClose() {
-    var campaignBarShownDate = getCookie('campaignBarClose');
-    /*$('body').addClass('show-campaign-bar');*/
-    var getCampaignBarCloseCookie = getCookie('campaignBarClose');
-    console.log("cookie status: " + getCampaignBarCloseCookie);
-    /// Check if the animation has already been shown for the day
-    if (!campaignBarShownDate || campaignBarShownDate !== currentDate) {
-        /// Show the animation
-        $('body').addClass('show-campaign-bar');
+    var currentDate = new Date(); // Get the current date and time
+    var campaignBarCloseCookie = getCookie('campaignBarClose');
+    console.log("CurrentDate: " + currentDate);
+    console.log("campaignBarClose Cookie Value: " + campaignBarCloseCookie);
 
-        /// Set a cookie to indicate that the animation has been shown today
-        /*setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
+    if (campaignBarCloseCookie) {
+        var expirationDate = new Date(campaignBarCloseCookie); // Parse the expiration date from the cookie
+
+        // Compare the current date with the expiration date
+        if (currentDate <= expirationDate) {
+            // If the current date is before or equal to the expiration date, do not show the campaign bar
+            console.log('Campaign bar is hidden because it is within the cookie expiration period.');
+            $('body').removeClass('show-campaign-bar');
+        } else {
+            // If the current date is after the expiration date, show the campaign bar
+            console.log('Campaign bar is shown because it has expired.');
+            $('body').addClass('show-campaign-bar');
+        }
+    } else {
+        // If the cookie is not set, show the campaign bar
+        console.log('Campaign bar is shown because the cookie is not set.');
+        $('body').addClass('show-campaign-bar');
     }
 }
+
 
 function checkCampaignSliderClose() {
     var campaignSliderShownDate = getCookie('campaignSliderClose');
