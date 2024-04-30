@@ -350,42 +350,83 @@ function clearCookie(name) {
     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-/// Support ThirtyBees Modal
-function openSupportThirtyBeesCloseModal() {
-    $('#supportThirtyBeesCloseModal').modal('show');
+/// Support ThirtyBees Modal - No Member / Member
+function openSupportThirtyBeesCloseModal(type) {
+    console.log("openSupportThirtyBeesCloseModal");
+    switch (type) {
+        case 'noMember':
+            $('#supportThirtyBeesCloseModal').modal('show');
+            $('.setTopBarModal1Month').on("click", function () {
+                console.log('Setting new cookie...');
+                // Clear existing cookie
+                clearCookie('campaignBarClose');
 
-    $('.setTopBarModal1Month').on("click", function () {
-        console.log('Setting new cookie...');
+                // Get the current date and calculate expiration date (1 minute from now)
+                var expirationMinutes = 1; // Set expiration time in minutes
+                var expirationDate = new Date();
+                expirationDate.setTime(expirationDate.getTime() + (expirationMinutes * 60000)); // Convert minutes to milliseconds
 
-        // Clear existing cookie
-        clearCookie('campaignBarClose');
+                console.log("Current date is: " + new Date());
+                console.log('Expiration Date: ' + expirationDate);
 
-        // Get the current date and calculate expiration date (1 minute from now)
-        var expirationMinutes = 1; // Set expiration time in minutes
-        var expirationDate = new Date();
-        expirationDate.setTime(expirationDate.getTime() + (expirationMinutes * 60000)); // Convert minutes to milliseconds
+                // Set the cookie with correct expiration format
+                setCookie('campaignBarClose', expirationDate.toString(), expirationMinutes);
 
-        console.log("Current date is: " + new Date());
-        console.log('Expiration Date: ' + expirationDate);
+                // Retrieve and log the cookie value
+                var getCampaignBarCloseCookie = getCookie('campaignBarClose');
+                console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
 
-        // Set the cookie with correct expiration format
-        setCookie('campaignBarClose', expirationDate.toString(), expirationMinutes);
+                // Set timeout to hide modal and show notification after 1 second
+                setTimeout(function () {
+                    $('#supportThirtyBeesCloseModal').modal('hide');
+                    makeNotification('Top Bar Messages will be hidden for <b>1 Month</b> on this device');
+                    $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
+                    setTimeout(function () {
+                        $('body').removeClass('show-campaign-bar');
+                    }, 2000);
+                }, 1000);
+            });
+            break;
+        case 'Member':
+            $('#supportThirtyBeesCloseModalMember').modal('show');
 
-        // Retrieve and log the cookie value
-        var getCampaignBarCloseCookie = getCookie('campaignBarClose');
-        console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+            $('.setTopBarModal1Year').on("click", function () {
+                console.log('Setting new cookie...');
+                // Clear existing cookie
+                clearCookie('campaignBarClose');
 
-        // Set timeout to hide modal and show notification after 1 second
-        setTimeout(function () {
-            $('#supportThirtyBeesCloseModal').modal('hide');
-            makeNotification('Top Bar Messages will be hidden for <b>1 minute</b>');
-            $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
-            setTimeout(function () {
-                $('body').removeClass('show-campaign-bar');
-            }, 2000);
-        }, 1000);
-    });
+                // Get the current date and calculate expiration date (1 minute from now)
+                var expirationMinutes = 1; // Set expiration time in minutes
+                var expirationDate = new Date();
+                expirationDate.setTime(expirationDate.getTime() + (expirationMinutes * 60000)); // Convert minutes to milliseconds
+
+                console.log("Current date is: " + new Date());
+                console.log('Expiration Date: ' + expirationDate);
+
+                // Set the cookie with correct expiration format
+                setCookie('campaignBarClose', expirationDate.toString(), expirationMinutes);
+
+                // Retrieve and log the cookie value
+                var getCampaignBarCloseCookie = getCookie('campaignBarClose');
+                console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+
+                // Set timeout to hide modal and show notification after 1 second
+                setTimeout(function () {
+                    $('#supportThirtyBeesCloseModal').modal('hide');
+                    makeNotification('Top Bar Messages will be hidden for <b>1 Month</b> on this device');
+                    $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
+                    setTimeout(function () {
+                        $('body').removeClass('show-campaign-bar');
+                    }, 2000);
+                }, 1000);
+            });
+            break;
+        default:
+        break;
+    }
+
 }
+
 
 
 function checkIfSysAnimationsRanAlready() {
@@ -451,12 +492,30 @@ function checkCampaignSliderClose() {
     }
 }
 
-function campaignBarClose() {
-    $(".campaign-bar-close-holder").on("click", function () {
-        /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
-        setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
-        openSupportThirtyBeesCloseModal();
-    })
+function campaignBarClose(type) {
+    console.log("campaignBarClose Type: " + type);
+    switch (type) {
+        case "noMember":
+            $(".campaign-bar-close-holder").on("click", function () {
+                /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
+                setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
+                openSupportThirtyBeesCloseModal('noMember');
+            })
+            break;
+        case "Member":
+            console.log("campaignBarClose MEMBER");
+
+            $(".campaign-bar-close-holder").off("click");
+            $(".campaign-bar-close-holder").on("click", function () {
+                /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
+                setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
+                console.log("Member close");
+                openSupportThirtyBeesCloseModal('Member');
+            })
+            break;
+        default:
+            break;
+    }
 }
 
 function campaignSliderClose() {
@@ -475,6 +534,7 @@ function campaignBarSliderInits() {
     if (!isMember) { /// Check if isMember is false
         initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
         initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
+        campaignBarClose("noMember"); /// Binds Campaign Bar Close - For No Member
     }
     else {
         /// If a the user is a member, show the thank you bar and slider
@@ -486,6 +546,7 @@ function campaignBarSliderInits() {
         if (thanksCampaign) {
             /// If the campaign is found, update the campaign bar
             checkAdminBGColour();
+            campaignBarClose("Member"); /// Binds Campaign Bar Close - For No Member
             $(".campaign-bar-holder").css("visibility", "visible");
             $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
             updateCampaignBar(thanksCampaign);
@@ -533,7 +594,6 @@ function checkMemberType() {
 }
 
 $(document).ready(function () {
-    campaignBarClose(); /// Binds Campaign Bar Close
     campaignSliderClose(); /// Binds Campaign Slider Close
     checkCampaignBarClose(); /// Checks cookie for Campaign Bar
     checkCampaignSliderClose(); /// Checks cookie for Campaign Sliders
