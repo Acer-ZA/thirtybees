@@ -1172,7 +1172,7 @@ span.maintenance-mode {
     padding-bottom: 5px !important;
 }
 
-#supportThirtyBeesModal .modal-title, #supportThirtyBeesCloseModal .modal-title {
+#supportThirtyBeesModal .modal-title, #supportThirtyBeesCloseModal .modal-title, #supportThirtyBeesCloseModalMember .modal-title {
     font-family: "Roboto";
     font-weight: 600 !important;
 }

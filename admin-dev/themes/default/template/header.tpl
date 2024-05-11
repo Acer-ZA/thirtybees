@@ -126,7 +126,7 @@
 	</script>
 {/if}
 <!-- /// Member Type - assign the following values: member-type-silver; member-type-ivory; member-type-gold; member-type-platinum /// -->
-{assign var="membertype" value="member-type-ivory"}
+{assign var="membertype" value="member-type-silver"}
 {if isset($maintenance_mode) && $maintenance_mode == true}
 	{assign var="maintenance_mode_class" value="maintenance-mode"}
 {/if}
@@ -607,20 +607,14 @@
         <h4 class="modal-title" id="supportThirtyBeesCloseModalLabel">{l s="Thank You For Supporting ThirtyBees"}</h4>
       </div>
       <div class="modal-body" id="supportThirtyBeesCloseModalContent">
-			<div class="support-tb-intro-holder">
-				<div class="support-tb-intro-text">
-					{l s="[1]Thank you for supporting ThirtyBees![/1] [2]" tags=["<b>", "<br/>"]}
-				</div>
-			</div>
-
 			{*/// Close this modal for 1 year ///*}
-			<a class="support-tb-item-holder setTopBarModal1Year" href="#">
+			<a class="support-tb-item-holder setThankYouModal1Year" href="#">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>
 				<div class="support-item-text-holder">
 					<div class="support-item-text-holder-inner">
-						<span>{l s="Hide the top bar messages for 1 Year on this device"}</span>
+						<span>{l s="Hide all Thank You messages for 1 Year on this device"}</span>
 					</div>
 				</div>
 			</a>
