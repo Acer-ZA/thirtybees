@@ -488,7 +488,7 @@ function checkCampaignSliderClose() {
     console.log("campaignSliderCookie Cookie Value: " + campaignSliderCookie);
 
     if (campaignSliderCookie) {
-        var expirationDate = new Date(campaignBarCloseCookie); // Parse the expiration date from the cookie
+        var expirationDate = new Date(campaignSliderCookie); // Parse the expiration date from the cookie
 
         // Compare the current date with the expiration date
         if (currentDate <= expirationDate) {
