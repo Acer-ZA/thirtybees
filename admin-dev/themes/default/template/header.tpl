@@ -126,7 +126,7 @@
 	</script>
 {/if}
 <!-- /// Member Type - assign the following values: member-type-silver; member-type-ivory; member-type-gold; member-type-platinum /// -->
-{assign var="membertype" value="member-type-silver"}
+{assign var="membertype" value=""}
 {if isset($maintenance_mode) && $maintenance_mode == true}
 	{assign var="maintenance_mode_class" value="maintenance-mode"}
 {/if}
@@ -582,7 +582,7 @@
 				</div>
 				<div class="support-item-text-holder">
 					<div class="support-item-text-holder-inner">
-						<span>{l s="Hide the top bar messages for 1 month"}</span>
+						<span>{l s="Hide the top bar and slider messages for 1 month"}</span>
 						<p>
 							{l s="Thank you for chosing ThirtyBees. We hope that you will enjoy using it and will consider becoming a supporter in the future." tags=["<br/>"]}
 						</p>
