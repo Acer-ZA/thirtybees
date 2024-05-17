@@ -415,9 +415,10 @@ function openSupportThirtyBeesCloseModal(type) {
 
                 /// Set timeout to hide modal and show notification after 1 second
                 setTimeout(function () {
-                    $('#supportThirtyBeesCloseModal').modal('hide');
-                    makeNotification('Top Bar Messages will be hidden for <b>1 Year</b> on this device');
+                    $('#supportThirtyBeesCloseModalMember').modal('hide');
+                    makeNotification('Thank You Messages will be hidden for <b>1 Year</b> on this device');
                     $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
+                    $(".campaign-slider-holder").addClass("tb-campaign-slider-fade-out");
                     setTimeout(function () {
                         $('body').removeClass('show-campaign-bar');
                     }, 2000);
