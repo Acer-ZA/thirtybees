@@ -233,9 +233,20 @@ function updateCampaignSlider(campaign) {
 
         bindSliderSupporterCampaignModal(campaign);
         $(".campaign-slider-close-icon").off("click");
-        setTimeout(function () {
-            campaignSliderClose();
-        }, 250);
+        var isMember = checkMemberType(); // Call the function and store the result
+
+        if (!isMember) { /// Check if isMember is false
+            campaignSliderClose('noMember');
+        }
+
+        else { /// Check if isMember is false
+            campaignSliderClose('Member');
+        }
+
+
+       /* setTimeout(function () {
+            campaignSliderClose('noMember');
+        }, 250);*/
        
     } else {
         var newCampaignSlider = getRandomCampaignSlider();  
@@ -538,9 +549,10 @@ function campaignBarClose(type) {
 }
 
 function campaignSliderClose(type) {
-    console.log("campaignSliderClose Type: " + type);
+    console.log("*** campaignSliderClose Type: " + type);
     switch (type) {
         case "noMember":
+            $(".campaign-slider-close-icon").off("click");
             $(".campaign-slider-close-icon").on("click", function () {
                 console.log("NoMember close");
                 openSupportThirtyBeesCloseModal('noMember');
