@@ -407,31 +407,29 @@ function openSupportThirtyBeesCloseModal(type) {
                 console.log('Expiration Date: ' + expirationDate);
 
                 /// Set the cookie with correct expiration format
-                setCookie('campaignBarClose', expirationDate.toString(), 365); // 365 days in a year
+                setCookie('campaignBarClose', expirationDate.toString(), 365);
+                setCookie('campaignSliderClose', expirationDate.toString(), 365);
 
                 /// Retrieve and log the cookie value
                 var getCampaignBarCloseCookie = getCookie('campaignBarClose');
                 console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
 
-                /// Set timeout to hide modal and show notification after 1 second
+                /// Set timeout to hide modal and show notification after 1 year
+                $('#supportThirtyBeesCloseModalMember').modal('hide');
                 setTimeout(function () {
-                    $('#supportThirtyBeesCloseModalMember').modal('hide');
                     makeNotification('Thank You Messages will be hidden for <b>1 Year</b> on this device');
                     $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
-                    $(".campaign-slider-holder").addClass("tb-campaign-slider-fade-out");
+                    $(".campaign-slider-holder-outer").fadeOut(250);
                     setTimeout(function () {
                         $('body').removeClass('show-campaign-bar');
                     }, 2000);
                 }, 1000);
             });
-
             break;
         default:
         break;
     }
-
 }
-
 
 
 function checkIfSysAnimationsRanAlready() {
@@ -483,17 +481,29 @@ function checkCampaignBarClose() {
     }
 }
 
-
 function checkCampaignSliderClose() {
-    var campaignSliderShownDate = getCookie('campaignSliderClose');
+    var currentDate = new Date(); // Get the current date and time
+    var campaignSliderCookie = getCookie('campaignSliderClose');
+    console.log("CurrentDate: " + currentDate);
+    console.log("campaignSliderCookie Cookie Value: " + campaignSliderCookie);
 
-    /// Check if the animation has already been shown for the day
-    if (!campaignSliderShownDate || campaignSliderShownDate !== currentDate) {
-        /// Show the animation
+    if (campaignSliderCookie) {
+        var expirationDate = new Date(campaignBarCloseCookie); // Parse the expiration date from the cookie
+
+        // Compare the current date with the expiration date
+        if (currentDate <= expirationDate) {
+            // If the current date is before or equal to the expiration date, do not show the campaign bar
+            console.log('Campaign slider is hidden because it is within the cookie expiration period.');
+            $('body').removeClass('show-campaign-slider');
+        } else {
+            // If the current date is after the expiration date, show the campaign bar
+            console.log('Campaign slider is shown because it has expired.');
+            $('body').addClass('show-campaign-slider');
+        }
+    } else {
+        // If the cookie is not set, show the campaign bar
+        console.log('Campaign slider is shown because the cookie is not set.');
         $('body').addClass('show-campaign-slider');
-
-        /// Set a cookie to indicate that the animation has been shown today
-        /*setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day*/
     }
 }
 
@@ -527,7 +537,7 @@ function campaignSliderClose() {
     $(".campaign-slider-close-icon").on("click", function () {
         $(".campaign-slider-holder-outer").fadeOut(250);
         setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
-    })
+    });
 }
 
 
