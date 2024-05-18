@@ -415,7 +415,6 @@ function openSupportThirtyBeesCloseModal(type) {
                 clearCookie('campaignBarClose');
                 clearCookie('campaignSliderClose');
 
-
                 /// Get the current date
                 var currentDate = new Date();
 
