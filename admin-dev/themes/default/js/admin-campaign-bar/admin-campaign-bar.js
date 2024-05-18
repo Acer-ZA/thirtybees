@@ -548,76 +548,59 @@ function campaignBarClose(type) {
     }
 }
 
+/// Binds the Close functionality and logic for the Campaign Slider
 function campaignSliderClose(type) {
     console.log("*** campaignSliderClose Type: " + type);
-    switch (type) {
-        case "noMember":
-            $(".campaign-slider-close-icon").off("click");
-            $(".campaign-slider-close-icon").on("click", function () {
-                console.log("NoMember close");
-                openSupportThirtyBeesCloseModal('noMember');
-            })
-            break;
-        case "Member":
-            console.log("campaignBarClose MEMBER");
-
-            $(".campaign-slider-close-icon").off("click");
-            $(".campaign-slider-close-icon").on("click", function () {
-                console.log("Member close");
-                openSupportThirtyBeesCloseModal('Member');
-            })
-            break;
-        default:
-            break;
+    var isMember = checkMemberType(); // Call the function and store the result
+    if (!isMember) { /// Check if isMember is false
+        $(".campaign-slider-close-icon").off("click");
+        $(".campaign-slider-close-icon").on("click", function () {
+            console.log("/// NEW: Slider NoMember close ///");
+            openSupportThirtyBeesCloseModal('noMember');
+        })
+    }
+    else {
+        console.log("/// NEW: Slider MEMBER close ///");
+        $(".campaign-slider-close-icon").off("click");
+        $(".campaign-slider-close-icon").on("click", function () {
+            console.log("Member close");
+            openSupportThirtyBeesCloseModal('Member');
+        })
     }
 }
 
-/*function campaignSliderClose(type) {
-    $(".campaign-slider-close-icon").on("click", function () {
-        $(".campaign-slider-holder-outer").fadeOut(250);
-        setCookie('campaignSliderClose', currentDate, 1); // Expires in 1 day
-    });
-}*/
-
-
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
+    initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
+    initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
+    campaignBarClose("noMember"); /// Binds Campaign Bar Close - For No Member
+    campaignSliderClose(); /// Binds Campaign Slider Close
 
-    var isMember = checkMemberType(); // Call the function and store the result
+    /// If a the user is a member, show the thank you bar and slider
+    /// Find the campaign object with class name 'campaign-bar-thanks'
+    var thanksCampaign = campaigns.find(function (campaign) {
+        return campaign.class === 'campaign_bar_thanks_class';
+    });
 
-    if (!isMember) { /// Check if isMember is false
-        initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
-        initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
-        campaignBarClose("noMember"); /// Binds Campaign Bar Close - For No Member
-        campaignSliderClose("noMember"); /// Binds Campaign Slider Close - For No Member
+    if (thanksCampaign) {
+        /// If the campaign is found, update the campaign bar
+        checkAdminBGColour();
+        campaignBarClose("Member"); /// Binds Campaign Bar Close - For No Member
+        $(".campaign-bar-holder").css("visibility", "visible");
+        $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+        updateCampaignBar(thanksCampaign);
     }
-    else {
-        /// If a the user is a member, show the thank you bar and slider
-        /// Find the campaign object with class name 'campaign-bar-thanks'
-        var thanksCampaign = campaigns.find(function (campaign) {
-            return campaign.class === 'campaign_bar_thanks_class';
-        });
+    var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
+        return campaignsSlider.class === 'campaign_slider_thanks_class';
+    });
 
-        if (thanksCampaign) {
-            /// If the campaign is found, update the campaign bar
-            checkAdminBGColour();
-            campaignBarClose("Member"); /// Binds Campaign Bar Close - For No Member
-            $(".campaign-bar-holder").css("visibility", "visible");
-            $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
-            updateCampaignBar(thanksCampaign);
-        } 
-        var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
-            return campaignsSlider.class === 'campaign_slider_thanks_class';
-        });
-
-        if (thanksCampaignSlider) {
-            $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
-            var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
-            var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
-            $('.campaign-slider-holder').removeClass('campaign-slider-hide');
-            $('.campaign-slider-holder').addClass(randomClass);
-            updateCampaignSlider(thanksCampaignSlider);
-        }
+    if (thanksCampaignSlider) {
+        $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
+        var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
+        var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+        $('.campaign-slider-holder').removeClass('campaign-slider-hide');
+        $('.campaign-slider-holder').addClass(randomClass);
+        updateCampaignSlider(thanksCampaignSlider);
     }
 }
 
