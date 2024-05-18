@@ -370,29 +370,29 @@ function openSupportThirtyBeesCloseModal(type) {
             $('.setTopBarModal1Month').on("click", function () {
                 console.log('Setting new cookie...');
 
-                // Clear existing cookies
+                /// Clear existing cookies
                 clearCookie('campaignBarClose');
                 clearCookie('campaignSliderClose');
 
-                // Get the current date
+                /// Get the current date
                 var currentDate = new Date();
 
-                // Set expiration date to 1 month from the current date
+                /// Set expiration date to 1 month from the current date
                 var expirationDate = new Date(currentDate.getTime());
                 expirationDate.setMonth(expirationDate.getMonth() + 1);
 
                 console.log("Current date is: " + currentDate);
                 console.log('Expiration Date: ' + expirationDate);
 
-                // Set the cookie with the correct expiration format
+                /// Set the cookie with the correct expiration format
                 setCookie('campaignBarClose', expirationDate.toUTCString(), 30);
                 setCookie('campaignSliderClose', expirationDate.toUTCString(), 30);
 
-                // Retrieve and log the cookie value
+                /// Retrieve and log the cookie value
                 var getCampaignBarCloseCookie = getCookie('campaignBarClose');
                 console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
 
-                // Set timeout to hide modal and show notification after 1 second
+                /// Set timeout to hide modal and show notification after 1 second
                 setTimeout(function () {
                     $('#supportThirtyBeesCloseModal').modal('hide');
                     makeNotification('These messages will be hidden for <b>1 Month</b> on this device');
