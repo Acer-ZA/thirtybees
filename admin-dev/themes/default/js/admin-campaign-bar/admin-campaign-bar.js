@@ -450,7 +450,6 @@ function openSupportThirtyBeesCloseModal(type) {
     }
 }
 
-
 function checkIfSysAnimationsRanAlready() {
     /// Check if the cookie exists
     var animationShownDate = getCookie('animationShownDate');
