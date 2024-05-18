@@ -243,10 +243,6 @@ function updateCampaignSlider(campaign) {
             campaignSliderClose('Member');
         }
 
-
-       /* setTimeout(function () {
-            campaignSliderClose('noMember');
-        }, 250);*/
        
     } else {
         var newCampaignSlider = getRandomCampaignSlider();  
@@ -363,12 +359,10 @@ function clearCookie(name) {
 
 /// Support ThirtyBees Modal - No Member / Member
 function openSupportThirtyBeesCloseModal(type) {
-    console.log("openSupportThirtyBeesCloseModal");
     switch (type) {
         case 'noMember':
             $('#supportThirtyBeesCloseModal').modal('show');
             $('.setTopBarModal1Month').on("click", function () {
-                console.log('Setting new cookie...');
 
                 /// Clear existing cookies
                 clearCookie('campaignBarClose');
@@ -381,8 +375,8 @@ function openSupportThirtyBeesCloseModal(type) {
                 var expirationDate = new Date(currentDate.getTime());
                 expirationDate.setMonth(expirationDate.getMonth() + 1);
 
-                console.log("Current date is: " + currentDate);
-                console.log('Expiration Date: ' + expirationDate);
+                /*console.log("Current date is: " + currentDate);
+                console.log('Expiration Date: ' + expirationDate);*/
 
                 /// Set the cookie with the correct expiration format
                 setCookie('campaignBarClose', expirationDate.toUTCString(), 30);
@@ -390,7 +384,7 @@ function openSupportThirtyBeesCloseModal(type) {
 
                 /// Retrieve and log the cookie value
                 var getCampaignBarCloseCookie = getCookie('campaignBarClose');
-                console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+                /*console.log('Cookie Value is: ' + getCampaignBarCloseCookie);*/
 
                 /// Set timeout to hide modal and show notification after 1 second
                 setTimeout(function () {
@@ -409,7 +403,7 @@ function openSupportThirtyBeesCloseModal(type) {
             $('#supportThirtyBeesCloseModalMember').modal('show');
 
             $('.setThankYouModal1Year').on("click", function () {
-                console.log('Setting new cookie...');
+              /*  console.log('Setting new cookie...');*/
 
                 /// Clear existing cookies
                 clearCookie('campaignBarClose');
@@ -422,8 +416,8 @@ function openSupportThirtyBeesCloseModal(type) {
                 var expirationDate = new Date(currentDate.getTime());
                 expirationDate.setFullYear(expirationDate.getFullYear() + 1);
 
-                console.log("Current date is: " + currentDate);
-                console.log('Expiration Date: ' + expirationDate);
+               /* console.log("Current date is: " + currentDate);
+                console.log('Expiration Date: ' + expirationDate);*/
 
                 /// Set the cookie with correct expiration format
                 setCookie('campaignBarClose', expirationDate.toString(), 365);
@@ -431,7 +425,7 @@ function openSupportThirtyBeesCloseModal(type) {
 
                 /// Retrieve and log the cookie value
                 var getCampaignBarCloseCookie = getCookie('campaignBarClose');
-                console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
+               /* console.log('Cookie Value is: ' + getCampaignBarCloseCookie);*/
 
                 /// Set timeout to hide modal and show notification after 1 year
                 $('#supportThirtyBeesCloseModalMember').modal('hide');
@@ -457,7 +451,6 @@ function checkIfSysAnimationsRanAlready() {
     /// Check if the animation has already been shown for the day
     if (!animationShownDate || animationShownDate !== currentDate) {
         /// Show the animation
-        console.log('Sysadmin animation should load');
         /// Sys animation is for debug, maintenance + username animations
         $('body').addClass('show-sys-animation');
 
@@ -476,16 +469,16 @@ function checkIfSysAnimationsRanAlready() {
 function checkCampaignBarClose() {
     var currentDate = new Date(); // Get the current date and time
     var campaignBarCloseCookie = getCookie('campaignBarClose');
-    console.log("CurrentDate: " + currentDate);
-    console.log("campaignBarClose Cookie Value: " + campaignBarCloseCookie);
+   /* console.log("CurrentDate: " + currentDate);
+    console.log("campaignBarClose Cookie Value: " + campaignBarCloseCookie);*/
 
     if (campaignBarCloseCookie) {
         var expirationDate = new Date(campaignBarCloseCookie); // Parse the expiration date from the cookie
 
-        // Compare the current date with the expiration date
+        /// Compare the current date with the expiration date
         if (currentDate <= expirationDate) {
             /// If the current date is before or equal to the expiration date, do not show the campaign bar
-            console.log('Campaign bar is hidden because it is within the cookie expiration period.');
+            /*console.log('Campaign bar is hidden because it is within the cookie expiration period.');*/
             $('body').removeClass('show-campaign-bar');
         } else {
             /// If the current date is after the expiration date, show the campaign bar
@@ -494,7 +487,7 @@ function checkCampaignBarClose() {
         }
     } else {
         /// If the cookie is not set, show the campaign bar
-        console.log('Campaign bar is shown because the cookie is not set.');
+        /*console.log('Campaign bar is shown because the cookie is not set.');*/
         $('body').addClass('show-campaign-bar');
     }
 }
@@ -502,8 +495,8 @@ function checkCampaignBarClose() {
 function checkCampaignSliderClose() {
     var currentDate = new Date(); // Get the current date and time
     var campaignSliderCookie = getCookie('campaignSliderClose');
-    console.log("CurrentDate: " + currentDate);
-    console.log("campaignSliderCookie Cookie Value: " + campaignSliderCookie);
+    /*console.log("CurrentDate: " + currentDate);
+    console.log("campaignSliderCookie Cookie Value: " + campaignSliderCookie);*/
 
     if (campaignSliderCookie) {
         var expirationDate = new Date(campaignSliderCookie); // Parse the expiration date from the cookie
@@ -511,16 +504,16 @@ function checkCampaignSliderClose() {
         // Compare the current date with the expiration date
         if (currentDate <= expirationDate) {
             /// If the current date is before or equal to the expiration date, do not show the campaign bar
-            console.log('Campaign slider is hidden because it is within the cookie expiration period.');
+            /*console.log('Campaign slider is hidden because it is within the cookie expiration period.');*/
             $('body').removeClass('show-campaign-slider');
         } else {
             /// If the current date is after the expiration date, show the campaign bar
-            console.log('Campaign slider is shown because it has expired.');
+            /*console.log('Campaign slider is shown because it has expired.');*/
             $('body').addClass('show-campaign-slider');
         }
     } else {
         /// If the cookie is not set, show the campaign bar
-        console.log('Campaign slider is shown because the cookie is not set.');
+       /* console.log('Campaign slider is shown because the cookie is not set.');*/
         $('body').addClass('show-campaign-slider');
     }
 }
@@ -530,15 +523,12 @@ function campaignBarClose(type) {
     var isMember = checkMemberType(); // Call the function and store the result
     if (!isMember) { /// Check if isMember is false
         $(".campaign-bar-close-holder").on("click", function () {
-            console.log("/// NEW: TopBar NoMember close ///");
             openSupportThirtyBeesCloseModal('noMember');
         })
     }
     else {
         $(".campaign-bar-close-holder").off("click");
         $(".campaign-bar-close-holder").on("click", function () {
-            setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
-            console.log("/// NEW: TopBar Member close ///");
             openSupportThirtyBeesCloseModal('Member');
         })
     }
@@ -550,15 +540,12 @@ function campaignSliderClose() {
     if (!isMember) { /// Check if isMember is false
         $(".campaign-slider-close-icon").off("click");
         $(".campaign-slider-close-icon").on("click", function () {
-            console.log("/// NEW: Slider NoMember close ///");
             openSupportThirtyBeesCloseModal('noMember');
         })
     }
     else {
-        console.log("/// NEW: Slider MEMBER close ///");
         $(".campaign-slider-close-icon").off("click");
         $(".campaign-slider-close-icon").on("click", function () {
-            console.log("Member close");
             openSupportThirtyBeesCloseModal('Member');
         })
     }
@@ -568,7 +555,7 @@ function campaignSliderClose() {
 function campaignBarSliderInits() {
     initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
     initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
-    campaignBarClose(); /// Binds Campaign Bar Close - For No Member
+    campaignBarClose(); /// Binds Campaign Bar Close
     campaignSliderClose(); /// Binds Campaign Slider Close
 
     /// If a the user is a member, show the thank you bar and slider
@@ -580,7 +567,7 @@ function campaignBarSliderInits() {
     if (thanksCampaign) {
         /// If the campaign is found, update the campaign bar
         checkAdminBGColour();
-        campaignBarClose("Member"); /// Binds Campaign Bar Close - For No Member
+        campaignBarClose(); /// Binds Campaign Bar Close
         $(".campaign-bar-holder").css("visibility", "visible");
         $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
         updateCampaignBar(thanksCampaign);
@@ -598,7 +585,7 @@ function campaignBarSliderInits() {
         updateCampaignSlider(thanksCampaignSlider);
     }
 }
-
+/// Check Member Type ///
 function checkMemberType() {
     var findMemberIvory = $(".member-type-ivory").length;
     var findMemberSilver = $(".member-type-silver").length;
