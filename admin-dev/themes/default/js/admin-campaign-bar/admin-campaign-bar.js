@@ -381,7 +381,9 @@ function openSupportThirtyBeesCloseModal(type) {
                 console.log('Expiration Date: ' + expirationDate);
 
                 /// Set the cookie with correct expiration format
-                setCookie('campaignBarClose', expirationDate.toString(), expirationMinutes);
+                setCookie('campaignBarClose', expirationDate.toString(), 30);
+                setCookie('campaignSliderClose', expirationDate.toString(), 30);
+
 
                 /// Retrieve and log the cookie value
                 var getCampaignBarCloseCookie = getCookie('campaignBarClose');
