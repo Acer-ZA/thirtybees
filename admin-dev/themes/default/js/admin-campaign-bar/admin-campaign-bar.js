@@ -392,6 +392,7 @@ function openSupportThirtyBeesCloseModal(type) {
                     $('#supportThirtyBeesCloseModal').modal('hide');
                     makeNotification('These messages will be hidden for <b>1 Month</b> on this device');
                     $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
+                    $(".campaign-slider-holder-outer").fadeOut(250);
                     setTimeout(function () {
                         $('body').removeClass('show-campaign-bar');
                     }, 2000);
@@ -505,16 +506,16 @@ function checkCampaignSliderClose() {
 
         // Compare the current date with the expiration date
         if (currentDate <= expirationDate) {
-            // If the current date is before or equal to the expiration date, do not show the campaign bar
+            /// If the current date is before or equal to the expiration date, do not show the campaign bar
             console.log('Campaign slider is hidden because it is within the cookie expiration period.');
             $('body').removeClass('show-campaign-slider');
         } else {
-            // If the current date is after the expiration date, show the campaign bar
+            /// If the current date is after the expiration date, show the campaign bar
             console.log('Campaign slider is shown because it has expired.');
             $('body').addClass('show-campaign-slider');
         }
     } else {
-        // If the cookie is not set, show the campaign bar
+        /// If the cookie is not set, show the campaign bar
         console.log('Campaign slider is shown because the cookie is not set.');
         $('body').addClass('show-campaign-slider');
     }
@@ -532,7 +533,6 @@ function campaignBarClose(type) {
     else {
         $(".campaign-bar-close-holder").off("click");
         $(".campaign-bar-close-holder").on("click", function () {
-            /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
             setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
             console.log("/// NEW: TopBar Member close ///");
             openSupportThirtyBeesCloseModal('Member');
