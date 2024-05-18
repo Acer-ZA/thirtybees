@@ -395,7 +395,7 @@ function openSupportThirtyBeesCloseModal(type) {
                 /// Set timeout to hide modal and show notification after 1 second
                 setTimeout(function () {
                     $('#supportThirtyBeesCloseModal').modal('hide');
-                    makeNotification('These messages will be hidden for <b>1 Month</b> on this device');
+                    makeNotification('The TopBar and Slider messages will be hidden for <b>1 Month</b> on this device');
                     $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
                     $(".campaign-slider-holder-outer").fadeOut(250);
                     setTimeout(function () {
