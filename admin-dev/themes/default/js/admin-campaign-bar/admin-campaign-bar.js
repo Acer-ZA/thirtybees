@@ -520,37 +520,28 @@ function checkCampaignSliderClose() {
     }
 }
 
+/// Binds the Close functionality and logic for the Top Bar Campaign Slider
 function campaignBarClose(type) {
-    console.log("campaignBarClose Type: " + type);
-    switch (type) {
-        case "noMember":
-            $(".campaign-bar-close-holder").on("click", function () {
-                /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
-                setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
-                console.log("NoMember close");
-
-                openSupportThirtyBeesCloseModal('noMember');
-            })
-            break;
-        case "Member":
-            console.log("campaignBarClose MEMBER");
-
-            $(".campaign-bar-close-holder").off("click");
-            $(".campaign-bar-close-holder").on("click", function () {
-                /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
-                setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
-                console.log("Member close");
-                openSupportThirtyBeesCloseModal('Member');
-            })
-            break;
-        default:
-            break;
+    var isMember = checkMemberType(); // Call the function and store the result
+    if (!isMember) { /// Check if isMember is false
+        $(".campaign-bar-close-holder").on("click", function () {
+            console.log("/// NEW: TopBar NoMember close ///");
+            openSupportThirtyBeesCloseModal('noMember');
+        })
+    }
+    else {
+        $(".campaign-bar-close-holder").off("click");
+        $(".campaign-bar-close-holder").on("click", function () {
+            /*$(".campaign-bar-holder-inner-outer").fadeOut(250);
+            setCookie('campaignBarClose', currentDate, 1); // Expires in 1 day*/
+            console.log("/// NEW: TopBar Member close ///");
+            openSupportThirtyBeesCloseModal('Member');
+        })
     }
 }
 
 /// Binds the Close functionality and logic for the Campaign Slider
-function campaignSliderClose(type) {
-    console.log("*** campaignSliderClose Type: " + type);
+function campaignSliderClose() {
     var isMember = checkMemberType(); // Call the function and store the result
     if (!isMember) { /// Check if isMember is false
         $(".campaign-slider-close-icon").off("click");
@@ -573,7 +564,7 @@ function campaignSliderClose(type) {
 function campaignBarSliderInits() {
     initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
     initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
-    campaignBarClose("noMember"); /// Binds Campaign Bar Close - For No Member
+    campaignBarClose(); /// Binds Campaign Bar Close - For No Member
     campaignSliderClose(); /// Binds Campaign Slider Close
 
     /// If a the user is a member, show the thank you bar and slider
