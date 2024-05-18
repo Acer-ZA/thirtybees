@@ -369,27 +369,30 @@ function openSupportThirtyBeesCloseModal(type) {
             $('#supportThirtyBeesCloseModal').modal('show');
             $('.setTopBarModal1Month').on("click", function () {
                 console.log('Setting new cookie...');
-                /// Clear existing cookie
+
+                // Clear existing cookies
                 clearCookie('campaignBarClose');
+                clearCookie('campaignSliderClose');
 
-                /// Get the current date and calculate expiration date (1 minute from now)
-                var expirationMinutes = 1; // Set expiration time in minutes
-                var expirationDate = new Date();
-                expirationDate.setTime(expirationDate.getTime() + (expirationMinutes * 60000)); // Convert minutes to milliseconds
+                // Get the current date
+                var currentDate = new Date();
 
-                console.log("Current date is: " + new Date());
+                // Set expiration date to 1 month from the current date
+                var expirationDate = new Date(currentDate.getTime());
+                expirationDate.setMonth(expirationDate.getMonth() + 1);
+
+                console.log("Current date is: " + currentDate);
                 console.log('Expiration Date: ' + expirationDate);
 
-                /// Set the cookie with correct expiration format
-                setCookie('campaignBarClose', expirationDate.toString(), 30);
-                setCookie('campaignSliderClose', expirationDate.toString(), 30);
+                // Set the cookie with the correct expiration format
+                setCookie('campaignBarClose', expirationDate.toUTCString(), 30);
+                setCookie('campaignSliderClose', expirationDate.toUTCString(), 30);
 
-
-                /// Retrieve and log the cookie value
+                // Retrieve and log the cookie value
                 var getCampaignBarCloseCookie = getCookie('campaignBarClose');
                 console.log('Cookie Value is: ' + getCampaignBarCloseCookie);
 
-                /// Set timeout to hide modal and show notification after 1 second
+                // Set timeout to hide modal and show notification after 1 second
                 setTimeout(function () {
                     $('#supportThirtyBeesCloseModal').modal('hide');
                     makeNotification('These messages will be hidden for <b>1 Month</b> on this device');
@@ -401,6 +404,7 @@ function openSupportThirtyBeesCloseModal(type) {
                 }, 1000);
             });
             break;
+
         case 'Member':
             $('#supportThirtyBeesCloseModalMember').modal('show');
 
