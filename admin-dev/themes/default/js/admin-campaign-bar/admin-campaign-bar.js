@@ -553,37 +553,52 @@ function campaignSliderClose() {
 
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
-    initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
-    initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
-    campaignBarClose(); /// Binds Campaign Bar Close
-    campaignSliderClose(); /// Binds Campaign Slider Close
+   
 
     /// If a the user is a member, show the thank you bar and slider
     /// Find the campaign object with class name 'campaign-bar-thanks'
-    var thanksCampaign = campaigns.find(function (campaign) {
-        return campaign.class === 'campaign_bar_thanks_class';
-    });
 
-    if (thanksCampaign) {
-        /// If the campaign is found, update the campaign bar
-        checkAdminBGColour();
+    // Select the element with the class 'member-type'
+    var checkForMember = $('.member-type');
+
+    // Check if the element has a class that matches 'logo-member-type-*'
+    if (checkForMember.is('[class*="logo-member-type-"]')) {
+        console.log('Element has a class that starts with "logo-member-type-"');
+
+        var thanksCampaign = campaigns.find(function (campaign) {
+            return campaign.class === 'campaign_bar_thanks_class';
+        });
+
+        if (thanksCampaign) {
+            console.log('topbar thanks campaign');
+            /// If the campaign is found, update the campaign bar
+            checkAdminBGColour();
+            campaignBarClose(); /// Binds Campaign Bar Close
+            $(".campaign-bar-holder").css("visibility", "visible");
+            $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
+            updateCampaignBar(thanksCampaign);
+        }
+        var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
+            return campaignsSlider.class === 'campaign_slider_thanks_class';
+        });
+
+        if (thanksCampaignSlider) {
+            console.log('slider thanks campaign');
+            $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
+            var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
+            var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
+            $('.campaign-slider-holder').removeClass('campaign-slider-hide');
+            $('.campaign-slider-holder').addClass(randomClass);
+            updateCampaignSlider(thanksCampaignSlider);
+        }
+    } else {
+        initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
+        initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
         campaignBarClose(); /// Binds Campaign Bar Close
-        $(".campaign-bar-holder").css("visibility", "visible");
-        $(".campaign-bar-holder").addClass("animate-campaign-bar-in");
-        updateCampaignBar(thanksCampaign);
+        campaignSliderClose(); /// Binds Campaign Slider Close
     }
-    var thanksCampaignSlider = campaignsSlider.find(function (campaignsSlider) {
-        return campaignsSlider.class === 'campaign_slider_thanks_class';
-    });
 
-    if (thanksCampaignSlider) {
-        $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
-        var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
-        var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
-        $('.campaign-slider-holder').removeClass('campaign-slider-hide');
-        $('.campaign-slider-holder').addClass(randomClass);
-        updateCampaignSlider(thanksCampaignSlider);
-    }
+    
 }
 /// Check Member Type ///
 function checkMemberType() {
