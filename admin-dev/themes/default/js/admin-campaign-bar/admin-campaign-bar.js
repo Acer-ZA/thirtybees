@@ -389,7 +389,7 @@ function openSupportThirtyBeesCloseModal(type) {
                 /// Set timeout to hide modal and show notification after 1 second
                 setTimeout(function () {
                     $('#supportThirtyBeesCloseModal').modal('hide');
-                    makeNotification('The TopBar and Slider messages will be hidden for <b>1 Month</b> on this device');
+                    makeNotification('The Top bar and Slider messages will be hidden for <b>1 Month</b> on this device');
                     $(".campaign-bar-holder").addClass("tb-campaign-bar-fade-out");
                     $(".campaign-slider-holder-outer").fadeOut(250);
                     setTimeout(function () {
@@ -553,24 +553,18 @@ function campaignSliderClose() {
 
 /// Inits the Campaign Bar and Slider ///
 function campaignBarSliderInits() {
-   
-
     /// If a the user is a member, show the thank you bar and slider
     /// Find the campaign object with class name 'campaign-bar-thanks'
 
-    // Select the element with the class 'member-type'
+    /// Check if the user is a member ///
     var checkForMember = $('.member-type');
-
-    // Check if the element has a class that matches 'logo-member-type-*'
     if (checkForMember.is('[class*="logo-member-type-"]')) {
-        console.log('Element has a class that starts with "logo-member-type-"');
 
         var thanksCampaign = campaigns.find(function (campaign) {
             return campaign.class === 'campaign_bar_thanks_class';
         });
 
         if (thanksCampaign) {
-            console.log('topbar thanks campaign');
             /// If the campaign is found, update the campaign bar
             checkAdminBGColour();
             campaignBarClose(); /// Binds Campaign Bar Close
@@ -583,7 +577,6 @@ function campaignBarSliderInits() {
         });
 
         if (thanksCampaignSlider) {
-            console.log('slider thanks campaign');
             $(".campaign-slider-holder").attr("style", "visibility: visible!important; z-index: 999!important;");
             var randomClasses = ['animate-campaign-slider-in-right', 'animate-campaign-slider-flip-center', 'animate-campaign-slider-flip-rightleft', 'animate-campaign-slider-in-bottom'];
             var randomClass = randomClasses[Math.floor(Math.random() * randomClasses.length)];
@@ -591,15 +584,16 @@ function campaignBarSliderInits() {
             $('.campaign-slider-holder').addClass(randomClass);
             updateCampaignSlider(thanksCampaignSlider);
         }
-    } else {
+    }
+    /// If the user is not a member, start the top bar and slider campaigns ///
+    else {
         initiateCampaignBar(5000, 20000); /// Start delay, Cycle delay
         initiateCampaignSlider(10000, 20000); /// Start delay, Cycle delay
         campaignBarClose(); /// Binds Campaign Bar Close
         campaignSliderClose(); /// Binds Campaign Slider Close
     }
-
-    
 }
+
 /// Check Member Type ///
 function checkMemberType() {
     var findMemberIvory = $(".member-type-ivory").length;
