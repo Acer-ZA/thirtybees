@@ -584,7 +584,7 @@
 					<div class="support-item-text-holder-inner">
 						<span>{l s="Hide the top bar and slider messages for 1 month"}</span>
 						<p>
-							{l s="Thank you for chosing ThirtyBees. We hope that you will enjoy using it and will consider becoming a supporter in the future." tags=["<br/>"]}
+							{l s="Thank you for choosing ThirtyBees. We hope that you will enjoy using it and will consider becoming a supporter in the future." tags=["<br/>"]}
 						</p>
 					</div>
 				</div>
