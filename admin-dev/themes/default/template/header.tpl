@@ -494,7 +494,7 @@
 			</a>
 
 			{*/// Become a Sponsor ///*}
-			<a class="support-tb-item-holder" href="mailto:chiel@thirtybees.com?subject=ThirtyBees%20Sponsor%20Request" target="_blank">
+			<a class="support-tb-item-holder" href="mailto:contact@thirtybees.com?subject=ThirtyBees%20Sponsor%20Request" target="_blank">
 				<div class="support-item-icon">
 					<i class="icon-check-circle"></i>
 				</div>
