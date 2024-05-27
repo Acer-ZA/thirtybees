@@ -783,9 +783,9 @@
     justify-content: center;
     position: absolute;
     top: 0px;
-    right: -16px;
-    width: 15px;
-    height: 15px;
+    right: -19px;
+    width: 18px;
+    height: 18px;
     padding-left: 0px !important;
     border: 1.5px solid #0000 !important;
     border-radius: 100%;
@@ -797,8 +797,8 @@
 
 .campaign-bar-close-icon {
     margin-top: -1.6px;
-    margin-left: 0px;
-    font-size: 10px !important;
+    margin-left: -0.5px;
+    font-size: 11px !important;
     font-weight: 400 !important;
     color: #000;
 }
@@ -1294,8 +1294,8 @@ span.maintenance-mode {
     position: absolute;
     top: 3px;
     right: 3px;
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     padding-left: 0px !important;
     border: 1.5px solid #0000 !important;
     border-radius: 100%;
@@ -1308,7 +1308,7 @@ span.maintenance-mode {
 .campaign-slider-close-icon {
     margin-top: -1.75px;
     margin-left: 0px;
-    font-size: 10px !important;
+    font-size: 11px !important;
     font-weight: 400 !important;
     color: #000;
 }
