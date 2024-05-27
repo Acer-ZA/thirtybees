@@ -786,26 +786,30 @@
     right: -16px;
     width: 15px;
     height: 15px;
-    padding-left: 0px!important;
-    border: 1.5px solid #0000!important;
+    padding-left: 0px !important;
+    border: 1.5px solid #0000 !important;
     border-radius: 100%;
-    background-color: #fff;
+    background-color: rgba(230, 184, 0, 0.9);
     cursor: pointer !important;
     z-index: 10;
     transition: all 250ms ease-in-out;
 }
 
- .campaign-bar-close-holder:hover {
-    background-color: #000;
-    color: #fff;
-} 
-
 .campaign-bar-close-icon {
-    margin-top: 0px;
+    margin-top: -1.6px;
     margin-left: 0px;
     font-size: 10px !important;
-    font-weight: 400!important;
+    font-weight: 400 !important;
+    color: #000;
 }
+
+.campaign-bar-close-holder:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.campaign-bar-close-holder:hover .campaign-bar-close-icon {
+    color: #fff !important;
+} 
 
 #header_employee_box #header_foaccess, a.employee_name.dropdown-toggle {
     padding: 0px !important;
@@ -1295,22 +1299,26 @@ span.maintenance-mode {
     padding-left: 0px !important;
     border: 1.5px solid #0000 !important;
     border-radius: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(230, 184, 0, 0.9);
     cursor: pointer !important;
     z-index: 10;
     transition: all 250ms ease-in-out;
 }
 
-.campaign-slider-close-holder-inner:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-.campaign-slide-close-icon {
-    margin-top: 0px;
+.campaign-slider-close-icon {
+    margin-top: -1.75px;
     margin-left: 0px;
     font-size: 10px !important;
     font-weight: 400 !important;
+    color: #000;
+}
+
+.campaign-slider-close-holder-inner:hover {
+    background-color: #000;
+}
+
+.campaign-slider-close-holder-inner:hover .campaign-slider-close-icon {
+    color: #fff;
 }
 
 .campaign-slider-holder-inner-actual {
