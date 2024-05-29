@@ -232,7 +232,7 @@ function updateCampaignSlider(campaign) {
         }, 250);
 
         bindSliderSupporterCampaignModal(campaign);
-        $(".campaign-slider-close-icon").off("click");
+        $(".campaign-slider-close-holder-inner").off("click");
         var isMember = checkMemberType(); // Call the function and store the result
 
         if (!isMember) { /// Check if isMember is false
@@ -538,14 +538,14 @@ function campaignBarClose(type) {
 function campaignSliderClose() {
     var isMember = checkMemberType(); // Call the function and store the result
     if (!isMember) { /// Check if isMember is false
-        $(".campaign-slider-close-icon").off("click");
-        $(".campaign-slider-close-icon").on("click", function () {
+        $(".campaign-slider-close-holder-inner").off("click");
+        $(".campaign-slider-close-holder-inner").on("click", function () {
             openSupportThirtyBeesCloseModal('noMember');
         })
     }
     else {
-        $(".campaign-slider-close-icon").off("click");
-        $(".campaign-slider-close-icon").on("click", function () {
+        $(".campaign-slider-close-holder-inner").off("click");
+        $(".campaign-slider-close-holder-inner").on("click", function () {
             openSupportThirtyBeesCloseModal('Member');
         })
     }
