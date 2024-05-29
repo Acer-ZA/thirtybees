@@ -443,23 +443,25 @@ function openSupportThirtyBeesCloseModal(type) {
 }
 
 function checkIfSysAnimationsRanAlready() {
+    /// Get the current date
+    var currentDate = new Date();
+    var currentDateString = currentDate.toDateString(); // Convert to a readable date string
+
     /// Check if the cookie exists
     var animationShownDate = getCookie('animationShownDate');
 
     /// Check if the animation has already been shown for the day
-    if (!animationShownDate || animationShownDate !== currentDate) {
+    if (!animationShownDate || animationShownDate !== currentDateString) {
         /// Show the animation
         /// Sys animation is for debug, maintenance + username animations
         $('body').addClass('show-sys-animation');
 
         /// Set a cookie to indicate that the animation has been shown today
-        setCookie('animationShownDate', currentDate, 1); // Expires in 1 day
-    }
-    else {
+        clearCookie('animationShownDate');
+        setCookie('animationShownDate', currentDateString, 1); // Expires in 1 day
+    } else {
         /// Cookie already detected, just show the icons
-        setTimeout(function () {
-            $(".sys-state-holder").fadeIn(1500);
-        }, 1000);
+        $(".sys-state-holder").fadeIn(1500);
     }
 }
 
