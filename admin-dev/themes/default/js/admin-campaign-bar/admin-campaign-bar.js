@@ -242,7 +242,6 @@ function updateCampaignSlider(campaign) {
         else { /// Check if isMember is false
             campaignSliderClose('Member');
         }
-
        
     } else {
         var newCampaignSlider = getRandomCampaignSlider();  
@@ -278,7 +277,6 @@ function initiateCampaignSlider(setCampaignSliderStartDelay,setSliderCampaignCha
 
 /// Check for notifications and show on responsive bell icon ///
 function checkForNotifications() {
-
     setTimeout(function () {
         $('.tb-admin-campaign-bar .notifs_badge span').each(function () {
             var notificationCount = $(this).text();
