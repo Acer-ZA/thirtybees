@@ -443,26 +443,27 @@ function openSupportThirtyBeesCloseModal(type) {
 }
 
 function checkIfSysAnimationsRanAlready() {
-    /// Get the current date
-    var currentDate = new Date();
-    var currentDateString = currentDate.toDateString(); // Convert to a readable date string
+    setTimeout(function () {
+        /// Get the current date
+        var currentDate = new Date();
+        var currentDateString = currentDate.toDateString(); // Convert to a readable date string
 
-    /// Check if the cookie exists
-    var animationShownDate = getCookie('animationShownDate');
+        /// Check if the cookie exists
+        var animationShownDate = getCookie('animationShownDate');
 
-    /// Check if the animation has already been shown for the day
-    if (!animationShownDate || animationShownDate !== currentDateString) {
-        /// Show the animation
-        /// Sys animation is for debug, maintenance + username animations
-        $('body').addClass('show-sys-animation');
-
-        /// Set a cookie to indicate that the animation has been shown today
-        clearCookie('animationShownDate');
-        setCookie('animationShownDate', currentDateString, 1); // Expires in 1 day
-    } else {
-        /// Cookie already detected, just show the icons
-        $(".sys-state-holder").fadeIn(1500);
-    }
+        /// Check if the animation has already been shown for the day
+        if (!animationShownDate || animationShownDate !== currentDateString) {
+            /// Show the animation
+            /// Sys animation is for debug, maintenance + username animations
+            $('body').addClass('show-sys-animation');
+            /// Set a cookie to indicate that the animation has been shown today
+            clearCookie('animationShownDate');
+            setCookie('animationShownDate', currentDateString, 1); // Expires in 1 day
+        } else {
+            /// Cookie already detected, just show the icons
+            $(".sys-state-holder").fadeIn(1500);
+        }
+    }, 1500);
 }
 
 /// Check the Cookie for the Campaign bar and act accordingly
@@ -623,11 +624,11 @@ function checkMemberType() {
 }
 
 $(document).ready(function () {
+    checkIfSysAnimationsRanAlready(); /// Checks if the Sys Animations (Maintenance / Debug ran already)
     campaignSliderClose(); /// Binds Campaign Slider Close
     checkCampaignBarClose(); /// Checks cookie for Campaign Bar
     checkCampaignSliderClose(); /// Checks cookie for Campaign Sliders
     checkForNotifications(); /// Checks for notifications
-    checkIfSysAnimationsRanAlready(); /// Checks if the Sys Animations (Maintenance / Debug ran already)
     checkMemberType(); /// Checks MemberType and displays MemberType Label on the Logo
     /// Binds the Responsive Notifications Bell to Action the Notifcations Modal ///
     $('.notifications-icon').click(function () {

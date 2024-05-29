@@ -795,12 +795,20 @@
     transition: all 250ms ease-in-out;
 }
 
+.admin-header-dark .campaign-bar-close-holder {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .campaign-bar-close-icon {
     margin-top: -1.6px;
     margin-left: -0.5px;
     font-size: 11px !important;
     font-weight: 400 !important;
     color: #000;
+}
+
+.admin-header-dark .campaign-bar-close-icon {
+    color: #FFF;
 }
 
 .campaign-bar-close-holder:hover {
@@ -1305,6 +1313,10 @@ span.maintenance-mode {
     transition: all 250ms ease-in-out;
 }
 
+.admin-header-dark .campaign-slider-close-holder-inner {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .campaign-slider-close-icon {
     margin-top: -1.75px;
     margin-left: 0px;
@@ -1318,6 +1330,10 @@ span.maintenance-mode {
 }
 
 .campaign-slider-close-holder-inner:hover .campaign-slider-close-icon {
+    color: #fff;
+}
+
+.admin-header-dark .campaign-slider-close-holder-inner .campaign-slider-close-icon {
     color: #fff;
 }
 
